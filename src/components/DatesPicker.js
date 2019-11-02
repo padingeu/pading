@@ -11,7 +11,7 @@ class DatesPicker extends React.Component {
     dateto: '',
     firstClick: true,
     showdate: false,
-    showcalendar: true,
+    showcalendar: false,
   };
 
   handleClickOutside = () => {

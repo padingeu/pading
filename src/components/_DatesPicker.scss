@@ -1,11 +1,18 @@
 .search {
   width: 350px;
+  position: absolute;
+  top: 30%;
+  left: 30%;
 }
 
+
 .calendar {
-  position: relative;
   width: 350px;
   margin: none;
+  position: absolute;
+  top: 38%;
+  left: 30%;
+  z-index: 1;
 }
 
 .search-form-control {
