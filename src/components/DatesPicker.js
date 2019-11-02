@@ -17,6 +17,7 @@ class DatesPicker extends React.Component {
   handleClickOutside = () => {
   this.setState({showcalendar: false })
   console.log('onClickOutside() method called')
+
 }
 
 
@@ -27,7 +28,8 @@ class DatesPicker extends React.Component {
     } else {
       this.setState({ dateto: date });
     }
-    this.state.firstClick = !this.state.firstClick;  }
+    this.setState({ firstClick: !this.state.firstClick })
+  }
 
   onInputChange = date => {
     this.setState({ showdate: true });

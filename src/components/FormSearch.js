@@ -1,7 +1,7 @@
 import React from 'react';
+import LocationSearchInput from './LocationSearchInput';
 import '../components/_FormSearch.scss';
 import { Button, Input, Label, Form, FormGroup } from 'reactstrap';
-
 
 export default class FormSearch extends React.Component {
 
@@ -88,7 +88,7 @@ export default class FormSearch extends React.Component {
           <Button color="primary" onClick={this.showMore}>+</Button>
           <div className="cities-input">
             <Label>
-              <Input type="text" name="city1" value={this.state.cities.city1.name} onChange={this.handleCityFieldChange} />
+              <LocationSearchInput />
             </Label>
           </div>
           <div>
