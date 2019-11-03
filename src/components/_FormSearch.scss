@@ -1,9 +1,12 @@
 .travel-form {
   position: absolute;
-  top: 35%;
-  left: 30%;
+  top: 300px;
+  left: 225px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  margin-top: 40px;
 }
 
 .travel-checkbox {

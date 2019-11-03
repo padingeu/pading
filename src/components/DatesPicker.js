@@ -1,14 +1,13 @@
 import React from 'react';
+import { Button, Input, Label, Form, FormGroup } from 'reactstrap';
 import Calendar from 'react-calendar';
 import './_DatesPicker.scss';
-import onClickOutside from 'react-onclickoutside'
-
-
+import onClickOutside from 'react-onclickoutside';
 
 class DatesPicker extends React.Component {
   state = {
     datefrom: new Date(),
-    dateto: '',
+    dateto: new Date(),
     firstClick: true,
     showdate: false,
     showcalendar: false,
@@ -24,7 +23,7 @@ class DatesPicker extends React.Component {
   onSelectDate = date => {
     if (this.state.firstClick) {
       this.setState({ datefrom: date });
-      this.setState({ dateto: date });
+
     } else {
       this.setState({ dateto: date });
     }
@@ -43,9 +42,6 @@ class DatesPicker extends React.Component {
     this.setState({ showcalendar: true });
   };
 
-//implement mindate
-//showof when clicking outside component
-
   render() {
     return (
       <div>
@@ -57,14 +53,14 @@ class DatesPicker extends React.Component {
                 type="text"
                 onChange={this.onInputChange}
                 onClick={this.showon}
-                value={this.state.showdate ? this.state.datefrom.toLocaleDateString() : 'date from'}
+                value={this.state.showdate ? this.state.datefrom.toLocaleDateString() : 'departure'}
               />
               <input
                 className="inputdateto"
                 type="text"
                 onChange={this.onInputChange}
                 onClick={this.showon}
-                value={this.state.showdate ? this.state.dateto.toLocaleDateString() : 'date to'}
+                value={this.state.showdate ? this.state.dateto.toLocaleDateString() : 'return'}
               />
             </div>
             <button name="button" type="submit" className="btn btn-flat">
@@ -77,11 +73,11 @@ class DatesPicker extends React.Component {
             <div className="calendar">
               <Calendar
                 locale={"en"}
+                minDate={new Date()}
                 onClickOutside={this.handleClickOutside}
                 onClickDay={this.onSelectDate}
                 onChange={this.onInputChange}
                 selectRange={true}
-                value={this.state.datefrom}
               />
               <button className="btn btn-date" onClick={this.showoff}>Ok</button>
             </div>}

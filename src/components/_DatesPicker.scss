@@ -5,7 +5,6 @@
   left: 30%;
 }
 
-
 .calendar {
   width: 350px;
   margin: none;
@@ -16,7 +15,7 @@
 }
 
 .search-form-control {
-  height: 40px;
+  height: 35px;
   text-align: center;
   display: flex;
   align-items: center;
@@ -39,7 +38,7 @@
 .btn-flat {
   color: white;
   width: 100px;
-  height: 40px;
+  height: 35px;
   padding: 8px 24px;
   margin-left: 15px;
   border-radius: 4px;
@@ -57,22 +56,23 @@
   align-items: center;
   justify-content: space-between;
   border: none;
-  border: solid;
-  border-width: 1px;
-  border-radius: 3px;
   height: 100%;
   width: 350px;
   margin: none;
-  border-color: #dcdbde;
 
   .inputdatefrom {
+    cursor: pointer;
     border: none;
     height: 100%;
     width: 175px;
     text-align: center;
+    outline: none;
+    color: transparent;
+    text-shadow: 0 0 0 black;
   }
 
   .inputdateto {
+    cursor: pointer;
     border-top:none;
     border-right: none;
     border-bottom: none;
@@ -82,6 +82,9 @@
     height: 100%;
     width: 175px;
     text-align: center;
+    outline: none;
+    color: transparent;
+    text-shadow: 0 0 0 black;
   }
 
   input:focus, textarea {
@@ -103,8 +106,16 @@
     font-size: 16px;
     color: #fff;
     height: 50px;
-
+    button[disabled] {
+      background-color: #474747;
+      color: #474747;
+    }
   }
+
+  .react-calendar__tile:disabled {
+      background-color: transparent;
+  }
+
 
   .react-calendar__month-view__weekdays, .react-calendar__month-view__days__day--neighboringMonth {
     color: #dcdbde;
@@ -160,7 +171,6 @@
   color: white;
   width: 50px;
   height: 40px;
-  margin-right: 5px;
   border-radius: 4px;
   background: #1EDD88;
   transition: background 0.3s ease;
@@ -170,5 +180,7 @@
   background: #1BCB7F;
   color: white;
 }
+
+
 
 
