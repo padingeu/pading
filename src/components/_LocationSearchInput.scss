@@ -1,0 +1,72 @@
+.city-departure-input {
+  height: 35px;
+  box-sizing: border-box;
+  margin-bottom: 8px;
+  width: 350px;
+  color: rgb(37, 42, 49);
+  text-align: center;
+}
+
+  input[type=text]:focus{
+  outline: 1px solid #1f72cb;     /* oranges! yey */
+}
+
+.cities-departure {
+  width: 600px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: space-between;
+  margin-top: 20px;
+}
+
+.city-div {
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.city-departure {
+  display: flex;
+  justify-content: center;
+  align-items: space-between;
+  height: 30px;
+  border-radius: 3px;
+  color: white;
+  background: #1EDD88;
+}
+
+.city-departure-people {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 7px;
+  margin-left: 5px;
+}
+
+.number-of-people {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  height: 22px;
+}
+
+.chevron-up-down {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 4px;
+}
+
+.remove-city-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+.fa-user-friends {
+  margin-right: 2px;
+}
