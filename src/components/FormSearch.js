@@ -1,42 +1,21 @@
 import React from 'react';
 import LocationSearchInput from './LocationSearchInput';
-import DatesPicker from './DatesPicker';
 import '../components/_FormSearch.scss';
-import { Input, Label, Form, FormGroup } from 'reactstrap';
+import { Input, Label, FormGroup } from 'reactstrap';
 
 export default class FormSearch extends React.Component {
 
-  state = { cities: ["", ""] }
-
-  addCity = event => {
-    event.preventDefault();
-    this.setState({ cities: [...this.state.cities, ""]});
-  };
-
-  handleChange(city, index) {
-    this.state.cities[index] = city.target.value;
-    this.setState({ cities: this.state.cities });
-  };
-
-
-
-  handleReset = event => {
-    event.preventDefault();
-    this.setState({ cities: [""] });
-  };
-
-
 
   render() {
-
+    console.log(this.props)
     return (
       <div className="travel-form">
 
           <p>Where do you travel from?</p>
           
-        <Form>
-          <DatesPicker />
-          <button name="button" type="submit" className="btn btn-flat">
+          
+          
+          <button name="button" type="submit" className="btn btn-flat" onClick={this.props.onClick}>
               <i className="fas fa-search"></i> Search
           </button>
           <FormGroup check className="travel-checkbox">
@@ -56,10 +35,7 @@ export default class FormSearch extends React.Component {
           </FormGroup>
           <LocationSearchInput/>
 
-        </Form>
-
-        
-
+          ---Number of results {this.props.search.numberOfResults}---
       </div>
     );
 

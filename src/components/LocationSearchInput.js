@@ -9,7 +9,8 @@ export default class LocationSearchInput extends React.Component {
   state = {
     address: '',
     coordinates: '',
-    places: [],
+    places: [
+    ],
   };
 
   handleChange = (address) => {
