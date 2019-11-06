@@ -1,5 +1,6 @@
 import React from 'react';
 import LocationSearchInput from './LocationSearchInput';
+import DatesPicker from './DatesPicker';
 import '../components/_FormSearch.scss';
 import { Input, Label, Form, FormGroup } from 'reactstrap';
 
@@ -32,10 +33,14 @@ export default class FormSearch extends React.Component {
       <div className="travel-form">
 
           <p>Where do you travel from?</p>
-
+          
         <Form>
-
+          <DatesPicker />
+          <button name="button" type="submit" className="btn btn-flat">
+              <i className="fas fa-search"></i> Search
+          </button>
           <FormGroup check className="travel-checkbox">
+           
             <Label check>
               <Input type="checkbox"/>{' '}
               Plane
@@ -49,9 +54,11 @@ export default class FormSearch extends React.Component {
               Bus
             </Label>
           </FormGroup>
+          <LocationSearchInput/>
+
         </Form>
 
-        <LocationSearchInput/>
+        
 
       </div>
     );

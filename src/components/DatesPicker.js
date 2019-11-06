@@ -62,9 +62,6 @@ class DatesPicker extends React.Component {
                 value={this.state.showdate ? this.state.dateto.toLocaleDateString() : 'return'}
               />
             </div>
-            <button name="button" type="submit" className="btn btn-flat">
-              <i className="fas fa-search"></i> Search
-            </button>
           </div>
         </form>
         <div>
