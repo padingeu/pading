@@ -1,7 +1,7 @@
 import React from 'react';
 import LocationSearchInput from './LocationSearchInput';
 import '../components/_FormSearch.scss';
-import { Button, Input, Label, Form, FormGroup } from 'reactstrap';
+import { Input, Label, Form, FormGroup } from 'reactstrap';
 
 export default class FormSearch extends React.Component {
 

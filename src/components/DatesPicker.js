@@ -1,5 +1,4 @@
 import React from 'react';
-import { Button, Input, Label, Form, FormGroup } from 'reactstrap';
 import Calendar from 'react-calendar';
 import './_DatesPicker.scss';
 import onClickOutside from 'react-onclickoutside';

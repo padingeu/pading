@@ -43,6 +43,19 @@
   margin-left: 5px;
 }
 
+.number-of-people-btn-link {
+  text-align: left;
+  width: 100%;
+  margin-bottom: 2px;
+  button {
+    border: none;
+    outline: none;
+  } & button:hover {
+    background-color: #e5eaef;
+    border-radius: 3px;
+
+  }
+}
 .number-of-people {
   display: flex;
   justify-content: left;
