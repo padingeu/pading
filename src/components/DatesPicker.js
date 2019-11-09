@@ -5,28 +5,12 @@ import onClickOutside from 'react-onclickoutside';
 
 class DatesPicker extends React.Component {
   state = {
-    datefrom: new Date(),
-    dateto: new Date(),
-    firstClick: true,
     showdate: false,
     showcalendar: false,
   };
 
   handleClickOutside = () => {
   this.setState({showcalendar: false })
-  console.log('onClickOutside() method called')
-
-}
-
-
-  onSelectDate = date => {
-    if (this.state.firstClick) {
-      this.setState({ datefrom: date });
-
-    } else {
-      this.setState({ dateto: date });
-    }
-    this.setState({ firstClick: !this.state.firstClick })
   }
 
   onInputChange = date => {
@@ -52,14 +36,14 @@ class DatesPicker extends React.Component {
                 type="text"
                 onChange={this.onInputChange}
                 onClick={this.showon}
-                value={this.state.showdate ? this.state.datefrom.toLocaleDateString() : 'departure'}
+                value={this.state.showdate ? this.props.dateFrom.toLocaleDateString() : 'departure'}
               />
               <input
                 className="inputdateto"
                 type="text"
                 onChange={this.onInputChange}
                 onClick={this.showon}
-                value={this.state.showdate ? this.state.dateto.toLocaleDateString() : 'return'}
+                value={this.state.showdate ? this.props.dateTo.toLocaleDateString() : 'return'}
               />
             </div>
           </div>
@@ -71,7 +55,7 @@ class DatesPicker extends React.Component {
                 locale={"en"}
                 minDate={new Date()}
                 onClickOutside={this.handleClickOutside}
-                onClickDay={this.onSelectDate}
+                onClickDay={this.props.onSelectDate}
                 onChange={this.onInputChange}
                 selectRange={true}
               />
