@@ -29,6 +29,7 @@ export default class FormSearch extends React.Component {
   addCity = async address => {
     
     const position = await geocodeByAddress(address);
+    console.log(position)
     const LatLng = await getLatLng(position[0]);
     const city = position[0].address_components[0].long_name
    
@@ -74,7 +75,6 @@ export default class FormSearch extends React.Component {
           <DatesPicker dateFrom={this.state.dateFrom} dateTo={this.state.dateTo} onSelectDate={this.onSelectDate}/>
           <br/><br/><br/><br/><br/><br/><br/><br/><br/>
           <FormGroup check className="travel-checkbox">
-           
             <Label check>
               <Input type="checkbox"/>{' '}
               Plane

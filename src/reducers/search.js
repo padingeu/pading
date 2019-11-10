@@ -8,7 +8,8 @@ const search = (state = initialState, action) => {
       
       case 'SEARCH':
         return Object.assign({}, state, {
-          numberOfResults: action.response.data.data.length
+          numberOfResults: action.trips.length,
+          trips: action.trips
         })
       default:
         return state
