@@ -7,7 +7,7 @@ export default class LocationSearchInput extends React.Component {
     switchOnBtn: false
   };
 
-  switchButton = event => {
+  switchButton = (event, index) => {
     event.preventDefault();
     this.setState({ switchOnBtn: !this.state.SwitchOnBtn });
   }
@@ -47,8 +47,8 @@ export default class LocationSearchInput extends React.Component {
                   <div className="city-div">
                     <div className="number-of-people-btn-link">
                       <div>
-
-                        <button onClick={this.switchButton}>
+                        {index}
+                        <button onClick={(event) => this.switchButton(event, index)}>
                           <div className="number-of-people-btn">
                             <i className="fas fa-user-friends fa-xs"></i>
                             <h6>1</h6>
