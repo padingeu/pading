@@ -3,9 +3,14 @@ import '../components/_LocationSearchInput.scss';
 import PlacesAutocomplete from 'react-places-autocomplete';
 export default class LocationSearchInput extends React.Component {
   state = {
-    coordinates: ''
+    coordinates: '',
+    switchOnBtn: false
   };
 
+  switchButton = event => {
+    event.preventDefault();
+    this.setState({ switchOnBtn: !this.state.SwitchOnBtn });
+  }
 
   render() {
     return (
@@ -17,7 +22,7 @@ export default class LocationSearchInput extends React.Component {
         >
         {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
           <div>
-           <input {...getInputProps({ className: 'city-departure-input', placeholder: 'Departure cities ', type: 'text'})} />
+           <input {...getInputProps({ className: 'city-departure-input', placeholder: 'We travel from...', type: 'text'})} />
            <div>
             {loading ? <div>...Loading</div> : null}
            </div>
@@ -41,22 +46,37 @@ export default class LocationSearchInput extends React.Component {
                 <div key={index}>
                   <div className="city-div">
                     <div className="number-of-people-btn-link">
-                      <button>
-                        <div className="number-of-people">
-                          <i className="fas fa-user-friends fa-xs"></i>
-                          <h6>1</h6>
-                          <div className="chevron-up-down">
-                            <i className="fas fa-chevron-down fa-xs"></i>
+                      <div>
+
+                        <button onClick={this.switchButton}>
+                          <div className="number-of-people-btn">
+                            <i className="fas fa-user-friends fa-xs"></i>
+                            <h6>1</h6>
+                            <div className="chevron-up-down">
+                              <i className="fas fa-chevron-down fa-xs"></i>
+                            </div>
                           </div>
-                        </div>
-                      </button>
+                        </button>
+
+                        {
+                          this.state.switchOnBtn ?
+                            <button>
+                              <div className="number-of-people">
+                              </div>
+                            </button>
+                          : null
+                        }
+
+                      </div>
                     </div>
+
                     <div className="city-departure" key={index}>
                       <div className="city-departure-people">
                         <p>{city}</p>
                       </div>
                       <button className="remove-city-btn " onClick={this.props.removeCity}><i className="fas fa-times-circle"></i></button>
                     </div>
+
                   </div>
                 </div>
               )
