@@ -15,10 +15,10 @@ const datepicker = (state = initialState, action) => {
             end: action.date
           })
         }
-       
+
       default:
         return state
     }
   }
-  
-export default datepicker
+
+export default datespicker
