@@ -23,7 +23,8 @@
 }
 
 .city-div {
-  margin-right: 10px;
+  min-width: 80px;
+  margin-right: 20px;
   margin-bottom: 10px;
 }
 
@@ -54,16 +55,16 @@
   position: relative;
   text-align: left;
   width: 100%;
-  margin-bottom: 2px;
+  margin-bottom: 5px;
   button {
     border: none;
     outline: none;
   } & button:hover {
     background-color: #e5eaef;
     border-radius: 3px;
-
   }
 }
+
 .number-of-people-btn {
   display: flex;
   justify-content: left;
@@ -98,4 +99,16 @@
 .fa-user-friends {
   margin-right: 2px;
 }
+
+.people-number-change {
+  position: absolute;
+  top: -15px;
+  left: 0px;
+  min-width: 120px;
+  z-index: 1;
+  border: solid red;
+  height: 40px;
+  box-shadow: rgba(37, 42, 49, 0.16) 0px 4px 8px 0px, rgba(37, 42, 49, 0.24) 0px 8px 24px 0px;
+}
+
 

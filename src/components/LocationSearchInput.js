@@ -4,13 +4,14 @@ import PlacesAutocomplete from 'react-places-autocomplete';
 export default class LocationSearchInput extends React.Component {
   state = {
     coordinates: '',
-    switchOnBtn: false
+    active: false
   };
 
-  switchButton = (event, index) => {
-    event.preventDefault();
-    this.setState({ switchOnBtn: !this.state.SwitchOnBtn });
-  }
+ switchButton = (event, index) => {
+  event.preventDefault();
+  this.setState({ active: !this.state.active });
+}
+
 
   render() {
     return (
@@ -47,25 +48,17 @@ export default class LocationSearchInput extends React.Component {
                   <div className="city-div">
                     <div className="number-of-people-btn-link">
                       <div>
+
                         {index}
-                        <button onClick={(event) => this.switchButton(event, index)}>
-                          <div className="number-of-people-btn">
-                            <i className="fas fa-user-friends fa-xs"></i>
-                            <h6>1</h6>
-                            <div className="chevron-up-down">
-                              <i className="fas fa-chevron-down fa-xs"></i>
-                            </div>
+                        {this.switchButton}
+
+                        <button className="number-of-people-btn " onClick={(event) => this.switchButton(event, index)}>
+                          <i className="fas fa-user-friends fa-xs"></i>
+                          <h6>1</h6>
+                          <div className="chevron-up-down">
+                            <i className="fas fa-chevron-down fa-xs"></i>
                           </div>
                         </button>
-
-                        {
-                          this.state.switchOnBtn ?
-                            <button>
-                              <div className="number-of-people">
-                              </div>
-                            </button>
-                          : null
-                        }
 
                       </div>
                     </div>
