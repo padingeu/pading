@@ -52,27 +52,63 @@ export default class FormSearch extends React.Component {
       .then((response) => {
         return response.data.IATA
       })
-   
+
   }
 
   addCity = async address => {
     const position = await geocodeByAddress(address);
     const coordinates = await getLatLng(position[0]);
     const iataCode = await this.getIataCode(coordinates);
-    console.log(iataCode)
     const city = position[0].address_components[0].long_name
     const city_obj = {
-        name: city,
-        iata: iataCode,
-        numberOfPeople: 0
-      }
+      name: city,
+      iata: iataCode,
+      numberOfPeople: 0,
+      showButton: false
+    }
 
     this.setState(
-      { coordinates: coordinates,
+      {
+        coordinates: coordinates,
         cities: [...this.state.cities, city_obj],
         address: ''
       })
   };
+
+  showButtons = (event, city) => {
+    event.preventDefault();
+    city.showButton = !city.showButton
+    const cities = [...this.state.cities];
+    cities[cities.findIndex(el => el === city)] = city;
+    this.setState(
+      {
+        cities: cities
+      })
+  };
+
+  addTraveler = (event, city) => {
+    event.preventDefault();
+    city.numberOfPeople++;
+    const cities = [...this.state.cities];
+    cities[cities.findIndex(el => el === city)] = city;
+    this.setState(
+      {
+        cities: cities
+      })
+  }
+
+  removeTraveler = (event, city) => {
+    event.preventDefault();
+    if (city.numberOfPeople >= 2) {
+      city.numberOfPeople--;
+      const cities = [...this.state.cities];
+      cities[cities.findIndex(el => el === city)] = city;
+      this.setState(
+        {
+          cities: cities
+        })
+    }
+  }
 
   handleAddressChange = (address) => {
     this.setState({ address });
@@ -80,16 +116,16 @@ export default class FormSearch extends React.Component {
     input.addEventListener("keydown", (event) => {
       const places =
         Array.from(event.target.parentElement.querySelectorAll('div[role="option"]'))
-        .map(e => e.innerText.trim().toLocaleLowerCase());
+          .map(e => e.innerText.trim().toLocaleLowerCase());
       if (event.key === 'Enter' && !places.includes(input.value.toLocaleLowerCase())) {
-          if (0 < places.length) {
-            input.value = places[0];
-            this.setState({ address: places[0] });
-            debugger;
-          } else {
-            event.stopPropagation();
-            event.preventDefault();
-          }
+        if (0 < places.length) {
+          input.value = places[0];
+          this.setState({ address: places[0] });
+          debugger;
+        } else {
+          event.stopPropagation();
+          event.preventDefault();
+        }
       }
     }, true);
   };
@@ -102,7 +138,7 @@ export default class FormSearch extends React.Component {
   };
 
   onPlaneClick = () => {
-    this.setState({ plane: !this.state.plane})
+    this.setState({ plane: !this.state.plane })
   }
 
   onTrainClick = () => {
@@ -112,6 +148,8 @@ export default class FormSearch extends React.Component {
   onBusClick = () => {
     this.setState({ bus: !this.state.bus })
   }
+
+
 
 
   render() {
@@ -130,24 +168,24 @@ export default class FormSearch extends React.Component {
         <FormGroup check className="travel-checkbox">
           <Label check>
             <div className="vehicle-type">
-                <h5>Flight</h5>
-                <button
-                  className="toggle-btn"
-                  onClick={this.onPlaneClick}
-                >
-                { this.state.plane ? <i className="fas fa-toggle-on fa-2x"></i> : <i className="fas fa-toggle-off fa-2x"></i> }
-                </button>
+              <h5>Flight</h5>
+              <button
+                className="toggle-btn"
+                onClick={this.onPlaneClick}
+              >
+                {this.state.plane ? <i className="fas fa-toggle-on fa-2x"></i> : <i className="fas fa-toggle-off fa-2x"></i>}
+              </button>
             </div>
           </Label>
           <Label check>
             <div className="vehicle-type">
-                <h5>Train</h5>
-                <button
-                  className="toggle-btn"
-                  onClick={this.onTrainClick}
-                >
-                { this.state.train ? <i className="fas fa-toggle-on fa-2x"></i> : <i className="fas fa-toggle-off fa-2x"></i> }
-                </button>
+              <h5>Train</h5>
+              <button
+                className="toggle-btn"
+                onClick={this.onTrainClick}
+              >
+                {this.state.train ? <i className="fas fa-toggle-on fa-2x"></i> : <i className="fas fa-toggle-off fa-2x"></i>}
+              </button>
             </div>
           </Label>
           <Label check>
@@ -157,19 +195,28 @@ export default class FormSearch extends React.Component {
                 className="toggle-btn"
                 onClick={this.onBusClick}
               >
-              { this.state.bus ? <i className="fas fa-toggle-on fa-2x"></i> : <i className="fas fa-toggle-off fa-2x"></i> }
+                {this.state.bus ? <i className="fas fa-toggle-on fa-2x"></i> : <i className="fas fa-toggle-off fa-2x"></i>}
               </button>
             </div>
           </Label>
         </FormGroup>
-        <LocationSearchInput address={this.state.address} cities={this.state.cities} addCity={this.addCity} removeCity={this.removeCity} handleAddressChange={this.handleAddressChange}/>
-        <button name="button" type="submit" className="btn btn-flat" onClick={() => this.props.onClick(this.state.cities)}>{this.state.cities.length}
+        <LocationSearchInput
+          address={this.state.address}
+          cities={this.state.cities}
+          addCity={this.addCity}
+          removeCity={this.removeCity}
+          handleAddressChange={this.handleAddressChange}
+          handleCityClick={this.showButtons}
+          addTraveler={this.addTraveler}
+          removeTraveler={this.removeTraveler}
+        />
+        <button name="button" type="submit" className="btn btn-flat" onClick={() => this.props.onClick(this.state.cities)}>
           Explore
         </button>
         ---Number of results {this.props.search.numberOfResults}---
 
-       
-      
+
+
       </div>
     );
 

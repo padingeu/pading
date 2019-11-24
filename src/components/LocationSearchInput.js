@@ -2,19 +2,6 @@ import React from 'react';
 import '../components/_LocationSearchInput.scss';
 import PlacesAutocomplete from 'react-places-autocomplete';
 export default class LocationSearchInput extends React.Component {
-  state = {
-    coordinates: '',
-    active: false
-  };
-
-
-  switchButton = (event, city) => {
-    event.preventDefault();
-    city.numberOfPeople++
-    this.props.cities = this.props.cities[this.props.cities.findIndex(el => el=== city)] = city;
-    this.setState({ switchOnBtn: !this.state.SwitchOnBtn });
-  }
-
 
   render() {
     return (
@@ -24,22 +11,22 @@ export default class LocationSearchInput extends React.Component {
           onChange={this.props.handleAddressChange}
           onSelect={this.props.addCity}
         >
-        {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-          <div>
-           <input {...getInputProps({ className: 'city-departure-input', placeholder: 'We travel from...', type: 'text'})} />
-           <div>
-            {loading ? <div>...Loading</div> : null}
-           </div>
-            {suggestions.map((suggestion) => {
-              const style = { backgroundColor: suggestion.active ? '#1EDD88' : '#fff', cursor: 'pointer'}
-              return (
-                <div {...getSuggestionItemProps(suggestion, { style })}>
-                  {suggestion.description}
-                </div>
-              )
-            })}
-          </div>
-        )}
+          {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
+            <div>
+              <input {...getInputProps({ className: 'city-departure-input', placeholder: 'We travel from...', type: 'text' })} />
+              <div>
+                {loading ? <div>...Loading</div> : null}
+              </div>
+              {suggestions.map((suggestion) => {
+                const style = { backgroundColor: suggestion.active ? '#1EDD88' : '#fff', cursor: 'pointer' }
+                return (
+                  <div {...getSuggestionItemProps(suggestion, { style })}>
+                    {suggestion.description}
+                  </div>
+                )
+              })}
+            </div>
+          )}
 
         </PlacesAutocomplete>
 
@@ -50,11 +37,11 @@ export default class LocationSearchInput extends React.Component {
                 <div key={index}>
                   <div className="city-div">
                     <div className="number-of-people-btn-link">
-                      <div>                   
-                        <button onClick={(event) => this.switchButton(event, city)}>
+                      <div>
+                        <button onClick={(event) => this.props.handleCityClick(event, city)}>
                           <div className="number-of-people-btn">
                             <i className="fas fa-user-friends fa-xs"></i>
-                            <h6>1</h6>
+                            <h6>{city.numberOfPeople}</h6>
                             <div className="chevron-up-down">
                               <i className="fas fa-chevron-down fa-xs"></i>
                             </div>
@@ -63,6 +50,20 @@ export default class LocationSearchInput extends React.Component {
 
                       </div>
                     </div>
+                    {city.showButton}
+                    {city.showButton === true &&
+                      <div className="add-remove-people">
+
+                        <button onClick={(event) => this.props.addTraveler(event, city)}>
+                          +
+                        </button>
+
+                        <button onClick={(event) => this.props.removeTraveler(event, city)}>
+                          -
+                        </button>
+
+                      </div>
+                    }
 
                     <div className="city-departure" key={index}>
                       <div className="city-departure-people">
