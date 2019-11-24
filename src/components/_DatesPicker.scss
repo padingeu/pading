@@ -46,7 +46,7 @@
 .calendar {
   margin: none;
   position: absolute;
-  top: 40px;
+  top: 80px;
   z-index: 1;
   .react-calendar {
     width: 100%;
@@ -57,6 +57,13 @@
     overflow: hidden;
     .react-calendar__tile {
       margin-top: 5px;
+    }
+      button[disabled] {
+        color: #bfbfbf;
+      }
+    .react-calendar__tile--now {
+      color: #44a7bc;
+      font-weight: bold;
     }
     .react-calendar__navigation {
       margin: -15px -15px 15px;
@@ -100,14 +107,17 @@
   }
   .react-calendar__tile--active:enabled:hover, .react-calendar__tile--active:enabled:focus {
     background-color: #44a7bc;
+    color: white;
   }
   .react-calendar__tile--rangeStart {
-  color: white;
+  color: white !important;
+  font-weight: normal !important;
   border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
   }
   .react-calendar__tile--rangeEnd {
-  color: white;
+  color: white !important;
+  font-weight: normal !important;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
   }
@@ -147,6 +157,7 @@ button.travel-type-btn {
   height: 100%;
   border: none;
   outline: none;
+  cursor: pointer;
 }
 
 .travel-type-change {
@@ -156,7 +167,6 @@ button.travel-type-btn {
   min-width: 120px;
   z-index: 1;
   box-shadow: rgba(37, 42, 49, 0.16) 0px 4px 8px 0px, rgba(37, 42, 49, 0.24) 0px 8px 24px 0px;
-  border-radius: 3px;
   a {
     background-color: white;
     display: flex;

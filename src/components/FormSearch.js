@@ -10,29 +10,39 @@ import {
 export default class FormSearch extends React.Component {
 
   state = {
-    dateFrom: new Date(),
-    dateTo: new Date(),
+    dateFrom: '',
+    dateTo: '',
+    showDateFrom: false,
+    showDateTo: false,
+    travelType: "return",
     plane: true,
     train: true,
     bus: true,
-    firstClick: true,
     cities: [],
     address: ''
   };
 
-  onSelectDate = date => {
-    if (this.state.firstClick) {
-      this.setState({ dateFrom: date });
-    } else {
-      this.setState({ dateTo: date });
-    }
-    this.setState({ firstClick: !this.state.firstClick })
+  onInputDateChange = date => {
+    this.setState({ showDateFrom: true });
+    this.setState({ showDateTo: true });
+    this.setState({ dateFrom: date[0] });
+    this.setState({ dateTo: date[1] });
+  };
+
+  switchToOneWay = event => {
+    event.preventDefault();
+    this.setState({ travelType: "one-way" });
+  }
+
+  switchToReturn = event => {
+    event.preventDefault();
+    this.setState({ showDateTo: false });
+    this.setState({ travelType: "return" });
   }
 
   addCity = async address => {
 
     const position = await geocodeByAddress(address);
-    console.log(position)
     const LatLng = await getLatLng(position[0]);
     const city = position[0].address_components[0].long_name
 
@@ -86,7 +96,16 @@ export default class FormSearch extends React.Component {
   render() {
     return (
       <div className="travel-form">
-        <DatesPicker dateFrom={this.state.dateFrom} dateTo={this.state.dateTo} onSelectDate={this.onSelectDate}/>
+        <DatesPicker
+          dateFrom={this.state.dateFrom}
+          dateTo={this.state.dateTo}
+          showDateFrom={this.state.showDateFrom}
+          showDateTo={this.state.showDateTo}
+          onChange={this.onInputDateChange}
+          switchToOneWay={this.switchToOneWay}
+          switchToReturn={this.switchToReturn}
+          travelType={this.state.travelType}
+        />
         <FormGroup check className="travel-checkbox">
           <Label check>
             <div className="vehicle-type">

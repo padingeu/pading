@@ -5,10 +5,8 @@ import onClickOutside from 'react-onclickoutside';
 
 class DatesPicker extends React.Component {
   state = {
-    showDate: false,
     showCalendar: false,
-    showTravelTypeBtn: false,
-    travelType: "return"
+    showTravelTypeBtn: false
   };
 
   //ontravelTypeChange
@@ -22,35 +20,25 @@ class DatesPicker extends React.Component {
   this.setState({showTravelTypeBtn: false });
   }
 
-  onInputChange = () => {
-    this.setState({ showDate: true });
-  };
-
   showOffCalendar = () => {
     this.setState({ showCalendar: false });
   };
 
   showOnCalendar = () => {
+    this.setState({ showTravelTypeBtn: false });
     this.setState({ showCalendar: true });
-
   };
+
+  showTravelTypeBtn = () => {
+    this.setState({ showTravelTypeBtn: !this.state.showTravelTypeBtn });
+  }
 
   switchButton = event => {
     event.preventDefault();
+    this.setState({ showCalendar: false });
     this.setState({ showTravelTypeBtn: !this.state.showTravelTypeBtn });
   }
 
-  switchToOneWay = event => {
-    event.preventDefault();
-    this.setState({ travelType: "one-way" });
-    this.setState({ showTravelTypeBtn: !this.state.showTravelTypeBtn });
-  }
-
-  switchToReturn = event => {
-    event.preventDefault();
-    this.setState({ travelType: "return" });
-    this.setState({ showTravelTypeBtn: !this.state.showTravelTypeBtn });
-  }
 
   render() {
     return (
@@ -59,11 +47,14 @@ class DatesPicker extends React.Component {
           <div>
             {
               this.state.showTravelTypeBtn ?
-                <div className="travel-type-change" onClickOutside={this.handleClickOutside}>
-                  <a onClick={this.switchToOneWay}>
+                <div className="travel-type-change">
+                  <a href="/" onClick={(event) => {
+                    this.props.switchToOneWay(event);
+                    this.showTravelTypeBtn();}
+                  }>
                     <div className="check-box">
                       {
-                        this.state.travelType === "one-way" ?
+                        this.props.travelType === "one-way" ?
                           <i className="fas fa-check fa-xs"></i>
                         : null
                       }
@@ -73,10 +64,13 @@ class DatesPicker extends React.Component {
                     </div>
                   </a>
 
-                  <a onClick={this.switchToReturn}>
+                  <a href="/" onClick={(event) => {
+                    this.props.switchToReturn(event);
+                    this.showTravelTypeBtn();}
+                  }>
                     <div className="check-box">
                       {
-                        this.state.travelType === "return" ?
+                        this.props.travelType === "return" ?
                           <i className="fas fa-check fa-xs"></i>
                         : null
                       }
@@ -90,7 +84,7 @@ class DatesPicker extends React.Component {
             }
           <div className="travel-type">
             <button className="travel-type-btn" onClick={this.switchButton}>
-              <h6>{this.state.travelType}</h6>
+              <h6>{this.props.travelType}</h6>
               <div className="chevron-up-down">
                 <i className="fas fa-chevron-down fa-xs"></i>
               </div>
@@ -105,19 +99,33 @@ class DatesPicker extends React.Component {
             <input
               className="inputdatefrom"
               type="text"
-              onChange={this.onInputChange}
+              onChange={this.props.onChange}
               onClick={this.showOnCalendar}
               placeholder='Departure'
-              value={this.state.showDate ? this.props.dateFrom.toLocaleDateString() : ''}
+              value={this.props.showDateFrom ? this.props.dateFrom.toLocaleDateString() : ''}
             />
-            <input
+            {this.props.travelType === "return" ?
+              <input
               className="inputdateto"
               type="text"
-              onChange={this.onInputChange}
+              onChange={this.props.onChange}
               onClick={this.showOnCalendar}
               placeholder='Return'
-              value={this.state.showDate ? this.props.dateTo.toLocaleDateString() : ''}
-            />
+              value={this.props.showDateTo ? this.props.dateTo.toLocaleDateString() : ''}
+            /> :
+              <input
+                className="inputdateto"
+                type="text"
+                onChange={this.props.onChange}
+                onClick={(event) => {
+                  this.props.switchToReturn(event);
+                  this.showOnCalendar();
+                  }
+                }
+                placeholder='no-return'
+                value='no-return'
+              />
+            }
           </div>
         </div>
 
@@ -125,11 +133,11 @@ class DatesPicker extends React.Component {
             <div className="calendar">
               <Calendar
                 locale={"en"}
-                minDate={new Date() && this.props.dateFrom}
+                minDate={new Date()}
                 onClickOutside={this.handleClickOutside}
-                onClickDay={this.props.onSelectDate}
-                onChange={this.onInputChange}
-                selectRange={this.state.travelType === "return" ? true : false}
+                onChange={this.props.onChange}
+                selectRange={this.props.travelType === "return" ? true : false}
+                returnValue={"range"}
               />
               <button className="btn btn-date" onClick={this.showOffCalendar}>Ok</button>
             </div>
