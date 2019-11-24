@@ -3,15 +3,14 @@ import FormSearch from '../components/FormSearch';
 import { onClick } from '../actions'
 
 
-const mapStateToProps = ({ search, app }, ownProps) => {
-  
+const mapStateToProps =  ({ search, app }, ownProps) => {
   return {
     search
   }
 }
 
 const mapDispatchToProps = dispatch => ({
-  onClick: id => dispatch(onClick())
+  onClick: cities => dispatch(onClick(cities))
 })
 
 export default connect(

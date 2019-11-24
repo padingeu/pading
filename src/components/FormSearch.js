@@ -2,7 +2,8 @@ import React from 'react';
 import DatesPicker from './DatesPicker';
 import LocationSearchInput from './LocationSearchInput';
 import '../components/_FormSearch.scss';
-import { Input, Label, FormGroup } from 'reactstrap';
+import { Label, FormGroup } from 'reactstrap';
+import axios from 'axios';
 import {
   geocodeByAddress,
   getLatLng
@@ -40,15 +41,35 @@ export default class FormSearch extends React.Component {
     this.setState({ travelType: "return" });
   }
 
-  addCity = async address => {
+  getIataCode = (coordinates) => {
+    const url = `http://iatageo.com/getCode/${coordinates.lat}/${coordinates.lng}`
+    let config = {
+      headers: {
+        accept: 'application/json'
+      }
+    }
+    return axios.get(url, config)
+      .then((response) => {
+        return response.data.IATA
+      })
+   
+  }
 
+  addCity = async address => {
     const position = await geocodeByAddress(address);
-    const LatLng = await getLatLng(position[0]);
+    const coordinates = await getLatLng(position[0]);
+    const iataCode = await this.getIataCode(coordinates);
+    console.log(iataCode)
     const city = position[0].address_components[0].long_name
+    const city_obj = {
+        name: city,
+        iata: iataCode,
+        numberOfPeople: 0
+      }
 
     this.setState(
-      { coordinates: LatLng,
-        cities: [...this.state.cities, city],
+      { coordinates: coordinates,
+        cities: [...this.state.cities, city_obj],
         address: ''
       })
   };
@@ -142,11 +163,13 @@ export default class FormSearch extends React.Component {
           </Label>
         </FormGroup>
         <LocationSearchInput address={this.state.address} cities={this.state.cities} addCity={this.addCity} removeCity={this.removeCity} handleAddressChange={this.handleAddressChange}/>
-        <button name="button" type="submit" className="btn btn-flat" onClick={() => this.props.onClick(this.state.cities)}>
+        <button name="button" type="submit" className="btn btn-flat" onClick={() => this.props.onClick(this.state.cities)}>{this.state.cities.length}
           Explore
         </button>
         ---Number of results {this.props.search.numberOfResults}---
-        {this.state.cities}
+
+       
+      
       </div>
     );
 

@@ -7,10 +7,13 @@ export default class LocationSearchInput extends React.Component {
     active: false
   };
 
- switchButton = (event, index) => {
-  event.preventDefault();
-  this.setState({ active: !this.state.active });
-}
+
+  switchButton = (event, city) => {
+    event.preventDefault();
+    city.numberOfPeople++
+    this.props.cities = this.props.cities[this.props.cities.findIndex(el => el=== city)] = city;
+    this.setState({ switchOnBtn: !this.state.SwitchOnBtn });
+  }
 
 
   render() {
@@ -47,16 +50,14 @@ export default class LocationSearchInput extends React.Component {
                 <div key={index}>
                   <div className="city-div">
                     <div className="number-of-people-btn-link">
-                      <div>
-
-                        {index}
-                        {this.switchButton}
-
-                        <button className="number-of-people-btn " onClick={(event) => this.switchButton(event, index)}>
-                          <i className="fas fa-user-friends fa-xs"></i>
-                          <h6>1</h6>
-                          <div className="chevron-up-down">
-                            <i className="fas fa-chevron-down fa-xs"></i>
+                      <div>                   
+                        <button onClick={(event) => this.switchButton(event, city)}>
+                          <div className="number-of-people-btn">
+                            <i className="fas fa-user-friends fa-xs"></i>
+                            <h6>1</h6>
+                            <div className="chevron-up-down">
+                              <i className="fas fa-chevron-down fa-xs"></i>
+                            </div>
                           </div>
                         </button>
 
@@ -65,7 +66,7 @@ export default class LocationSearchInput extends React.Component {
 
                     <div className="city-departure" key={index}>
                       <div className="city-departure-people">
-                        <p>{city}</p>
+                        <p>{city.name}</p>
                       </div>
                       <button className="remove-city-btn " onClick={this.props.removeCity}><i className="fas fa-times-circle"></i></button>
                     </div>
