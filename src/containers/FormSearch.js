@@ -10,7 +10,7 @@ const mapStateToProps =  ({ search, app }, ownProps) => {
 }
 
 const mapDispatchToProps = dispatch => ({
-  onClick: cities => dispatch(onClick(cities))
+  onClick: (cities, dates) => dispatch(onClick(cities, dates))
 })
 
 export default connect(

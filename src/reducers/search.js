@@ -4,7 +4,6 @@ const initialState = {
 
 const search = (state = initialState, action) => {
     switch (action.type) {
-      
       case 'SEARCH':
         return Object.assign({}, state, {
           numberOfResults: action.trips.length,

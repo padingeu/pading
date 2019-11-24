@@ -3,7 +3,6 @@ import DatesPicker from './DatesPicker';
 import LocationSearchInput from './LocationSearchInput';
 import '../components/_FormSearch.scss';
 import { Label, FormGroup } from 'reactstrap';
-import axios from 'axios';
 import {
   geocodeByAddress,
   getLatLng
@@ -41,29 +40,21 @@ export default class FormSearch extends React.Component {
     this.setState({ travelType: "return" });
   }
 
-  getIataCode = (coordinates) => {
-    const url = `http://iatageo.com/getCode/${coordinates.lat}/${coordinates.lng}`
-    let config = {
-      headers: {
-        accept: 'application/json'
-      }
-    }
-    return axios.get(url, config)
-      .then((response) => {
-        return response.data.IATA
-      })
-
+  getFormattedCoordinate = (coordinates) => {
+    coordinates.lat = coordinates.lat.toFixed(6)
+    coordinates.lng = coordinates.lng.toFixed(6)
+    return `${coordinates.lat}-${coordinates.lng}-20km`
   }
 
   addCity = async address => {
     const position = await geocodeByAddress(address);
     const coordinates = await getLatLng(position[0]);
-    const iataCode = await this.getIataCode(coordinates);
+    const coordinatesFormatted = this.getFormattedCoordinate(coordinates);
     const city = position[0].address_components[0].long_name
     const city_obj = {
       name: city,
-      iata: iataCode,
-      numberOfPeople: 0,
+      coordinates: coordinatesFormatted,
+      numberOfPeople: 1,
       showButton: false
     }
 
@@ -149,13 +140,10 @@ export default class FormSearch extends React.Component {
     this.setState({ bus: !this.state.bus })
   }
 
-
-
-
   render() {
     return (
       <div className="travel-form">
-        <DatesPicker
+       <DatesPicker
           dateFrom={this.state.dateFrom}
           dateTo={this.state.dateTo}
           showDateFrom={this.state.showDateFrom}
@@ -210,7 +198,7 @@ export default class FormSearch extends React.Component {
           addTraveler={this.addTraveler}
           removeTraveler={this.removeTraveler}
         />
-        <button name="button" type="submit" className="btn btn-flat" onClick={() => this.props.onClick(this.state.cities)}>
+        <button name="button" type="submit" className="btn btn-flat" onClick={() => this.props.onClick(this.state.cities, this.state.dateFrom, this.state.dateTo)}>
           Explore
         </button>
         ---Number of results {this.props.search.numberOfResults}---
