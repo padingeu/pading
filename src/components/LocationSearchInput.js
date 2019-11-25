@@ -9,11 +9,11 @@ class LocationSearchInput extends React.Component {
   };
 
   handleClickOutside = () => {
-    this.setState({autoCompleteClass: '' });
+    this.setState({ autoCompleteClass: '' });
   }
 
   cityAutocompleteActive = () => {
-    this.setState({autoCompleteClass: 'city-autocomplete'});
+    this.setState({ autoCompleteClass: 'city-autocomplete' });
   }
 
   render() {
@@ -52,8 +52,6 @@ class LocationSearchInput extends React.Component {
 
           </PlacesAutocomplete>
         </div>
-
-
       </div>
     )
   }

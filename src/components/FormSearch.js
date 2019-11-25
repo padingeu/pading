@@ -21,7 +21,8 @@ export default class FormSearch extends React.Component {
     train: true,
     bus: true,
     cities: [],
-    address: ''
+    address: '',
+    shouldSearch: false
   };
 
   onInputDateChange = date => {
@@ -47,6 +48,11 @@ export default class FormSearch extends React.Component {
     coordinates.lng = coordinates.lng.toFixed(6)
     return `${coordinates.lat}-${coordinates.lng}-20km`
   }
+
+  shouldSearch() {
+    return 
+  }
+
 
   addCity = async address => {
     const position = await geocodeByAddress(address);
@@ -125,7 +131,7 @@ export default class FormSearch extends React.Component {
 
   removeCity = (event, index) => {
     event.preventDefault();
-    const cities = this.state.cities.slice(0)
+    const cities = [...this.state.cities]
     cities.splice(index, 1);
     this.setState({ cities });
   };
@@ -205,7 +211,8 @@ export default class FormSearch extends React.Component {
           addTraveler={this.addTraveler}
           removeTraveler={this.removeTraveler}
         />
-        <button name="button" type="submit" className="btn btn-flat" onClick={() => this.props.onClick(this.state.cities, this.state.dateFrom, this.state.dateTo)}>
+        
+        <button name="button" disabled={!(this.state.dateFrom && this.state.cities.length > 1)} type="submit" className="btn btn-flat" onClick={() => this.props.onClick(this.state.cities, this.state.dateFrom, this.state.dateTo)}>
           Explore
         </button>
         ---Number of results {this.props.search.numberOfResults}---

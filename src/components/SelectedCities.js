@@ -41,7 +41,7 @@ const SelectedCities = ({cities, removeCity, handleCityClick, addTraveler, remov
                   <div className="city-departure-people">
                     <p>{city.name}</p>
                   </div>
-                  <button className="remove-city-btn " onClick={removeCity}><i className="fas fa-times-circle"></i></button>
+                  <button className="remove-city-btn " onClick={(event) => removeCity(event, index)}><i className="fas fa-times-circle"></i></button>
                 </div>
 
               </div>
