@@ -1,19 +1,38 @@
-.city-departure-input {
-  height: 35px;
-  box-sizing: border-box;
-  margin-bottom: 10px;
-  width: 350px;
-  color: rgb(37, 42, 49);
-  text-align: center;
-}
+.places-autocomplete {
+  width: 370px;
+  .city-autocomplete {
+    z-index: 1;
+    box-shadow: rgba(37, 42, 49, 0.16) 0px 2px 5px 0px, rgba(37, 42, 49, 0.24) 0px 2px 10px 0px;
+    border-radius: 3px;
+    transition: all 0.15s ease-in-out 0s;
+  }
+  .city-departure-input {
+    box-sizing: border-box;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    height: 40px;
+    width: 350px;
+    border-radius: 3px;
+    color: rgb(37, 42, 49);
+    text-align: left;
+  }
 
   input[type=text]:focus{
-  outline: 1px solid #1f72cb;     /* oranges! yey */
+    outline: 1px solid #1f72cb;     /* oranges! yey */
+  }
+}
+
+.suggestions-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
 }
 
 .cities-departure {
   min-width: 400px;
-  height: 140px;
+  min-height: 140px;
   margin-bottom: 10px;
   display: flex;
   flex-wrap: wrap;
@@ -23,7 +42,6 @@
 }
 
 .city-div {
-  min-width: 80px;
   margin-right: 20px;
   margin-bottom: 10px;
 }
@@ -51,32 +69,38 @@
   margin-left: 5px;
 }
 
-.number-of-people-btn-link {
-  position: relative;
-  text-align: left;
-  width: 100%;
-  margin-bottom: 5px;
-  button {
-    border: none;
-    outline: none;
-  } & button:hover {
-    background-color: #e5eaef;
-    border-radius: 3px;
-  }
-}
-
 .number-of-people-btn {
   display: flex;
   justify-content: left;
   align-items: center;
-  height: 22px;
 }
 
-.number-of-people {
-  position: absolute;
-  border: solid red;
-  top: 0px;
-  left: 0px;
+button.number-of-people {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  height: 35px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.people-number-change {
+  button {
+    width: 25px;
+    height: 25px;
+    font-size: 12px;
+    font-weight: bold;
+    border: none;
+    border-radius: 3px;
+    margin-left: 5px;
+    background-color: #f7fbfc;
+    outline: none;
+    cursor: pointer;
+    &:hover {
+      background-color: #dce3e9;
+    }
+  }
 }
 
 .chevron-up-down {
@@ -99,16 +123,3 @@
 .fa-user-friends {
   margin-right: 2px;
 }
-
-.people-number-change {
-  position: absolute;
-  top: -15px;
-  left: 0px;
-  min-width: 120px;
-  z-index: 1;
-  border: solid red;
-  height: 40px;
-  box-shadow: rgba(37, 42, 49, 0.16) 0px 4px 8px 0px, rgba(37, 42, 49, 0.24) 0px 8px 24px 0px;
-}
-
-
