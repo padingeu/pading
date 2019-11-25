@@ -1,12 +1,14 @@
 import React from 'react';
 import DatesPicker from './DatesPicker';
 import LocationSearchInput from './LocationSearchInput';
+import SelectedCities from './SelectedCities';
 import '../components/_FormSearch.scss';
 import { Label, FormGroup } from 'reactstrap';
 import {
   geocodeByAddress,
   getLatLng
 } from 'react-places-autocomplete';
+
 export default class FormSearch extends React.Component {
 
   state = {
@@ -194,6 +196,11 @@ export default class FormSearch extends React.Component {
           addCity={this.addCity}
           removeCity={this.removeCity}
           handleAddressChange={this.handleAddressChange}
+        />
+        <SelectedCities
+          cities={this.state.cities}
+          addCity={this.addCity}
+          removeCity={this.removeCity}
           handleCityClick={this.showButtons}
           addTraveler={this.addTraveler}
           removeTraveler={this.removeTraveler}
@@ -202,8 +209,6 @@ export default class FormSearch extends React.Component {
           Explore
         </button>
         ---Number of results {this.props.search.numberOfResults}---
-
-
 
       </div>
     );
