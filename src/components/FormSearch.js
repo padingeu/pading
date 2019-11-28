@@ -21,8 +21,8 @@ export default class FormSearch extends React.Component {
     train: true,
     bus: true,
     cities: [],
-    address: '',
-    shouldSearch: false
+    address: 'abc',
+    shouldSearch: false,
   };
 
   onInputDateChange = date => {
@@ -50,7 +50,7 @@ export default class FormSearch extends React.Component {
   }
 
   shouldSearch() {
-    return 
+    return
   }
 
   increment_traveler(cityName) {
@@ -84,7 +84,7 @@ export default class FormSearch extends React.Component {
 
   showButtons = (event, city) => {
     event.preventDefault();
-    city.showButton = !city.showButton
+    city.showButton = !city.showButton;
     const cities = [...this.state.cities];
     cities[cities.findIndex(el => el === city)] = city;
     this.setState(
@@ -121,6 +121,7 @@ export default class FormSearch extends React.Component {
     this.setState({ 
       address: address
      });
+
     const input = document.querySelector('.city-departure-input');
     input.addEventListener("keydown", (event) => {
       const places =
@@ -215,6 +216,7 @@ export default class FormSearch extends React.Component {
         />
         <SelectedCities
           cities={this.state.cities}
+          address={this.state.address}
           addCity={this.addCity}
           removeCity={this.removeCity}
           handleCityClick={this.showButtons}
@@ -222,7 +224,7 @@ export default class FormSearch extends React.Component {
           removeTraveler={this.removeTraveler}
           address={this.state.address}
         />
-        
+
         <button name="button" disabled={!(this.state.dateFrom && this.state.cities.length > 1)} type="submit" className="btn btn-flat" onClick={() => this.props.onClick(this.state.cities, this.state.dateFrom, this.state.dateTo)}>
           Explore
         </button>

@@ -29,15 +29,18 @@ class LocationSearchInput extends React.Component {
             onClickOutside={this.handleClickOutside}
           >
             {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
-              <div className={this.state.autoCompleteClass}>
-                <input onClick={this.cityAutocompleteActive}{...getInputProps({ className: 'city-departure-input', placeholder: 'We travel from...', type: 'text' })} />
+              <div>
+                <input
+                  onClick={this.cityAutocompleteActive}
+                  {...getInputProps({ className: 'city-departure-input', placeholder: 'We travel from...', type: 'text' })}
+                />
+                  <div className={this.state.autoCompleteClass}>
                 <div>
                   {loading ? <div>...Loading</div> : null}
                 </div>
                 {suggestions.map((suggestion) => {
                   const style = {
                     backgroundColor: suggestion.active ? '#f5a741' : '#fff', cursor: 'pointer',
-                    fontWeight: 'bold',
                     'height': '30px'
 
                   }
@@ -47,6 +50,7 @@ class LocationSearchInput extends React.Component {
                     </div>
                   )
                 })}
+                  </div>
               </div>
             )}
 
