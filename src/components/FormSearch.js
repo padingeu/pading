@@ -21,8 +21,8 @@ export default class FormSearch extends React.Component {
     train: true,
     bus: true,
     cities: [],
-    address: '',
-    shouldSearch: false
+    address: 'abc',
+    shouldSearch: false,
   };
 
   onInputDateChange = date => {
@@ -50,7 +50,7 @@ export default class FormSearch extends React.Component {
   }
 
   shouldSearch() {
-    return 
+    return
   }
 
 
@@ -76,7 +76,7 @@ export default class FormSearch extends React.Component {
 
   showButtons = (event, city) => {
     event.preventDefault();
-    city.showButton = !city.showButton
+    city.showButton = !city.showButton;
     const cities = [...this.state.cities];
     cities[cities.findIndex(el => el === city)] = city;
     this.setState(
@@ -110,7 +110,7 @@ export default class FormSearch extends React.Component {
   }
 
   handleAddressChange = (address) => {
-    this.setState({ address });
+    this.setState({ address: address });
     const input = document.querySelector('.city-departure-input');
     input.addEventListener("keydown", (event) => {
       const places =
@@ -120,7 +120,6 @@ export default class FormSearch extends React.Component {
         if (0 < places.length) {
           input.value = places[0];
           this.setState({ address: places[0] });
-          debugger;
         } else {
           event.stopPropagation();
           event.preventDefault();
@@ -205,13 +204,14 @@ export default class FormSearch extends React.Component {
         />
         <SelectedCities
           cities={this.state.cities}
+          address={this.state.address}
           addCity={this.addCity}
           removeCity={this.removeCity}
           handleCityClick={this.showButtons}
           addTraveler={this.addTraveler}
           removeTraveler={this.removeTraveler}
         />
-        
+
         <button name="button" disabled={!(this.state.dateFrom && this.state.cities.length > 1)} type="submit" className="btn btn-flat" onClick={() => this.props.onClick(this.state.cities, this.state.dateFrom, this.state.dateTo)}>
           Explore
         </button>

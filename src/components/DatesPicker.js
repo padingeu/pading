@@ -105,7 +105,7 @@ class DatesPicker extends React.Component {
               value={this.props.showDateFrom ? this.props.dateFrom.toLocaleDateString() : ''}
             />
             {this.props.travelType === "return" ?
-              <input
+            <input
               className="inputdateto"
               type="text"
               onChange={this.props.onChange}
@@ -113,19 +113,19 @@ class DatesPicker extends React.Component {
               placeholder='Return'
               value={this.props.showDateTo ? this.props.dateTo.toLocaleDateString() : ''}
             /> :
-              <input
-                className="inputdateto"
-                type="text"
-                onChange={this.props.onChange}
-                onClick={(event) => {
-                  this.props.switchToReturn(event);
-                  this.showOnCalendar();
-                  }
+            <input
+              className="inputdateto"
+              type="text"
+              onChange={this.props.onChange}
+              onClick={(event) => {
+                this.props.switchToReturn(event);
+                this.showOnCalendar();
                 }
-                placeholder='no-return'
-                value='no-return'
-              />
-            }
+              }
+              placeholder='no-return'
+              value='no-return'
+            />
+          }
           </div>
         </div>
 

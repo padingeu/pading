@@ -18,18 +18,16 @@
 }
 
 .inputdate {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 40px;
-  border: none;
-  margin-top: 10px;
+  box-sizing: border-box;
+  height: 100%;
   .inputdatefrom {
     cursor: pointer;
     text-align: center;
     height: 100%;
     width: 175px;
-    box-sizing: border-box;
+    border: solid #bac7d5;
+    border-width: 1px;
+    border-radius: 3px;
     margin-bottom: 8px;
     color: rgb(37, 42, 49);
     text-shadow: 0 0 0 black;
@@ -42,7 +40,10 @@
     text-align: center;
     height: 100%;
     width: 175px;
-    box-sizing: border-box;
+    border: solid #bac7d5;
+    border-width: 1px;
+    border-radius: 3px;
+    margin-left: 5px;
     margin-bottom: 8px;
     color: rgb(37, 42, 49);
     text-shadow: 0 0 0 black;
