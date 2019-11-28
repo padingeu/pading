@@ -53,6 +53,13 @@ export default class FormSearch extends React.Component {
     return
   }
 
+  increment_traveler(cityName) {
+    //copy cities from state
+    //check if there is a city with the same name than cityName inside cities
+    //if YES add + 1 to numberOfPeople
+      //set state with cities
+  }
+
 
   addCity = async address => {
     const position = await geocodeByAddress(address);
@@ -65,7 +72,8 @@ export default class FormSearch extends React.Component {
       numberOfPeople: 1,
       showButton: false
     }
-
+    console.log('check if city is not already inside')
+    //TODO call increment_traveler function with cityName
     this.setState(
       {
         coordinates: coordinates,
@@ -110,13 +118,17 @@ export default class FormSearch extends React.Component {
   }
 
   handleAddressChange = (address) => {
-    this.setState({ address: address });
+    this.setState({ 
+      address: address
+     });
+
     const input = document.querySelector('.city-departure-input');
     input.addEventListener("keydown", (event) => {
       const places =
         Array.from(event.target.parentElement.querySelectorAll('div[role="option"]'))
           .map(e => e.innerText.trim().toLocaleLowerCase());
       if (event.key === 'Enter' && !places.includes(input.value.toLocaleLowerCase())) {
+       
         if (0 < places.length) {
           input.value = places[0];
           this.setState({ address: places[0] });
@@ -210,6 +222,7 @@ export default class FormSearch extends React.Component {
           handleCityClick={this.showButtons}
           addTraveler={this.addTraveler}
           removeTraveler={this.removeTraveler}
+          address={this.state.address}
         />
 
         <button name="button" disabled={!(this.state.dateFrom && this.state.cities.length > 1)} type="submit" className="btn btn-flat" onClick={() => this.props.onClick(this.state.cities, this.state.dateFrom, this.state.dateTo)}>

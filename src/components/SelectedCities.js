@@ -2,7 +2,7 @@ import React from 'react';
 import '../components/_LocationSearchInput.scss';
 import onClickOutside from 'react-onclickoutside';
 
-class SelectedCities extends React.Component {
+const SelectedCities = ({cities, removeCity, handleCityClick, addTraveler, removeTraveler, address}) => {
 
   render() {
     return (
@@ -14,31 +14,28 @@ class SelectedCities extends React.Component {
               return (
                 <div key={index}>
                   <div className="city-div">
-
                     <div className="number-of-people-btn">
 
-                      <button className="number-of-people" onClick={(event) => this.props.handleCityClick(event, city)}>
-                          <i className="fas fa-user-friends fa-xs"></i>
-                          <h6>{city.numberOfPeople}</h6>
-                          <div className="chevron-up-down">
-                            <i className="fas fa-chevron-down fa-xs"></i>
-                          </div>
+                      <button className="number-of-people" onClick={(event) => handleCityClick(event, city)}>
+                        <i className="fas fa-user-friends fa-xs"></i>
+                        <h6>{city.numberOfPeople}</h6>
+                        <div className="chevron-up-down">
+                          <i className="fas fa-chevron-down fa-xs"></i>
+                        </div>
                       </button>
 
-                      {city.showButton === true &&
-                          <div className="people-number-change">
-
-                            <button onClick={(event) => this.props.removeTraveler(event, city)}>
+                      {city.showButton === true && (
+                    
+                        <div className="people-number-change">
+                          <button onClick={(event) => this.props.removeTraveler(event, city)}>
                               -
-                            </button>
+                          </button>
 
-                            <button onClick={(event) => this.props.addTraveler(event, city)}>
+                          <button onClick={(event) => this.props.addTraveler(event, city)}>
                               +
-                            </button>
-
-                          </div>
+                          </button>
+                        </div>
                       }
-
                     </div>
 
                     <div className="city-departure" key={index}>
@@ -50,11 +47,13 @@ class SelectedCities extends React.Component {
 
                   </div>
                 </div>
-              )
-          })
-        }
-      </div>
-    )
-  }
+              </div>
+            </div>
+          )
+        })
+      }
+        ------ Address{address}
+    </div>
+  )
 }
 export default onClickOutside(SelectedCities);

@@ -41,7 +41,6 @@ class LocationSearchInput extends React.Component {
                 {suggestions.map((suggestion) => {
                   const style = {
                     backgroundColor: suggestion.active ? '#f5a741' : '#fff', cursor: 'pointer',
-                    'fontWeight': 'bold',
                     'height': '30px'
 
                   }
