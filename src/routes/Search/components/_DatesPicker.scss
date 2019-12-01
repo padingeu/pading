@@ -1,0 +1,202 @@
+.hello {
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.search {
+  position: relative;
+  .search-form-control {
+  height: 40px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  }
+}
+
+.inputdate {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 40px;
+  border: none;
+  margin-top: 10px;
+  .inputdatefrom {
+    cursor: pointer;
+    text-align: center;
+    height: 100%;
+    width: 175px;
+    box-sizing: border-box;
+    margin-bottom: 8px;
+    color: rgb(37, 42, 49);
+    text-shadow: 0 0 0 black;
+    &:focus {
+      outline: none
+    }
+  }
+  .inputdateto {
+    cursor: pointer;
+    text-align: center;
+    height: 100%;
+    width: 175px;
+    box-sizing: border-box;
+    margin-bottom: 8px;
+    color: rgb(37, 42, 49);
+    text-shadow: 0 0 0 black;
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.calendar {
+  margin: none;
+  position: absolute;
+  top: 80px;
+  z-index: 1;
+  transition: all 0.15s ease-in-out 0s;
+
+  .react-calendar {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    box-shadow: 1px 1px 20px 0 rgba(0, 0, 0, 0.4);
+    border-radius: 3px;
+    overflow: hidden;
+    .react-calendar__tile {
+      margin-top: 5px;
+    }
+      button[disabled] {
+        color: #bfbfbf;
+      }
+    .react-calendar__tile--now {
+      color: #44a7bc;
+      font-weight: bold;
+    }
+    .react-calendar__navigation {
+      margin: -15px -15px 15px;
+      padding: 0 10px;
+      background-color: #f5a741;
+      font-size: 18px;
+      color: #fff;
+      button[disabled] {
+        background-color: #f5a741;
+        color: #f5a741;
+      }
+      button.react-calendar__navigation__label {
+        background-color: #f5a741;
+        pointer-events: none;
+      }
+    }
+    button.react-calendar__navigation__arrow {
+      background-color: #f5a741;
+    }
+  }
+  .react-calendar__tile:disabled {
+    background-color: transparent;
+  }
+  .react-calendar__month-view__weekdays, .react-calendar__month-view__days__day--neighboringMonth {
+      color: #44a7bc;
+      & abbr {
+        border-bottom: none;
+        text-decoration: none;
+      }
+  }
+  .react-calendar__month-view__days__day {
+    color: #353535;
+  }
+  .react-calendar__tile--active {
+    color: white;
+    background-color: #44a7bc;
+  }
+  .react-calendar__tile--hover {
+    background-color: #f7fbfc;
+    border-radius: none;
+  }
+  .react-calendar__tile--active:enabled:hover, .react-calendar__tile--active:enabled:focus {
+    background-color: #44a7bc;
+    color: white;
+  }
+  .react-calendar__tile--rangeStart {
+  color: white !important;
+  font-weight: normal !important;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  }
+  .react-calendar__tile--rangeEnd {
+  color: white !important;
+  font-weight: normal !important;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  }
+  .react-calendar__viewContainer {
+    padding-bottom: 50px;
+  }
+}
+
+.btn-date {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  color: white;
+  width: 50px;
+  height: 40px;
+  border-radius: 3px;
+  background: #49a991;
+  transition: background 0.3s ease;
+  &:hover {
+    background: #429882;
+    color: white;
+  }
+}
+
+.travel-type {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+button.travel-type-btn {
+  position: relative;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  min-width: 80px;
+  height: 100%;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.travel-type-change {
+  position: absolute;
+  top: -40px;
+  left: 0px;
+  min-width: 120px;
+  z-index: 1;
+  box-shadow: rgba(37, 42, 49, 0.16) 0px 4px 8px 0px, rgba(37, 42, 49, 0.24) 0px 8px 24px 0px;
+  a {
+    background-color: white;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    cursor: pointer;
+    color: #2e353b;
+    text-decoration: none;
+    .check-box {
+      min-width: 30px;
+      .fa-check {
+        color: #4aa55b;
+      }
+    }
+    .one-way-return-div {
+      text-align: left;
+    }
+  } :hover {
+    background-color: #f7fbfc;
+  }
+}
+
