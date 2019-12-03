@@ -25,6 +25,7 @@ class LocationSearchInput extends React.Component {
             onChange={this.props.handleAddressChange}
             onSelect={this.props.addCity}
             searchOptions={{ types: ['(cities)'] }}
+            incrementTraveler={this.props.incrementTraveler}
             highlightFirstSuggestion={true}
             onClickOutside={this.handleClickOutside}
           >

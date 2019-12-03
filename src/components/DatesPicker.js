@@ -9,12 +9,6 @@ class DatesPicker extends React.Component {
     showTravelTypeBtn: false
   };
 
-  //ontravelTypeChange
-  // reset datefrom and dateto
-  // selectrange = true if "return" or = false if "one-way" --> OK
-  // if "one-way", setState only datefrom and puts "no return" for inputdate return
-  // if click on inputdate return, change travelType and reset datefrom and dateto
-
   handleClickOutside = () => {
   this.setState({showCalendar: false });
   this.setState({showTravelTypeBtn: false });
