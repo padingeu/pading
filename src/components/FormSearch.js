@@ -21,7 +21,7 @@ export default class FormSearch extends React.Component {
     train: true,
     bus: true,
     cities: [],
-    address: 'abc',
+    address: '',
     shouldSearch: false,
   };
 
@@ -53,11 +53,27 @@ export default class FormSearch extends React.Component {
     return
   }
 
-  increment_traveler(cityName) {
-    //copy cities from state
-    //check if there is a city with the same name than cityName inside cities
-    //if YES add + 1 to numberOfPeople
-      //set state with cities
+  incrementTraveler = (cityName, coordinates, address, city_obj) => {
+    const cities = [...this.state.cities];
+    console.log(this.state.cities)
+    const selectedCities = []
+    cities.map((city) => {
+      selectedCities.push(city.name);
+      if (selectedCities.indexOf(cityName) !== -1) {
+        city.numberOfPeople++;
+        cities[cities.findIndex(el => el === city)] = city;
+        this.setState({
+          cities: [...this.state.cities],
+          address: ''
+        })
+      } else {
+        this.setState({
+          coordinates: coordinates,
+          cities: [...this.state.cities, city_obj],
+          address: ''
+        })
+      }
+    })
   }
 
 
@@ -73,13 +89,16 @@ export default class FormSearch extends React.Component {
       showButton: false
     }
     console.log('check if city is not already inside')
-    //TODO call increment_traveler function with cityName
-    this.setState(
-      {
-        coordinates: coordinates,
-        cities: [...this.state.cities, city_obj],
-        address: ''
-      })
+
+    if (this.state.cities.length === 0) {
+        this.setState({
+          coordinates: coordinates,
+          cities: [...this.state.cities, city_obj],
+          address: ''
+        })
+    } else {
+      this.incrementTraveler(city, coordinates, address, city_obj)
+    }
   };
 
   showButtons = (event, city) => {
@@ -118,7 +137,7 @@ export default class FormSearch extends React.Component {
   }
 
   handleAddressChange = (address) => {
-    this.setState({ 
+    this.setState({
       address: address
      });
 
@@ -128,7 +147,7 @@ export default class FormSearch extends React.Component {
         Array.from(event.target.parentElement.querySelectorAll('div[role="option"]'))
           .map(e => e.innerText.trim().toLocaleLowerCase());
       if (event.key === 'Enter' && !places.includes(input.value.toLocaleLowerCase())) {
-       
+
         if (0 < places.length) {
           input.value = places[0];
           this.setState({ address: places[0] });
@@ -221,8 +240,8 @@ export default class FormSearch extends React.Component {
           removeCity={this.removeCity}
           handleCityClick={this.showButtons}
           addTraveler={this.addTraveler}
+          incrementTraveler={this.incrementTraveler}
           removeTraveler={this.removeTraveler}
-          address={this.state.address}
         />
 
         <button name="button" disabled={!(this.state.dateFrom && this.state.cities.length > 1)} type="submit" className="btn btn-flat" onClick={() => this.props.onClick(this.state.cities, this.state.dateFrom, this.state.dateTo)}>
