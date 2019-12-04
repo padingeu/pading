@@ -227,9 +227,7 @@ export default class FormSearch extends React.Component {
         
         <button name="button" disabled={!(this.state.dateFrom && this.state.cities.length > 1)} type="submit" className="btn btn-flat" onClick={() => this.props.onClick(this.state.cities, this.state.dateFrom, this.state.dateTo)}>
           Explore
-        </button>props
-        ---Number of results {this.props.search.numberOfResults}---
-
+        </button>
       </div>
     );
 
