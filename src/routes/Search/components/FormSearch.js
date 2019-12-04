@@ -65,22 +65,39 @@ export default class FormSearch extends React.Component {
     const position = await geocodeByAddress(address);
     const coordinates = await getLatLng(position[0]);
     const coordinatesFormatted = this.getFormattedCoordinate(coordinates);
-    const city = position[0].address_components[0].long_name
-    const city_obj = {
-      name: city,
-      coordinates: coordinatesFormatted,
-      numberOfPeople: 1,
-      showButton: false
+    const cityName = position[0].address_components[0].long_name
+    const cities = [...this.state.cities];
+    const cityIndex = this.findCityIndex(cityName, cities);
+    
+    
+    console.log(cityIndex);
+    if (cityIndex === -1) { //CREATE new city
+      const city_obj = {
+        name: cityName,
+        coordinates: coordinatesFormatted,
+        numberOfPeople: 1,
+        showButton: false
+      };
+      cities.push(city_obj);
+    } else { //Add traveler
+      cities[cityIndex].numberOfPeople++;
     }
-    console.log('check if city is not already inside')
-    //TODO call increment_traveler function with cityName
     this.setState(
       {
         coordinates: coordinates,
-        cities: [...this.state.cities, city_obj],
+        cities: cities,
         address: ''
       })
   };
+
+  findCityIndex = (cityName, cities)=> {
+    for (let i = 0; i < cities.length ; i++) {
+      if (cities[i].name === cityName) {
+        return i
+      }
+    }
+    return -1
+  }
 
   showButtons = (event, city) => {
     event.preventDefault();

@@ -51,7 +51,6 @@ const SelectedCities = ({cities, removeCity, handleCityClick, addTraveler, remov
           )
         })
       }
-        ------ Address{address}
     </div>
   )
 }
