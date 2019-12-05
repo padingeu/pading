@@ -5,7 +5,7 @@ export const onClick = (cities, dateFrom, dateTo) => {
   dateFrom = dateFrom.toLocaleDateString()
   dateTo = dateTo.toLocaleDateString()
   const promises = []
-  return (dispatch) => {
+  return dispatch => {
     let config = {
       headers: {
         accept: 'application/json',
@@ -22,7 +22,7 @@ export const onClick = (cities, dateFrom, dateTo) => {
         for (let i = 0; i < results.length; i++) {
           const trip = results[i].data.data.map(trip => (
             {
-              [trip.cityFrom]: { 
+              [trip.cityFrom]: {
                 cityFrom: trip.cityFrom,
                 cityTo: trip.cityTo,
                 price: trip.price,
@@ -38,14 +38,14 @@ export const onClick = (cities, dateFrom, dateTo) => {
         for (let i = 1 ; i < trips.length; i++) {
           commonTrips = lodash.intersectionBy(trips[i - 1], trips[i], 'cityTo');
         }
-        
-        const commonDestinations = commonTrips.map((item) => {   
+
+        const commonDestinations = commonTrips.map((item) => {
           return Object.keys(item)[0]
         })
         console.log(commonDestinations)
          //Pour chaque ville garder seulement les destinations commune
         for(let i = 0; i < trips.length; i++) {
-          trips[i] = filterTrips(trips[i], commonDestinations) 
+          trips[i] = filterTrips(trips[i], commonDestinations)
         }
         const data = {
           commonDestinations: commonDestinations,

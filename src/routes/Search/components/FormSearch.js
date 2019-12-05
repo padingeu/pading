@@ -50,7 +50,7 @@ export default class FormSearch extends React.Component {
   }
 
   shouldSearch() {
-    return 
+    return
   }
 
   increment_traveler(cityName) {
@@ -68,8 +68,7 @@ export default class FormSearch extends React.Component {
     const cityName = position[0].address_components[0].long_name
     const cities = [...this.state.cities];
     const cityIndex = this.findCityIndex(cityName, cities);
-    
-    
+
     console.log(cityIndex);
     if (cityIndex === -1) { //CREATE new city
       const city_obj = {
@@ -110,8 +109,6 @@ export default class FormSearch extends React.Component {
       })
   };
 
-
-
   addTraveler = (event, city) => {
     event.preventDefault();
     city.numberOfPeople++;
@@ -137,7 +134,7 @@ export default class FormSearch extends React.Component {
   }
 
   handleAddressChange = (address) => {
-    this.setState({ 
+    this.setState({
       address: address
      });
     const input = document.querySelector('.city-departure-input');
@@ -146,7 +143,7 @@ export default class FormSearch extends React.Component {
         Array.from(event.target.parentElement.querySelectorAll('div[role="option"]'))
           .map(e => e.innerText.trim().toLocaleLowerCase());
       if (event.key === 'Enter' && !places.includes(input.value.toLocaleLowerCase())) {
-       
+
         if (0 < places.length) {
           input.value = places[0];
           this.setState({ address: places[0] });
@@ -241,8 +238,8 @@ export default class FormSearch extends React.Component {
           removeTraveler={this.removeTraveler}
           address={this.state.address}
         />
-        
-        <button name="button" disabled={!(this.state.dateFrom && this.state.cities.length > 1)} type="submit" className="btn btn-flat" onClick={() => this.props.onClick(this.state.cities, this.state.dateFrom, this.state.dateTo)}>
+
+        <button name="button" disabled={!(this.state.dateFrom && this.state.cities.length > 0)} type="submit" className="btn btn-flat" onClick={() => this.props.onClick(this.state.cities, this.state.dateFrom, this.state.dateTo)}>
           Explore
         </button>
       </div>
