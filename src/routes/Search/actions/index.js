@@ -20,6 +20,7 @@ export const onClick = (cities, dateFrom, dateTo) => {
     Promise.all(promises)
       .then((results) => {
         const trips = {}
+        //Construction d un objet avec une liste de voyage
         for (let i = 0; i < results.length; i++) {
           const city = results[i].data.data[0].cityFrom
           const trips_by_city = results[i].data.data.map(trip => {
@@ -45,6 +46,7 @@ export const onClick = (cities, dateFrom, dateTo) => {
           return item.cityTo
         })
 
+        //Retirer les voages qui ne font pas parti des destinations communes
         for (let i = 0; i < cities.length; i++) {
           let city = cities[i].name
           trips[city] = trips[city].filter((trip) => {
