@@ -25,6 +25,10 @@ export default class FormSearch extends React.Component {
     shouldSearch: false
   };
 
+  test = () => {
+    this.props.onClick(this.state.cities, this.state.dateFrom, this.state.dateTo, this.props.history)
+  }
+
   onInputDateChange = date => {
     this.setState({ showDateFrom: true });
     this.setState({ showDateTo: true });
@@ -239,7 +243,7 @@ export default class FormSearch extends React.Component {
           address={this.state.address}
         />
 
-        <button name="button" disabled={!(this.state.dateFrom && this.state.cities.length > 0)} type="submit" className="btn btn-flat" onClick={() => this.props.onClick(this.state.cities, this.state.dateFrom, this.state.dateTo)}>
+        <button name="button" disabled={!(this.state.dateFrom && this.state.cities.length > 0)} type="submit" className="btn btn-flat" onClick={() => this.test()}>
           Explore
         </button>
       </div>

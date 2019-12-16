@@ -7,8 +7,10 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import rootReducer from './reducers'
 import FormSearch from './routes/Search/containers/FormSearchContainer'
 import Results from './routes/Results/containers/ResultsContainer';
-import { BrowserRouter, Route } from 'react-router-dom'
+import { Route, Router } from 'react-router-dom'
+import { createBrowserHistory }  from 'history'
 
+export const history = createBrowserHistory()
 const store = createStore(rootReducer, 
   composeWithDevTools(
     applyMiddleware(
@@ -18,10 +20,10 @@ const store = createStore(rootReducer,
 
 render(
   <Provider store={store}>
-    <BrowserRouter>
+    <Router history={history}>
       <Route exact path='/' component={FormSearch}/> {/* app = home */}
-      <Route exact path='/results' component={Results}/> 
-    </BrowserRouter>
+      <Route path='/results' component={Results}/> 
+    </Router>
   </Provider>,
   document.getElementById('root')
 )
