@@ -1,6 +1,6 @@
 import axios from 'axios';
 import lodash from 'lodash';
-
+import { history } from '../../../index';
 export const onClick = (cities, dateFrom, dateTo) => {
   dateFrom = dateFrom.toLocaleDateString()
   dateTo = dateTo.toLocaleDateString()
@@ -59,6 +59,7 @@ export const onClick = (cities, dateFrom, dateTo) => {
           trips: trips
         }
         dispatch({ type: 'SEARCH', data })
+        history.push('/results')
       })
   }
 }

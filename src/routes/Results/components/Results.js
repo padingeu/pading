@@ -23,12 +23,12 @@ export default class Result extends React.Component {
     return (
       <div className="travel-result">
             {
-        ['Lille', 'Manchester', 'Paris'].map((destination, index) => {
+        this.props.search.commonDestinations.map((destination, index) => {
           return (
             <div key={index} className="city-div">
               <TripCard 
                 destination={destination}
-                price={this.getTotalPrice(destination, this.props.results.trips)}/>
+             />
             </div>
           )
         })
