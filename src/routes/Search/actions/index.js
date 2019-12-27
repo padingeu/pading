@@ -35,28 +35,39 @@ export const onClick = (cities, dateFrom, dateTo) => {
           trips[city] = trips_by_city
         }
 
+        const cityIntersection = (a1, a2) => lodash.intersectionBy(a1, a2, 'cityTo');
+
         //Recuperer une liste des destinations communes
-        let commonTrips;
-        for (let i = 1; i < cities.length; i++) {
+       let commonTrips;
+       for (let i = 1; i < cities.length; i++) {
           let city1 = cities[i].name
           let city2 = cities[i - 1].name
-          commonTrips = lodash.intersectionBy(trips[city1], trips[city2], 'cityTo');
+          if (commonTrips) {
+              commonTrips = cityIntersection(
+                commonTrips,
+                cityIntersection(trips[city1], trips[city2]),
+            );
+          } else {
+            commonTrips = cityIntersection(trips[city1], trips[city2]);
+          }
         }
         const commonDestinations = commonTrips.map((item) => {
           return item.cityTo
         })
 
-        //Retirer les voages qui ne font pas parti des destinations communes
+
+        //Retirer les voyages qui ne font pas parti des destinations communes
         for (let i = 0; i < cities.length; i++) {
           let city = cities[i].name
           trips[city] = trips[city].filter((trip) => {
             return commonDestinations.includes(trip.cityTo)
-          })          
+          })
+          trips[city] = trips[city].slice(0, 20)
         }
 
         const data = {
-          commonDestinations: commonDestinations,
-          trips: trips
+          commonDestinations,
+          trips
         }
         dispatch({ type: 'SEARCH', data })
         history.push('/results')
