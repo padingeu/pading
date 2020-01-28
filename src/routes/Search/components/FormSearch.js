@@ -16,7 +16,9 @@ export default class FormSearch extends React.Component {
     dateTo: '',
     showDateFrom: false,
     showDateTo: false,
-    travelType: "return",
+    travelType: "Return",
+    stopTrip: "Direct",
+    flexibleDates: 0,
     plane: true,
     train: true,
     bus: true,
@@ -38,13 +40,28 @@ export default class FormSearch extends React.Component {
 
   switchToOneWay = event => {
     event.preventDefault();
-    this.setState({ travelType: "one-way" });
+    this.setState({ travelType: "One-way" });
   }
 
   switchToReturn = event => {
     event.preventDefault();
     this.setState({ showDateTo: false });
-    this.setState({ travelType: "return" });
+    this.setState({ travelType: "Return" });
+  }
+
+  switchToIndirect = event => {
+    event.preventDefault();
+    this.setState({ stopTrip: "Indirect" });
+  }
+
+  switchToDirect = event => {
+    event.preventDefault();
+    this.setState({ stopTrip: "Direct" });
+  }
+
+  changeFlexibleDates = event => {
+    event.preventDefault();
+    this.setState({ flexibleDates: event.target.value });
   }
 
   getFormattedCoordinate = (coordinates) => {
@@ -189,7 +206,12 @@ export default class FormSearch extends React.Component {
           onChange={this.onInputDateChange}
           switchToOneWay={this.switchToOneWay}
           switchToReturn={this.switchToReturn}
+          switchToIndirect={this.switchToIndirect}
+          switchToDirect={this.switchToDirect}
+          changeFlexibleDates={this.changeFlexibleDates}
           travelType={this.state.travelType}
+          stopTrip={this.state.stopTrip}
+          flexibleDates={this.state.flexibleDates}
         />
         <FormGroup check className="travel-checkbox">
           <Label check>

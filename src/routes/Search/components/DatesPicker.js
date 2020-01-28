@@ -6,7 +6,8 @@ import onClickOutside from 'react-onclickoutside';
 class DatesPicker extends React.Component {
   state = {
     showCalendar: false,
-    showTravelTypeBtn: false
+    showTravelTypeBtn: false,
+    showStopTripBtn: false
   };
 
   //ontravelTypeChange
@@ -33,64 +34,141 @@ class DatesPicker extends React.Component {
     this.setState({ showTravelTypeBtn: !this.state.showTravelTypeBtn });
   }
 
-  switchButton = event => {
+  showStopTripBtn = () => {
+    this.setState({ showStopTripBtn: !this.state.showStopTripBtn });
+  }
+
+  switchTravelTypeBtn = event => {
     event.preventDefault();
     this.setState({ showCalendar: false });
+    this.setState({ showStopTripBtn: false });
     this.setState({ showTravelTypeBtn: !this.state.showTravelTypeBtn });
   }
 
+  switchStopTripBtn = event => {
+    event.preventDefault();
+    this.setState({ showCalendar: false });
+    this.setState({ showTravelTypeBtn: false });
+    this.setState({ showStopTripBtn: !this.state.showStopTripBtn });
+  }
 
   render() {
     return (
       <div>
         <form className="simple_form search" action="/">
           <div>
-            {
-              this.state.showTravelTypeBtn ?
-                <div className="travel-type-change">
-                  <a href="/" onClick={(event) => {
-                    this.props.switchToOneWay(event);
-                    this.showTravelTypeBtn();}
-                  }>
-                    <div className="check-box">
-                      {
-                        this.props.travelType === "one-way" ?
-                          <i className="fas fa-check fa-xs"></i>
-                        : null
-                      }
-                    </div>
-                    <div className="one-way-return-div">
-                      <h6>One-way</h6>
-                    </div>
-                  </a>
+            <div className="travel-options">
 
-                  <a href="/" onClick={(event) => {
-                    this.props.switchToReturn(event);
-                    this.showTravelTypeBtn();}
-                  }>
-                    <div className="check-box">
-                      {
-                        this.props.travelType === "return" ?
-                          <i className="fas fa-check fa-xs"></i>
-                        : null
-                      }
-                    </div>
-                    <div className="one-way-return-div">
-                      <h6>Return</h6>
-                    </div>
-                  </a>
-                </div>
-              : null
-            }
-          <div className="travel-type">
-            <button className="travel-type-btn" onClick={this.switchButton}>
-              <h6>{this.props.travelType}</h6>
-              <div className="chevron-up-down">
-                <i className="fas fa-chevron-down fa-xs"></i>
+              <div className="travel-type">
+              {
+                this.state.showTravelTypeBtn ?
+                  <div className="travel-type-change">
+                    <a href="/" onClick={(event) => {
+                      this.props.switchToOneWay(event);
+                      this.showTravelTypeBtn();}
+                    }>
+                      <div className="check-box">
+                        {
+                          this.props.travelType === "one-way" ?
+                            <i className="fas fa-check fa-xs"></i>
+                          : null
+                        }
+                      </div>
+                      <div className="one-way-return-div">
+                        <h6>One-way</h6>
+                      </div>
+                    </a>
+
+                    <a href="/" onClick={(event) => {
+                      this.props.switchToReturn(event);
+                      this.showTravelTypeBtn();}
+                    }>
+                      <div className="check-box">
+                        {
+                          this.props.travelType === "return" ?
+                            <i className="fas fa-check fa-xs"></i>
+                          : null
+                        }
+                      </div>
+                      <div className="one-way-return-div">
+                        <h6>Return</h6>
+                      </div>
+                    </a>
+                  </div>
+                : null
+              }
+                <button className="travel-type-btn" onClick={this.switchTravelTypeBtn}>
+                  <h6><b>{this.props.travelType}</b></h6>
+                  <div className="chevron-up-down">
+                    <i className="fas fa-chevron-down fa-xs"></i>
+                  </div>
+                </button>
               </div>
-            </button>
+
+
+              <div className="stop-trip">
+              {
+                this.state.showStopTripBtn ?
+                  <div className="stop-trip-change">
+                    <a href="/" onClick={(event) => {
+                      this.props.switchToIndirect(event);
+                      this.showStopTripBtn();}
+                    }>
+                      <div className="check-box">
+                        {
+                          this.props.stopTrip === "indirect" ?
+                            <i className="fas fa-check fa-xs"></i>
+                          : null
+                        }
+                      </div>
+                      <div className="stop-div">
+                        <h6>Indirect</h6>
+                      </div>
+                    </a>
+
+                    <a href="/" onClick={(event) => {
+                      this.props.switchToDirect(event);
+                      this.showStopTripBtn();}
+                    }>
+                      <div className="check-box">
+                        {
+                          this.props.stopTrip === "direct" ?
+                            <i className="fas fa-check fa-xs"></i>
+                          : null
+                        }
+                      </div>
+                      <div className="stop-div">
+                        <h6>Direct</h6>
+                      </div>
+                    </a>
+                  </div>
+                : null
+              }
+                <button className="stop-trip-btn" onClick={this.switchStopTripBtn}>
+                  <h6><b>{this.props.stopTrip}</b></h6>
+                  <div className="chevron-up-down">
+                    <i className="fas fa-chevron-down fa-xs"></i>
+                  </div>
+                </button>
+              </div>
+
+              <div className="range-slider">
+                <h6><b>Flexibility</b></h6>
+                <div>
+                  <label>
+                    <input
+                      className="range-slider__range"
+                      type="range"
+                      min="0" max="2"
+                      value={this.props.flexibleDates}
+                      onChange={this.props.changeFlexibleDates}
+                      step="0"/>
+                  </label>
+                </div>
+                  <h6>{this.props.flexibleDates}</h6>
+              </div>
+            </div>
           </div>
-        </div>
 
 
         <div className="search-form-control form-group">
