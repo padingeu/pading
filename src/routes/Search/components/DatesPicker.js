@@ -85,7 +85,7 @@ class DatesPicker extends React.Component {
                     }>
                       <div className="check-box">
                         {
-                          this.props.travelType === "return" ?
+                          this.props.travelType === "Return" ?
                             <i className="fas fa-check fa-xs"></i>
                           : null
                         }
@@ -182,7 +182,7 @@ class DatesPicker extends React.Component {
               placeholder='Departure'
               value={this.props.showDateFrom ? this.props.dateFrom.toLocaleDateString() : ''}
             />
-            {this.props.travelType === "return" ?
+            {this.props.travelType === "Return" ?
               <input
               className="inputdateto"
               type="text"
@@ -214,7 +214,7 @@ class DatesPicker extends React.Component {
                 minDate={new Date()}
                 onClickOutside={this.handleClickOutside}
                 onChange={this.props.onChange}
-                selectRange={this.props.travelType === "return" ? true : false}
+                selectRange={this.props.travelType === "Return" ? true : false}
                 returnValue={"range"}
               />
               <button className="btn btn-date" onClick={this.showOffCalendar}>Ok</button>

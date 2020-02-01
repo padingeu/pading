@@ -70,18 +70,6 @@ export default class FormSearch extends React.Component {
     return `${coordinates.lat}-${coordinates.lng}-20km`
   }
 
-  shouldSearch() {
-    return
-  }
-
-  increment_traveler(cityName) {
-    //copy cities from state
-    //check if there is a city with the same name than cityName inside cities
-    //if YES add + 1 to numberOfPeople
-      //set state with cities
-  }
-
-
   addCity = async address => {
     const position = await geocodeByAddress(address);
     const coordinates = await getLatLng(position[0]);
