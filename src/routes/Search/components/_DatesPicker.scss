@@ -145,14 +145,20 @@
   }
 }
 
+.travel-options {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
 .travel-type {
+  position: relative;
   display: flex;
   justify-content: left;
   align-items: center;
 }
 
 button.travel-type-btn {
-  position: relative;
   display: flex;
   justify-content: left;
   align-items: center;
@@ -165,7 +171,7 @@ button.travel-type-btn {
 
 .travel-type-change {
   position: absolute;
-  top: -40px;
+  bottom: 40px;
   left: 0px;
   min-width: 120px;
   z-index: 1;
@@ -192,3 +198,110 @@ button.travel-type-btn {
   }
 }
 
+.stop-trip {
+  position: relative;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+button.stop-trip-btn {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  min-width: 80px;
+  height: 100%;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.stop-trip-change {
+  position: absolute;
+  bottom: 40px;
+  left: 0px;
+  min-width: 120px;
+  z-index: 1;
+  box-shadow: rgba(37, 42, 49, 0.16) 0px 4px 8px 0px, rgba(37, 42, 49, 0.24) 0px 8px 24px 0px;
+  a {
+    background-color: white;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    cursor: pointer;
+    color: #2e353b;
+    text-decoration: none;
+    .check-box {
+      min-width: 30px;
+      .fa-check {
+        color: #4aa55b;
+      }
+    }
+    .stop-div {
+      text-align: left;
+    }
+  } :hover {
+    background-color: #f7fbfc;
+  }
+}
+
+.range-slider {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  input[type=range] {
+    -webkit-appearance: none;
+    width: 100%; /* Specific width is required for Firefox. */
+    background: #f5f7f9; /* Otherwise white in Chrome */
+  }
+  input[type=range]:focus {
+      outline: none;
+  }
+  input[type=range]::-ms-track {
+    width: 100%;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+  }
+}
+
+.range-slider__range {
+  -webkit-appearance: none;
+  max-width: 50px;
+  height: 7px;
+  border-radius: 5px;
+  background: #d7dcdf;
+  outline: none;
+  padding: 0;
+  margin: 0 10px;
+  z-index: 100;
+  &::-webkit-slider-thumb {
+    appearance: none;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #44a7bc;
+    cursor: pointer;
+    transition: background .15s ease-in-out;
+  }
+  &:hover {
+    background: #49a991;
+  }
+  &:active::-webkit-slider-thumb {
+    background: #49a991;
+  }
+  &:hover {
+    background: #49a991;
+  }
+  &:active::-moz-range-thumb {
+    background: #49a991;
+  }
+  &:focus {
+    &::-webkit-slider-thumb {
+      box-shadow: 0 0 0 3px #fff,
+      0 0 0 6px #1abc9c;
+    }
+  }
+}
