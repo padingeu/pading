@@ -47,23 +47,26 @@ export const onClick = (cities, dateFrom, dateTo) => {
           }
 
         }
-
+        console.log(trips)
         //Recuperer une liste des destinations communes
         let commonTrips = [];
-        for (let i = 1; i < cities.length; i++) {
+        for (let i = 1; i <= cities.length; i++) {
           let city1 = cities[i - 1].name
-          let city2 = cities[i].name
           if (cities.length !== 1) {
+            let city2 = cities[i].name
             commonTrips = lodash.intersectionBy(trips[city1], trips[city2], 'cityTo');
-          } else if (city1 in trips) {
+          } else {
+            console.log(trips)
+            console.log(trips[city1])
             commonTrips = trips[city1];
           }
 
         }
+        console.log(commonTrips)
         const commonDestinations = commonTrips.map((item) => {
           return item.cityTo
         })
-
+        console.log(commonDestinations)
         //Retirer les voages qui ne font pas parti des destinations communes
         for (let i = 0; i < cities.length; i++) {
           let city = cities[i].name
