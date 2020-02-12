@@ -1,15 +1,20 @@
 import React from 'react';
 
-const TripCard = ({destination}) => {
-
+const TripCard = ({destination, prices}) => {
 
   return (
-    <div className="cities-departure">
-      {
-        <p>{destination}</p>
-      }
+    <div className="">
+      {<div>{destination}</div>}
+      {prices.map(object => {
+        return (
+          <div key={object.city}>
+            From {object.city} price is {object.price} € /pers 
+          </div>
+        );
+      })}
+      <br />
     </div>
-  )
+  );
 }
 
 export default TripCard;

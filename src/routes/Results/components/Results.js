@@ -7,16 +7,21 @@ export default class Result extends React.Component {
     
   };
 
-  getTotalPrice = (cityName, trips) => {
-    let totalPrice = 0
-    for(let i = 0; i < trips.length; i++) {
-      trips[i].filter((trip) =>
-      {
-        return trip.cityTo === cityName
+  getTotalPrice = (trips, destination) => {
+    const prices_list = []
+    Object.keys(trips).forEach((city, index)=> {
+      let tripsForDestination = trips[city].filter((trip) => {
+        return trip.cityTo === destination
       })
-      totalPrice += trips[i].price
-    }
-    return totalPrice
+      let prices = tripsForDestination.map((trip) => {
+        return trip.price;
+      })
+      const price = Math.min.apply(null, prices);
+   
+      prices_list.push({ city: city, price: price });
+    });
+  
+    return prices_list;
   }
 
   render() {
@@ -26,11 +31,15 @@ export default class Result extends React.Component {
         this.props.search.commonDestinations.map((destination, index) => {
           return (
             <div key={index} className="city-div">
-              <TripCard 
+              <TripCard
                 destination={destination}
-             />
+                prices={this.getTotalPrice(
+                  this.props.search.trips,
+                  destination
+                )}
+              />
             </div>
-          )
+          );
         })
       }
       </div>

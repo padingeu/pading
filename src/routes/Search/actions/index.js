@@ -50,7 +50,7 @@ export const onClick = (cities, dateFrom, dateTo) => {
         console.log(trips)
         //Recuperer une liste des destinations communes
         let commonTrips = [];
-        for (let i = 1; i <= cities.length; i++) {
+        for (let i = 1; i < cities.length; i++) {
           let city1 = cities[i - 1].name
           if (cities.length !== 1) {
             let city2 = cities[i].name
