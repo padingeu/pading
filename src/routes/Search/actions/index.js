@@ -8,8 +8,6 @@ export const onClick = (cities, dateFrom, dateTo) => {
 
   // To calculate the no. of days between two dates 
   var differenceInDays = Math.trunc(differenceInTime / (1000 * 3600 * 24));
-  console.log('differenceInDays')
-  console.log(differenceInDays)
   dateFrom = dateFrom.toLocaleDateString()
   dateTo = dateTo.toLocaleDateString()
 
@@ -82,7 +80,6 @@ export const onClick = (cities, dateFrom, dateTo) => {
           commonDestinations: commonDestinations,
           trips: trips
         }
-        console.log(data)
         dispatch({ type: 'SEARCH', data })
         history.push('/results')
       })
