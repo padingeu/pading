@@ -2,7 +2,8 @@ import axios from "axios";
 import lodash from "lodash";
 import { history } from "../../../index";
 export const searchTrips = (cities, dateFrom, dateTo, stopTrip) => {
-  console.log("stopTrip is " + stopTrip);
+  console.log("cities");
+  console.log(cities);
   const promises = [];
   return dispatch => {
     dispatch({ type: "CLEAR_SEARCH" });
@@ -16,8 +17,8 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip) => {
     dateTo = dateTo.toLocaleDateString();
     let maxStopover = "2";
     if (stopTrip === "Direct") {
-      maxStopover = "0"
-    } 
+      maxStopover = "0";
+    }
     let config = {
       headers: {
         accept: "application/json",
@@ -55,7 +56,7 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip) => {
       console.log(cities.length + "cities");
       //Recuperer une liste des destinations communes
       let commonTrips = [];
-      if (cities.length === 1) {
+      if (cities.length === 1 && cities[0].name in trips) {
         commonTrips = trips[cities[0].name];
       } else {
         for (let i = 1; i < cities.length; i++) {
@@ -72,9 +73,13 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip) => {
 
       console.log("commonTrips");
       console.log(commonTrips);
-      const commonDestinations = commonTrips.map(item => {
-        return item.cityTo;
-      });
+      const commonDestinations = [];
+      for (let i = 0; i < commonTrips.length; i++) {
+        console.log(commonTrips[i]);
+        if (!commonDestinations.includes(commonTrips[i].cityTo)) {
+          commonDestinations.push(commonTrips[i].cityTo);
+        }
+      }
       console.log(commonDestinations);
       //Retirer les voages qui ne font pas parti des destinations communes
       for (let i = 0; i < cities.length; i++) {
