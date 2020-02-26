@@ -28,7 +28,12 @@ export default class FormSearch extends React.Component {
   };
 
   search = () => {
-    this.props.onClick(this.state.cities, this.state.dateFrom, this.state.dateTo, this.props.history)
+    this.props.searchTrips(
+      this.state.cities,
+      this.state.dateFrom,
+      this.state.dateTo,
+      this.state.stopTrip
+    );
   }
 
   onInputDateChange = date => {

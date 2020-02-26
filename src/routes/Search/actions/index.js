@@ -1,7 +1,8 @@
 import axios from "axios";
 import lodash from "lodash";
 import { history } from "../../../index";
-export const onClick = (cities, dateFrom, dateTo) => {
+export const searchTrips = (cities, dateFrom, dateTo, stopTrip) => {
+  console.log("stopTrip is " + stopTrip);
   const promises = [];
   return dispatch => {
     dispatch({ type: "CLEAR_SEARCH" });
@@ -9,11 +10,14 @@ export const onClick = (cities, dateFrom, dateTo) => {
 
     // To calculate the time difference of two dates
     const differenceInTime = dateTo.getTime() - dateFrom.getTime();
-
     // To calculate the no. of days between two dates
     const differenceInDays = Math.trunc(differenceInTime / (1000 * 3600 * 24));
     dateFrom = dateFrom.toLocaleDateString();
     dateTo = dateTo.toLocaleDateString();
+    let maxStopover = "2";
+    if (stopTrip === "Direct") {
+      maxStopover = "0"
+    } 
     let config = {
       headers: {
         accept: "application/json",
@@ -22,7 +26,7 @@ export const onClick = (cities, dateFrom, dateTo) => {
     };
     for (let i = 0; i < cities.length; i++) {
       const promise = axios.get(
-        `https://kiwicom-prod.apigee.net/v2/search?fly_from=${cities[i].coordinates}&date_from=${dateFrom}&date_to=${dateFrom}&return_from=${dateTo}&max_stopovers=2&flight_type=round&nights_in_dst_from=${differenceInDays}&nights_in_dst_to=${differenceInDays}&adults=${cities[i].numberOfPeople}&vehicle_type=aircraft`,
+        `https://kiwicom-prod.apigee.net/v2/search?fly_from=${cities[i].coordinates}&date_from=${dateFrom}&date_to=${dateFrom}&return_from=${dateTo}&max_stopovers=${maxStopover}&flight_type=round&nights_in_dst_from=${differenceInDays}&nights_in_dst_to=${differenceInDays}&adults=${cities[i].numberOfPeople}&vehicle_type=aircraft`,
         config
       );
       promises.push(promise);

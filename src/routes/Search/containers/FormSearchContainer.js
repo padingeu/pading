@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import FormSearch from '../components/FormSearch';
-import { onClick } from '../actions'
+import { searchTrips } from "../actions";
 
 
 const mapStateToProps =  ({ search, app }, ownProps) => {
@@ -10,8 +10,9 @@ const mapStateToProps =  ({ search, app }, ownProps) => {
 }
 
 const mapDispatchToProps = dispatch => ({
-  onClick: (cities, dateFrom, dateTo) => dispatch(onClick(cities, dateFrom, dateTo))
-})
+  searchTrips: (cities, dateFrom, dateTo, stopTrip) =>
+    dispatch(searchTrips(cities, dateFrom, dateTo, stopTrip))
+});
 
 export default connect(
   mapStateToProps,
