@@ -27,7 +27,7 @@ export default class FormSearch extends React.Component {
     shouldSearch: false
   };
 
-  test = () => {
+  search = () => {
     this.props.onClick(this.state.cities, this.state.dateFrom, this.state.dateTo, this.props.history)
   }
 
@@ -253,7 +253,7 @@ export default class FormSearch extends React.Component {
           address={this.state.address}
         />
 
-        <button name="button" disabled={!(this.state.dateFrom && this.state.cities.length > 0)} type="submit" className="btn btn-flat" onClick={() => this.test()}>
+        <button name="button" disabled={!(this.state.dateFrom && this.state.cities.length > 0)} type="submit" className="btn btn-flat" onClick={() => this.search()}>
           Explore
         </button>
       </div>
