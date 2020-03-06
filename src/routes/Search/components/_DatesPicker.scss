@@ -1,7 +1,7 @@
 .search {
-  position: relative;
   @media(max-width: 1200px) {
     .travel-options {
+      position: relative;
       display: flex;
       flex-direction: column;
       margin-bottom: 5px;
@@ -156,18 +156,15 @@
   .calendar {
     margin: none;
     position: absolute;
-    top: 80px;
-    right: 70px;
+    top: 230px;
     z-index: 1;
     transition: all 0.15s ease-in-out 0s;
 
     .react-calendar {
-      max-width: 400px;
       padding: 15px;
       border: none;
       box-shadow: 1px 1px 20px 0 rgba(0, 0, 0, 0.4);
-      border-radius: 3px;
-      overflow: hidden;
+      border-radius: 5px;
       .react-calendar__tile {
         margin-top: 5px;
       }
@@ -241,11 +238,13 @@
 
   .btn-date {
     position: absolute;
-    bottom: 10px;
+    bottom: 0px;
+    right: 5px;
     color: white;
-    width: 50px;
     height: 44px;
-    border-radius: 3px;
+    width: 97%;
+    margin-bottom: 5px;
+    border-radius: 5px;
     background: #49a991;
     transition: background 0.3s ease;
     &:hover {
