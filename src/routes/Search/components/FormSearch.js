@@ -1,4 +1,5 @@
 import React from 'react';
+import NavBar from "./NavBar";
 import DatesPicker from './DatesPicker';
 import LocationSearchInput from './LocationSearchInput';
 import SelectedCities from './SelectedCities';
@@ -9,6 +10,9 @@ import {
   getLatLng
 } from 'react-places-autocomplete';
 
+import Switch from '@material-ui/core/Switch';
+
+
 export default class FormSearch extends React.Component {
 
   state = {
@@ -18,7 +22,7 @@ export default class FormSearch extends React.Component {
     showDateTo: false,
     travelType: "Return",
     stopTrip: "Direct",
-    flexibleDates: 0,
+    //flexibleDates: 0,
     plane: true,
     train: true,
     bus: true,
@@ -64,10 +68,9 @@ export default class FormSearch extends React.Component {
     this.setState({ stopTrip: "Direct" });
   }
 
-  changeFlexibleDates = event => {
+/*changeFlexibleDates = event => {
     event.preventDefault();
-    this.setState({ flexibleDates: event.target.value });
-  }
+  this.setState({ flexibleDates: event.target.value });*/
 
   getFormattedCoordinate = (coordinates) => {
     coordinates.lat = coordinates.lat.toFixed(6)
@@ -190,79 +193,102 @@ export default class FormSearch extends React.Component {
 
   render() {
     return (
-      <div className="travel-form">
-       <DatesPicker
-          dateFrom={this.state.dateFrom}
-          dateTo={this.state.dateTo}
-          showDateFrom={this.state.showDateFrom}
-          showDateTo={this.state.showDateTo}
-          onChange={this.onInputDateChange}
-          switchToOneWay={this.switchToOneWay}
-          switchToReturn={this.switchToReturn}
-          switchToIndirect={this.switchToIndirect}
-          switchToDirect={this.switchToDirect}
-          changeFlexibleDates={this.changeFlexibleDates}
-          travelType={this.state.travelType}
-          stopTrip={this.state.stopTrip}
-          flexibleDates={this.state.flexibleDates}
-        />
-        <FormGroup check className="travel-checkbox">
-          <Label check>
-            <div className="vehicle-type">
-              <h5>Flight</h5>
-              <button
-                className="toggle-btn"
-                onClick={this.onPlaneClick}
-              >
-                {this.state.plane ? <i className="fas fa-toggle-on fa-2x"></i> : <i className="fas fa-toggle-off fa-2x"></i>}
-              </button>
-            </div>
-          </Label>
-          <Label check>
-            <div className="vehicle-type">
-              <h5>Train</h5>
-              <button
-                className="toggle-btn"
-                onClick={this.onTrainClick}
-              >
-                {this.state.train ? <i className="fas fa-toggle-on fa-2x"></i> : <i className="fas fa-toggle-off fa-2x"></i>}
-              </button>
-            </div>
-          </Label>
-          <Label check>
-            <div className="vehicle-type">
-              <h5>Bus</h5>
-              <button
-                className="toggle-btn"
-                onClick={this.onBusClick}
-              >
-                {this.state.bus ? <i className="fas fa-toggle-on fa-2x"></i> : <i className="fas fa-toggle-off fa-2x"></i>}
-              </button>
-            </div>
-          </Label>
-        </FormGroup>
-        <LocationSearchInput
-          address={this.state.address}
-          cities={this.state.cities}
-          addCity={this.addCity}
-          removeCity={this.removeCity}
-          handleAddressChange={this.handleAddressChange}
-        />
-        <SelectedCities
-          cities={this.state.cities}
-          addCity={this.addCity}
-          removeCity={this.removeCity}
-          handleCityClick={this.showButtons}
-          addTraveler={this.addTraveler}
-          removeTraveler={this.removeTraveler}
-          address={this.state.address}
-        />
+      <div>
+        <NavBar />
+        <div className="travel-form">
+          <div className="search-box">
+            <DatesPicker
+              dateFrom={this.state.dateFrom}
+              dateTo={this.state.dateTo}
+              showDateFrom={this.state.showDateFrom}
+              showDateTo={this.state.showDateTo}
+              onChange={this.onInputDateChange}
+              switchToOneWay={this.switchToOneWay}
+              switchToReturn={this.switchToReturn}
+              switchToIndirect={this.switchToIndirect}
+              switchToDirect={this.switchToDirect}
+              //changeFlexibleDates={this.changeFlexibleDates}
+              travelType={this.state.travelType}
+              stopTrip={this.state.stopTrip}
+              //flexibleDates={this.state.flexibleDates}
+            />
 
-        <button name="button" disabled={!(this.state.dateFrom && this.state.cities.length > 0)} type="submit" className="btn btn-flat" onClick={() => this.search()}>
-          Explore
-        </button>
+              {/*<FormGroup check className="travel-checkbox">
+                <Label check>
+                  <div className="vehicle-type">
+                    <h5>Flight</h5>
+                    <button
+                      className="toggle-btn"
+                      onClick={this.onPlaneClick}
+                    >
+                      {this.state.plane ? <i className="fas fa-toggle-on fa-2x"></i> : <i className="fas fa-toggle-off fa-2x"></i>}
+                    </button>
+                  </div>
+                </Label>
+                <Label check>
+                  <div className="vehicle-type">
+                    <h5>Train</h5>
+                    <button
+                      className="toggle-btn"
+                      onClick={this.onTrainClick}
+                    >
+                      {this.state.train ? <i className="fas fa-toggle-on fa-2x"></i> : <i className="fas fa-toggle-off fa-2x"></i>}
+                    </button>
+                  </div>
+                </Label>
+                <Label check>
+                  <div className="vehicle-type">
+                    <h5>Bus</h5>
+                    <button
+                      className="toggle-btn"
+                      onClick={this.onBusClick}
+                    >
+                      {this.state.bus ? <i className="fas fa-toggle-on fa-2x"></i> : <i className="fas fa-toggle-off fa-2x"></i>}
+                    </button>
+                  </div>
+                </Label>
+              </FormGroup>*/}
+            <button
+              name="button"
+              disabled={!(this.state.dateFrom && this.state.cities.length > 0)}
+              type="submit"
+              className="btn btn-flat"
+              onClick={() => this.search()}>
+              Explore
+            </button>
+
+          </div>
+
+          <LocationSearchInput
+            address={this.state.address}
+            cities={this.state.cities}
+            addCity={this.addCity}
+            removeCity={this.removeCity}
+            handleAddressChange={this.handleAddressChange}
+          />
+          <SelectedCities
+            cities={this.state.cities}
+            addCity={this.addCity}
+            removeCity={this.removeCity}
+            handleCityClick={this.showButtons}
+            addTraveler={this.addTraveler}
+            removeTraveler={this.removeTraveler}
+            address={this.state.address}
+          />
+          <div>
+          <p><b>We only consider to meet in one of the cities we come from</b></p>
+            <Switch
+              className="switchSearchType"
+              //checked={state.checkedA}
+              //onChange={handleChange('checkedA')}
+              value="checkedA"
+              inputProps={{ 'aria-label': 'secondary checkbox' }}
+            />
+          </div>
+        </div>
       </div>
     );
 
   };
 };
+

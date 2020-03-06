@@ -1,307 +1,267 @@
 .search {
   position: relative;
-  .search-form-control {
-  height: 40px;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  }
-}
-
-.inputdate {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  height: 40px;
-  border: none;
-  margin-top: 10px;
-  .inputdatefrom {
-    cursor: pointer;
-    text-align: center;
-    height: 100%;
-    width: 175px;
-    box-sizing: border-box;
-    margin-bottom: 8px;
-    color: rgb(37, 42, 49);
-    text-shadow: 0 0 0 black;
-    &:focus {
-      outline: none
+  @media(max-width: 1200px) {
+    .travel-options {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 5px;
+      .travel-options-details {
+        display: flex;
+        justify-content: flex-start !important;
+        width: 100%;
+      }
+    }
+    .inputdate {
+      .inputdatefrom {
+        width: 100%;
+      }
+      .inputdateto {
+        width: 100%
+      }
     }
   }
-  .inputdateto {
-    cursor: pointer;
-    text-align: center;
-    height: 100%;
-    width: 175px;
-    box-sizing: border-box;
-    margin-bottom: 8px;
-    color: rgb(37, 42, 49);
-    text-shadow: 0 0 0 black;
-    &:focus {
+  .travel-options {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .travel-options-details {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 300px;
+      .travel-type {
+        position: relative;
+        button.travel-type-btn {
+          display: flex;
+          align-items: center;
+          min-width: 80px;
+          height: 100%;
+          border: none;
+          outline: none;
+          cursor: pointer;
+        }
+        .travel-type-change {
+          position: absolute;
+          bottom: 40px;
+          min-width: 100px;
+          z-index: 1;
+          box-shadow: rgba(37, 42, 49, 0.16) 0px 4px 8px 0px, rgba(37, 42, 49, 0.24) 0px 8px 24px 0px;
+          a {
+            background-color: white;
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            cursor: pointer;
+            color: #2e353b;
+            text-decoration: none;
+            .check-box {
+              min-width: 30px;
+              .fa-check {
+                color: #4aa55b;
+              }
+            }
+            .one-way-return-div {
+              text-align: left;
+            }
+          } :hover {
+            background-color: #f7fbfc;
+          }
+        }
+      }
+    }
+    .stop-trip {
+      position: relative;
+      display: flex;
+      justify-content: left;
+      align-items: center;
+    }
+    button.stop-trip-btn {
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      min-width: 80px;
+      height: 100%;
+      border: none;
       outline: none;
+      cursor: pointer;
     }
-  }
-}
-
-.calendar {
-  margin: none;
-  position: absolute;
-  top: 80px;
-  z-index: 1;
-  transition: all 0.15s ease-in-out 0s;
-
-  .react-calendar {
-    width: 100%;
-    padding: 15px;
-    border: none;
-    box-shadow: 1px 1px 20px 0 rgba(0, 0, 0, 0.4);
-    border-radius: 3px;
-    overflow: hidden;
-    .react-calendar__tile {
-      margin-top: 5px;
-    }
-      button[disabled] {
-        color: #bfbfbf;
-      }
-    .react-calendar__tile--now {
-      color: #44a7bc;
-      font-weight: bold;
-    }
-    .react-calendar__navigation {
-      margin: -15px -15px 15px;
-      padding: 0 10px;
-      background-color: #f5a741;
-      font-size: 18px;
-      color: #fff;
-      button[disabled] {
-        background-color: #f5a741;
-        color: #f5a741;
-      }
-      button.react-calendar__navigation__label {
-        background-color: #f5a741;
-        pointer-events: none;
-      }
-    }
-    button.react-calendar__navigation__arrow {
-      background-color: #f5a741;
-    }
-  }
-  .react-calendar__tile:disabled {
-    background-color: transparent;
-  }
-  .react-calendar__month-view__weekdays, .react-calendar__month-view__days__day--neighboringMonth {
-      color: #44a7bc;
-      & abbr {
-        border-bottom: none;
+    .stop-trip-change {
+      position: absolute;
+      bottom: 40px;
+      left: 0px;
+      min-width: 100px;
+      z-index: 1;
+      box-shadow: rgba(37, 42, 49, 0.16) 0px 4px 8px 0px, rgba(37, 42, 49, 0.24) 0px 8px 24px 0px;
+      a {
+        background-color: white;
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        cursor: pointer;
+        color: #2e353b;
         text-decoration: none;
+        .check-box {
+          min-width: 30px;
+          .fa-check {
+            color: #4aa55b;
+          }
+        }
+        .stop-div {
+          text-align: left;
+        }
+      } :hover {
+        background-color: #f7fbfc;
       }
+    }
   }
-  .react-calendar__month-view__days__day {
-    color: #353535;
-  }
-  .react-calendar__tile--active {
-    color: white;
-    background-color: #44a7bc;
-  }
-  .react-calendar__tile--hover {
-    background-color: #f7fbfc;
-    border-radius: none;
-  }
-  .react-calendar__tile--active:enabled:hover, .react-calendar__tile--active:enabled:focus {
-    background-color: #44a7bc;
-    color: white;
-  }
-  .react-calendar__tile--rangeStart {
-  color: white !important;
-  font-weight: normal !important;
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  }
-  .react-calendar__tile--rangeEnd {
-  color: white !important;
-  font-weight: normal !important;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
-  }
-  .react-calendar__viewContainer {
-    padding-bottom: 50px;
-  }
-}
 
-.btn-date {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-  color: white;
-  width: 50px;
-  height: 40px;
-  border-radius: 3px;
-  background: #49a991;
-  transition: background 0.3s ease;
-  &:hover {
-    background: #429882;
-    color: white;
-  }
-}
-
-.travel-options {
-  display: flex;
-  justify-content: left;
-  align-items: center;
-}
-
-.travel-type {
-  position: relative;
-  display: flex;
-  justify-content: left;
-  align-items: center;
-}
-
-button.travel-type-btn {
-  display: flex;
-  justify-content: left;
-  align-items: center;
-  min-width: 80px;
-  height: 100%;
-  border: none;
-  outline: none;
-  cursor: pointer;
-}
-
-.travel-type-change {
-  position: absolute;
-  bottom: 40px;
-  left: 0px;
-  min-width: 120px;
-  z-index: 1;
-  box-shadow: rgba(37, 42, 49, 0.16) 0px 4px 8px 0px, rgba(37, 42, 49, 0.24) 0px 8px 24px 0px;
-  a {
-    background-color: white;
+  .inputdate {
     display: flex;
-    justify-content: left;
     align-items: center;
-    cursor: pointer;
-    color: #2e353b;
-    text-decoration: none;
-    .check-box {
-      min-width: 30px;
-      .fa-check {
-        color: #4aa55b;
+    justify-content: center;
+    flex-wrap: wrap;
+    .inputdatefrom {
+      cursor: pointer;
+      text-align: left;
+      height: 44px;
+      min-width: 300px;
+      padding-left: 20px;
+      margin: 5px;
+      border: solid #e5eaef;
+      border-width: 1px;
+      border-radius: 5px;
+      color: rgb(37, 42, 49);
+      text-shadow: 0 0 0 black;
+      &:focus {
+        outline: none
       }
     }
-    .one-way-return-div {
+    .inputdateto {
+      cursor: pointer;
       text-align: left;
-    }
-  } :hover {
-    background-color: #f7fbfc;
-  }
-}
-
-.stop-trip {
-  position: relative;
-  display: flex;
-  justify-content: left;
-  align-items: center;
-}
-
-button.stop-trip-btn {
-  display: flex;
-  justify-content: left;
-  align-items: center;
-  min-width: 80px;
-  height: 100%;
-  border: none;
-  outline: none;
-  cursor: pointer;
-}
-
-.stop-trip-change {
-  position: absolute;
-  bottom: 40px;
-  left: 0px;
-  min-width: 120px;
-  z-index: 1;
-  box-shadow: rgba(37, 42, 49, 0.16) 0px 4px 8px 0px, rgba(37, 42, 49, 0.24) 0px 8px 24px 0px;
-  a {
-    background-color: white;
-    display: flex;
-    justify-content: left;
-    align-items: center;
-    cursor: pointer;
-    color: #2e353b;
-    text-decoration: none;
-    .check-box {
-      min-width: 30px;
-      .fa-check {
-        color: #4aa55b;
+      height: 44px;
+      min-width: 300px;
+      padding-left: 20px;
+      margin: 5px;
+      border: solid #e5eaef;
+      border-width: 1px;
+      border-radius: 5px;
+      color: rgb(37, 42, 49);
+      text-shadow: 0 0 0 black;
+      &:focus {
+        outline: none;
       }
     }
-    .stop-div {
-      text-align: left;
+  }
+  .calendar {
+    margin: none;
+    position: absolute;
+    top: 80px;
+    right: 70px;
+    z-index: 1;
+    transition: all 0.15s ease-in-out 0s;
+
+    .react-calendar {
+      max-width: 400px;
+      padding: 15px;
+      border: none;
+      box-shadow: 1px 1px 20px 0 rgba(0, 0, 0, 0.4);
+      border-radius: 3px;
+      overflow: hidden;
+      .react-calendar__tile {
+        margin-top: 5px;
+      }
+        button[disabled] {
+          color: #bfbfbf;
+        }
+      .react-calendar__tile--now {
+        color: #44a7bc;
+        font-weight: bold;
+      }
+      .react-calendar__navigation {
+        margin: -15px -15px 15px;
+        padding: 0 10px;
+        background-color: #f5a741;
+        font-size: 18px;
+        color: #fff;
+        button[disabled] {
+          background-color: #f5a741;
+          color: #f5a741;
+        }
+        button.react-calendar__navigation__label {
+          background-color: #f5a741;
+          pointer-events: none;
+        }
+      }
+      button.react-calendar__navigation__arrow {
+        background-color: #f5a741;
+      }
     }
-  } :hover {
-    background-color: #f7fbfc;
+    .react-calendar__tile:disabled {
+      background-color: transparent;
+    }
+    .react-calendar__month-view__weekdays, .react-calendar__month-view__days__day--neighboringMonth {
+        color: #44a7bc;
+        & abbr {
+          border-bottom: none;
+          text-decoration: none;
+        }
+    }
+    .react-calendar__month-view__days__day {
+      color: #353535;
+    }
+    .react-calendar__tile--active {
+      color: white;
+      background-color: #44a7bc;
+    }
+    .react-calendar__tile--hover {
+      background-color: #f7fbfc;
+      border-radius: none;
+    }
+    .react-calendar__tile--active:enabled:hover, .react-calendar__tile--active:enabled:focus {
+      background-color: #44a7bc;
+      color: white;
+    }
+    .react-calendar__tile--rangeStart {
+    color: white !important;
+    font-weight: normal !important;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    }
+    .react-calendar__tile--rangeEnd {
+    color: white !important;
+    font-weight: normal !important;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    }
+    .react-calendar__viewContainer {
+      padding-bottom: 50px;
+    }
+  }
+
+  .btn-date {
+    position: absolute;
+    bottom: 10px;
+    color: white;
+    width: 50px;
+    height: 44px;
+    border-radius: 3px;
+    background: #49a991;
+    transition: background 0.3s ease;
+    &:hover {
+      background: #429882;
+      color: white;
+    }
   }
 }
 
-.range-slider {
-  position: relative;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  input[type=range] {
-    -webkit-appearance: none;
-    width: 100%; /* Specific width is required for Firefox. */
-    background: #f5f7f9; /* Otherwise white in Chrome */
-  }
-  input[type=range]:focus {
-      outline: none;
-  }
-  input[type=range]::-ms-track {
-    width: 100%;
-    cursor: pointer;
-    background: transparent;
-    border-color: transparent;
-    color: transparent;
-  }
-}
 
-.range-slider__range {
-  -webkit-appearance: none;
-  max-width: 50px;
-  height: 7px;
-  border-radius: 5px;
-  background: #d7dcdf;
-  outline: none;
-  padding: 0;
-  margin: 0 10px;
-  z-index: 100;
-  &::-webkit-slider-thumb {
-    appearance: none;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: #44a7bc;
-    cursor: pointer;
-    transition: background .15s ease-in-out;
-  }
-  &:hover {
-    background: #49a991;
-  }
-  &:active::-webkit-slider-thumb {
-    background: #49a991;
-  }
-  &:hover {
-    background: #49a991;
-  }
-  &:active::-moz-range-thumb {
-    background: #49a991;
-  }
-  &:focus {
-    &::-webkit-slider-thumb {
-      box-shadow: 0 0 0 3px #fff,
-      0 0 0 6px #1abc9c;
-    }
-  }
-}
+
+
+
+
+
+
+
+
+

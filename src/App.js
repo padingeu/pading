@@ -1,11 +1,11 @@
 import React from "react";
-import FormSearch from "./Search/components/FormSearch";
+import "./App.scss";
+
 export default class App extends React.Component {
-                 render() {
-                   return (
-                     <div className="travel-form">
-                         <FormSearch />
-                     </div>
-                   );
-                 }
-               }
+  render() {
+    return (
+      <div>
+      </div>
+    );
+  }
+}

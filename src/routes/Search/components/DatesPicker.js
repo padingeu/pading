@@ -19,9 +19,10 @@ class DatesPicker extends React.Component {
   handleClickOutside = () => {
   this.setState({showCalendar: false });
   this.setState({showTravelTypeBtn: false });
+  this.setState({showStopTripBtn: false });
   }
 
-  showOffCalendar = () => {
+  showOffCalendar = (props) => {
     this.setState({ showCalendar: false });
   };
 
@@ -41,14 +42,14 @@ class DatesPicker extends React.Component {
   switchTravelTypeBtn = event => {
     event.preventDefault();
     this.setState({ showCalendar: false });
-    this.setState({ showStopTripBtn: false });
+    this.setState({ showStopTripBtn: false })
     this.setState({ showTravelTypeBtn: !this.state.showTravelTypeBtn });
   }
 
   switchStopTripBtn = event => {
     event.preventDefault();
     this.setState({ showCalendar: false });
-    this.setState({ showTravelTypeBtn: false });
+    this.setState({ showTravelTypeBtn: false })
     this.setState({ showStopTripBtn: !this.state.showStopTripBtn });
   }
 
@@ -56,8 +57,9 @@ class DatesPicker extends React.Component {
     return (
       <div>
         <form className="simple_form search" action="/">
-          <div>
-            <div className="travel-options">
+
+          <div className="travel-options">
+            <div className="travel-options-details">
 
               <div className="travel-type">
               {
@@ -69,7 +71,7 @@ class DatesPicker extends React.Component {
                     }>
                       <div className="check-box">
                         {
-                          this.props.travelType === "one-way" ?
+                          this.props.travelType === "One-way" ?
                             <i className="fas fa-check fa-xs"></i>
                           : null
                         }
@@ -116,7 +118,7 @@ class DatesPicker extends React.Component {
                     }>
                       <div className="check-box">
                         {
-                          this.props.stopTrip === "indirect" ?
+                          this.props.stopTrip === "Indirect" ?
                             <i className="fas fa-check fa-xs"></i>
                           : null
                         }
@@ -132,7 +134,7 @@ class DatesPicker extends React.Component {
                     }>
                       <div className="check-box">
                         {
-                          this.props.stopTrip === "direct" ?
+                          this.props.stopTrip === "Direct" ?
                             <i className="fas fa-check fa-xs"></i>
                           : null
                         }
@@ -151,78 +153,76 @@ class DatesPicker extends React.Component {
                   </div>
                 </button>
               </div>
-
-              <div className="range-slider">
-                <h6><b>Flexibility</b></h6>
-                <div>
-                  <label>
-                    <input
-                      className="range-slider__range"
-                      type="range"
-                      min="0" max="2"
-                      value={this.props.flexibleDates}
-                      onChange={this.props.changeFlexibleDates}
-                      step="0"/>
-                  </label>
-                </div>
-                  <h6>{this.props.flexibleDates}</h6>
-              </div>
             </div>
-          </div>
 
+          {/*<div className="range-slider">
+              <h6><b>Flexibility</b></h6>
+              <div>
+                <label>
+                  <input
+                    className="range-slider__range"
+                    type="range"
+                    min="0" max="2"
+                    value={this.props.flexibleDates}
+                    onChange={this.props.changeFlexibleDates}
+                    step="0"/>
+                </label>
+              </div>
+                <h6>{this.props.flexibleDates}</h6>
+            </div>*/}
 
-        <div className="search-form-control form-group">
-
-          <div className="inputdate">
-            <input
-              className="inputdatefrom"
-              type="text"
-              onChange={this.props.onChange}
-              onClick={this.showOnCalendar}
-              placeholder='Departure'
-              value={this.props.showDateFrom ? this.props.dateFrom.toLocaleDateString() : ''}
-            />
-            {this.props.travelType === "Return" ?
+            <div className="inputdate">
               <input
-              className="inputdateto"
-              type="text"
-              onChange={this.props.onChange}
-              onClick={this.showOnCalendar}
-              placeholder='Return'
-              value={this.props.showDateTo ? this.props.dateTo.toLocaleDateString() : ''}
-            /> :
-              <input
+                className="inputdatefrom"
+                type="text"
+                onChange={this.props.onChange}
+                onClick={this.showOnCalendar}
+                placeholder='Departure'
+                value={this.props.showDateFrom ? this.props.dateFrom.toLocaleDateString() : ''}
+              />
+              {this.props.travelType === "Return" ?
+                <input
                 className="inputdateto"
                 type="text"
                 onChange={this.props.onChange}
-                onClick={(event) => {
-                  this.props.switchToReturn(event);
-                  this.showOnCalendar();
+                onClick={this.showOnCalendar}
+                placeholder='Return'
+                value={this.props.showDateTo ? this.props.dateTo.toLocaleDateString() : ''}
+              /> :
+                <input
+                  className="inputdateto"
+                  type="text"
+                  onChange={this.props.onChange}
+                  onClick={(event) => {
+                    this.props.switchToReturn(event);
+                    this.showOnCalendar();
+                    }
                   }
-                }
-                placeholder='no-return'
-                value='no-return'
-              />
-            }
-          </div>
-        </div>
-
-          { this.state.showCalendar &&
-            <div className="calendar">
-              <Calendar
-                locale={"en"}
-                minDate={new Date()}
-                onClickOutside={this.handleClickOutside}
-                onChange={this.props.onChange}
-                selectRange={this.props.travelType === "Return" ? true : false}
-                returnValue={"range"}
-              />
-              <button className="btn btn-date" onClick={this.showOffCalendar}>Ok</button>
+                  placeholder='no-return'
+                  value='no-return'
+                />
+              }
             </div>
-          }
 
+
+            { this.state.showCalendar &&
+              <div className="calendar">
+                <Calendar
+                  locale={"en"}
+                  minDate={new Date()}
+                  onClickOutside={this.handleClickOutside}
+                  onChange={this.props.onChange}
+                  selectRange={this.props.travelType === "Return" ? true : false}
+                  returnValue={"range"}
+                />
+                <button className="btn btn-date" onClick={this.showOffCalendar}>Ok</button>
+              </div>
+            }
+
+          </div>
         </form>
       </div>
+
     );
   }
 }

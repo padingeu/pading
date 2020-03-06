@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css?family=Arimo:400,700|Roboto:400,700&display=swap');
+
+//$headers-font: 'Arimo', 'sans-serif';
+//$body-font:: 'Roboto', 'sans-serif';
+
+$yellow: #f49d11;
+$yellow-light: #f6b040;
+$blue: #29b3c1;
+$blue-light: #53c2cd;
+$green: #3e936f;
+$gray: #262626;
+$light-gray: #5f5f5f;
+
+h1 {
+  font-family: 'Arimo', sans-serif;
+  color: $yellow;
+  font-weight: bold;
+  font-size: 80px;
+}
+
+h2 {
+  font-family: 'Arimo', sans-serif;
+  color: $blue;
+  font-weight: bold;
+  font-size: 50px;
+}
+
+h3 {
+  font-family: 'Arimo', sans-serif;
+  color: $green;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+h4 {
+  font-family: 'Arimo', sans-serif;
+  color: $gray;
+  font-weight: regular 400;
+  font-size: 20px;
+}
+
+p {
+  font-family: 'Roboto', sans-serif;
+  color: $gray;
+  font-weight: regular 400;
+  font-size: 14px;
+}
