@@ -21,12 +21,10 @@ const SelectedCities = ({cities, removeCity, handleCityClick, addTraveler, remov
                         <i className="fas fa-chevron-down fa-xs"></i>
                       </div>
                   </button>
-                
+
                   {city.showButton === true && (
-                    
 
                       <div className="people-number-change">
-
                         <button onClick={(event) => removeTraveler(event, city)}>
                           -
                         </button>
@@ -34,7 +32,6 @@ const SelectedCities = ({cities, removeCity, handleCityClick, addTraveler, remov
                         <button onClick={(event) => addTraveler(event, city)}>
                           +
                         </button>
-
                       </div>
                   )}
 

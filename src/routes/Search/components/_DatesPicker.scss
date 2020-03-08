@@ -1,7 +1,6 @@
 .search {
   @media(max-width: 1200px) {
     .travel-options {
-      position: relative;
       display: flex;
       flex-direction: column;
       margin-bottom: 5px;
@@ -9,6 +8,11 @@
         display: flex;
         justify-content: flex-start !important;
         width: 100%;
+      }
+      .calendar {
+        position: absolute;
+        top: 210px !important;
+        margin-left: 0px !important;
       }
     }
     .inputdate {
@@ -20,6 +24,7 @@
       }
     }
   }
+
   .travel-options {
     display: flex;
     align-items: center;
@@ -153,13 +158,13 @@
       }
     }
   }
+
   .calendar {
-    margin: none;
     position: absolute;
-    top: 230px;
+    top: 80px;
+    margin-left: 20px;
     z-index: 1;
     transition: all 0.15s ease-in-out 0s;
-
     .react-calendar {
       padding: 15px;
       border: none;
