@@ -1,7 +1,7 @@
 import React from 'react';
 import NavBar from './NavBar';
 import TripCard from './TripCard';
-import './_Results.scss'
+import './_Results.scss';
 import LinearProgress from '@material-ui/core/LinearProgress';
 
 export default class Result extends React.Component {
@@ -28,26 +28,34 @@ export default class Result extends React.Component {
     return (
       <div>
         <NavBar />
-        <LinearProgress/>
-        <div className="travel-result">
-          {!this.props.search.commonDestinations &&
-            <p>
-              Loading...
-            </p>
-          }
-          {this.props.search.commonDestinations.map((destination, index) => {
-            return (
-              <div key={index} className="city-div">
-                <TripCard
-                  destination={destination}
-                  prices={this.getTotalPrice(
-                    this.props.search.trips,
-                    destination
-                  )}
-                />
+        <div className="travel-results">
+          <div className="formsearch-results">
+          </div>
+          <div className="cards-map-results">
+            <div className="cards-results">
+              <LinearProgress/>
+                {!this.props.search.commonDestinations &&
+                  <p>
+                    Loading...
+                  </p>
+                }
+                {this.props.search.commonDestinations.map((destination, index) => {
+                  return (
+                    <div key={index} className="city-div">
+                      <TripCard
+                        destination={destination}
+                        prices={this.getTotalPrice(
+                          this.props.search.trips,
+                          destination
+                        )}
+                      />
+                    </div>
+                  );
+                })}
               </div>
-            );
-          })}
+              <div className="map-results">
+              </div>
+          </div>
         </div>
       </div>
     );
