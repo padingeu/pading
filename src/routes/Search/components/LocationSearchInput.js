@@ -37,7 +37,7 @@ class LocationSearchInput extends React.Component {
 
 
 
-                <label for="inp" class="inp">
+                <label className="inp">
                   <input className="city-departure-input" type="text" id="inp" placeholder="&nbsp;" onClick={this.cityAutocompleteActive}{...getInputProps({ className: 'city-departure-input'})}/>
                   <span className="label">We travel from</span>
                   <span className="focus-bg"></span>
@@ -60,7 +60,7 @@ class LocationSearchInput extends React.Component {
                     return (
                       <div className="suggestions-form" {...getSuggestionItemProps(suggestion, { style })}>
                       {
-                        suggestion.active ? <i class="fas fa-map-marker-alt"></i> : null
+                        suggestion.active ? <i className="fas fa-map-marker-alt"></i> : null
                       }
                         {suggestion.description}
                       </div>

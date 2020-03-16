@@ -11,6 +11,7 @@ import {
 } from 'react-places-autocomplete';
 
 import Switch from '@material-ui/core/Switch';
+import { makeStyles } from '@material-ui/core/styles';
 
 
 export default class FormSearch extends React.Component {
@@ -21,14 +22,15 @@ export default class FormSearch extends React.Component {
     showDateFrom: false,
     showDateTo: false,
     travelType: "Return",
-    stopTrip: "Direct",
+    stopTrip: "All",
     //flexibleDates: 0,
     plane: true,
     train: true,
     bus: true,
     cities: [],
     address: '',
-    shouldSearch: false
+    shouldSearch: false,
+    onlyDepartureCitiesSearch: false,
   };
 
   search = () => {
@@ -60,12 +62,12 @@ export default class FormSearch extends React.Component {
 
   switchToIndirect = event => {
     event.preventDefault();
-    this.setState({ stopTrip: "Indirect" });
+    this.setState({ stopTrip: "All" });
   }
 
   switchToDirect = event => {
     event.preventDefault();
-    this.setState({ stopTrip: "Direct" });
+    this.setState({ stopTrip: "Only Direct" });
   }
 
 /*changeFlexibleDates = event => {
@@ -191,6 +193,11 @@ export default class FormSearch extends React.Component {
     this.setState({ bus: !this.state.bus })
   }
 
+  switchSearchBtn = () => {
+    this.setState({ onlyDepartureCitiesSearch: !this.state.onlyDepartureCitiesSearch })
+    console.log(this.state.onlyDepartureCitiesSearch)
+  }
+
   render() {
     return (
       <div>
@@ -256,7 +263,6 @@ export default class FormSearch extends React.Component {
               onClick={() => this.search()}>
               Explore
             </button>
-
           </div>
 
           <LocationSearchInput
@@ -279,9 +285,7 @@ export default class FormSearch extends React.Component {
           <p><b>We only consider to meet in one of the cities we come from</b></p>
             <Switch
               className="switchSearchType"
-              //checked={state.checkedA}
-              //onChange={handleChange('checkedA')}
-              value="checkedA"
+              onChange={this.switchSearchBtn}
               inputProps={{ 'aria-label': 'secondary checkbox' }}
             />
           </div>

@@ -20,6 +20,8 @@ class DatesPicker extends React.Component {
   this.setState({showCalendar: false });
   this.setState({showTravelTypeBtn: false });
   this.setState({showStopTripBtn: false });
+
+
   }
 
   showOffCalendar = (props) => {
@@ -118,13 +120,13 @@ class DatesPicker extends React.Component {
                     }>
                       <div className="check-box">
                         {
-                          this.props.stopTrip === "Indirect" ?
+                          this.props.stopTrip === "All" ?
                             <i className="fas fa-check fa-xs"></i>
                           : null
                         }
                       </div>
                       <div className="stop-div">
-                        <h6>Indirect</h6>
+                        <h6>All</h6>
                       </div>
                     </a>
 
@@ -134,13 +136,13 @@ class DatesPicker extends React.Component {
                     }>
                       <div className="check-box">
                         {
-                          this.props.stopTrip === "Direct" ?
+                          this.props.stopTrip === "Only Direct" ?
                             <i className="fas fa-check fa-xs"></i>
                           : null
                         }
                       </div>
                       <div className="stop-div">
-                        <h6>Direct</h6>
+                        <h6>Only direct</h6>
                       </div>
                     </a>
                   </div>

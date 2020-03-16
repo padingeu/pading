@@ -1,5 +1,8 @@
-import React from "react";
-import TripCard from "./TripCard";
+import React from 'react';
+import NavBar from './NavBar';
+import TripCard from './TripCard';
+import './_Results.scss'
+import LinearProgress from '@material-ui/core/LinearProgress';
 
 export default class Result extends React.Component {
   state = {};
@@ -23,25 +26,29 @@ export default class Result extends React.Component {
 
   render() {
     return (
-      <div className="travel-result">
-        {!this.props.search.commonDestinations && 
-          <p>
-            Loading...
-          </p>
-        }
-        {this.props.search.commonDestinations.map((destination, index) => {
-          return (
-            <div key={index} className="city-div">
-              <TripCard
-                destination={destination}
-                prices={this.getTotalPrice(
-                  this.props.search.trips,
-                  destination
-                )}
-              />
-            </div>
-          );
-        })}
+      <div>
+        <NavBar />
+        <LinearProgress/>
+        <div className="travel-result">
+          {!this.props.search.commonDestinations &&
+            <p>
+              Loading...
+            </p>
+          }
+          {this.props.search.commonDestinations.map((destination, index) => {
+            return (
+              <div key={index} className="city-div">
+                <TripCard
+                  destination={destination}
+                  prices={this.getTotalPrice(
+                    this.props.search.trips,
+                    destination
+                  )}
+                />
+              </div>
+            );
+          })}
+        </div>
       </div>
     );
   }
