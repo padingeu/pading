@@ -200,7 +200,7 @@ export default class FormSearch extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="wrapper">
         <NavBar />
         <div className="travel-form">
           <div className="search-box">
@@ -256,15 +256,22 @@ export default class FormSearch extends React.Component {
                 </Label>
               </FormGroup>*/}
             <button
+              className="btn btn-flat"
               name="button"
               disabled={!(this.state.dateFrom && this.state.cities.length > 0)}
               type="submit"
-              className="btn btn-flat"
               onClick={() => this.search()}>
               Explore
             </button>
           </div>
 
+          <div className="switch-search-sype">
+            <p>We only consider to meet in one of the cities we come from</p>
+              <Switch
+                onChange={this.switchSearchBtn}
+                inputProps={{ 'aria-label': 'secondary checkbox' }}
+              />
+          </div>
           <LocationSearchInput
             address={this.state.address}
             cities={this.state.cities}
@@ -281,14 +288,6 @@ export default class FormSearch extends React.Component {
             removeTraveler={this.removeTraveler}
             address={this.state.address}
           />
-          <div>
-          <p><b>We only consider to meet in one of the cities we come from</b></p>
-            <Switch
-              className="switchSearchType"
-              onChange={this.switchSearchBtn}
-              inputProps={{ 'aria-label': 'secondary checkbox' }}
-            />
-          </div>
         </div>
       </div>
     );

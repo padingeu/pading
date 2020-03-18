@@ -1,30 +1,4 @@
 .search {
-  @media(max-width: 1200px) {
-    .travel-options {
-      display: flex;
-      flex-direction: column;
-      margin-bottom: 5px;
-      .travel-options-details {
-        display: flex;
-        justify-content: flex-start !important;
-        width: 100%;
-      }
-      .calendar {
-        position: absolute;
-        top: 210px !important;
-        margin-left: 0px !important;
-      }
-    }
-    .inputdate {
-      .inputdatefrom {
-        width: 100%;
-      }
-      .inputdateto {
-        width: 100%
-      }
-    }
-  }
-
   .travel-options {
     display: flex;
     align-items: center;
@@ -119,7 +93,6 @@
       }
     }
   }
-
   .inputdate {
     display: flex;
     align-items: center;
@@ -158,7 +131,6 @@
       }
     }
   }
-
   .calendar {
     position: absolute;
     top: 80px;
@@ -173,9 +145,9 @@
       .react-calendar__tile {
         margin-top: 5px;
       }
-        button[disabled] {
-          color: #bfbfbf;
-        }
+      button[disabled] {
+        color: #bfbfbf;
+      }
       .react-calendar__tile--now {
         color: #44a7bc;
         font-weight: bold;
@@ -240,7 +212,6 @@
       padding-bottom: 50px;
     }
   }
-
   .btn-date {
     position: absolute;
     bottom: 0px;
@@ -259,6 +230,28 @@
   }
 }
 
+@media(max-width: 1200px) {
+    .travel-options {
+      flex-direction: column;
+      margin-bottom: 5px;
+      .travel-options-details {
+        justify-content: flex-start !important;
+        width: 100%;
+      }
+      .calendar {
+        top: 210px !important;
+        margin-left: 0px !important;
+      }
+    }
+    .inputdate {
+      .inputdatefrom {
+        width: 100%;
+      }
+      .inputdateto {
+        width: 100%
+      }
+    }
+  }
 
 
 
