@@ -1,3 +1,69 @@
+.travel-results {
+  display: flex;
+  padding: 1vh;
+  .formsearch-results {
+    border: solid orange;
+    margin-top: 1;
+  }
+  .cards-map-results {
+    //padding: 1vh;
+    border: solid yellow;
+    display: flex;
+    flex-direction: column;
+    .cards-results {
+      border: solid green;
+    }
+    .map-results {
+      border: solid blue;
+    }
+  }
+}
+
+
+/* extra small and small screens */
+@media (max-width: 900px) {
+  .travel-results {
+    flex-direction: column;
+    .formsearch-results {
+      display: none;
+    }
+    .cards-map-results {
+      flex-direction: column;
+      .cards-results {
+        height: 900px;
+      }
+      .map-results {
+        height: 300px;
+      }
+    }
+  }
+}
+
+/* normal and big screens */
+@media (min-width: 901px) {
+  .travel-results {
+    flex-direction: row;
+    .formsearch-results {
+      height: 1200px;
+      width: 30%;
+    }
+    .cards-map-results {
+      width: 70%;
+      .cards-results {
+        height:900px
+      }
+      .map-results {
+        height: 300px
+      }
+    }
+  }
+}
+
+
+
+
+
+
 .MuiLinearProgress-colorPrimary {
   background-color: rgba(41, 179, 193, 0.2) !important;
 }

@@ -8,7 +8,7 @@ const TripCard = ({destination, prices}) => {
       {prices.map(object => {
         return (
           <div key={object.city}>
-            From {object.city} price is {object.price} € /pers 
+            From {object.city} price is {object.price} € /pers
           </div>
         );
       })}
