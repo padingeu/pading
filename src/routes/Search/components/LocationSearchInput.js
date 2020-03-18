@@ -18,8 +18,7 @@ class LocationSearchInput extends React.Component {
 
   render() {
     return (
-      <div className="hello">
-
+      <div>
         <PlacesAutocomplete
           value={this.props.address}
           onChange={this.props.handleAddressChange}
@@ -31,12 +30,6 @@ class LocationSearchInput extends React.Component {
           {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
             <div className={this.state.autoCompleteClass}>
               <form noValidate autoComplete="off">
-
-
-
-
-
-
                 <label className="inp">
                   <input className="city-departure-input" type="text" id="inp" placeholder="&nbsp;" onClick={this.cityAutocompleteActive}{...getInputProps({ className: 'city-departure-input'})}/>
                   <span className="label">We travel from</span>
