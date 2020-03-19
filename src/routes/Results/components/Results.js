@@ -1,5 +1,5 @@
 import React from 'react';
-import NavBar from './NavBar';
+import NavBar from '../../../components/NavBar';
 import TripCard from './TripCard';
 import './_Results.scss';
 import LinearProgress from '@material-ui/core/LinearProgress';

@@ -1,8 +1,8 @@
 import React from 'react';
-import NavBar from '../../../components/NavBar';
-import DatesPicker from '../../../components/DatesPicker';
-import LocationSearchInput from '../../../components/LocationSearchInput';
-import SelectedCities from '../../../components/SelectedCities';
+import NavBar from "./NavBar";
+import DatesPicker from './DatesPicker';
+import LocationSearchInput from './LocationSearchInput';
+import SelectedCities from './SelectedCities';
 import './_FormSearch.scss';
 import { Label, FormGroup } from 'reactstrap';
 import {

@@ -73,4 +73,3 @@ class LocationSearchInput extends React.Component {
 
 export default onClickOutside(LocationSearchInput);
 
-
