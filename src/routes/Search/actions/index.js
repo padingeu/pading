@@ -2,8 +2,6 @@ import axios from 'axios';
 import lodash from 'lodash';
 import { history } from '../../../index';
 export const searchTrips = (cities, dateFrom, dateTo, stopTrip) => {
-  console.log('cities');
-  console.log(cities);
   const promises = [];
   return dispatch => {
     dispatch({ type: 'CLEAR_SEARCH' });
@@ -25,7 +23,9 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip) => {
         apikey: 'IKxLuAAkQC8WZ45VUByiK9SSetOFSjnL'
       }
     };
+    const travelers = {};
     for (let i = 0; i < cities.length; i++) {
+      travelers[cities[i].name] = cities[i].numberOfPeople;
       const promise = axios.get(
         `https://kiwicom-prod.apigee.net/v2/search?fly_from=${cities[i].coordinates}&date_from=${dateFrom}&date_to=${dateFrom}&return_from=${dateTo}&max_stopovers=${maxStopover}&flight_type=round&nights_in_dst_from=${differenceInDays}&nights_in_dst_to=${differenceInDays}&adults=${cities[i].numberOfPeople}&vehicle_type=aircraft`,
         config
@@ -51,32 +51,24 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip) => {
           trips[city] = trips_by_city;
         }
       }
-      console.log('trips');
-      console.log(trips);
-      console.log(cities.length + 'cities');
       //Recuperer une liste des destinations communes
       let commonTrips = [];
       if (cities.length === 1 && cities[0].name in trips) {
         commonTrips = trips[cities[0].name];
       } else {
         for (let i = 1; i < cities.length; i++) {
-          console.log('map common trips for several city');
           let city1 = cities[i - 1].name;
           let city2 = cities[i].name;
           commonTrips = lodash.intersectionBy(trips[city1], trips[city2], 'cityTo');
         }
       }
 
-      console.log('commonTrips');
-      console.log(commonTrips);
       const commonDestinations = [];
       for (let i = 0; i < commonTrips.length; i++) {
-        console.log(commonTrips[i]);
         if (!commonDestinations.includes(commonTrips[i].cityTo)) {
           commonDestinations.push(commonTrips[i].cityTo);
         }
       }
-      console.log(commonDestinations);
       //Retirer les voages qui ne font pas parti des destinations communes
       for (let i = 0; i < cities.length; i++) {
         let city = cities[i].name;
@@ -88,8 +80,10 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip) => {
       }
       const data = {
         commonDestinations: commonDestinations,
-        trips: trips
+        trips: trips,
+        travelers: travelers
       };
+      console.log('data');
       console.log(data);
       dispatch({ type: 'SEARCH', data });
     });

@@ -35,13 +35,14 @@ export default class Result extends React.Component {
           <div className="cards-map-results">
             <div className="cards-results">
               <LinearProgress />
-              {!this.props.search.commonDestinations && <p>Loading...</p>}
+              {console.log(this.props)}
               {this.props.search.commonDestinations.map((destination, index) => {
                 return (
                   <div key={index} className="city-div">
                     <TripCard
                       destination={destination}
                       prices={this.getTotalPrice(this.props.search.trips, destination)}
+                      travelers={this.props.search.travelers}
                     />
                   </div>
                 );

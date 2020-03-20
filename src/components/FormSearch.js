@@ -80,7 +80,6 @@ export default class FormSearch extends React.Component {
     const cities = [...this.state.cities];
     const cityIndex = this.findCityIndex(cityName, cities);
 
-    console.log(cityIndex);
     if (cityIndex === -1) {
       //CREATE new city
       const city_obj = {
@@ -188,7 +187,6 @@ export default class FormSearch extends React.Component {
 
   switchSearchBtn = () => {
     this.setState({ onlyDepartureCitiesSearch: !this.state.onlyDepartureCitiesSearch });
-    console.log(this.state.onlyDepartureCitiesSearch);
   };
 
   render() {

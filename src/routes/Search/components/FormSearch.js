@@ -4,11 +4,9 @@ import DatesPicker from '../../../components/DatesPicker';
 import LocationSearchInput from '../../../components/LocationSearchInput';
 import SelectedCities from '../../../components/SelectedCities';
 import './_FormSearch.scss';
-import { Label, FormGroup } from 'reactstrap';
 import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 
 import Switch from '@material-ui/core/Switch';
-import { makeStyles } from '@material-ui/core/styles';
 
 export default class FormSearch extends React.Component {
   state = {
@@ -83,7 +81,6 @@ export default class FormSearch extends React.Component {
     const cities = [...this.state.cities];
     const cityIndex = this.findCityIndex(cityName, cities);
 
-    console.log(cityIndex);
     if (cityIndex === -1) {
       //CREATE new city
       const city_obj = {
@@ -191,7 +188,6 @@ export default class FormSearch extends React.Component {
 
   switchSearchBtn = () => {
     this.setState({ onlyDepartureCitiesSearch: !this.state.onlyDepartureCitiesSearch });
-    console.log(this.state.onlyDepartureCitiesSearch);
   };
 
   render() {

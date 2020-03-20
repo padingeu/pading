@@ -1,17 +1,21 @@
 import React from 'react';
 
-const TripCard = ({ destination, prices }) => {
+const TripCard = ({ destination, prices, travelers }) => {
   return (
     <div className="">
       {<div>{destination}</div>}
       {prices.pricesPerDestination.map(object => {
         return (
           <div key={object.city}>
-            From {object.city} price is {object.price} € /pers
+            {console.log(travelers)}
+            {console.log(destination)}
+            {console.log(travelers[object.city])}
+            From {object.city} price is {object.price} € ({travelers[object.city]}{' '}
+            {travelers[object.city] > 1 ? 'people' : 'person'})
           </div>
         );
       })}
-      Prix total {prices.totalPrice} €
+      Total price {prices.totalPrice} €
       <br />
     </div>
   );
