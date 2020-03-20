@@ -26,7 +26,7 @@
           outline: none;
         }
         .fa-toggle-on {
-         color: #49a991;
+          color: #49a991;
           margin: 5px 0px 40px 0px;
         }
         .fa-toggle-off {
@@ -47,8 +47,8 @@
         background: #49a991;
         transition: background 0.3s ease;
         &:hover {
-        background: #429882;
-        color: white;
+          background: #429882;
+          color: white;
         }
         .switch-search-sype {
           position: static;
@@ -80,10 +80,5 @@
   color: #3e936f !important;
 }
 .MuiSwitch-colorSecondary.Mui-checked + .MuiSwitch-track {
-    background-color: #3e936f !important;
+  background-color: #3e936f !important;
 }
-
-
-
-
-

@@ -1,28 +1,20 @@
 import React from 'react';
-import NavBar from "./NavBar";
+import NavBar from './NavBar';
 import DatesPicker from './DatesPicker';
 import LocationSearchInput from './LocationSearchInput';
 import SelectedCities from './SelectedCities';
 import './_FormSearch.scss';
-import { Label, FormGroup } from 'reactstrap';
-import {
-  geocodeByAddress,
-  getLatLng
-} from 'react-places-autocomplete';
-
+import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 import Switch from '@material-ui/core/Switch';
-import { makeStyles } from '@material-ui/core/styles';
-
 
 export default class FormSearch extends React.Component {
-
   state = {
     dateFrom: '',
     dateTo: '',
     showDateFrom: false,
     showDateTo: false,
-    travelType: "Return",
-    stopTrip: "All",
+    travelType: 'Return',
+    stopTrip: 'All',
     //flexibleDates: 0,
     plane: true,
     train: true,
@@ -30,7 +22,7 @@ export default class FormSearch extends React.Component {
     cities: [],
     address: '',
     shouldSearch: false,
-    onlyDepartureCitiesSearch: false,
+    onlyDepartureCitiesSearch: false
   };
 
   search = () => {
@@ -40,7 +32,7 @@ export default class FormSearch extends React.Component {
       this.state.dateTo,
       this.state.stopTrip
     );
-  }
+  };
 
   onInputDateChange = date => {
     this.setState({ showDateFrom: true });
@@ -51,45 +43,46 @@ export default class FormSearch extends React.Component {
 
   switchToOneWay = event => {
     event.preventDefault();
-    this.setState({ travelType: "One-way" });
-  }
+    this.setState({ travelType: 'One-way' });
+  };
 
   switchToReturn = event => {
     event.preventDefault();
     this.setState({ showDateTo: false });
-    this.setState({ travelType: "Return" });
-  }
+    this.setState({ travelType: 'Return' });
+  };
 
   switchToIndirect = event => {
     event.preventDefault();
-    this.setState({ stopTrip: "All" });
-  }
+    this.setState({ stopTrip: 'All' });
+  };
 
   switchToDirect = event => {
     event.preventDefault();
-    this.setState({ stopTrip: "Only Direct" });
-  }
+    this.setState({ stopTrip: 'Only Direct' });
+  };
 
-/*changeFlexibleDates = event => {
+  /*changeFlexibleDates = event => {
     event.preventDefault();
   this.setState({ flexibleDates: event.target.value });*/
 
-  getFormattedCoordinate = (coordinates) => {
-    coordinates.lat = coordinates.lat.toFixed(6)
-    coordinates.lng = coordinates.lng.toFixed(6)
-    return `${coordinates.lat}-${coordinates.lng}-20km`
-  }
+  getFormattedCoordinate = coordinates => {
+    coordinates.lat = coordinates.lat.toFixed(6);
+    coordinates.lng = coordinates.lng.toFixed(6);
+    return `${coordinates.lat}-${coordinates.lng}-20km`;
+  };
 
   addCity = async address => {
     const position = await geocodeByAddress(address);
     const coordinates = await getLatLng(position[0]);
     const coordinatesFormatted = this.getFormattedCoordinate(coordinates);
-    const cityName = position[0].address_components[0].long_name
+    const cityName = position[0].address_components[0].long_name;
     const cities = [...this.state.cities];
     const cityIndex = this.findCityIndex(cityName, cities);
 
     console.log(cityIndex);
-    if (cityIndex === -1) { //CREATE new city
+    if (cityIndex === -1) {
+      //CREATE new city
       const city_obj = {
         name: cityName,
         coordinates: coordinatesFormatted,
@@ -97,35 +90,34 @@ export default class FormSearch extends React.Component {
         showButton: false
       };
       cities.push(city_obj);
-    } else { //Add traveler
+    } else {
+      //Add traveler
       cities[cityIndex].numberOfPeople++;
     }
-    this.setState(
-      {
-        coordinates: coordinates,
-        cities: cities,
-        address: ''
-      })
+    this.setState({
+      coordinates: coordinates,
+      cities: cities,
+      address: ''
+    });
   };
 
-  findCityIndex = (cityName, cities)=> {
-    for (let i = 0; i < cities.length ; i++) {
+  findCityIndex = (cityName, cities) => {
+    for (let i = 0; i < cities.length; i++) {
       if (cities[i].name === cityName) {
-        return i
+        return i;
       }
     }
-    return -1
-  }
+    return -1;
+  };
 
   showButtons = (event, city) => {
     event.preventDefault();
-    city.showButton = !city.showButton
+    city.showButton = !city.showButton;
     const cities = [...this.state.cities];
     cities[cities.findIndex(el => el === city)] = city;
-    this.setState(
-      {
-        cities: cities
-      })
+    this.setState({
+      cities: cities
+    });
   };
 
   addTraveler = (event, city) => {
@@ -133,11 +125,10 @@ export default class FormSearch extends React.Component {
     city.numberOfPeople++;
     const cities = [...this.state.cities];
     cities[cities.findIndex(el => el === city)] = city;
-    this.setState(
-      {
-        cities: cities
-      })
-  }
+    this.setState({
+      cities: cities
+    });
+  };
 
   removeTraveler = (event, city) => {
     event.preventDefault();
@@ -145,58 +136,60 @@ export default class FormSearch extends React.Component {
       city.numberOfPeople--;
       const cities = [...this.state.cities];
       cities[cities.findIndex(el => el === city)] = city;
-      this.setState(
-        {
-          cities: cities
-        })
+      this.setState({
+        cities: cities
+      });
     }
-  }
+  };
 
-  handleAddressChange = (address) => {
+  handleAddressChange = address => {
     this.setState({
       address: address
-     });
+    });
     const input = document.querySelector('.city-departure-input');
-    input.addEventListener("keydown", (event) => {
-      const places =
-        Array.from(event.target.parentElement.querySelectorAll('div[role="option"]'))
-          .map(e => e.innerText.trim().toLocaleLowerCase());
-      if (event.key === 'Enter' && !places.includes(input.value.toLocaleLowerCase())) {
-
-        if (0 < places.length) {
-          input.value = places[0];
-          this.setState({ address: places[0] });
-        } else {
-          event.stopPropagation();
-          event.preventDefault();
+    input.addEventListener(
+      'keydown',
+      event => {
+        const places = Array.from(
+          event.target.parentElement.querySelectorAll('div[role="option"]')
+        ).map(e => e.innerText.trim().toLocaleLowerCase());
+        if (event.key === 'Enter' && !places.includes(input.value.toLocaleLowerCase())) {
+          if (0 < places.length) {
+            input.value = places[0];
+            this.setState({ address: places[0] });
+          } else {
+            event.stopPropagation();
+            event.preventDefault();
+          }
         }
-      }
-    }, true);
+      },
+      true
+    );
   };
 
   removeCity = (event, index) => {
     event.preventDefault();
-    const cities = [...this.state.cities]
+    const cities = [...this.state.cities];
     cities.splice(index, 1);
     this.setState({ cities });
   };
 
   onPlaneClick = () => {
-    this.setState({ plane: !this.state.plane })
-  }
+    this.setState({ plane: !this.state.plane });
+  };
 
   onTrainClick = () => {
-    this.setState({ train: !this.state.train })
-  }
+    this.setState({ train: !this.state.train });
+  };
 
   onBusClick = () => {
-    this.setState({ bus: !this.state.bus })
-  }
+    this.setState({ bus: !this.state.bus });
+  };
 
   switchSearchBtn = () => {
-    this.setState({ onlyDepartureCitiesSearch: !this.state.onlyDepartureCitiesSearch })
-    console.log(this.state.onlyDepartureCitiesSearch)
-  }
+    this.setState({ onlyDepartureCitiesSearch: !this.state.onlyDepartureCitiesSearch });
+    console.log(this.state.onlyDepartureCitiesSearch);
+  };
 
   render() {
     return (
@@ -220,7 +213,7 @@ export default class FormSearch extends React.Component {
               //flexibleDates={this.state.flexibleDates}
             />
 
-              {/*<FormGroup check className="travel-checkbox">
+            {/*<FormGroup check className="travel-checkbox">
                 <Label check>
                   <div className="vehicle-type">
                     <h5>Flight</h5>
@@ -260,17 +253,18 @@ export default class FormSearch extends React.Component {
               name="button"
               disabled={!(this.state.dateFrom && this.state.cities.length > 0)}
               type="submit"
-              onClick={() => this.search()}>
+              onClick={() => this.search()}
+            >
               Explore
             </button>
           </div>
 
           <div className="switch-search-sype">
             <p>We only consider to meet in one of the cities we come from</p>
-              <Switch
-                onChange={this.switchSearchBtn}
-                inputProps={{ 'aria-label': 'secondary checkbox' }}
-              />
+            <Switch
+              onChange={this.switchSearchBtn}
+              inputProps={{ 'aria-label': 'secondary checkbox' }}
+            />
           </div>
           <LocationSearchInput
             address={this.state.address}
@@ -291,7 +285,5 @@ export default class FormSearch extends React.Component {
         </div>
       </div>
     );
-
-  };
-};
-
+  }
+}

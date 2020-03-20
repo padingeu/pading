@@ -19,7 +19,6 @@
   }
 }
 
-
 /* extra small and small screens */
 @media (max-width: 900px) {
   .travel-results {
@@ -50,19 +49,14 @@
     .cards-map-results {
       width: 70%;
       .cards-results {
-        height:900px
+        height: 900px;
       }
       .map-results {
-        height: 300px
+        height: 300px;
       }
     }
   }
 }
-
-
-
-
-
 
 .MuiLinearProgress-colorPrimary {
   background-color: rgba(41, 179, 193, 0.2) !important;

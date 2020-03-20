@@ -1,13 +1,13 @@
-import axios from "axios";
-import lodash from "lodash";
-import { history } from "../../../index";
+import axios from 'axios';
+import lodash from 'lodash';
+import { history } from '../../../index';
 export const searchTrips = (cities, dateFrom, dateTo, stopTrip) => {
-  console.log("cities");
+  console.log('cities');
   console.log(cities);
   const promises = [];
   return dispatch => {
-    dispatch({ type: "CLEAR_SEARCH" });
-    history.push("/results");
+    dispatch({ type: 'CLEAR_SEARCH' });
+    history.push('/results');
 
     // To calculate the time difference of two dates
     const differenceInTime = dateTo.getTime() - dateFrom.getTime();
@@ -15,14 +15,14 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip) => {
     const differenceInDays = Math.trunc(differenceInTime / (1000 * 3600 * 24));
     dateFrom = dateFrom.toLocaleDateString();
     dateTo = dateTo.toLocaleDateString();
-    let maxStopover = "2";
-    if (stopTrip === "Direct") {
-      maxStopover = "0";
+    let maxStopover = '2';
+    if (stopTrip === 'Direct') {
+      maxStopover = '0';
     }
     let config = {
       headers: {
-        accept: "application/json",
-        apikey: "IKxLuAAkQC8WZ45VUByiK9SSetOFSjnL"
+        accept: 'application/json',
+        apikey: 'IKxLuAAkQC8WZ45VUByiK9SSetOFSjnL'
       }
     };
     for (let i = 0; i < cities.length; i++) {
@@ -37,7 +37,7 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip) => {
       const trips = {};
       //Construction d un objet avec une liste de voyage
       for (let i = 0; i < results.length; i++) {
-        if (typeof results[i].data.data[0] !== "undefined") {
+        if (typeof results[i].data.data[0] !== 'undefined') {
           const city = results[i].data.data[0].cityFrom;
           const trips_by_city = results[i].data.data.map(trip => {
             return {
@@ -51,27 +51,23 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip) => {
           trips[city] = trips_by_city;
         }
       }
-      console.log("trips");
+      console.log('trips');
       console.log(trips);
-      console.log(cities.length + "cities");
+      console.log(cities.length + 'cities');
       //Recuperer une liste des destinations communes
       let commonTrips = [];
       if (cities.length === 1 && cities[0].name in trips) {
         commonTrips = trips[cities[0].name];
       } else {
         for (let i = 1; i < cities.length; i++) {
-          console.log("map common trips for several city");
+          console.log('map common trips for several city');
           let city1 = cities[i - 1].name;
           let city2 = cities[i].name;
-          commonTrips = lodash.intersectionBy(
-            trips[city1],
-            trips[city2],
-            "cityTo"
-          );
+          commonTrips = lodash.intersectionBy(trips[city1], trips[city2], 'cityTo');
         }
       }
 
-      console.log("commonTrips");
+      console.log('commonTrips');
       console.log(commonTrips);
       const commonDestinations = [];
       for (let i = 0; i < commonTrips.length; i++) {
@@ -95,7 +91,7 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip) => {
         trips: trips
       };
       console.log(data);
-      dispatch({ type: "SEARCH", data });
+      dispatch({ type: 'SEARCH', data });
     });
   };
 };
