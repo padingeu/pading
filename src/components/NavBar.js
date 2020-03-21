@@ -12,13 +12,13 @@ export default function NavBar() {
       </div>
       <div className="navbar-menu">
         <div className="navbar-social">
-          <a href="#">
+          <a href="http://google.fr">
             <i className="fab fa-facebook"></i>
           </a>
-          <a href="#">
+          <a href="http://google.fr">
             <i className="fab fa-instagram"></i>
           </a>
-          <a href="#">
+          <a href="http://google.fr">
             <i className="fab fa-linkedin"></i>
           </a>
         </div>

@@ -18,13 +18,8 @@ render(
   <Provider store={store}>
     <Router history={history}>
       <Route component={App}>
-<<<<<<< HEAD
-        <Route exact path="/" component={FormSearch} /> {/* app = home */}
+        <Route exact path="/" component={Home} /> {/* app = home */}
         <Route path="/results" component={Results} />
-=======
-        <Route exact path='/' component={Home}/> {/* app = home */}
-        <Route path='/results' component={Results}/>
->>>>>>> formsearch-resultspage
       </Route>
     </Router>
   </Provider>,

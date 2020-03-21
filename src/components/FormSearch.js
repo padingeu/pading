@@ -1,5 +1,4 @@
 import React from 'react';
-import NavBar from './NavBar';
 import DatesPicker from './DatesPicker';
 import LocationSearchInput from './LocationSearchInput';
 import SelectedCities from './SelectedCities';

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import FormSearch from '../components/FormSearch';
-import { searchTrips } from '../actions';
+import Home from '../components/Home';
+import { searchTrips } from '../../../actions';
 
 const mapStateToProps = ({ search, app }, ownProps) => {
   return {
@@ -13,4 +13,4 @@ const mapDispatchToProps = dispatch => ({
     dispatch(searchTrips(cities, dateFrom, dateTo, stopTrip))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(FormSearch);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
