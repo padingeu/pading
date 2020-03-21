@@ -1,5 +1,6 @@
 import React from 'react';
 import NavBar from '../../../components/NavBar';
+import FormSearch from '../../../components/FormSearch';
 import TripCard from './TripCard';
 import './_Results.scss';
 import LinearProgress from '@material-ui/core/LinearProgress';
@@ -30,6 +31,7 @@ export default class Result extends React.Component {
         <NavBar />
         <div className="travel-results">
           <div className="formsearch-results">
+            <FormSearch />
           </div>
           <div className="cards-map-results">
             <div className="cards-results">

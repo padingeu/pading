@@ -1,6 +1,6 @@
 import axios from "axios";
 import lodash from "lodash";
-import { history } from "../../../index";
+import { history } from "../index";
 export const searchTrips = (cities, dateFrom, dateTo, stopTrip) => {
   console.log("cities");
   console.log(cities);

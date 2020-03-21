@@ -1,5 +1,4 @@
 import React from 'react';
-import NavBar from "./NavBar";
 import DatesPicker from './DatesPicker';
 import LocationSearchInput from './LocationSearchInput';
 import SelectedCities from './SelectedCities';
@@ -201,7 +200,6 @@ export default class FormSearch extends React.Component {
   render() {
     return (
       <div className="wrapper">
-        <NavBar />
         <div className="travel-form">
           <div className="search-box">
             <DatesPicker

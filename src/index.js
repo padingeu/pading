@@ -6,7 +6,7 @@ import { createStore,  applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import rootReducer from './reducers';
-import FormSearch from './routes/Search/containers/FormSearchContainer';
+import Home from './routes/Search/containers/HomeContainer';
 import Results from './routes/Results/containers/ResultsContainer';
 import { Route, Router } from 'react-router-dom';
 import { createBrowserHistory }  from 'history';
@@ -23,7 +23,7 @@ render(
   <Provider store={store}>
     <Router history={history}>
       <Route component={App}>
-        <Route exact path='/' component={FormSearch}/> {/* app = home */}
+        <Route exact path='/' component={Home}/> {/* app = home */}
         <Route path='/results' component={Results}/>
       </Route>
     </Router>
