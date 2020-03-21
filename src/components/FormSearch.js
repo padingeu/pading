@@ -59,6 +59,7 @@ export default class FormSearch extends React.Component {
 
   switchToDirect = event => {
     event.preventDefault();
+
     this.setState({ stopTrip: 'Only Direct' });
   };
 
@@ -145,6 +146,7 @@ export default class FormSearch extends React.Component {
     this.setState({
       address: address
     });
+
     const input = document.querySelector('.city-departure-input');
     input.addEventListener(
       'keydown',
@@ -152,6 +154,7 @@ export default class FormSearch extends React.Component {
         const places = Array.from(
           event.target.parentElement.querySelectorAll('div[role="option"]')
         ).map(e => e.innerText.trim().toLocaleLowerCase());
+
         if (event.key === 'Enter' && !places.includes(input.value.toLocaleLowerCase())) {
           if (0 < places.length) {
             input.value = places[0];
@@ -186,13 +189,15 @@ export default class FormSearch extends React.Component {
   };
 
   switchSearchBtn = () => {
-    this.setState({ onlyDepartureCitiesSearch: !this.state.onlyDepartureCitiesSearch });
+    this.setState({
+      onlyDepartureCitiesSearch: !this.state.onlyDepartureCitiesSearch
+    });
+    console.log(this.state.onlyDepartureCitiesSearch);
   };
 
   render() {
     return (
       <div className="wrapper">
-        <NavBar />
         <div className="travel-form">
           <div className="search-box">
             <DatesPicker
