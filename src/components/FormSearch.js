@@ -8,7 +8,7 @@ import Switch from '@material-ui/core/Switch';
 
 export default class FormSearch extends React.Component {
   state = {
-    dateFrom: '',
+    dateFrom: this.props.dateFrom,
     dateTo: '',
     showDateFrom: false,
     showDateTo: false,
@@ -191,11 +191,13 @@ export default class FormSearch extends React.Component {
     this.setState({
       onlyDepartureCitiesSearch: !this.state.onlyDepartureCitiesSearch
     });
-    console.log(this.state.onlyDepartureCitiesSearch);
   };
 
   render() {
+    console.log('hello ')
+    console.log(this.props)
     return (
+      
       <div className="wrapper">
         <div className={this.props.isHomePage ? 'travel-form' : 'travel-form-results'}>
           <div className={this.props.isHomePage ? 'search-box' : 'search-box-results'}>
@@ -216,41 +218,7 @@ export default class FormSearch extends React.Component {
               isHomePage={this.props.isHomePage}
             />
 
-            {/*<FormGroup check className="travel-checkbox">
-                <Label check>
-                  <div className="vehicle-type">
-                    <h5>Flight</h5>
-                    <button
-                      className="toggle-btn"
-                      onClick={this.onPlaneClick}
-                    >
-                      {this.state.plane ? <i className="fas fa-toggle-on fa-2x"></i> : <i className="fas fa-toggle-off fa-2x"></i>}
-                    </button>
-                  </div>
-                </Label>
-                <Label check>
-                  <div className="vehicle-type">
-                    <h5>Train</h5>
-                    <button
-                      className="toggle-btn"
-                      onClick={this.onTrainClick}
-                    >
-                      {this.state.train ? <i className="fas fa-toggle-on fa-2x"></i> : <i className="fas fa-toggle-off fa-2x"></i>}
-                    </button>
-                  </div>
-                </Label>
-                <Label check>
-                  <div className="vehicle-type">
-                    <h5>Bus</h5>
-                    <button
-                      className="toggle-btn"
-                      onClick={this.onBusClick}
-                    >
-                      {this.state.bus ? <i className="fas fa-toggle-on fa-2x"></i> : <i className="fas fa-toggle-off fa-2x"></i>}
-                    </button>
-                  </div>
-                </Label>
-              </FormGroup>*/}
+           
             <button
               className={this.props.isHomePage ? 'btn btn-flat' : 'btn btn-flat-results'}
               name="button"

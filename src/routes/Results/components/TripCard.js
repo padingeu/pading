@@ -12,12 +12,9 @@ const TripCard = ({ destination, prices, travelers }) => {
         {prices.pricesPerDestination.map(object => {
           return (
             <div key={object.city} className="citytrip-card">
-              {console.log(travelers)}
-              {console.log(destination)}
-              {console.log(travelers[object.city])}
               {object.city} - {Math.round(object.price / travelers[object.city])}€ {''}
-              {travelers[object.city] > 1 ? 'x' + ' ' + travelers[object.city] + ' ' : ' '}
-              <i class="fas fa-long-arrow-alt-right fa-lg"></i>
+              {travelers[object.city] > 1 ? 'x ' + travelers[object.city] + ' ' : ' '}
+              <i className="fas fa-long-arrow-alt-right fa-lg"></i>
             </div>
           );
         })}

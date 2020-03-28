@@ -38,12 +38,13 @@ export default class Results extends React.Component {
   };
 
   render() {
+    console.log(this.props)
     return (
       <div>
         <NavBar />
         <div className="travel-results">
           <div className="formsearch-results">
-            <FormSearch searchTrips={this.props.searchTrips} />
+            <FormSearch searchTrips={this.props.searchTrips} dateFrom={this.props.search.dateFrom}/>
           </div>
           <div className="cards-map-results">
             <div className="linear-progress">

@@ -27,7 +27,7 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip) => {
     for (let i = 0; i < cities.length; i++) {
       travelers[cities[i].name] = cities[i].numberOfPeople;
       const promise = axios.get(
-        `https://kiwicom-prod.apigee.net/v2/search?fly_from=${cities[i].coordinates}&date_from=${dateFrom}&date_to=${dateFrom}&return_from=${dateTo}&max_stopovers=${maxStopover}&flight_type=round&nights_in_dst_from=${differenceInDays}&nights_in_dst_to=${differenceInDays}&adults=${cities[i].numberOfPeople}&vehicle_type=aircraft`,
+        `https://kiwicom-prod.apigee.net/v2/search?fly_from=${cities[i].coordinates}&date_from=${dateFrom}&date_to=${dateFrom}&return_from=${dateTo}&max_stopovers=${maxStopover}&flight_type=round&nights_in_dst_from=${differenceInDays}&nights_in_dst_to=${differenceInDays}&adults=${cities[i].numberOfPeople}&vehicle_type=aircraft&ret_to_diff_airport=0&ret_from_diff_airport=0`,
         config
       );
       promises.push(promise);
@@ -45,7 +45,8 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip) => {
               cityTo: trip.cityTo,
               price: trip.price,
               local_departure: trip.local_departure,
-              local_arrival: trip.local_arrival
+              local_arrival: trip.local_arrival,
+              route: trip.route
             };
           });
           trips[city] = trips_by_city;
@@ -81,7 +82,8 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip) => {
       const data = {
         commonDestinations: commonDestinations,
         trips: trips,
-        travelers: travelers
+        travelers: travelers,
+        dateFrom: dateFrom
       };
       console.log('data');
       console.log(data);
