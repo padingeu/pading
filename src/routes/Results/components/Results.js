@@ -1,11 +1,16 @@
 import React from 'react';
+import TripCard from './TripCard';
 import NavBar from '../../../components/NavBar';
 import FormSearch from '../../../components/FormSearch';
-import TripCard from './TripCard';
 import './_Results.scss';
 import LinearProgress from '@material-ui/core/LinearProgress';
 
-export default class Result extends React.Component {
+export default class Results extends React.Component {
+  state = {
+    isHomePage: false,
+    visible: 8
+  };
+
   getTotalPrice = (trips, destination) => {
     const pricesList = [];
     let totalPrice = 0;
@@ -27,30 +32,43 @@ export default class Result extends React.Component {
     };
   };
 
+  loadMore = event => {
+    event.preventDefault();
+    this.setState({ visible: this.state.visible + 4 });
+  };
+
   render() {
     return (
       <div>
         <NavBar />
         <div className="travel-results">
           <div className="formsearch-results">
-            <FormSearch />
+            <FormSearch searchTrips={this.props.searchTrips} />
           </div>
           <div className="cards-map-results">
-            <div className="cards-results">
+            <div className="linear-progress">
               <LinearProgress />
-              {console.log(this.props)}
-              {this.props.search.commonDestinations.map((destination, index) => {
-                return (
-                  <div key={index} className="city-div">
-                    <TripCard
-                      destination={destination}
-                      prices={this.getTotalPrice(this.props.search.trips, destination)}
-                      travelers={this.props.search.travelers}
-                    />
-                  </div>
-                );
-              })}
             </div>
+            <div className="cards-results">
+              {this.props.search.commonDestinations
+                .slice(0, this.state.visible)
+                .map((destination, index) => {
+                  return (
+                    <div key={index} className="city-div">
+                      <TripCard
+                        destination={destination}
+                        prices={this.getTotalPrice(this.props.search.trips, destination)}
+                        travelers={this.props.search.travelers}
+                      />
+                    </div>
+                  );
+                })}
+            </div>
+            {this.state.visible >= this.props.search.commonDestinations.length ? null : (
+              <button type="button" id="showmore-btn" onClick={this.loadMore}>
+                <i class="fas fa-chevron-circle-down fa-2x"></i>
+              </button>
+            )}
             <div className="map-results"></div>
           </div>
         </div>

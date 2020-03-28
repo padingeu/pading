@@ -1,26 +1,50 @@
 .travel-results {
   display: flex;
   padding: 1vh;
+  margin-top: 70px;
   .formsearch-results {
-    border: solid orange;
-    margin-top: 1;
+    position: fixed;
+    left: 0;
   }
   .cards-map-results {
-    //padding: 1vh;
-    border: solid yellow;
     display: flex;
     flex-direction: column;
+    padding-top: 5px;
+    .linear-progress {
+      margin: 0px 5px 0px 5px;
+    }
     .cards-results {
-      border: solid green;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 10px;
     }
     .map-results {
+      margin-top: 10px;
       border: solid blue;
     }
   }
 }
 
+#showmore-btn {
+  text-align: center;
+  border: none;
+  text-decoration: none;
+  color: #3e936f;
+}
+
 /* extra small and small screens */
-@media (max-width: 900px) {
+@media (max-width: 650px) {
+  .travel-results {
+    .cards-map-results {
+      flex-direction: column;
+      .cards-results {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
   .travel-results {
     flex-direction: column;
     .formsearch-results {
@@ -28,29 +52,25 @@
     }
     .cards-map-results {
       flex-direction: column;
-      .cards-results {
-        height: 900px;
-      }
       .map-results {
-        height: 300px;
+        max-height: 300px;
       }
     }
   }
 }
 
 /* normal and big screens */
-@media (min-width: 901px) {
+@media (min-width: 1201px) {
   .travel-results {
     flex-direction: row;
+    justify-content: flex-end;
+
     .formsearch-results {
-      height: 1200px;
+      height: calc(100vh - 70px);
       width: 30%;
     }
     .cards-map-results {
       width: 70%;
-      .cards-results {
-        height: 900px;
-      }
       .map-results {
         height: 300px;
       }

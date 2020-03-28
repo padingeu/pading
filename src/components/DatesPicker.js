@@ -57,8 +57,12 @@ class DatesPicker extends React.Component {
     return (
       <div>
         <form className="simple_form search" action="/">
-          <div className="travel-options">
-            <div className="travel-options-details">
+          <div className={this.props.isHomePage ? 'travel-options' : 'travel-options-results'}>
+            <div
+              className={
+                this.props.isHomePage ? 'travel-options-details' : 'travel-options-details-results'
+              }
+            >
               <div className="travel-type">
                 {this.state.showTravelTypeBtn ? (
                   <div className="travel-type-change">
@@ -172,9 +176,9 @@ class DatesPicker extends React.Component {
                 <h6>{this.props.flexibleDates}</h6>
             </div>*/}
 
-            <div className="inputdate">
+            <div className={this.props.isHomePage ? 'inputdate' : 'inputdate-results'}>
               <input
-                className="inputdatefrom"
+                className={this.props.isHomePage ? 'inputdatefrom' : 'inputdatefrom-results'}
                 type="text"
                 onChange={this.props.onChange}
                 onClick={this.showOnCalendar}
@@ -183,7 +187,7 @@ class DatesPicker extends React.Component {
               />
               {this.props.travelType === 'Return' ? (
                 <input
-                  className="inputdateto"
+                  className={this.props.isHomePage ? 'inputdateto' : 'inputdateto-results'}
                   type="text"
                   onChange={this.props.onChange}
                   onClick={this.showOnCalendar}
@@ -206,7 +210,7 @@ class DatesPicker extends React.Component {
             </div>
 
             {this.state.showCalendar && (
-              <div className="calendar">
+              <div className={this.props.isHomePage ? 'calendar' : 'calendar-results'}>
                 <Calendar
                   locale={'en'}
                   minDate={new Date()}
