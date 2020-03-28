@@ -1,0 +1,81 @@
+.trip-card {
+  position: relative;
+  border-radius: 3px;
+  width: 100%;
+  min-height: 244px;
+  margin-top: 10px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)),
+    url(https://cdn.getyourguide.com/img/tour_img-2266912-146.jpg);
+  background-position: center center;
+  .trip-card-destination {
+    position: absolute;
+    bottom: 40px;
+    left: 20px;
+    font-family: 'Arimo', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    color: white;
+    animation-name: reverse;
+    animation-duration: 0.8s;
+    animation-fill-mode: forwards;
+    font-size: 22px;
+    border-bottom: solid white;
+    border-width: 1px;
+  }
+  @keyframes reverse {
+    0% {
+      width: 90%;
+    }
+    100% {
+      width: 0%;
+    }
+  }
+  .globalprice-card {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: white;
+  }
+  .citytrips-card {
+    position: absolute;
+    bottom: 80px;
+    left: 20px;
+    .citytrip-card {
+      font-family: 'Arimo', sans-serif;
+      font-weight: normal 400;
+      font-size: 14px;
+      color: white;
+      margin-bottom: 5px;
+    }
+  }
+}
+
+.trip-card:hover {
+  cursor: pointer;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)),
+    url(https://cdn.getyourguide.com/img/tour_img-2266912-146.jpg);
+  .trip-card-destination {
+    animation-name: animate;
+    animation-duration: 0.8s;
+    animation-fill-mode: forwards;
+    font-size: 22px;
+    border-bottom: solid white;
+    border-width: 1px;
+    margin-bottom: 10px;
+  }
+  @keyframes animate {
+    0% {
+      width: 0%;
+    }
+    100% {
+      width: 90%;
+    }
+  }
+}
+
+.trip-card .citytrip-card {
+  visibility: hidden;
+}
+.trip-card:hover .citytrip-card {
+  visibility: visible;
+}

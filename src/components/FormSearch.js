@@ -197,8 +197,8 @@ export default class FormSearch extends React.Component {
   render() {
     return (
       <div className="wrapper">
-        <div className="travel-form">
-          <div className="search-box">
+        <div className={this.props.isHomePage ? 'travel-form' : 'travel-form-results'}>
+          <div className={this.props.isHomePage ? 'search-box' : 'search-box-results'}>
             <DatesPicker
               dateFrom={this.state.dateFrom}
               dateTo={this.state.dateTo}
@@ -213,6 +213,7 @@ export default class FormSearch extends React.Component {
               travelType={this.state.travelType}
               stopTrip={this.state.stopTrip}
               //flexibleDates={this.state.flexibleDates}
+              isHomePage={this.props.isHomePage}
             />
 
             {/*<FormGroup check className="travel-checkbox">
@@ -251,7 +252,7 @@ export default class FormSearch extends React.Component {
                 </Label>
               </FormGroup>*/}
             <button
-              className="btn btn-flat"
+              className={this.props.isHomePage ? 'btn btn-flat' : 'btn btn-flat-results'}
               name="button"
               disabled={!(this.state.dateFrom && this.state.cities.length > 0)}
               type="submit"
@@ -261,7 +262,7 @@ export default class FormSearch extends React.Component {
             </button>
           </div>
 
-          <div className="switch-search-sype">
+          <div className="switch-search-type">
             <p>We only consider to meet in one of the cities we come from</p>
             <Switch
               onChange={this.switchSearchBtn}
