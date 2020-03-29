@@ -65,8 +65,8 @@ export default class Results extends React.Component {
                 })}
             </div>
             {this.state.visible >= this.props.search.commonDestinations.length ? null : (
-              <button type="button" id="showmore-btn" onClick={this.loadMore}>
-                <i class="fas fa-chevron-circle-down fa-2x"></i>
+              <button type="button" id="loadmore-btn" onClick={this.loadMore}>
+                Load more
               </button>
             )}
             <div className="map-results"></div>

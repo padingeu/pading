@@ -25,11 +25,22 @@
   }
 }
 
-#showmore-btn {
-  text-align: center;
+#loadmore-btn {
+  height: 44px;
+  width: 100%;
+  margin-bottom: 5px;
+  border-radius: 5px;
   border: none;
+  font-weight: bold;
   text-decoration: none;
-  color: #3e936f;
+  outline: none;
+  background-color: #f5f7f9;
+  color: #262626;
+  transition: background 0.3s ease;
+  &:hover {
+    background: #e3eaef;
+    color: #262626;
+  }
 }
 
 /* extra small and small screens */
