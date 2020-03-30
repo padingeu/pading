@@ -1,5 +1,6 @@
 import React from 'react';
 import TripCard from './TripCard';
+import Map from './Map';
 import NavBar from '../../../components/NavBar';
 import FormSearch from '../../../components/FormSearch';
 import './_Results.scss';
@@ -38,13 +39,16 @@ export default class Results extends React.Component {
   };
 
   render() {
-    console.log(this.props)
+    console.log(this.props);
     return (
       <div>
         <NavBar />
         <div className="travel-results">
           <div className="formsearch-results">
-            <FormSearch searchTrips={this.props.searchTrips} dateFrom={this.props.search.dateFrom}/>
+            <FormSearch
+              searchTrips={this.props.searchTrips}
+              dateFrom={this.props.search.dateFrom}
+            />
           </div>
           <div className="cards-map-results">
             <div className="linear-progress">
@@ -70,7 +74,9 @@ export default class Results extends React.Component {
                 Load more
               </button>
             )}
-            <div className="map-results"></div>
+            <div className="map-results">
+              <Map />
+            </div>
           </div>
         </div>
       </div>
