@@ -9,7 +9,7 @@ import Switch from '@material-ui/core/Switch';
 export default class FormSearch extends React.Component {
   state = {
     dateFrom: this.props.dateFrom,
-    dateTo: '',
+    dateTo: this.props.dateTo,
     showDateFrom: false,
     showDateTo: false,
     travelType: 'Return',
@@ -194,8 +194,10 @@ export default class FormSearch extends React.Component {
   };
 
   render() {
-    console.log('hello ')
-    console.log(this.props)
+    console.log('date from ')
+    console.log(this.state.dateFrom)
+    console.log('date to ')
+    console.log(this.state.dateTo)
     return (
       
       <div className="wrapper">
@@ -204,8 +206,8 @@ export default class FormSearch extends React.Component {
             <DatesPicker
               dateFrom={this.state.dateFrom}
               dateTo={this.state.dateTo}
-              showDateFrom={this.state.showDateFrom}
-              showDateTo={this.state.showDateTo}
+              showDateFrom={this.state.showDateFrom || !this.props.isHomePage}
+              showDateTo={this.state.showDateTo || !this.props.isHomePage}
               onChange={this.onInputDateChange}
               switchToOneWay={this.switchToOneWay}
               switchToReturn={this.switchToReturn}

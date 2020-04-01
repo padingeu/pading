@@ -39,7 +39,8 @@ export default class Results extends React.Component {
   };
 
   render() {
-    console.log(this.props);
+    console.log('cities')
+    console.log(this.props.search.cities);
     return (
       <div>
         <NavBar />
@@ -48,6 +49,7 @@ export default class Results extends React.Component {
             <FormSearch
               searchTrips={this.props.searchTrips}
               dateFrom={this.props.search.dateFrom}
+              dateTo={this.props.search.dateTo}
             />
           </div>
           <div className="cards-map-results">

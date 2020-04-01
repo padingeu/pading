@@ -4,15 +4,20 @@ import { history } from '../index';
 export const searchTrips = (cities, dateFrom, dateTo, stopTrip) => {
   const promises = [];
   return dispatch => {
-    dispatch({ type: 'CLEAR_SEARCH' });
+    const formData = {
+      dateFrom: dateFrom,
+      dateTo: dateTo,
+      cities: cities
+    };
+    dispatch({ type: 'FORM_DATA', formData });
     history.push('/results');
 
     // To calculate the time difference of two dates
     const differenceInTime = dateTo.getTime() - dateFrom.getTime();
     // To calculate the no. of days between two dates
     const differenceInDays = Math.trunc(differenceInTime / (1000 * 3600 * 24));
-    dateFrom = dateFrom.toLocaleDateString();
-    dateTo = dateTo.toLocaleDateString();
+    const dateFromStr = dateFrom.toLocaleDateString();
+    const dateToStr = dateTo.toLocaleDateString();
     let maxStopover = '2';
     if (stopTrip === 'Direct') {
       maxStopover = '0';
@@ -27,7 +32,7 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip) => {
     for (let i = 0; i < cities.length; i++) {
       travelers[cities[i].name] = cities[i].numberOfPeople;
       const promise = axios.get(
-        `https://kiwicom-prod.apigee.net/v2/search?fly_from=${cities[i].coordinates}&date_from=${dateFrom}&date_to=${dateFrom}&return_from=${dateTo}&max_stopovers=${maxStopover}&flight_type=round&nights_in_dst_from=${differenceInDays}&nights_in_dst_to=${differenceInDays}&adults=${cities[i].numberOfPeople}&vehicle_type=aircraft&ret_to_diff_airport=0&ret_from_diff_airport=0`,
+        `https://kiwicom-prod.apigee.net/v2/search?fly_from=${cities[i].coordinates}&date_from=${dateFromStr}&date_to=${dateFromStr}&return_from=${dateToStr}&max_stopovers=${maxStopover}&flight_type=round&nights_in_dst_from=${differenceInDays}&nights_in_dst_to=${differenceInDays}&adults=${cities[i].numberOfPeople}&vehicle_type=aircraft&ret_to_diff_airport=0&ret_from_diff_airport=0`,
         config
       );
       promises.push(promise);
@@ -82,11 +87,8 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip) => {
       const data = {
         commonDestinations: commonDestinations,
         trips: trips,
-        travelers: travelers,
-        dateFrom: dateFrom
+        travelers: travelers
       };
-      console.log('data');
-      console.log(data);
       dispatch({ type: 'SEARCH', data });
     });
   };
