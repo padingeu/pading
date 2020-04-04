@@ -84,6 +84,8 @@ export default class FormSearch extends React.Component {
       //CREATE new city
       const city_obj = {
         name: cityName,
+        lat: coordinates.lat,
+        lng: coordinates.lng,
         coordinates: coordinatesFormatted,
         numberOfPeople: 1,
         showButton: false
@@ -194,12 +196,11 @@ export default class FormSearch extends React.Component {
   };
 
   render() {
-    console.log('date from ')
-    console.log(this.state.dateFrom)
-    console.log('date to ')
-    console.log(this.state.dateTo)
+    console.log('date from ');
+    console.log(this.state.dateFrom);
+    console.log('date to ');
+    console.log(this.state.dateTo);
     return (
-      
       <div className="wrapper">
         <div className={this.props.isHomePage ? 'travel-form' : 'travel-form-results'}>
           <div className={this.props.isHomePage ? 'search-box' : 'search-box-results'}>
@@ -220,7 +221,6 @@ export default class FormSearch extends React.Component {
               isHomePage={this.props.isHomePage}
             />
 
-           
             <button
               className={this.props.isHomePage ? 'btn btn-flat' : 'btn btn-flat-results'}
               name="button"

@@ -9,17 +9,17 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 export default class Results extends React.Component {
   state = {
     isHomePage: false,
-    visible: 8
+    visible: 8,
   };
 
   getTotalPrice = (trips, destination) => {
     const pricesList = [];
     let totalPrice = 0;
-    Object.keys(trips).forEach(city => {
-      let tripsForDestination = trips[city].filter(trip => {
+    Object.keys(trips).forEach((city) => {
+      let tripsForDestination = trips[city].filter((trip) => {
         return trip.cityTo === destination;
       });
-      let prices = tripsForDestination.map(trip => {
+      let prices = tripsForDestination.map((trip) => {
         return trip.price;
       });
       const price = Math.min.apply(null, prices);
@@ -29,17 +29,17 @@ export default class Results extends React.Component {
 
     return {
       pricesPerDestination: pricesList,
-      totalPrice: totalPrice
+      totalPrice: totalPrice,
     };
   };
 
-  loadMore = event => {
+  loadMore = (event) => {
     event.preventDefault();
     this.setState({ visible: this.state.visible + 4 });
   };
 
   render() {
-    console.log('cities')
+    console.log('cities');
     console.log(this.props.search.cities);
     return (
       <div>
@@ -77,7 +77,10 @@ export default class Results extends React.Component {
               </button>
             )}
             <div className="map-results">
-              <Map />
+              <Map
+                citiesFrom={this.props.search.cities}
+                citiesTo={this.props.search.commonDestinations}
+              />
             </div>
           </div>
         </div>
