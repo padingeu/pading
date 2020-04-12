@@ -18,7 +18,7 @@ export default class FormSearch extends React.Component {
     plane: true,
     train: true,
     bus: true,
-    cities: [],
+    cities: this.props.cities || [],
     address: '',
     shouldSearch: false,
     onlyDepartureCitiesSearch: false

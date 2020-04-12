@@ -1,38 +1,33 @@
-import axios from 'axios';
-import lodash from 'lodash';
-import { history } from '../index';
+import axios from "axios";
+import lodash from "lodash";
+import { history } from "../index";
 export const searchTrips = (cities, dateFrom, dateTo, stopTrip) => {
+  console.log("cities");
+  console.log(cities);
   const promises = [];
   return dispatch => {
-    const formData = {
-      dateFrom: dateFrom,
-      dateTo: dateTo,
-      cities: cities
-    };
-    dispatch({ type: 'FORM_DATA', formData });
-    history.push('/results');
+    dispatch({ type: "CLEAR_SEARCH" });
+    history.push("/results");
 
     // To calculate the time difference of two dates
     const differenceInTime = dateTo.getTime() - dateFrom.getTime();
     // To calculate the no. of days between two dates
     const differenceInDays = Math.trunc(differenceInTime / (1000 * 3600 * 24));
-    const dateFromStr = dateFrom.toLocaleDateString();
-    const dateToStr = dateTo.toLocaleDateString();
-    let maxStopover = '2';
-    if (stopTrip === 'Direct') {
-      maxStopover = '0';
+    dateFrom = dateFrom.toLocaleDateString();
+    dateTo = dateTo.toLocaleDateString();
+    let maxStopover = "2";
+    if (stopTrip === "Direct") {
+      maxStopover = "0";
     }
     let config = {
       headers: {
-        accept: 'application/json',
-        apikey: 'IKxLuAAkQC8WZ45VUByiK9SSetOFSjnL'
+        accept: "application/json",
+        apikey: "IKxLuAAkQC8WZ45VUByiK9SSetOFSjnL"
       }
     };
-    const travelers = {};
     for (let i = 0; i < cities.length; i++) {
-      travelers[cities[i].name] = cities[i].numberOfPeople;
       const promise = axios.get(
-        `https://kiwicom-prod.apigee.net/v2/search?fly_from=${cities[i].coordinates}&date_from=${dateFromStr}&date_to=${dateFromStr}&return_from=${dateToStr}&max_stopovers=${maxStopover}&flight_type=round&nights_in_dst_from=${differenceInDays}&nights_in_dst_to=${differenceInDays}&adults=${cities[i].numberOfPeople}&vehicle_type=aircraft&ret_to_diff_airport=0&ret_from_diff_airport=0`,
+        `https://kiwicom-prod.apigee.net/v2/search?fly_from=${cities[i].coordinates}&date_from=${dateFrom}&date_to=${dateFrom}&return_from=${dateTo}&max_stopovers=${maxStopover}&flight_type=round&nights_in_dst_from=${differenceInDays}&nights_in_dst_to=${differenceInDays}&adults=${cities[i].numberOfPeople}&vehicle_type=aircraft`,
         config
       );
       promises.push(promise);
@@ -42,40 +37,50 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip) => {
       const trips = {};
       //Construction d un objet avec une liste de voyage
       for (let i = 0; i < results.length; i++) {
-        if (typeof results[i].data.data[0] !== 'undefined') {
+        if (typeof results[i].data.data[0] !== "undefined") {
           const city = results[i].data.data[0].cityFrom;
           const trips_by_city = results[i].data.data.map(trip => {
-            console.log('price is ' + trip.price)
             return {
               cityFrom: trip.cityFrom,
               cityTo: trip.cityTo,
               price: trip.price,
               local_departure: trip.local_departure,
-              local_arrival: trip.local_arrival,
-              route: trip.route
+              local_arrival: trip.local_arrival
             };
           });
           trips[city] = trips_by_city;
         }
       }
+      console.log("trips");
+      console.log(trips);
+      console.log(cities.length + "cities");
       //Recuperer une liste des destinations communes
       let commonTrips = [];
       if (cities.length === 1 && cities[0].name in trips) {
         commonTrips = trips[cities[0].name];
       } else {
         for (let i = 1; i < cities.length; i++) {
+          console.log("map common trips for several city");
           let city1 = cities[i - 1].name;
           let city2 = cities[i].name;
-          commonTrips = lodash.intersectionBy(trips[city1], trips[city2], 'cityTo');
+          commonTrips = lodash.intersectionBy(
+            trips[city1],
+            trips[city2],
+            "cityTo"
+          );
         }
       }
 
+      console.log("commonTrips");
+      console.log(commonTrips);
       const commonDestinations = [];
       for (let i = 0; i < commonTrips.length; i++) {
+        console.log(commonTrips[i]);
         if (!commonDestinations.includes(commonTrips[i].cityTo)) {
           commonDestinations.push(commonTrips[i].cityTo);
         }
       }
+      console.log(commonDestinations);
       //Retirer les voages qui ne font pas parti des destinations communes
       for (let i = 0; i < cities.length; i++) {
         let city = cities[i].name;
@@ -87,11 +92,10 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip) => {
       }
       const data = {
         commonDestinations: commonDestinations,
-        trips: trips,
-        travelers: travelers,
-        cities: cities
+        trips: trips
       };
-      dispatch({ type: 'SEARCH', data });
+      console.log(data);
+      dispatch({ type: "SEARCH", data });
     });
   };
 };

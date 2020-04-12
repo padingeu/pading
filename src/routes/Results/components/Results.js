@@ -50,6 +50,7 @@ export default class Results extends React.Component {
               searchTrips={this.props.searchTrips}
               dateFrom={this.props.search.dateFrom}
               dateTo={this.props.search.dateTo}
+              cities={this.props.search.cities}
             />
           </div>
           <div className="cards-map-results">
