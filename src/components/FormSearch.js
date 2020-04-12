@@ -196,10 +196,6 @@ export default class FormSearch extends React.Component {
   };
 
   render() {
-    console.log('date from ');
-    console.log(this.state.dateFrom);
-    console.log('date to ');
-    console.log(this.state.dateTo);
     return (
       <div className="wrapper">
         <div className={this.props.isHomePage ? 'travel-form' : 'travel-form-results'}>

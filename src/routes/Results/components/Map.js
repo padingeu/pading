@@ -21,7 +21,7 @@ export default class Map extends React.Component {
     Geocode.fromAddress(city).then(
       (response) => {
         const { lat, lng } = response.results[0].geometry.location;
-        console.log(lat, lng);
+        console.log('city is ' + city + lat, lng);
       },
       (error) => {
         console.error(error);

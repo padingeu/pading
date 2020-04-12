@@ -39,8 +39,6 @@ export default class Results extends React.Component {
   };
 
   render() {
-    console.log('cities');
-    console.log(this.props.search.cities);
     return (
       <div>
         <NavBar />

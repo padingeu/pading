@@ -6,11 +6,9 @@ const initialState = {
 const search = (state = initialState, action) => {
   switch (action.type) {
     case 'SEARCH':
-      console.log('SEARCH')
       console.log(action)
       return Object.assign({}, state, action.data);
     case 'FORM_DATA':
-      console.log('FORM_DATA')
       console.log(action)
       return Object.assign({}, state, action.formData);
     case 'CLEAR_SEARCH':
