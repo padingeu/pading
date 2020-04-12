@@ -10,6 +10,8 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip) => {
       cities: cities
     };
     dispatch({ type: 'FORM_DATA', formData });
+    dispatch({ type: 'CLEAR_SEARCH' });
+    dispatch({ type: 'LOADING' });
     history.push('/results');
 
     // To calculate the time difference of two dates
@@ -45,7 +47,6 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip) => {
         if (typeof results[i].data.data[0] !== 'undefined') {
           const city = results[i].data.data[0].cityFrom;
           const trips_by_city = results[i].data.data.map(trip => {
-            console.log('price is ' + trip.price)
             return {
               cityFrom: trip.cityFrom,
               cityTo: trip.cityTo,
@@ -92,6 +93,9 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip) => {
         cities: cities
       };
       dispatch({ type: 'SEARCH', data });
+      dispatch({ type: 'SUCCESS' });
+    }).catch(error => {
+      dispatch({ type: 'FAILURE' });
     });
   };
 };

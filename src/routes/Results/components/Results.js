@@ -5,12 +5,23 @@ import NavBar from '../../../components/NavBar';
 import FormSearch from '../../../components/FormSearch';
 import './_Results.scss';
 import LinearProgress from '@material-ui/core/LinearProgress';
+import { history } from '../../../index';
 
 export default class Results extends React.Component {
   state = {
-    isHomePage: false,
     visible: 8,
   };
+
+
+  componentDidMount() {
+  
+    // console.log(this.props);
+    if(!this.props.search.isLoading && !this.props.search.success) {
+      history.push('/')
+    } 
+  }
+
+
 
   getTotalPrice = (trips, destination) => {
     const pricesList = [];
@@ -41,6 +52,7 @@ export default class Results extends React.Component {
   render() {
     return (
       <div>
+      
         <NavBar />
         <div className="travel-results">
           <div className="formsearch-results">
@@ -52,9 +64,11 @@ export default class Results extends React.Component {
             />
           </div>
           <div className="cards-map-results">
-            <div className="linear-progress">
-              <LinearProgress />
-            </div>
+            {this.props.search.isLoading && (
+              <div className="linear-progress">
+                <LinearProgress />
+              </div>
+            )}
             <div className="cards-results">
               {this.props.search.commonDestinations
                 .slice(0, this.state.visible)
@@ -75,12 +89,14 @@ export default class Results extends React.Component {
                 Load more
               </button>
             )}
-            <div className="map-results">
-              <Map
-                citiesFrom={this.props.search.cities}
-                citiesTo={this.props.search.commonDestinations}
-              />
-            </div>
+            {this.props.search.commonDestinations.length > 0 && (
+              <div className="map-results">
+                <Map
+                  citiesFrom={this.props.search.cities}
+                  citiesTo={this.props.search.commonDestinations}
+                />
+              </div>
+            )}
           </div>
         </div>
       </div>
