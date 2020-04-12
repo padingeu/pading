@@ -3,11 +3,11 @@ import lodash from 'lodash';
 import { history } from '../index';
 export const searchTrips = (cities, dateFrom, dateTo, stopTrip) => {
   const promises = [];
-  return dispatch => {
+  return (dispatch) => {
     const formData = {
       dateFrom: dateFrom,
       dateTo: dateTo,
-      cities: cities
+      cities: cities,
     };
     dispatch({ type: 'FORM_DATA', formData });
     history.push('/results');
@@ -25,33 +25,33 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip) => {
     let config = {
       headers: {
         accept: 'application/json',
-        apikey: 'IKxLuAAkQC8WZ45VUByiK9SSetOFSjnL'
-      }
+        apikey: 'IKxLuAAkQC8WZ45VUByiK9SSetOFSjnL',
+      },
     };
     const travelers = {};
     for (let i = 0; i < cities.length; i++) {
       travelers[cities[i].name] = cities[i].numberOfPeople;
       const promise = axios.get(
-        `https://kiwicom-prod.apigee.net/v2/search?fly_from=${cities[i].coordinates}&date_from=${dateFromStr}&date_to=${dateFromStr}&return_from=${dateToStr}&max_stopovers=${maxStopover}&flight_type=round&nights_in_dst_from=${differenceInDays}&nights_in_dst_to=${differenceInDays}&adults=${cities[i].numberOfPeople}&vehicle_type=aircraft&ret_to_diff_airport=0&ret_from_diff_airport=0`,
+        `https://kiwicom-prod.apigee.net/v2/search?fly_from=${cities[i].coordinates}&date_from=${dateFromStr}&date_to=${dateFromStr}&return_from=${dateToStr}&max_stopovers=${maxStopover}&flight_type=round&nights_in_dst_from=${differenceInDays}&nights_in_dst_to=${differenceInDays}&adults=${cities[i].numberOfPeople}&vehicle_type=aircraft,train,bus&ret_to_diff_airport=0&ret_from_diff_airport=0`,
         config
       );
       promises.push(promise);
     }
 
-    Promise.all(promises).then(results => {
+    Promise.all(promises).then((results) => {
       const trips = {};
       //Construction d un objet avec une liste de voyage
       for (let i = 0; i < results.length; i++) {
         if (typeof results[i].data.data[0] !== 'undefined') {
           const city = results[i].data.data[0].cityFrom;
-          const trips_by_city = results[i].data.data.map(trip => {
+          const trips_by_city = results[i].data.data.map((trip) => {
             return {
               cityFrom: trip.cityFrom,
               cityTo: trip.cityTo,
               price: trip.price,
               local_departure: trip.local_departure,
               local_arrival: trip.local_arrival,
-              route: trip.route
+              route: trip.route,
             };
           });
           trips[city] = trips_by_city;
@@ -79,7 +79,7 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip) => {
       for (let i = 0; i < cities.length; i++) {
         let city = cities[i].name;
         if (city in trips) {
-          trips[city] = trips[city].filter(trip => {
+          trips[city] = trips[city].filter((trip) => {
             return commonDestinations.includes(trip.cityTo);
           });
         }
@@ -87,7 +87,7 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip) => {
       const data = {
         commonDestinations: commonDestinations,
         trips: trips,
-        travelers: travelers
+        travelers: travelers,
       };
       dispatch({ type: 'SEARCH', data });
     });

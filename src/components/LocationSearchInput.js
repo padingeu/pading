@@ -5,7 +5,7 @@ import onClickOutside from 'react-onclickoutside';
 
 class LocationSearchInput extends React.Component {
   state = {
-    autoCompleteClass: ''
+    autoCompleteClass: '',
   };
 
   handleClickOutside = () => {
@@ -34,15 +34,13 @@ class LocationSearchInput extends React.Component {
                   <input
                     className="city-departure-input"
                     type="text"
-                    id="inp"
-                    placeholder="&nbsp;"
                     onClick={this.cityAutocompleteActive}
                     {...getInputProps({ className: 'city-departure-input' })}
                   />
                   <span className="label">We travel from</span>
                   <span className="focus-bg"></span>
                   <div>{loading ? <div>...Loading</div> : null}</div>
-                  {suggestions.map(suggestion => {
+                  {suggestions.map((suggestion) => {
                     const style = {
                       display: 'flex',
                       alignItems: 'center',
@@ -54,7 +52,7 @@ class LocationSearchInput extends React.Component {
                       fontWeight: suggestion.active ? '700' : '400',
                       textAlign: 'left',
                       paddingLeft: '15px',
-                      height: '25px'
+                      height: '25px',
                     };
                     return (
                       <div
