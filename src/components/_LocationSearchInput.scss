@@ -2,7 +2,7 @@
   position: relative;
   width: 100%;
   max-width: 340px;
-  border-radius: 3px;
+  border-radius: 5px;
   overflow: hidden;
   .label {
     position: absolute;
@@ -41,7 +41,6 @@
       + {
         .label {
           color: #f49d11;
-
           -webkit-transform: translate3d(0, -12px, 0) scale(0.75);
           transform: translate3d(0, -12px, 0) scale(0.75);
         }
@@ -73,7 +72,8 @@
   justify-content: center;
   align-items: space-around;
   height: 30px;
-  border-radius: 5px;
+  border-radius: 25px;
+  padding: 0px 5px 0px 5px;
   color: white;
   background: #f5a741;
   p {
@@ -81,7 +81,6 @@
     color: white;
   }
 }
-
 .city-departure-people {
   display: flex;
   justify-content: center;
