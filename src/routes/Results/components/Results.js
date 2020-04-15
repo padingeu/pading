@@ -17,7 +17,7 @@ export default class Results extends React.Component {
   
     // console.log(this.props);
     if(!this.props.search.isLoading && !this.props.search.success) {
-      history.push('/')
+      // history.push('/')
     } 
   }
 
@@ -51,11 +51,13 @@ export default class Results extends React.Component {
 
   render() {
     return (
-      <div>
       
+      <div>
+    
         <NavBar />
         <div className="travel-results">
           <div className="formsearch-results">
+          {console.log(this.props.search)}
             <FormSearch
               searchTrips={this.props.searchTrips}
               dateFrom={this.props.search.dateFrom}
@@ -69,6 +71,7 @@ export default class Results extends React.Component {
                 <LinearProgress />
               </div>
             )}
+
             <div className="cards-results">
               {this.props.search.commonDestinations
                 .slice(0, this.state.visible)

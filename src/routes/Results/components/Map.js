@@ -3,8 +3,9 @@ import ReactMapGL, { Marker } from 'react-map-gl';
 import Geocode from 'react-geocode';
 import './_Map.scss';
 import yellowMarker from '../img/yellow-marker.png';
+const API_KEY = process.env.REACT_APP_GOOGLE_MAPS_KEY
 
-Geocode.setApiKey('AIzaSyCNr8J74yvIV2UXK65fAugq30m30hPsCLc');
+Geocode.setApiKey(API_KEY);
 
 export default class Map extends React.Component {
   state = {

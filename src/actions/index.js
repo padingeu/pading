@@ -9,8 +9,9 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip) => {
       dateTo: dateTo,
       cities: cities
     };
-    dispatch({ type: 'FORM_DATA', formData });
     dispatch({ type: 'CLEAR_SEARCH' });
+    dispatch({ type: 'FORM_DATA', formData });
+    
     dispatch({ type: 'LOADING' });
     history.push('/results');
 
@@ -89,8 +90,7 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip) => {
       const data = {
         commonDestinations: commonDestinations,
         trips: trips,
-        travelers: travelers,
-        cities: cities
+        travelers: travelers
       };
       dispatch({ type: 'SEARCH', data });
       dispatch({ type: 'SUCCESS' });
