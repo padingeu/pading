@@ -57,7 +57,6 @@ export default class Results extends React.Component {
         <NavBar />
         <div className="travel-results">
           <div className="formsearch-results">
-          {console.log(this.props.search)}
             <FormSearch
               searchTrips={this.props.searchTrips}
               dateFrom={this.props.search.dateFrom}

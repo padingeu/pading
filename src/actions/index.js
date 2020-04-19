@@ -68,7 +68,11 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip) => {
         for (let i = 1; i < cities.length; i++) {
           let city1 = cities[i - 1].name;
           let city2 = cities[i].name;
-          commonTrips = lodash.intersectionBy(trips[city1], trips[city2], 'cityTo');
+          if (commonTrips.length >0) {
+            commonTrips = lodash.intersectionBy(commonTrips, trips[city2], 'cityTo');
+          }else {
+            commonTrips = lodash.intersectionBy(trips[city1], trips[city2], 'cityTo');
+          }      
         }
       }
 
