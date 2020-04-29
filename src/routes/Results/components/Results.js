@@ -5,21 +5,32 @@ import NavBar from '../../../components/NavBar';
 import FormSearch from '../../../components/FormSearch';
 import './_Results.scss';
 import LinearProgress from '@material-ui/core/LinearProgress';
+import { history } from '../../../index';
 
 export default class Results extends React.Component {
   state = {
-    isHomePage: false,
-    visible: 8
+    visible: 8,
   };
+
+
+  componentDidMount() {
+  
+    // console.log(this.props);
+    if(!this.props.search.isLoading && !this.props.search.success) {
+      // history.push('/')
+    } 
+  }
+
+
 
   getTotalPrice = (trips, destination) => {
     const pricesList = [];
     let totalPrice = 0;
-    Object.keys(trips).forEach(city => {
-      let tripsForDestination = trips[city].filter(trip => {
+    Object.keys(trips).forEach((city) => {
+      let tripsForDestination = trips[city].filter((trip) => {
         return trip.cityTo === destination;
       });
-      let prices = tripsForDestination.map(trip => {
+      let prices = tripsForDestination.map((trip) => {
         return trip.price;
       });
       const price = Math.min.apply(null, prices);
@@ -29,20 +40,20 @@ export default class Results extends React.Component {
 
     return {
       pricesPerDestination: pricesList,
-      totalPrice: totalPrice
+      totalPrice: totalPrice,
     };
   };
 
-  loadMore = event => {
+  loadMore = (event) => {
     event.preventDefault();
     this.setState({ visible: this.state.visible + 4 });
   };
 
   render() {
-    console.log('cities')
-    console.log(this.props.search.cities);
     return (
+      
       <div>
+    
         <NavBar />
         <div className="travel-results">
           <div className="formsearch-results">
@@ -50,12 +61,16 @@ export default class Results extends React.Component {
               searchTrips={this.props.searchTrips}
               dateFrom={this.props.search.dateFrom}
               dateTo={this.props.search.dateTo}
+              cities={this.props.search.cities}
             />
           </div>
           <div className="cards-map-results">
-            <div className="linear-progress">
-              <LinearProgress />
-            </div>
+            {this.props.search.isLoading && (
+              <div className="linear-progress">
+                <LinearProgress />
+              </div>
+            )}
+
             <div className="cards-results">
               {this.props.search.commonDestinations
                 .slice(0, this.state.visible)
@@ -76,9 +91,14 @@ export default class Results extends React.Component {
                 Load more
               </button>
             )}
-            <div className="map-results">
-              <Map />
-            </div>
+            {this.props.search.commonDestinations.length > 0 && (
+              <div className="map-results">
+                <Map
+                  citiesFrom={this.props.search.cities}
+                  citiesTo={this.props.search.commonDestinations}
+                />
+              </div>
+            )}
           </div>
         </div>
       </div>

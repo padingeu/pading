@@ -160,22 +160,6 @@ class DatesPicker extends React.Component {
               </div>
             </div>
 
-            {/*<div className="range-slider">
-              <h6><b>Flexibility</b></h6>
-              <div>
-                <label>
-                  <input
-                    className="range-slider__range"
-                    type="range"
-                    min="0" max="2"
-                    value={this.props.flexibleDates}
-                    onChange={this.props.changeFlexibleDates}
-                    step="0"/>
-                </label>
-              </div>
-                <h6>{this.props.flexibleDates}</h6>
-            </div>*/}
-
             <div className={this.props.isHomePage ? 'inputdate' : 'inputdate-results'}>
               <input
                 className={this.props.isHomePage ? 'inputdatefrom' : 'inputdatefrom-results'}
@@ -183,7 +167,7 @@ class DatesPicker extends React.Component {
                 onChange={this.props.onChange}
                 onClick={this.showOnCalendar}
                 placeholder="Departure"
-                value={this.props.showDateFrom ? this.props.dateFrom.toLocaleDateString() : ''}
+                value={this.props.showDateFrom &&  this.props.dateFrom ? this.props.dateFrom.toLocaleDateString() : ''}
               />
               {this.props.travelType === 'Return' ? (
                 <input
@@ -192,7 +176,7 @@ class DatesPicker extends React.Component {
                   onChange={this.props.onChange}
                   onClick={this.showOnCalendar}
                   placeholder="Return"
-                  value={this.props.showDateTo ? this.props.dateTo.toLocaleDateString() : ''}
+                  value={this.props.showDateTo &&  this.props.dateTo  ? this.props.dateTo.toLocaleDateString() : ''}
                 />
               ) : (
                 <input
