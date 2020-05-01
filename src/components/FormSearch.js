@@ -21,7 +21,7 @@ export default class FormSearch extends React.Component {
     cities: this.props.cities || [],
     address: '',
     shouldSearch: false,
-    onlyDepartureCitiesSearch: false
+    onlyDepartureCitiesSearch: false,
   };
 
   search = () => {
@@ -33,30 +33,30 @@ export default class FormSearch extends React.Component {
     );
   };
 
-  onInputDateChange = date => {
+  onInputDateChange = (date) => {
     this.setState({ showDateFrom: true });
     this.setState({ showDateTo: true });
     this.setState({ dateFrom: date[0] });
     this.setState({ dateTo: date[1] });
   };
 
-  switchToOneWay = event => {
+  switchToOneWay = (event) => {
     event.preventDefault();
     this.setState({ travelType: 'One-way' });
   };
 
-  switchToReturn = event => {
+  switchToReturn = (event) => {
     event.preventDefault();
     this.setState({ showDateTo: false });
     this.setState({ travelType: 'Return' });
   };
 
-  switchToIndirect = event => {
+  switchToIndirect = (event) => {
     event.preventDefault();
     this.setState({ stopTrip: 'All' });
   };
 
-  switchToDirect = event => {
+  switchToDirect = (event) => {
     event.preventDefault();
 
     this.setState({ stopTrip: 'Only Direct' });
@@ -66,13 +66,13 @@ export default class FormSearch extends React.Component {
     event.preventDefault();
   this.setState({ flexibleDates: event.target.value });*/
 
-  getFormattedCoordinate = coordinates => {
+  getFormattedCoordinate = (coordinates) => {
     coordinates.lat = coordinates.lat.toFixed(6);
     coordinates.lng = coordinates.lng.toFixed(6);
-    return `${coordinates.lat}-${coordinates.lng}-20km`;
+    return `${coordinates.lat}-${coordinates.lng}-50km`;
   };
 
-  addCity = async address => {
+  addCity = async (address) => {
     const position = await geocodeByAddress(address);
     const coordinates = await getLatLng(position[0]);
     const coordinatesFormatted = this.getFormattedCoordinate(coordinates);
@@ -88,7 +88,7 @@ export default class FormSearch extends React.Component {
         lng: coordinates.lng,
         coordinates: coordinatesFormatted,
         numberOfPeople: 1,
-        showButton: false
+        showButton: false,
       };
       cities.push(city_obj);
     } else {
@@ -98,7 +98,7 @@ export default class FormSearch extends React.Component {
     this.setState({
       coordinates: coordinates,
       cities: cities,
-      address: ''
+      address: '',
     });
   };
 
@@ -115,9 +115,9 @@ export default class FormSearch extends React.Component {
     event.preventDefault();
     city.showButton = !city.showButton;
     const cities = [...this.state.cities];
-    cities[cities.findIndex(el => el === city)] = city;
+    cities[cities.findIndex((el) => el === city)] = city;
     this.setState({
-      cities: cities
+      cities: cities,
     });
   };
 
@@ -125,9 +125,9 @@ export default class FormSearch extends React.Component {
     event.preventDefault();
     city.numberOfPeople++;
     const cities = [...this.state.cities];
-    cities[cities.findIndex(el => el === city)] = city;
+    cities[cities.findIndex((el) => el === city)] = city;
     this.setState({
-      cities: cities
+      cities: cities,
     });
   };
 
@@ -136,25 +136,25 @@ export default class FormSearch extends React.Component {
     if (city.numberOfPeople >= 2) {
       city.numberOfPeople--;
       const cities = [...this.state.cities];
-      cities[cities.findIndex(el => el === city)] = city;
+      cities[cities.findIndex((el) => el === city)] = city;
       this.setState({
-        cities: cities
+        cities: cities,
       });
     }
   };
 
-  handleAddressChange = address => {
+  handleAddressChange = (address) => {
     this.setState({
-      address: address
+      address: address,
     });
 
     const input = document.querySelector('.city-departure-input');
     input.addEventListener(
       'keydown',
-      event => {
+      (event) => {
         const places = Array.from(
           event.target.parentElement.querySelectorAll('div[role="option"]')
-        ).map(e => e.innerText.trim().toLocaleLowerCase());
+        ).map((e) => e.innerText.trim().toLocaleLowerCase());
 
         if (event.key === 'Enter' && !places.includes(input.value.toLocaleLowerCase())) {
           if (0 < places.length) {
@@ -191,7 +191,7 @@ export default class FormSearch extends React.Component {
 
   switchSearchBtn = () => {
     this.setState({
-      onlyDepartureCitiesSearch: !this.state.onlyDepartureCitiesSearch
+      onlyDepartureCitiesSearch: !this.state.onlyDepartureCitiesSearch,
     });
   };
 
@@ -228,13 +228,13 @@ export default class FormSearch extends React.Component {
             </button>
           </div>
 
-          <div className="switch-search-type">
+          {/*<div className="switch-search-type">
             <p>We only consider to meet in one of the cities we come from</p>
             <Switch
               onChange={this.switchSearchBtn}
               inputProps={{ 'aria-label': 'secondary checkbox' }}
             />
-          </div>
+          </div>*/}
           <LocationSearchInput
             address={this.state.address}
             cities={this.state.cities}

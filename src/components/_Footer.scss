@@ -1,0 +1,134 @@
+.wrapper {
+  .footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #f49d11;
+    .footer-menu {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 100%;
+      margin-top: 50px;
+      margin-bottom: 50px;
+      h4 {
+        color: white;
+      }
+      p {
+        color: white;
+      }
+      a {
+        text-decoration: none;
+        cursor: pointer;
+      }
+      .footer-menu-email {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .footer-menu-email-form {
+          position: relative;
+          text-align: right;
+          background: #f49d11;
+          input {
+            font-family: "Arimo", sans-serif;
+            width: 300px;
+            height: 44px;
+            border: none;
+            font-weight: 400;
+            background: white;
+            color: #373737;
+            text-align: left;
+            border-radius: 5px;
+            font-size: 14px;
+            padding: 10px;
+            &:focus {
+              width: 340px;
+              transition-duration: 0.5s;
+              outline: 0;
+            }
+          }
+        }
+        .btn-blue {
+          position: absolute;
+          right: -40px;
+          font-family: "Arimo", sans-serif;
+          height: 40px;
+          margin-top: 2px;
+          margin-right: 15px;
+          //padding: 10px 10px;
+          border-radius: 50px;
+          border: 0;
+          color: white;
+          background-color: #29b3c1 !important;
+          font-size: 14px;
+          background: #fff;
+          font-weight: 700;
+          &:hover {
+            background-color: #53c2cd !important;
+          }
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+      .footer-menu-app-contact {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        .footer-menu-app {
+          margin-left: 20px;
+          text-align: center;
+        }
+        .footer-menu-contact {
+          margin-left: 20px;
+          text-align: center;
+          margin-left: 100px;
+        }
+      }
+    }
+    .footer-social {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      a {
+        background: transparent;
+        width: 50px;
+        color: white;
+        margin-left: 5px;
+        margin-right: 5px;
+      }
+      :hover {
+        color: #29b3c1;
+      }
+      i {
+        font-size: 25px;
+      }
+    }
+  }
+}
+
+// extra-small screens
+@media (max-width: 900px) {
+  .wrapper {
+    .footer-menu {
+      flex-direction: column;
+      .footer-menu-email {
+        margin-bottom: 50px;
+      }
+    }
+  }
+}
+
+// small, normal and big screens
+@media (min-width: 901px) {
+  .wrapper {
+    .footer-menu {
+      padding-top: 50px;
+      .footer-menu-email {
+        margin-bottom: 50px;
+      }
+    }
+  }
+}

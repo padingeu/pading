@@ -1,0 +1,24 @@
+.banner {
+  display: flex;
+  height: calc(100vh - 70px);
+}
+
+// extra-small screens
+@media (max-width: 900px) {
+  .banner {
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 70px;
+  }
+}
+
+// small screens
+@media (min-width: 901px) {
+  .banner {
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 70px;
+  }
+}

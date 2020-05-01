@@ -3,7 +3,7 @@ import ReactMapGL, { Marker } from 'react-map-gl';
 import Geocode from 'react-geocode';
 import './_Map.scss';
 import yellowMarker from '../img/yellow-marker.png';
-const API_KEY = process.env.REACT_APP_GOOGLE_MAPS_KEY
+const API_KEY = process.env.REACT_APP_GOOGLE_MAPS_KEY;
 
 Geocode.setApiKey(API_KEY);
 
@@ -24,14 +24,13 @@ export default class Map extends React.Component {
         const { lat, lng } = response.results[0].geometry.location;
       },
       (error) => {
-        console.log('pas possible de recup geocode pour la ville de  '+ city);
+        console.log('pas possible de recup geocode pour la ville de  ' + city);
         console.error(error);
       }
     );
   };
 
   render() {
-
     return (
       <ReactMapGL
         {...this.state.viewport}

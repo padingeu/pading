@@ -12,13 +12,25 @@ export default function NavBar() {
       </div>
       <div className="navbar-menu">
         <div className="navbar-social">
-          <a href="http://google.fr">
+          <a
+            href="https://www.facebook.com/Pading-103563007939325/?view_public_for=103563007939325"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
             <i className="fab fa-facebook"></i>
           </a>
-          <a href="http://google.fr">
+          <a
+            href="https://www.instagram.com/padingapp/?hl=fr"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
             <i className="fab fa-instagram"></i>
           </a>
-          <a href="http://google.fr">
+          <a
+            href="https://www.linkedin.com/company/padingapp/about/?viewAsMember=true"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
             <i className="fab fa-linkedin"></i>
           </a>
         </div>

@@ -1,0 +1,188 @@
+.wrapper {
+  position: relative;
+  .earth {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    .earth-text {
+      position: absolute;
+      text-align: center;
+    }
+    .earth-img {
+      width: 100%;
+    }
+  }
+  .why-to-use-it {
+    display: flex;
+    .why-to-use-it-gif {
+    }
+    .why-to-use-it-text {
+      .why-to-use-it-title {
+        text-align: left;
+        margin-left: 26%;
+      }
+      .why-to-use-it-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        h4 {
+          color: #29b3c1;
+        }
+        .why-to-use-it-content-card {
+          display: flex;
+          align-items: flex-start;
+          width: 80%;
+          .why-to-use-it-number {
+            width: 20%;
+            text-align: center;
+          }
+          .why-to-use-it-details {
+            width: 80%;
+            margin-top: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// extra-small screens
+@media (max-width: 620px) {
+  .wrapper {
+    .earth {
+      top: -130px;
+      .earth-text {
+        width: 65%;
+        top: 65px;
+        h2 {
+          font-size: 18px;
+          color: white;
+        }
+      }
+    }
+    .why-to-use-it {
+      flex-direction: column-reverse;
+      justify-content: center;
+      align-items: center;
+      padding-top: 25px;
+      .why-to-use-it-text {
+        width: 100%;
+        .why-to-use-it-title {
+          margin-top: 50px;
+        }
+      }
+      .why-to-use-it-gif {
+        .why-to-use-it-video {
+          max-width: 500px;
+        }
+      }
+    }
+  }
+}
+
+// very-small screens
+@media (min-width: 621px) {
+  .wrapper {
+    .earth {
+      top: -160px;
+      .earth-text {
+        width: 65%;
+        top: 90px;
+        h2 {
+          font-size: 22px;
+          color: white;
+        }
+      }
+    }
+    .why-to-use-it {
+      display: row;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 85px;
+      .why-to-use-it-text {
+        width: 60%;
+        .why-to-use-it-title {
+          margin-top: 120px;
+        }
+      }
+      .why-to-use-it-gif {
+        width: 40%;
+        text-align: center;
+        margin-top: 100px;
+        .why-to-use-it-video {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+// small screens
+@media (min-width: 901px) {
+  .wrapper {
+    .earth {
+      top: -230px;
+      .earth-text {
+        width: 50%;
+        top: 130px;
+        h2 {
+          font-size: 25px;
+          color: white;
+        }
+      }
+    }
+    .why-to-use-it {
+      display: row;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 85px;
+      .why-to-use-it-text {
+        width: 50%;
+        .why-to-use-it-title {
+          margin-top: 120px;
+        }
+      }
+      .why-to-use-it-gif {
+        width: 50%;
+        text-align: center;
+        margin-top: 50px;
+        .why-to-use-it-video {
+          max-width: 500px;
+        }
+      }
+    }
+  }
+}
+
+// normal and big screens
+@media (min-width: 1201px) {
+  .wrapper {
+    .earth {
+      top: -280px;
+      .earth-text {
+        width: 50%;
+        top: 180px;
+        h2 {
+          font-size: 25px;
+          color: white;
+        }
+      }
+    }
+    .why-to-use-it {
+      display: row;
+      justify-content: center;
+      align-items: center;
+      .why-to-use-it-text {
+        width: 50%;
+      }
+      .why-to-use-it-gif {
+        width: 50%;
+        text-align: center;
+        margin-top: 50px;
+        img {
+          width: 70%;
+        }
+      }
+    }
+  }
+}

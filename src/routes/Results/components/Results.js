@@ -12,16 +12,12 @@ export default class Results extends React.Component {
     visible: 8,
   };
 
-
   componentDidMount() {
-  
     // console.log(this.props);
-    if(!this.props.search.isLoading && !this.props.search.success) {
+    if (!this.props.search.isLoading && !this.props.search.success) {
       // history.push('/')
-    } 
+    }
   }
-
-
 
   getTotalPrice = (trips, destination) => {
     const pricesList = [];
@@ -51,9 +47,7 @@ export default class Results extends React.Component {
 
   render() {
     return (
-      
       <div>
-    
         <NavBar />
         <div className="travel-results">
           <div className="formsearch-results">

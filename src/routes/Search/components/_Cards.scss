@@ -1,0 +1,77 @@
+.wrapper {
+  .cards-trip {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    .card-trip {
+      overflow: hidden;
+      background: white;
+      box-shadow: 0px 5px 10px 0px rgba(245, 245, 245, 0.1);
+      margin-top: 20px;
+      border-radius: 5px;
+      -webkit-transition: all 0.3s ease 0s;
+      -moz-transition: all 0.3s ease 0s;
+      -o-transition: all 0.3s ease 0s;
+      transition: all 0.3s ease 0s;
+    }
+    .card-trip:hover {
+      transform: scale3d(1.006, 1.006, 1);
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    }
+    img {
+      height: 200px;
+      width: 100%;
+      object-fit: cover;
+    }
+    .card-trip-infos {
+      padding: 5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+    .card-trip-pricing {
+      text-align: right;
+      color: #3e936f;
+      line-height: 5px;
+    }
+    .cards-trip-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      margin-top: 20px;
+      padding: 25px 25px 25px 25px;
+    }
+  }
+}
+
+// extra-small screens
+@media (max-width: 991px) {
+  .cards-trip {
+    .cards-trip-content {
+      height: 150px;
+    }
+  }
+}
+
+// small screens
+@media (min-width: 992px) {
+  .wrapper {
+    .cards-trip {
+      .cards-trip-content {
+        height: 260px;
+      }
+    }
+  }
+}
+
+// normal and big screens
+@media (min-width: 1201px) {
+  .wrapper {
+    .cards-trip {
+      .cards-trip-content {
+        height: 260px;
+      }
+    }
+  }
+}

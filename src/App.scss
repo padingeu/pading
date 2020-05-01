@@ -11,32 +11,45 @@ $green: #3e936f;
 $gray: #262626;
 $light-gray: #5f5f5f;
 
+$yellow: #f49d11;
+$yellow-light: #f6b040;
+$blue: #29b3c1;
+$blue-light: #53c2cd;
+$green: #3e936f;
+$gray: #262626;
+$light-gray: #5f5f5f;
+
 h1 {
   font-family: 'Arimo', sans-serif;
-  color: $yellow;
+  color: white;
   font-weight: bold;
-  font-size: 80px;
+  font-size: 30px;
 }
 
 h2 {
   font-family: 'Arimo', sans-serif;
   color: $blue;
   font-weight: bold;
-  font-size: 50px;
+  font-size: 30px;
 }
 
 h3 {
   font-family: 'Arimo', sans-serif;
-  color: $green;
+  color: $blue;
   font-weight: bold;
-  font-size: 30px;
+  font-size: 35px;
 }
 
 h4 {
   font-family: 'Arimo', sans-serif;
-  color: $gray;
-  font-weight: regular 400;
+  font-weight: bold;
   font-size: 20px;
+}
+
+h5 {
+  font-family: 'Arimo', sans-serif;
+  font-weight: bold;
+  font-size: 16px;
 }
 
 p {
@@ -44,4 +57,8 @@ p {
   color: $gray;
   font-weight: regular 400;
   font-size: 14px;
+}
+
+html {
+  scroll-behavior: smooth;
 }
