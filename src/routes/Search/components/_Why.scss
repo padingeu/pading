@@ -4,6 +4,7 @@
     position: absolute;
     display: flex;
     justify-content: center;
+    z-index: -1;
     .earth-text {
       position: absolute;
       text-align: center;
@@ -14,6 +15,7 @@
   }
   .why-to-use-it {
     display: flex;
+    z-index: -2;
     .why-to-use-it-gif {
     }
     .why-to-use-it-text {

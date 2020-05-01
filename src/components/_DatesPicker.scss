@@ -18,6 +18,9 @@
           border: none;
           outline: none;
           cursor: pointer;
+          &:hover {
+            color: black;
+          }
         }
         .travel-type-change {
           position: absolute;
@@ -55,6 +58,9 @@
       display: flex;
       justify-content: left;
       align-items: center;
+      &:hover {
+        color: black;
+      }
     }
     button.stop-trip-btn {
       display: flex;

@@ -87,12 +87,17 @@
   align-items: center;
   margin-top: 7px;
   margin-left: 5px;
+  background-color: transparent;
 }
 
 .number-of-people-btn {
   display: flex;
   justify-content: left;
   align-items: center;
+  background-color: transparent;
+  &:hover {
+    color: black;
+  }
 }
 
 button.number-of-people {
@@ -102,6 +107,7 @@ button.number-of-people {
   height: 35px;
   border: none;
   outline: none;
+  background-color: transparent;
   cursor: pointer;
 }
 
@@ -136,6 +142,10 @@ button.number-of-people {
   justify-content: center;
   align-items: center;
   background-color: transparent;
+  color: rgba(255, 255, 255, 0.5);
   border: none;
   outline: none;
+  &:hover {
+    color: white;
+  }
 }
