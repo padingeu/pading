@@ -59,7 +59,7 @@ export default class FormSearch extends React.Component {
   switchToDirect = (event) => {
     event.preventDefault();
 
-    this.setState({ stopTrip: 'Only Direct' });
+    this.setState({ stopTrip: 'Direct' });
   };
 
   /*changeFlexibleDates = event => {

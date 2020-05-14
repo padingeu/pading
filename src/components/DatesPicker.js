@@ -7,7 +7,7 @@ class DatesPicker extends React.Component {
   state = {
     showCalendar: false,
     showTravelTypeBtn: false,
-    showStopTripBtn: false
+    showStopTripBtn: false,
   };
 
   //ontravelTypeChange
@@ -22,7 +22,7 @@ class DatesPicker extends React.Component {
     this.setState({ showStopTripBtn: false });
   };
 
-  showOffCalendar = props => {
+  showOffCalendar = (props) => {
     this.setState({ showCalendar: false });
   };
 
@@ -39,14 +39,14 @@ class DatesPicker extends React.Component {
     this.setState({ showStopTripBtn: !this.state.showStopTripBtn });
   };
 
-  switchTravelTypeBtn = event => {
+  switchTravelTypeBtn = (event) => {
     event.preventDefault();
     this.setState({ showCalendar: false });
     this.setState({ showStopTripBtn: false });
     this.setState({ showTravelTypeBtn: !this.state.showTravelTypeBtn });
   };
 
-  switchStopTripBtn = event => {
+  switchStopTripBtn = (event) => {
     event.preventDefault();
     this.setState({ showCalendar: false });
     this.setState({ showTravelTypeBtn: false });
@@ -68,7 +68,7 @@ class DatesPicker extends React.Component {
                   <div className="travel-type-change">
                     <a
                       href="/"
-                      onClick={event => {
+                      onClick={(event) => {
                         this.props.switchToOneWay(event);
                         this.showTravelTypeBtn();
                       }}
@@ -85,7 +85,7 @@ class DatesPicker extends React.Component {
 
                     <a
                       href="/"
-                      onClick={event => {
+                      onClick={(event) => {
                         this.props.switchToReturn(event);
                         this.showTravelTypeBtn();
                       }}
@@ -116,7 +116,7 @@ class DatesPicker extends React.Component {
                   <div className="stop-trip-change">
                     <a
                       href="/"
-                      onClick={event => {
+                      onClick={(event) => {
                         this.props.switchToIndirect(event);
                         this.showStopTripBtn();
                       }}
@@ -133,18 +133,18 @@ class DatesPicker extends React.Component {
 
                     <a
                       href="/"
-                      onClick={event => {
+                      onClick={(event) => {
                         this.props.switchToDirect(event);
                         this.showStopTripBtn();
                       }}
                     >
                       <div className="check-box">
-                        {this.props.stopTrip === 'Only Direct' ? (
+                        {this.props.stopTrip === 'Direct' ? (
                           <i className="fas fa-check fa-xs"></i>
                         ) : null}
                       </div>
                       <div className="stop-div">
-                        <h6>Only direct</h6>
+                        <h6>Direct</h6>
                       </div>
                     </a>
                   </div>
@@ -167,7 +167,11 @@ class DatesPicker extends React.Component {
                 onChange={this.props.onChange}
                 onClick={this.showOnCalendar}
                 placeholder="Departure"
-                value={this.props.showDateFrom &&  this.props.dateFrom ? this.props.dateFrom.toLocaleDateString() : ''}
+                value={
+                  this.props.showDateFrom && this.props.dateFrom
+                    ? this.props.dateFrom.toLocaleDateString()
+                    : ''
+                }
               />
               {this.props.travelType === 'Return' ? (
                 <input
@@ -176,14 +180,18 @@ class DatesPicker extends React.Component {
                   onChange={this.props.onChange}
                   onClick={this.showOnCalendar}
                   placeholder="Return"
-                  value={this.props.showDateTo &&  this.props.dateTo  ? this.props.dateTo.toLocaleDateString() : ''}
+                  value={
+                    this.props.showDateTo && this.props.dateTo
+                      ? this.props.dateTo.toLocaleDateString()
+                      : ''
+                  }
                 />
               ) : (
                 <input
                   className="inputdateto"
                   type="text"
                   onChange={this.props.onChange}
-                  onClick={event => {
+                  onClick={(event) => {
                     this.props.switchToReturn(event);
                     this.showOnCalendar();
                   }}
