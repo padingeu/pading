@@ -1,16 +1,12 @@
 import React from 'react';
 import './_Why.scss';
-import mappoints from '../img/mappoints.png';
 import happycats from '../img/happycats.mp4';
 
 export default function Why() {
   return (
     <div className="wrapper">
-      <div className="earth">
-        <img className="earth-img" src={mappoints} alt="meeting of friends thanks to travel" />
-        <div className="earth-text">
-          <h2>The travel comparator built for long-distance friendships and family</h2>
-        </div>
+      <div className="travel-comparator">
+        <h2>The travel comparator for long-distance friendships and family! </h2>
       </div>
       <div className="why-to-use-it">
         <div className="why-to-use-it-gif">
@@ -20,7 +16,7 @@ export default function Why() {
         </div>
         <div className="why-to-use-it-text">
           <div className="why-to-use-it-title">
-            <h3>Why to use it?</h3>
+            <h3>Why to use pading?</h3>
           </div>
           <div className="why-to-use-it-content">
             <div className="why-to-use-it-content-card">
@@ -30,7 +26,7 @@ export default function Why() {
               <div className="why-to-use-it-details">
                 <h4>Save Time</h4>
                 <p>
-                  <b>In just one search</b>, you and your team find your next common destination
+                  <b>In just one search</b>, you and your team can find your next common destination
                 </p>
               </div>
             </div>
