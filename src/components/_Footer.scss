@@ -10,13 +10,14 @@
       justify-content: space-around;
       align-items: center;
       width: 100%;
-      margin-top: 50px;
-      margin-bottom: 50px;
+      padding: 50px 10px 50px 10px;
+
       h4 {
         color: white;
       }
       p {
         color: white;
+        text-align: center;
       }
       a {
         text-decoration: none;
@@ -32,8 +33,7 @@
           text-align: right;
           background: #f49d11;
           input {
-            font-family: "Arimo", sans-serif;
-            width: 300px;
+            font-family: 'Roboto', sans-serif;
             height: 44px;
             border: none;
             font-weight: 400;
@@ -44,7 +44,6 @@
             font-size: 14px;
             padding: 10px;
             &:focus {
-              width: 340px;
               transition-duration: 0.5s;
               outline: 0;
             }
@@ -53,11 +52,10 @@
         .btn-blue {
           position: absolute;
           right: -40px;
-          font-family: "Arimo", sans-serif;
+          font-family: 'Roboto', sans-serif;
           height: 40px;
           margin-top: 2px;
-          margin-right: 15px;
-          //padding: 10px 10px;
+          margin-right: 25px;
           border-radius: 50px;
           border: 0;
           color: white;
@@ -94,16 +92,93 @@
       align-items: center;
       a {
         background: transparent;
-        width: 50px;
+        width: 25px;
         color: white;
-        margin-left: 5px;
         margin-right: 5px;
+        margin-left: 5px;
       }
       :hover {
         color: #29b3c1;
       }
       i {
         font-size: 25px;
+      }
+    }
+  }
+}
+
+.swal2-icon.swal2-success {
+  border-color: #3e936f !important;
+}
+.alertmail-social {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  a {
+    background: transparent;
+    width: 40px;
+    margin-left: 5px;
+    margin-right: 5px;
+    color: #29b3c1;
+  }
+  :hover {
+    color: #53c2cd;
+  }
+  i {
+    font-size: 40px;
+  }
+}
+
+// all screens landscape
+@media (min-width: 300px) and (orientation: landscape) {
+  .footer {
+    .footer-menu {
+      .footer-menu-email {
+        .footer-menu-email-form {
+          input {
+            width: 300px;
+            &:focus {
+              width: 330px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// small mobile screens portrait
+@media (min-width: 300px) and (orientation: portrait) {
+  .footer {
+    .footer-menu {
+      .footer-menu-email {
+        .footer-menu-email-form {
+          input {
+            width: 250px;
+            &:focus {
+              width: 280px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// small mobile screens portrait
+@media (min-width: 321px) and (orientation: portrait) {
+  .footer {
+    .footer-menu {
+      .footer-menu-email {
+        .footer-menu-email-form {
+          input {
+            width: 300px;
+            &:focus {
+              width: 330px;
+            }
+          }
+        }
       }
     }
   }
@@ -121,7 +196,7 @@
   }
 }
 
-// small, normal and big screens
+// normal and big screens
 @media (min-width: 901px) {
   .wrapper {
     .footer-menu {

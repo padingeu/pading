@@ -1,11 +1,17 @@
 .popup-content {
-  border-radius: 10px;
+  border-radius: 5px;
   padding: 10px !important;
+  position: relative;
+  .MuiPaper-elevation1 {
+    box-shadow: none !important;
+  }
+  .MuiExpansionPanel-root:before {
+    background-color: #f2f2f2;
+  }
 }
-
 .faq-title {
   h4 {
-    color: #262626 !important;
+    color: #3e936f !important;
     font-weight: normal 400 !important;
     font-size: 14px !important;
   }
@@ -16,7 +22,7 @@
     color: #262626 !important;
     font-weight: normal 400 !important;
     font-size: 14px !important;
-    text-align: left;
+    text-align: justify !important;
   }
 }
 
