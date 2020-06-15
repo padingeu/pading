@@ -4,7 +4,6 @@ import LocationSearchInput from './LocationSearchInput';
 import SelectedCities from './SelectedCities';
 import './_FormSearch.scss';
 import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
-import Switch from '@material-ui/core/Switch';
 
 export default class FormSearch extends React.Component {
   state = {

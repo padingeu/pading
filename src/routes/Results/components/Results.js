@@ -5,7 +5,6 @@ import NavBar from '../../../components/NavBar';
 import FormSearch from '../../../components/FormSearch';
 import './_Results.scss';
 import LinearProgress from '@material-ui/core/LinearProgress';
-import { history } from '../../../index';
 
 export default class Results extends React.Component {
   state = {

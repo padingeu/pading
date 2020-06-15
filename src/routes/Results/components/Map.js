@@ -18,18 +18,6 @@ export default class Map extends React.Component {
     },
   };
 
-  getLatLng = (city) => {
-    Geocode.fromAddress(city).then(
-      (response) => {
-        const { lat, lng } = response.results[0].geometry.location;
-      },
-      (error) => {
-        console.log('pas possible de recup geocode pour la ville de  ' + city);
-        console.error(error);
-      }
-    );
-  };
-
   render() {
     return (
       <ReactMapGL
@@ -46,7 +34,7 @@ export default class Map extends React.Component {
           </Marker>
         ))}
         {console.log('cities to ' + this.props.citiesTo)}
-        {this.props.citiesTo.map((city) => this.getLatLng(city))}
+       
       </ReactMapGL>
     );
   }
