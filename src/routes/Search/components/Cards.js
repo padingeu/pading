@@ -5,86 +5,101 @@ export default function Cards() {
   return (
     <div className="wrapper">
       <div className="cards-trip">
-        <div className="container">
+        <div className="container" id="cities">
           <div className="row">
-            <div className="col-xs-6 col-md-4 col-lg-4">
-              <div className="card-trip">
+            <div className="col-xs-12 col-md-3">
+              <div className="card-trip" id="budapest">
                 <img
                   src="https://www.guiajando.com/wp-content/uploads/2018/02/budapest_parlamento-1000x580.jpg"
                   alt="booking tickets and traveling to budapest"
                 />
                 <div className="card-trip-infos">
-                  <div className="card-trip-city">
-                    <h5>Budapest</h5>
+                  <div className="card-trip-city-pricing">
+                    <div className="card-trip-city">
+                      <h4>Budapest</h4>
+                    </div>
+                    <div className="card-trip-pricing">
+                      <h4>78€</h4>
+                    </div>
                   </div>
-                  <div className="card-trip-pricing">
-                    <h5>140€</h5>
-                    <p>35€ / traveller</p>
+                  <div className="carbon-footprint">
+                    <p>
+                      <i class="fas fa-cloud"></i> 1.825 t
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="col-xs-6 col-md-4 col-lg-4">
-              <div className="card-trip">
+            <div className="col-xs-12 col-md-3">
+              <div className="card-trip" id="naples">
                 <img
                   src="https://res.cloudinary.com/hzekpb1cg/image/upload/c_fill,h_410,w_800,f_auto/s3/public/prod/s3fs-public/Italy_Napoli.jpg"
                   alt="booking tickets and traveling to napoli"
                 />
                 <div className="card-trip-infos">
-                  <div className="card-trip-city">
-                    <h5>Napoli</h5>
+                  <div className="card-trip-city-pricing">
+                    <div className="card-trip-city">
+                      <h4>Naples</h4>
+                    </div>
+                    <div className="card-trip-pricing">
+                      <h4>97€</h4>
+                    </div>
                   </div>
-                  <div className="card-trip-pricing">
-                    <h5>200€</h5>
-                    <p>50€ / traveller</p>
+                  <div className="carbon-footprint">
+                    <p>
+                      <i class="fas fa-cloud"></i> 2.003 t CO2
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="col-xs-6 col-md-4 col-lg-4">
-              <div className="card-trip">
+            <div className="col-xs-12 col-md-3">
+              <div className="card-trip" id="amsterdam">
                 <img
-                  src="https://cdn.getyourguide.com/img/tour_img-2266912-146.jpg"
+                  src="https://a.cdn-hotels.com/gdcs/production43/d534/1bd81a82-de7a-4cf5-a625-ca3cd27a3346.jpg"
                   alt="booking tickets and traveling to bilbao"
                 />
                 <div className="card-trip-infos">
-                  <div className="card-trip-city">
-                    <h5>Bilbao</h5>
+                  <div className="card-trip-city-pricing">
+                    <div className="card-trip-city">
+                      <h4>Amsterdam</h4>
+                    </div>
+                    <div className="card-trip-pricing">
+                      <h4>125€</h4>
+                    </div>
                   </div>
-                  <div className="card-trip-pricing">
-                    <h5>220€</h5>
-                    <p>55€ / traveller</p>
+                  <div className="carbon-footprint">
+                    <p>
+                      <i class="fas fa-cloud"></i> 1.399 t
+                    </p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="col-xs-6 col-md-4 col-lg-4">
-              <div className="card-trip">
+            <div className="col-xs-12 col-md-3">
+              <div className="card-trip" id="cordoba">
                 <img
-                  src="http://img2.rtve.es/v/4881968/"
+                  src="https://pix10.agoda.net/geo/city/3167/1_3167_02.jpg?s=1920x822"
                   alt="booking tickets and traveling to cordoba"
                 />
                 <div className="card-trip-infos">
-                  <div className="card-trip-city">
-                    <h5>Córdoba</h5>
+                  <div className="card-trip-city-pricing">
+                    <div className="card-trip-city">
+                      <h4>Córdoba</h4>
+                    </div>
+                    <div className="card-trip-pricing">
+                      <h4>154€</h4>
+                    </div>
                   </div>
-                  <div className="card-trip-pricing">
-                    <h5>260€</h5>
-                    <p>65€ / traveller</p>
+                  <div className="carbon-footprint">
+                    <p>
+                      <i class="fas fa-cloud"></i> 1.688 t
+                    </p>
                   </div>
                 </div>
-              </div>
-            </div>
-
-            <div className="col-xs-12 col-md-8 col-lg-8">
-              <div className="cards-trip-content">
-                <h3>Are you travelling alone?</h3>
-                <h4>Enjoy Pading to find the best travel offers!</h4>
-
-                <p>Let us show you some creative new ideas for your next trip</p>
               </div>
             </div>
           </div>

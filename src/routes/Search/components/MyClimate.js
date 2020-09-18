@@ -6,14 +6,12 @@ export default function Simple() {
     <div className="wrapper">
       <div className="myclimate">
         <div className="myclimate-content">
-          <h3>We love our planet</h3>
-          <p>
-            If like us, you face inner conflict between your passion for travelling and your
-            concerns for ecology, we can do something.
-          </p>
+          <h2>We love our planet</h2>
+          <br />
+          <p>Offsetting carbon footprint to make travel more eco-friendly</p>
           <h4>
-            Pading calculate the climate impact of each destination. You can compensate your Co2
-            emissions and we plant trees.
+            Pading calculates the climate impact of each destination so you can give your preference
+            to low carbon footprint destination and compensate your Co2 emissions
           </h4>
         </div>
         <div className="myclimate-img">

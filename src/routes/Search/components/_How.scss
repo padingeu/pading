@@ -1,24 +1,24 @@
 .wrapper {
   .how-to-use-it {
     background-color: #29b3c1;
-    padding-top: 50px;
-    padding: 50px 0px 125px 0px;
+    padding-top: 5rem;
+    padding: 5rem 0 12.5rem 0;
     .how-to-use-it-title {
       text-align: center;
       background-color: white;
-      max-height: 250px;
-      max-width: 400px;
-      border-radius: 50px;
-      padding: 20px 10px 20px 10px;
+      max-height: 25rem;
+      max-width: 40rem;
+      border-radius: 5rem;
+      padding: 2rem 1rem 2rem 1rem;
     }
     .how-to-use-it-content {
       display: flex;
       flex-direction: column;
       text-align: left;
       background-color: #53c2cd;
-      border-radius: 75px 0px 0px 75px;
-      padding: 50px 10px 45px 10px;
-      h3 {
+      border-radius: 7.5rem 0 0 7.5rem;
+      padding: 4.5rem 1rem 4.5rem 1rem;
+      h2 {
         color: white;
       }
       p {
@@ -27,19 +27,19 @@
       .how-to-use-it-content-card {
         display: flex;
         align-items: flex-start;
-        width: 80%;
-        max-width: 850px;
-        h4 {
+        width: 90%;
+        max-width: 85rem;
+        h3 {
           color: white;
         }
         .how-to-use-it-number {
-          width: 20%;
+          width: 10%;
           text-align: center;
-          margin-right: 50px;
+          margin-right: 5rem;
         }
         .how-to-use-it-details {
-          width: 80%;
-          margin-top: 10px;
+          width: 90%;
+          margin-top: 1rem;
         }
       }
     }
@@ -51,10 +51,10 @@
   .wrapper {
     .how-to-use-it {
       .how-to-use-it-title {
-        margin: 0px 50px 10px 50px;
+        margin: 0 5rem 1rem 5rem;
       }
       .how-to-use-it-content {
-        margin: 20px 0px 0px 50px;
+        margin: 2rem 0 0 5rem;
       }
     }
   }
@@ -65,10 +65,10 @@
   .wrapper {
     .how-to-use-it {
       .how-to-use-it-title {
-        margin: 0px 25px 10px 100px;
+        margin: 0 2.5rem 1rem 10rem;
       }
       .how-to-use-it-content {
-        margin: 20px 0px 0px 100px;
+        margin: 2rem 0 0 10rem;
       }
     }
   }
@@ -80,9 +80,7 @@
     .how-to-use-it {
       position: relative;
       .how-to-use-it-title {
-        margin: 0px 25px 10px 100px;
-      }
-      .how-to-use-it-content {
+        margin: 0 2.5rem 1rem 10rem;
       }
     }
   }
@@ -101,10 +99,10 @@
       .how-to-use-it-video {
         position: absolute;
         border: none;
-        top: 45px;
-        right: 150px;
+        top: 9rem;
+        right: 15rem;
         .videoapp {
-          border-radius: 5px 5px 0px 0px;
+          border-radius: 1rem 1rem 0 0;
         }
       }
     }

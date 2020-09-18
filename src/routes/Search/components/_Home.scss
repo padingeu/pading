@@ -1,39 +1,41 @@
-.hello {
+.banner {
   display: flex;
-  flex-direction: column;
-  flex-direction: justify-content;
-  align-items: align-items;
-  min-height: calc(100vh - 70px);
-  margin-top: 70px;
-  .earth {
-    img {
-      width: 100%;
-    }
-  }
-  .banner {
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-top: 7rem;
+  .map {
     display: flex;
-    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
   }
 }
 
-// landscape
-@media (orientation: landscape) {
-  .hello {
-    .banner {
-      flex-direction: row;
-      justify-content: center;
-      align-items: flex-start;
+@media (max-width: 900px) and (orientation: portrait) {
+  .banner {
+    flex-direction: column-reverse;
+    height: 100vh;
+    .map {
+      max-width: 100vw;
+      max-height: 40%;
     }
   }
 }
 
-// portrait
-@media (orientation: portrait) {
-  .hello {
-    .banner {
-      flex-direction: column-reverse;
-      justify-content: flex-end;
-      align-items: center;
+@media (max-width: 900px) and (orientation: landscape) {
+  .banner {
+    margin-bottom: 2rem;
+    .map {
+      max-width: 50vw;
+    }
+  }
+}
+
+@media (min-width: 901px) and (orientation: landscape) {
+  .banner {
+    .map {
+      max-width: 40vw;
     }
   }
 }
