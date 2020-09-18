@@ -115,19 +115,6 @@ export default class NavBar extends React.Component {
               <i className="fab fa-instagram"></i>
             </a>
           </div>
-
-          <div className="email-form email-form-background">
-            <MailchimpSubscribe
-              url={url}
-              render={({ subscribe, status, message }) => (
-                <CustomForm
-                  status={status}
-                  message={message}
-                  onValidated={(formData) => subscribe(formData)}
-                />
-              )}
-            />
-          </div>
         </div>
       </div>
     );

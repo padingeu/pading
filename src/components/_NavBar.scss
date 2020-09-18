@@ -4,20 +4,20 @@
   display: flex;
   align-items: center;
   width: 100%;
-  height: 70px;
+  height: 7rem;
   z-index: 99;
   background-color: #f49d11;
   color: white;
   .navbar-brand {
     display: flex;
     align-items: center;
-    min-width: 250px;
-    margin-left: -1px;
+    min-width: 25rem;
+    margin-left: -0.1rem;
     height: 103%;
     background-color: white;
-    border-radius: 0 50px 50px 0px;
+    border-radius: 0 5rem 5rem 0;
     img {
-      height: 70px;
+      height: 7rem;
     }
   }
   .navbar-menu {
@@ -30,19 +30,18 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-right: 10px;
+      margin-right: 1rem;
       a {
         background: transparent;
-        width: 25px;
-        margin-left: 5px;
-        margin-right: 5px;
+        width: 5rem;
+
         color: white;
       }
       :hover {
         color: #29b3c1;
       }
       i {
-        font-size: 25px;
+        font-size: 4rem;
       }
     }
   }
@@ -50,37 +49,37 @@
     position: relative;
     text-align: right;
     background: #f49d11;
-    margin: 0px 40px 0px 40px;
+    margin: 0 4rem 0 4rem;
     input {
       font-family: 'Roboto', sans-serif;
-      width: 300px;
-      height: 44px;
+      width: 30rem;
+      height: 4.4rem;
       border: none;
       font-weight: 400;
       background: white;
       color: #373737;
       text-align: left;
-      border-radius: 5px;
-      font-size: 14px;
-      padding: 10px;
+      border-radius: 0.5rem;
+      font-size: 1.4rem;
+      padding: 1rem;
       &:focus {
-        width: 330px;
+        width: 33rem;
         transition-duration: 0.5s;
         outline: 0;
       }
     }
     .btn-blue {
       position: absolute;
-      right: -40px;
+      right: -4rem;
       font-family: 'Roboto', sans-serif;
-      height: 40px;
-      margin-top: 2px;
-      margin-right: 25px;
-      border-radius: 50px;
+      height: 4rem;
+      margin-top: 0.2rem;
+      margin-right: 2.5rem;
+      border-radius: 5rem;
       border: 0;
       color: white;
       background-color: #29b3c1 !important;
-      font-size: 14px;
+      font-size: 1.5rem;
       background: #fff;
       font-weight: 700;
       &:hover {
@@ -99,10 +98,10 @@
 
 button {
   background-color: #29b3c1;
-  height: 40px;
-  border-radius: 50px !important;
+  height: 4rem;
+  border-radius: 5rem !important;
   color: white;
-  font-size: 14px !important;
+  font-size: 1.4rem !important;
   font-weight: 700;
   &:hover {
     background-color: #53c2cd !important;
@@ -122,21 +121,37 @@ button {
   justify-content: center;
   a {
     background: transparent;
-    width: 40px;
-    margin-left: 5px;
-    margin-right: 5px;
+    width: 4rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
     color: #29b3c1;
   }
   :hover {
     color: #53c2cd;
   }
   i {
-    font-size: 40px;
+    font-size: 4rem;
   }
 }
 
 // extra-small screens
-@media (max-width: 900px) {
+@media only (max-width: 340px) {
+  .navbar {
+    .navbar-menu {
+      .navbar-social {
+        a {
+          width: 3.5rem;
+        }
+
+        i {
+          font-size: 3rem;
+        }
+      }
+    }
+  }
+}
+
+@media only (max-width: 900px) {
   .email-form {
     display: none;
   }
