@@ -5,14 +5,13 @@
     align-items: center;
     .simple-solution-gif {
       text-align: center;
-      margin: 0px 50px 0px 50px;
+
       img {
         transition-duration: 1s;
       }
     }
     .simple-solution-content {
       text-align: center;
-      margin: 0px 50px 0px 50px;
     }
   }
 }
@@ -22,7 +21,7 @@
   .wrapper {
     .simple-solution {
       flex-direction: column-reverse;
-      margin: 25px 20px 25px 20px;
+      margin: 2.5rem 2rem 2.5rem 2rem;
     }
   }
 }
@@ -31,7 +30,7 @@
 @media (min-width: 901px) {
   .wrapper {
     .simple-solution {
-      padding: 50px 50px 50px 50px;
+      padding: 10rem 5rem 10rem 5rem;
       .simple-solution-gif {
         width: 50%;
       }
@@ -46,13 +45,14 @@
 @media (min-width: 1201px) {
   .wrapper {
     .simple-solution {
-      padding: 50px 100px 50px 100px;
+      padding: 8rem 10rem 0 10rem;
       .simple-solution-gif {
         text-align: center;
-        width: 40%;
+        width: 30%;
       }
       .simple-solution-content {
-        width: 60%;
+        width: 70%;
+        padding: 0 5rem 0 5rem;
       }
     }
   }

@@ -1,7 +1,6 @@
 import React from 'react';
 import NavBar from '../../../components/NavBar';
 import './_Home.scss';
-import mappoints from '../img/mappoints.png';
 import FormSearch from '../../../components/FormSearch';
 import Why from './Why';
 import How from './How';
@@ -26,16 +25,16 @@ export default class Home extends React.Component {
         <NavBar />
         <div className="hello">
           <div className="banner">
-            <FormSearch searchTrips={this.props.searchTrips} isHomePage={this.state.isHomePage} />
-          </div>
-          <div className="earth">
-            <img className="earth-img" src={mappoints} alt="meeting of friends thanks to travel" />
+            <div>
+              <FormSearch searchTrips={this.props.searchTrips} isHomePage={this.state.isHomePage} />
+            </div>
+            <div className="map"></div>
           </div>
         </div>
+        <Cards />
         <Why />
         <How />
         <Simple />
-        <Cards />
         <MyClimate />
         <Footer scrollUp={this.scrollUp} />
       </div>
