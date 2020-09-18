@@ -1,85 +1,63 @@
 .trip-card {
   position: relative;
-  border-radius: 3px;
-  margin-left: 10px;
-  width: 100%;
-  min-height: 244px;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.3t)),
-    url(https://cdn.getyourguide.com/img/tour_img-2266912-146.jpg);
-  background-position: center center;
-  .trip-card-destination {
-    position: absolute;
-    bottom: 40px;
-    left: 20px;
-    font-family: 'Arimo', sans-serif;
-    font-weight: normal 400;
-    font-size: 22px;
-    color: white;
-    animation-name: reverse;
-    animation-duration: 0.8s;
-    animation-fill-mode: forwards;
-    border-bottom: solid white;
-    border-width: 2px;
-  }
-  @keyframes reverse {
-    0% {
-      width: 90%;
-    }
-    100% {
-      width: 0%;
-    }
-  }
-  .globalprice-card {
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    color: white;
-  }
-  .citytrips-card {
-    position: absolute;
-    bottom: 80px;
-    left: 20px;
-    .citytrip-card {
-      font-family: 'Arimo', sans-serif;
-      font-weight: normal 400;
-      font-size: 12px;
-      color: white;
-      margin-bottom: 5px;
-    }
-  }
-}
-
-.trip-card:hover {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  border-radius: 0.5rem;
+  transition: all 0.2s ease-in;
   cursor: pointer;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)),
-    url(https://cdn.getyourguide.com/img/tour_img-2266912-146.jpg);
-  .trip-card-destination {
-    animation-name: animate;
-    animation-duration: 0.8s;
-    animation-fill-mode: forwards;
-    font-size: 22px;
-    border-bottom: solid white;
-    border-width: 2px;
-    margin-bottom: 10px;
+  img {
+    height: 14rem;
+    width: 100%;
+    object-fit: cover;
   }
-  @keyframes animate {
-    0% {
-      width: 0%;
+  .trip-infos {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0.5rem 0.5rem 0 0.5rem;
+
+    .trip-city-pricing {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      h4 {
+        line-height: 0.5rem;
+      }
     }
-    100% {
-      width: 90%;
+    .trip-pricing {
+      color: #3e936f;
+    }
+    .trip-carbonfootprint {
+      p {
+        line-height: 0.5rem;
+        font-size: 1.2rem;
+        color: #262626;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .citytrips {
+    position: absolute;
+    bottom: 5rem;
+    left: 0.5rem;
+    .citytrip-card {
+      visibility: hidden;
+      font-family: 'Roboto', sans-serif;
+      font-weight: bold;
+      font-size: 1.4rem;
+      color: white;
+      margin-bottom: 0.5rem;
     }
   }
 }
-
-.trip-card .citytrip-card {
-  visibility: hidden;
-}
-.trip-card:hover .citytrip-card {
-  visibility: visible;
-}
-
-.MuiLinearProgress-root {
-  margin-top: 10px;
-  margin-bottom: 10px;
+.trip-card:hover {
+  transform: scale3d(1.004, 1.004, 1);
+  box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.1);
+  .citytrip-card {
+    visibility: visible;
+  }
 }

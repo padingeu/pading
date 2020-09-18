@@ -14,7 +14,7 @@ const CustomForm = ({ status, message, onValidated }) => {
   const submit = () => {
     if (email && emailRegex.test(email.value)) {
       onValidated({
-        email: email.value,
+        EMAIL: email.value,
       });
     } else {
       return (
@@ -67,7 +67,7 @@ const CustomForm = ({ status, message, onValidated }) => {
       <input ref={(node) => (email = node)} type="email" placeholder="Your email" />
 
       <button className="btn-blue" onClick={submit} disabled={status === 'sending'}>
-        Subscribe
+        Try Pading
       </button>
     </div>
   );
@@ -88,8 +88,7 @@ export default class Footer extends React.Component {
         <div className="footer">
           <div className="footer-menu">
             <div className="footer-menu-email">
-              <h4>Newsletter</h4>
-              <p>Join the community and be aware of the new features</p>
+              <h4>Explore the next destination to meet with your friends and family</h4>
               <div className="footer-menu-email-form">
                 <MailchimpSubscribe
                   url={url}
@@ -106,7 +105,7 @@ export default class Footer extends React.Component {
             <div className="footer-menu-app-contact">
               <div className="footer-menu-app">
                 <h4>Pading</h4>
-                <a href="/" onClick={this.props.scrollUp}>
+                <a className="btn-product" onClick={this.props.scrollToTop}>
                   <p>Product</p>
                 </a>
                 <Popup
@@ -143,6 +142,24 @@ export default class Footer extends React.Component {
                 </div>
               </div>
             </div>
+          </div>
+          <div className="tree-nations">
+            <a
+              href="https://tree-nation.com/profile/impact/pading-1#co2"
+              target="_blank"
+              style={{
+                'padding-bottom': '2rem',
+                position: 'relative',
+                cursor: 'pointer',
+                display: 'block',
+                zIndex: 999,
+              }}
+            >
+              <img
+                src="https://tree-nation.com/images/tracking/label-co2-website-white-en.png"
+                style={{ width: 150, height: 'auto' }}
+              />
+            </a>
           </div>
         </div>
       </div>
