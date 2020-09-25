@@ -2,40 +2,38 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
   margin-top: 7rem;
-  .map {
+  height: calc(100vh - 7rem);
+  .formsearch-home {
+    background-color: blue;
+    height: 100%;
+  }
+  .map-home {
     display: flex;
     justify-content: center;
     align-items: center;
     pointer-events: none;
+    height: 100%;
   }
 }
 
-@media (max-width: 900px) and (orientation: portrait) {
-  .banner {
-    flex-direction: column-reverse;
-    height: 100vh;
-    .map {
-      max-width: 100vw;
-      max-height: 40%;
-    }
+@media (max-width: 1201px) {
+  .formsearch-home {
+    width: 100%;
+  }
+  .map-home {
+    display: none;
   }
 }
 
-@media (max-width: 900px) and (orientation: landscape) {
-  .banner {
-    margin-bottom: 2rem;
-    .map {
-      max-width: 50vw;
-    }
+@media (orientation: landscape) and (min-width: 1201px) {
+  .formsearch-home {
+    width: 25%;
   }
-}
-
-@media (min-width: 901px) and (orientation: landscape) {
-  .banner {
-    .map {
-      max-width: 40vw;
-    }
+  .formsearch-home-mobile {
+    display: none;
+  }
+  .map-home {
+    width: 75%;
   }
 }

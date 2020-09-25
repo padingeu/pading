@@ -1,7 +1,8 @@
 import React from 'react';
-import NavBar from '../../../components/NavBar';
 import './_Home.scss';
+import NavBar from '../../../components/NavBar';
 import FormSearch from '../../../components/FormSearch';
+import Map from '../../../components/Map';
 import Why from './Why';
 import How from './How';
 import Simple from './Simple';
@@ -25,17 +26,25 @@ export default class Home extends React.Component {
         <NavBar />
         <div className="hello">
           <div className="banner">
-            <div>
+            <div className="formsearch-home">
               <FormSearch searchTrips={this.props.searchTrips} isHomePage={this.state.isHomePage} />
             </div>
-            <div className="map"></div>
+            <div className="map-home">
+              {this.props.search.commonDestinations.citiesFrom > 1 && (
+                <Map
+                  citiesFrom={this.props.search.cities}
+                  citiesTo={this.props.search.commonDestinations}
+                />
+              )}
+              Carte
+            </div>
           </div>
         </div>
-        <Cards />
         <Why />
         <How />
         <Simple />
         <MyClimate />
+        <Cards />
         <Footer scrollUp={this.scrollUp} />
       </div>
     );

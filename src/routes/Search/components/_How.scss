@@ -1,8 +1,7 @@
 .wrapper {
   .how-to-use-it {
     background-color: #29b3c1;
-    padding-top: 5rem;
-    padding: 5rem 0 12.5rem 0;
+    padding: 5rem 5rem 12.5rem 0;
     .how-to-use-it-title {
       text-align: center;
       background-color: white;
@@ -69,41 +68,6 @@
       }
       .how-to-use-it-content {
         margin: 2rem 0 0 10rem;
-      }
-    }
-  }
-}
-
-// normal and big screens
-@media (min-width: 1101px) {
-  .wrapper {
-    .how-to-use-it {
-      position: relative;
-      .how-to-use-it-title {
-        margin: 0 2.5rem 1rem 10rem;
-      }
-    }
-  }
-}
-
-@media (max-width: 1350px) {
-  .how-to-use-it-video {
-    display: none;
-  }
-}
-
-@media (min-width: 1351px) {
-  .wrapper {
-    .how-to-use-it {
-      position: relative;
-      .how-to-use-it-video {
-        position: absolute;
-        border: none;
-        top: 9rem;
-        right: 15rem;
-        .videoapp {
-          border-radius: 1rem 1rem 0 0;
-        }
       }
     }
   }
