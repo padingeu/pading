@@ -5,6 +5,9 @@ export default function Cards() {
   return (
     <div className="wrapper">
       <div className="cards-trip">
+        <div className="traveling-alone">
+          <h2>Traveling alone?</h2>
+        </div>
         <div className="container" id="cities">
           <div className="row">
             <div className="col-xs-12 col-md-3">
@@ -102,6 +105,11 @@ export default function Cards() {
                 </div>
               </div>
             </div>
+          </div>
+          <div className="traveling-alone-content">
+            <h4>
+              Pading works also as a simple travel comparator and help you to discover new places
+            </h4>
           </div>
         </div>
       </div>

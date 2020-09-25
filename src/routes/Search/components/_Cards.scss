@@ -1,6 +1,26 @@
 .wrapper {
   .cards-trip {
     background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .traveling-alone {
+      max-height: 25rem;
+      max-width: 40rem;
+      border-radius: 5rem;
+      padding: 2rem 1rem 2rem 1rem;
+      margin: 5rem 0 5rem 0;
+      background-color: #53c2cd;
+      text-align: center;
+      h2 {
+        color: white;
+      }
+    }
+    .traveling-alone-content {
+      text-align: center;
+      margin-bottom: 5rem;
+    }
     .card-trip {
       overflow: hidden;
       background: white;
@@ -117,6 +137,7 @@
 @media (min-width: 1201px) {
   .wrapper {
     .cards-trip {
+      padding: 4rem 0 6rem 0;
       .cards-trip-content {
         height: 26rem;
       }

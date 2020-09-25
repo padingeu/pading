@@ -38,11 +38,6 @@ export default function How() {
             </div>
           </div>
         </div>
-        <div className="how-to-use-it-video">
-          <video className="videoapp" autoPlay="autoplay" loop muted playsInLine height="600px">
-            <source src={padingapp} />
-          </video>
-        </div>
       </div>
     </div>
   );
