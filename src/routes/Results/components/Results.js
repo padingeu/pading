@@ -120,14 +120,17 @@ export default class Results extends React.Component {
                 Load more
               </button>
             )*/}
-            {/*this.props.search.commonDestinations.length > 0 && (
+            {console.log(this.props)}
+            ---
+            {this.props.search.commonDestinations.length > 0 && (
               <div className="map-results">
                 <Map
                   citiesFrom={this.props.search.cities}
                   citiesTo={this.props.search.commonDestinations}
                 />
               </div>
-            )*/}
+            )}
+            ---
           </div>
         </div>
       </div>

@@ -1,5 +1,4 @@
 import React from 'react';
-import padingapp from '../img/padingapp.mp4';
 import './_How.scss';
 
 export default function How() {
