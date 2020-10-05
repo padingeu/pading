@@ -1,7 +1,6 @@
 import React from 'react';
 import './_NavBar.scss';
 import logo from '../img/logo.png';
-import MailchimpSubscribe from 'react-mailchimp-subscribe';
 import { withSwalInstance } from 'sweetalert2-react';
 import swal from 'sweetalert2';
 

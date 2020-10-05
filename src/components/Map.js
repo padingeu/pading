@@ -18,6 +18,8 @@ export default class Map extends React.Component {
     },
   };
 
+
+
   render() {
     return (
       <ReactMapGL
@@ -26,13 +28,13 @@ export default class Map extends React.Component {
         mapStyle="mapbox://styles/louis1404/ck81ia7to0qxs1io6wcvcckig"
         onViewportChange={(viewport) => this.setState({ viewport })}
       >
-        {this.props.citiesFrom.map((city) => (
+        {/* {this.props.citiesFrom.map((city) => (
           <Marker key={city.name} latitude={parseFloat(city.lat)} longitude={parseFloat(city.lng)}>
             <button className="marker-departure-city">
               <img src={yellowMarker} alt="Departure city" />
             </button>
           </Marker>
-        ))}
+        ))} */}
         {console.log('cities to ' + this.props.citiesTo)}
       </ReactMapGL>
     );

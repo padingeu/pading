@@ -27,7 +27,7 @@ export default function Cards() {
                   </div>
                   <div className="carbon-footprint">
                     <p>
-                      <i class="fas fa-cloud"></i> 1.825 t
+                      <i className="fas fa-cloud"></i> 1.825 t
                     </p>
                   </div>
                 </div>
@@ -51,7 +51,7 @@ export default function Cards() {
                   </div>
                   <div className="carbon-footprint">
                     <p>
-                      <i class="fas fa-cloud"></i> 2.003 t CO2
+                      <i className="fas fa-cloud"></i> 2.003 t CO2
                     </p>
                   </div>
                 </div>
@@ -75,7 +75,7 @@ export default function Cards() {
                   </div>
                   <div className="carbon-footprint">
                     <p>
-                      <i class="fas fa-cloud"></i> 1.399 t
+                      <i className="fas fa-cloud"></i> 1.399 t
                     </p>
                   </div>
                 </div>
@@ -99,7 +99,7 @@ export default function Cards() {
                   </div>
                   <div className="carbon-footprint">
                     <p>
-                      <i class="fas fa-cloud"></i> 1.688 t
+                      <i className="fas fa-cloud"></i> 1.688 t
                     </p>
                   </div>
                 </div>

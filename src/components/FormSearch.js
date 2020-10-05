@@ -73,6 +73,8 @@ export default class FormSearch extends React.Component {
 
   addCity = async (address) => {
     const position = await geocodeByAddress(address);
+    console.log('position is ' + position[0])
+    console.log(position[0])
     const coordinates = await getLatLng(position[0]);
     const coordinatesFormatted = this.getFormattedCoordinate(coordinates);
     const cityName = position[0].address_components[0].long_name;

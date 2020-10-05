@@ -7,7 +7,7 @@ export default function Why() {
     <div className="wrapper">
       <div className="why-to-use-it">
         <div className="why-to-use-it-gif">
-          <video className="why-to-use-it-video" autoPlay="autoplay" loop muted playsInLine>
+          <video className="why-to-use-it-video" autoPlay="autoplay" loop muted playsInline>
             <source src={happycats} />
           </video>
         </div>

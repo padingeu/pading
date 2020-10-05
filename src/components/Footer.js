@@ -148,7 +148,7 @@ export default class Footer extends React.Component {
               href="https://tree-nation.com/profile/impact/pading-1#co2"
               target="_blank"
               style={{
-                'padding-bottom': '2rem',
+                paddingBottom: '2rem',
                 position: 'relative',
                 cursor: 'pointer',
                 display: 'block',

@@ -7,7 +7,7 @@ export default function Simple() {
     <div className="wrapper">
       <div className="simple-solution">
         <div className="simple-solution-gif">
-          <video className="catsbasket" autoPlay="autoplay" loop muted playsInLine width="350px">
+          <video className="catsbasket" autoPlay="autoplay" loop muted playsInline width="350px">
             <source src={catsbasket} />
           </video>
         </div>
