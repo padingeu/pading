@@ -198,61 +198,58 @@ export default class FormSearch extends React.Component {
 
   render() {
     return (
-      <div className="wrapper">
-        <div className={this.props.isHomePage ? 'travel-form' : 'travel-form-results'}>
-          <div className={this.props.isHomePage ? 'search-box' : 'search-box-results'}>
-            <DatesPicker
-              dateFrom={this.state.dateFrom}
-              dateTo={this.state.dateTo}
-              showDateFrom={this.state.showDateFrom || !this.props.isHomePage}
-              showDateTo={this.state.showDateTo || !this.props.isHomePage}
-              onChange={this.onInputDateChange}
-              switchToOneWay={this.switchToOneWay}
-              switchToReturn={this.switchToReturn}
-              switchToIndirect={this.switchToIndirect}
-              switchToDirect={this.switchToDirect}
-              //changeFlexibleDates={this.changeFlexibleDates}
-              travelType={this.state.travelType}
-              stopTrip={this.state.stopTrip}
-              //flexibleDates={this.state.flexibleDates}
-              isHomePage={this.props.isHomePage}
-            />
+      <div className={this.props.isHomePage ? 'travel-form' : 'travel-form-results'}>
+        <div className={this.props.isHomePage ? 'search-box' : 'search-box-results'}>
+          <DatesPicker
+            dateFrom={this.state.dateFrom}
+            dateTo={this.state.dateTo}
+            showDateFrom={this.state.showDateFrom || !this.props.isHomePage}
+            showDateTo={this.state.showDateTo || !this.props.isHomePage}
+            onChange={this.onInputDateChange}
+            switchToOneWay={this.switchToOneWay}
+            switchToReturn={this.switchToReturn}
+            switchToIndirect={this.switchToIndirect}
+            switchToDirect={this.switchToDirect}
+            //changeFlexibleDates={this.changeFlexibleDates}
+            travelType={this.state.travelType}
+            stopTrip={this.state.stopTrip}
+            //flexibleDates={this.state.flexibleDates}
+            isHomePage={this.props.isHomePage}
+          />
+        </div>
 
-            <button
-              className={this.props.isHomePage ? 'btn btn-flat' : 'btn btn-flat-results'}
-              name="button"
-              disabled={!(this.state.dateFrom && this.state.cities.length > 0)}
-              type="submit"
-              onClick={() => this.search()}
-            >
-              Explore
-            </button>
-          </div>
-
-          {/*<div className="switch-search-type">
+        {/*<div className="switch-search-type">
             <p>We only consider to meet in one of the cities we come from</p>
             <Switch
               onChange={this.switchSearchBtn}
               inputProps={{ 'aria-label': 'secondary checkbox' }}
             />
           </div>*/}
-          <LocationSearchInput
-            address={this.state.address}
-            cities={this.state.cities}
-            addCity={this.addCity}
-            removeCity={this.removeCity}
-            handleAddressChange={this.handleAddressChange}
-          />
-          <SelectedCities
-            cities={this.state.cities}
-            addCity={this.addCity}
-            removeCity={this.removeCity}
-            handleCityClick={this.showButtons}
-            addTraveler={this.addTraveler}
-            removeTraveler={this.removeTraveler}
-            address={this.state.address}
-          />
-        </div>
+        <LocationSearchInput
+          address={this.state.address}
+          cities={this.state.cities}
+          addCity={this.addCity}
+          removeCity={this.removeCity}
+          handleAddressChange={this.handleAddressChange}
+        />
+        <SelectedCities
+          cities={this.state.cities}
+          addCity={this.addCity}
+          removeCity={this.removeCity}
+          handleCityClick={this.showButtons}
+          addTraveler={this.addTraveler}
+          removeTraveler={this.removeTraveler}
+          address={this.state.address}
+        />
+        <button
+          className={this.props.isHomePage ? 'btn btn-flat' : 'btn btn-flat-results'}
+          name="button"
+          disabled={!(this.state.dateFrom && this.state.cities.length > 0)}
+          type="submit"
+          onClick={() => this.search()}
+        >
+          Explore
+        </button>
       </div>
     );
   }

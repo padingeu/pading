@@ -1,31 +1,31 @@
 .search {
   .travel-options {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    width: 100%;
     .travel-options-details {
       display: flex;
       align-items: center;
-      justify-content: center;
-      min-width: 300px;
+      justify-content: flex-start;
+      width: 100%;
+      margin-bottom: 3rem;
       .travel-type {
-        position: relative;
         button.travel-type-btn {
+          position: relative;
           display: flex;
           align-items: center;
-          min-width: 80px;
-          height: 100%;
+          justify-content: center;
+          width: 10rem;
           border: none;
           outline: none;
           cursor: pointer;
-          &:hover {
-            color: black;
-          }
         }
         .travel-type-change {
           position: absolute;
-          bottom: 40px;
-          min-width: 100px;
+          border-radius: 2rem;
+          width: 10rem;
           z-index: 1;
           box-shadow: rgba(37, 42, 49, 0.16) 0px 4px 8px 0px,
             rgba(37, 42, 49, 0.24) 0px 8px 24px 0px;
@@ -35,49 +35,35 @@
             justify-content: left;
             align-items: center;
             cursor: pointer;
-            color: #2e353b;
+            color: #262626;
             text-decoration: none;
             .check-box {
-              min-width: 30px;
+              min-width: 3rem;
               .fa-check {
-                color: #4aa55b;
+                color: #29b3c1;
               }
             }
-            .one-way-return-div {
-              text-align: left;
-            }
-          }
-          :hover {
-            background-color: #f7fbfc;
           }
         }
       }
     }
-    .stop-trip {
+    button.stop-trip-btn {
       position: relative;
       display: flex;
-      justify-content: left;
       align-items: center;
-      &:hover {
-        color: black;
-      }
-    }
-    button.stop-trip-btn {
-      display: flex;
-      justify-content: left;
-      align-items: center;
-      min-width: 80px;
-      height: 100%;
+      justify-content: center;
+      width: 10rem;
+      margin-left: 1rem;
       border: none;
       outline: none;
       cursor: pointer;
     }
     .stop-trip-change {
       position: absolute;
-      bottom: 40px;
-      left: 0px;
-      min-width: 100px;
       z-index: 1;
+      margin-left: 1rem;
+      border-radius: 2rem;
+      width: 10rem;
       box-shadow: rgba(37, 42, 49, 0.16) 0px 4px 8px 0px, rgba(37, 42, 49, 0.24) 0px 8px 24px 0px;
       a {
         background-color: white;
@@ -85,39 +71,34 @@
         justify-content: left;
         align-items: center;
         cursor: pointer;
-        color: #2e353b;
+        color: #262626;
         text-decoration: none;
         .check-box {
-          min-width: 30px;
+          min-width: 3rem;
           .fa-check {
-            color: #4aa55b;
+            color: #29b3c1;
           }
         }
-        .stop-div {
-          text-align: left;
-        }
-      }
-      :hover {
-        background-color: #f7fbfc;
       }
     }
   }
   .inputdate {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    flex-wrap: wrap;
+    margin-top: 3rem;
+    width: 100%;
     .inputdatefrom {
       cursor: pointer;
       text-align: left;
-      height: 44px;
-      min-width: 300px;
-      padding-left: 20px;
-      border: solid #e5eaef;
-      border-width: 1px;
-      border-radius: 5px;
-      color: rgb(37, 42, 49);
-      text-shadow: 0 0 0 black;
+      height: 5rem;
+      border: solid #dce3e9;
+      border-radius: 5rem;
+      width: 100%;
+      margin-bottom: 1rem;
+      border-width: 0.1rem;
+
       &:focus {
         outline: none;
       }
@@ -125,17 +106,27 @@
     .inputdateto {
       cursor: pointer;
       text-align: left;
-      height: 44px;
-      min-width: 300px;
-      padding-left: 20px;
-      border: solid #e5eaef;
-      border-width: 1px;
-      border-radius: 5px;
-      color: rgb(37, 42, 49);
-      text-shadow: 0 0 0 black;
+      height: 5rem;
+      border: solid #dce3e9;
+      border-radius: 5rem;
+      width: 100%;
+      margin-bottom: 1rem;
+      border-width: 0.1rem;
       &:focus {
         outline: none;
       }
+    }
+  }
+  .btn-date {
+    position: absolute;
+    color: white;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    background: #3e936f;
+    transition: background 0.3s ease;
+    &:hover {
+      background: #429882;
+      color: white;
     }
   }
   .calendar {
@@ -219,300 +210,6 @@
     }
     .react-calendar__viewContainer {
       padding-bottom: 50px;
-    }
-  }
-  .btn-date {
-    position: absolute;
-    bottom: 0px;
-    right: 5px;
-    color: white;
-    height: 44px;
-    width: 97%;
-    margin-bottom: 5px;
-    border-radius: 5px;
-    background: #49a991;
-    transition: background 0.3s ease;
-    &:hover {
-      background: #429882;
-      color: white;
-    }
-  }
-}
-
-/* form search resultspage */
-@media (max-width: 1200px) {
-  .travel-options {
-    flex-direction: column;
-    margin-bottom: 5px;
-    .travel-options-details {
-      justify-content: flex-start !important;
-      width: 100%;
-    }
-    .calendar {
-      top: 210px !important;
-      margin-left: 0px !important;
-    }
-  }
-  .inputdate {
-    .inputdatefrom {
-      width: 100%;
-      margin: 5px 0px 5px 0px;
-    }
-    .inputdateto {
-      width: 100%;
-      margin: 5px 0px 5px 0px;
-    }
-  }
-}
-
-/* normal and big screens */
-@media (min-width: 1201px) {
-  .inputdate {
-    .inputdatefrom {
-      margin: 5px;
-    }
-    .inputdateto {
-      margin: 5px;
-    }
-  }
-}
-
-/* form search resultspage */
-.search {
-  .travel-options-results {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 5px;
-    .travel-options-details-results {
-      display: flex;
-      align-items: center;
-      justify-content: flex-start !important;
-      width: 100%;
-      .travel-type {
-        position: relative;
-        button.travel-type-btn {
-          display: flex;
-          align-items: center;
-          min-width: 80px;
-          height: 100%;
-          border: none;
-          outline: none;
-          cursor: pointer;
-        }
-        .travel-type-change {
-          position: absolute;
-          bottom: 40px;
-          min-width: 100px;
-          z-index: 1;
-          box-shadow: rgba(37, 42, 49, 0.16) 0px 4px 8px 0px,
-            rgba(37, 42, 49, 0.24) 0px 8px 24px 0px;
-          a {
-            background-color: white;
-            display: flex;
-            justify-content: left;
-            align-items: center;
-            cursor: pointer;
-            color: #2e353b;
-            text-decoration: none;
-            .check-box {
-              min-width: 30px;
-              .fa-check {
-                color: #4aa55b;
-              }
-            }
-            .one-way-return-div {
-              text-align: left;
-            }
-          }
-          :hover {
-            background-color: #f7fbfc;
-          }
-        }
-      }
-    }
-    .stop-trip {
-      position: relative;
-      display: flex;
-      justify-content: left;
-      align-items: center;
-    }
-    button.stop-trip-btn {
-      display: flex;
-      justify-content: left;
-      align-items: center;
-      min-width: 80px;
-      height: 100%;
-      border: none;
-      outline: none;
-      cursor: pointer;
-    }
-    .stop-trip-change {
-      position: absolute;
-      bottom: 40px;
-      left: 0px;
-      min-width: 100px;
-      z-index: 1;
-      box-shadow: rgba(37, 42, 49, 0.16) 0px 4px 8px 0px, rgba(37, 42, 49, 0.24) 0px 8px 24px 0px;
-      a {
-        background-color: white;
-        display: flex;
-        justify-content: left;
-        align-items: center;
-        cursor: pointer;
-        color: #2e353b;
-        text-decoration: none;
-        .check-box {
-          min-width: 30px;
-          .fa-check {
-            color: #4aa55b;
-          }
-        }
-        .stop-div {
-          text-align: left;
-        }
-      }
-      :hover {
-        background-color: #f7fbfc;
-      }
-    }
-  }
-  .inputdate-results {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    .inputdatefrom-results {
-      cursor: pointer;
-      text-align: left;
-      height: 44px;
-      width: 100%;
-      padding-left: 20px;
-      margin: 5px 0px 5px 0px;
-      border: solid #e5eaef;
-      border-width: 1px;
-      border-radius: 5px;
-      color: rgb(37, 42, 49);
-      text-shadow: 0 0 0 black;
-      &:focus {
-        outline: none;
-      }
-    }
-    .inputdateto-results {
-      cursor: pointer;
-      text-align: left;
-      height: 44px;
-      width: 100%;
-      padding-left: 20px;
-      margin: 5px 0px 5px 0px;
-      border: solid #e5eaef;
-      border-width: 1px;
-      border-radius: 5px;
-      color: rgb(37, 42, 49);
-      text-shadow: 0 0 0 black;
-      &:focus {
-        outline: none;
-      }
-    }
-  }
-  .calendar-results {
-    position: absolute;
-    top: 210px !important;
-    margin-left: 0px;
-    z-index: 1;
-    transition: all 0.15s ease-in-out 0s;
-    .react-calendar {
-      padding: 15px;
-      border: none;
-      box-shadow: 1px 1px 20px 0 rgba(0, 0, 0, 0.4);
-      border-radius: 5px;
-      .react-calendar__tile {
-        margin-top: 5px;
-      }
-      button[disabled] {
-        color: #bfbfbf;
-      }
-      .react-calendar__tile--now {
-        color: #44a7bc;
-        font-weight: bold;
-      }
-      .react-calendar__navigation {
-        margin: -15px -15px 15px;
-        padding: 0 10px;
-        background-color: #f5a741;
-        font-size: 18px;
-        color: #fff;
-        button[disabled] {
-          background-color: #f5a741;
-          color: #f5a741;
-        }
-        button.react-calendar__navigation__label {
-          background-color: #f5a741;
-          pointer-events: none;
-        }
-      }
-      button.react-calendar__navigation__arrow {
-        background-color: #f5a741;
-      }
-    }
-    .react-calendar__tile:disabled {
-      background-color: transparent;
-    }
-    .react-calendar__month-view__weekdays,
-    .react-calendar__month-view__days__day--neighboringMonth {
-      color: #44a7bc;
-      & abbr {
-        border-bottom: none;
-        text-decoration: none;
-      }
-    }
-    .react-calendar__month-view__days__day {
-      color: #353535;
-    }
-    .react-calendar__tile--active {
-      color: white;
-      background-color: #44a7bc;
-    }
-    .react-calendar__tile--hover {
-      background-color: #f7fbfc;
-      border-radius: none;
-    }
-    .react-calendar__tile--active:enabled:hover,
-    .react-calendar__tile--active:enabled:focus {
-      background-color: #44a7bc;
-      color: white;
-    }
-    .react-calendar__tile--rangeStart {
-      color: white !important;
-      font-weight: normal !important;
-      border-top-left-radius: 10px;
-      border-bottom-left-radius: 10px;
-    }
-    .react-calendar__tile--rangeEnd {
-      color: white !important;
-      font-weight: normal !important;
-      border-top-right-radius: 10px;
-      border-bottom-right-radius: 10px;
-    }
-    .react-calendar__viewContainer {
-      padding-bottom: 50px;
-    }
-  }
-  .btn-date {
-    position: absolute;
-    bottom: 0px;
-    right: 5px;
-    color: white;
-    height: 44px;
-    width: 97%;
-    margin-bottom: 5px;
-    border-radius: 5px;
-    background: #49a991;
-    transition: background 0.3s ease;
-    &:hover {
-      background: #429882;
-      color: white;
     }
   }
 }
