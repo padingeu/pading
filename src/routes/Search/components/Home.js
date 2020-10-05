@@ -24,21 +24,11 @@ export default class Home extends React.Component {
     return (
       <div>
         <NavBar />
-        <div className="hello">
-          <div className="banner">
-            <div className="formsearch-home">
-              <FormSearch searchTrips={this.props.searchTrips} isHomePage={this.state.isHomePage} />
-            </div>
-            <div className="map-home">
-              {this.props.search.commonDestinations.citiesFrom > 1 && (
-                <Map
-                  citiesFrom={this.props.search.cities}
-                  citiesTo={this.props.search.commonDestinations}
-                />
-              )}
-              Carte
-            </div>
+        <div className="banner">
+          <div className="formsearch-home">
+            <FormSearch searchTrips={this.props.searchTrips} isHomePage={this.state.isHomePage} />
           </div>
+          <div className="map-home">Carte</div>
         </div>
         <Why />
         <How />

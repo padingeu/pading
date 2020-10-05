@@ -75,11 +75,11 @@ class DatesPicker extends React.Component {
                     >
                       <div className="check-box">
                         {this.props.travelType === 'One-way' ? (
-                          <i className="fas fa-check fa-xs"></i>
+                          <i className="fas fa-check fa-xl"></i>
                         ) : null}
                       </div>
                       <div className="one-way-return-div">
-                        <h6>One-way</h6>
+                        <h5>One-way</h5>
                       </div>
                     </a>
 
@@ -92,21 +92,20 @@ class DatesPicker extends React.Component {
                     >
                       <div className="check-box">
                         {this.props.travelType === 'Return' ? (
-                          <i className="fas fa-check fa-xs"></i>
+                          <i className="fas fa-check fa-xl"></i>
                         ) : null}
                       </div>
                       <div className="one-way-return-div">
-                        <h6>Return</h6>
+                        <h5>Return</h5>
                       </div>
                     </a>
                   </div>
                 ) : null}
                 <button className="travel-type-btn" onClick={this.switchTravelTypeBtn}>
-                  <h6>
-                    <b>{this.props.travelType}</b>
-                  </h6>
+                  {this.props.travelType}
+
                   <div className="chevron-up-down">
-                    <i className="fas fa-chevron-down fa-xs"></i>
+                    <i className="fas fa-angle-down fa-lg"></i>
                   </div>
                 </button>
               </div>
@@ -127,7 +126,7 @@ class DatesPicker extends React.Component {
                         ) : null}
                       </div>
                       <div className="stop-div">
-                        <h6>All</h6>
+                        <h5>All</h5>
                       </div>
                     </a>
 
@@ -144,17 +143,16 @@ class DatesPicker extends React.Component {
                         ) : null}
                       </div>
                       <div className="stop-div">
-                        <h6>Direct</h6>
+                        <h5>Direct</h5>
                       </div>
                     </a>
                   </div>
                 ) : null}
                 <button className="stop-trip-btn" onClick={this.switchStopTripBtn}>
-                  <h6>
-                    <b>{this.props.stopTrip}</b>
-                  </h6>
+                  {this.props.stopTrip}
+
                   <div className="chevron-up-down">
-                    <i className="fas fa-chevron-down fa-xs"></i>
+                    <i className="fas fa-angle-down fa-lg"></i>
                   </div>
                 </button>
               </div>
