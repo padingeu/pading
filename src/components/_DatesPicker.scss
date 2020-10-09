@@ -10,13 +10,13 @@
       align-items: center;
       justify-content: flex-start;
       width: 100%;
-      margin-bottom: 3rem;
+      margin-bottom: 2rem;
       .travel-type {
         button.travel-type-btn {
           position: relative;
           display: flex;
           align-items: center;
-          justify-content: center;
+          justify-content: space-around;
           width: 10rem;
           border: none;
           outline: none;
@@ -51,7 +51,7 @@
       position: relative;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-around;
       width: 10rem;
       margin-left: 1rem;
       border: none;
@@ -94,34 +94,51 @@
       text-align: left;
       height: 5rem;
       border: solid #dce3e9;
+      border-width: 0.2rem;
       border-radius: 5rem;
       width: 100%;
       margin-bottom: 1rem;
-      border-width: 0.1rem;
-
+      padding-left: 3rem;
+      font-size: 1.6rem;
+      font-family: 'roboto' sans-serif;
+      font-weight: bold;
+      color: #262626;
       &:focus {
         outline: none;
       }
     }
+
     .inputdateto {
       cursor: pointer;
       text-align: left;
       height: 5rem;
       border: solid #dce3e9;
+      border-width: 0.2rem;
       border-radius: 5rem;
       width: 100%;
       margin-bottom: 1rem;
-      border-width: 0.1rem;
+      padding-left: 3rem;
+      font-size: 1.6rem;
+      font-family: 'roboto' sans-serif;
+      font-weight: bold;
+      color: #262626;
       &:focus {
         outline: none;
       }
     }
   }
+  ::placeholder {
+    color: #dce3e9;
+  }
   .btn-date {
     position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 5rem;
+    border-radius: 5rem;
+    width: 95%;
+    margin: 1rem;
     color: white;
-    margin-bottom: 5px;
-    border-radius: 5px;
     background: #3e936f;
     transition: background 0.3s ease;
     &:hover {
@@ -131,31 +148,29 @@
   }
   .calendar {
     position: absolute;
-    top: 80px;
-    margin-left: 50px;
-    z-index: 1;
+    bottom: 0;
+    margin: 0 1rem 1rem 1rem;
+    z-index: 10;
     transition: all 0.15s ease-in-out 0s;
     .react-calendar {
-      padding: 15px;
+      width: 100%;
+      padding: 1.5rem;
       border: none;
       box-shadow: 1px 1px 20px 0 rgba(0, 0, 0, 0.4);
-      border-radius: 5px;
-      .react-calendar__tile {
-        margin-top: 5px;
-      }
+      border-radius: 2.5rem;
       button[disabled] {
-        color: #bfbfbf;
+        color: #dce3e9;
       }
       .react-calendar__tile--now {
         color: #44a7bc;
         font-weight: bold;
       }
       .react-calendar__navigation {
-        margin: -15px -15px 15px;
-        padding: 0 10px;
+        height: 4.5rem;
+        margin: -1.5rem -1.5rem 1.5rem;
+        border-radius: 2.5rem 2.5rem 0 0;
         background-color: #f5a741;
-        font-size: 18px;
-        color: #fff;
+        color: white;
         button[disabled] {
           background-color: #f5a741;
           color: #f5a741;
@@ -174,6 +189,7 @@
     }
     .react-calendar__month-view__weekdays,
     .react-calendar__month-view__days__day--neighboringMonth {
+      height: 4rem;
       color: #44a7bc;
       & abbr {
         border-bottom: none;
@@ -181,15 +197,15 @@
       }
     }
     .react-calendar__month-view__days__day {
-      color: #353535;
+      color: #5f5f5f;
     }
     .react-calendar__tile--active {
       color: white;
       background-color: #44a7bc;
+      border-radius: 0;
     }
     .react-calendar__tile--hover {
       background-color: #f7fbfc;
-      border-radius: none;
     }
     .react-calendar__tile--active:enabled:hover,
     .react-calendar__tile--active:enabled:focus {
@@ -197,19 +213,37 @@
       color: white;
     }
     .react-calendar__tile--rangeStart {
-      color: white !important;
-      font-weight: normal !important;
-      border-top-left-radius: 10px;
-      border-bottom-left-radius: 10px;
+      border-top-left-radius: 2.5rem;
+      border-bottom-left-radius: 2.5rem;
     }
     .react-calendar__tile--rangeEnd {
-      color: white !important;
-      font-weight: normal !important;
-      border-top-right-radius: 10px;
-      border-bottom-right-radius: 10px;
+      border-top-right-radius: 2.5rem;
+      border-bottom-right-radius: 2.5rem;
     }
     .react-calendar__viewContainer {
-      padding-bottom: 50px;
+      padding-bottom: 5rem;
+    }
+  }
+}
+
+@media (orientation: portrait) {
+  .calendar {
+    .react-calendar {
+      height: 72vh;
+      .react-calendar__tile {
+        height: 5rem;
+      }
+    }
+  }
+}
+
+@media (orientation: landscape) {
+  .calendar {
+    .react-calendar {
+      height: 55vh;
+      .react-calendar__tile {
+        height: 4rem;
+      }
     }
   }
 }

@@ -1,32 +1,31 @@
-/* form search homepage */
-
 .travel-form {
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: flex-start;
   align-items: center;
   text-align: center;
-  border: solid green;
-  //height: 100%;
+  height: 100%;
+  min-height: 40rem;
+  margin-top: 3rem;
+  padding: 0rem 1rem 0 1rem;
   .search-box {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: stretch;
     width: 98%;
-    border: solid green;
   }
   .btn-flat {
     position: absolute;
     bottom: 0rem;
-    width: 98%;
+    width: 95%;
     margin-bottom: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
-    //height: 5rem;
+    height: 4.5rem;
     border-radius: 5rem;
     background: #49a991;
     transition: background 0.3s ease;
@@ -38,11 +37,4 @@
       outline: none;
     }
   }
-}
-
-.MuiSwitch-colorSecondary.Mui-checked {
-  color: #3e936f !important;
-}
-.MuiSwitch-colorSecondary.Mui-checked + .MuiSwitch-track {
-  background-color: #3e936f !important;
 }

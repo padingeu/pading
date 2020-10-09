@@ -1,5 +1,5 @@
 import React from 'react';
-import '../components/_LocationSearchInput.scss';
+import '../components/_SelectedCities.scss';
 
 const SelectedCities = ({
   cities,
@@ -7,7 +7,7 @@ const SelectedCities = ({
   handleCityClick,
   addTraveler,
   removeTraveler,
-  address
+  address,
 }) => {
   return (
     <div className="cities-departure">
@@ -15,33 +15,29 @@ const SelectedCities = ({
         return (
           <div key={index}>
             <div className="city-div">
-              <div className="number-of-people-btn">
-                <button
-                  className="number-of-people"
-                  onClick={event => handleCityClick(event, city)}
-                >
+              <div className="number-of-people-edit">
+                <div className="number-of-people">
                   <i className="fas fa-user-friends fa-xs"></i>
-                  <h6>{city.numberOfPeople}</h6>
-                  <div className="chevron-up-down">
-                    <i className="fas fa-chevron-down fa-xs"></i>
-                  </div>
-                </button>
+                  <h5>{city.numberOfPeople}</h5>
+                </div>
 
-                {city.showButton === true && (
-                  <div className="people-number-change">
-                    <button onClick={event => removeTraveler(event, city)}>-</button>
-
-                    <button onClick={event => addTraveler(event, city)}>+</button>
-                  </div>
-                )}
+                <div className="people-number-change">
+                  <i
+                    className="fas fa-minus-circle"
+                    onClick={(event) => removeTraveler(event, city)}
+                  ></i>
+                  <i
+                    className="fas fa-plus-circle"
+                    onClick={(event) => addTraveler(event, city)}
+                  ></i>
+                </div>
               </div>
               <div className="city-departure" key={index}>
-                <div className="city-departure-people">
-                  <p>{city.name}</p>
-                </div>
-                <button className="remove-city-btn " onClick={event => removeCity(event, index)}>
-                  <i className="fas fa-times-circle"></i>
-                </button>
+                <div className="city-departure-name">{city.name}</div>
+                <i
+                  className="fas fa-times-circle"
+                  onClick={(event) => removeCity(event, index)}
+                ></i>
               </div>
             </div>
           </div>
