@@ -4,13 +4,13 @@ import '../components/_SelectedCities.scss';
 const SelectedCities = ({
   cities,
   removeCity,
-  handleCityClick,
   addTraveler,
   removeTraveler,
-  address,
+
 }) => {
   return (
     <div className="cities-departure">
+      {console.log(cities)}
       {cities.map((city, index) => {
         return (
           <div key={index}>

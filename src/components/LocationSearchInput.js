@@ -62,15 +62,12 @@ class LocationSearchInput extends React.Component {
                         paddingLeft: '2rem',
                         height: '3rem',
                       };
-                      {
-                        console.log(suggestion);
-                      }
                       return (
                         <div
                           className="suggestions-form"
                           {...getSuggestionItemProps(suggestion, { style })}
                         >
-                          {suggestion.active ? <i class="far fa-dot-circle"></i> : null}
+                          {suggestion.active ? <i className="far fa-dot-circle"></i> : null}
                           <span>{suggestion.description}</span>
                         </div>
                       );

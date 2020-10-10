@@ -156,6 +156,7 @@ export default class Footer extends React.Component {
               }}
             >
               <img
+                alt="CO2"
                 src="https://tree-nation.com/images/tracking/label-co2-website-white-en.png"
                 style={{ width: 150, height: 'auto' }}
               />
