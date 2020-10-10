@@ -198,13 +198,13 @@ export default class FormSearch extends React.Component {
 
   render() {
     return (
-      <div className={this.props.isHomePage ? 'travel-form' : 'travel-form-results'}>
-        <div className={this.props.isHomePage ? 'search-box' : 'search-box-results'}>
+      <div className="travel-form">
+        <div className="search-box">
           <DatesPicker
             dateFrom={this.state.dateFrom}
             dateTo={this.state.dateTo}
-            showDateFrom={this.state.showDateFrom || !this.props.isHomePage}
-            showDateTo={this.state.showDateTo || !this.props.isHomePage}
+            showDateFrom={this.state.showDateFrom}
+            showDateTo={this.state.showDateTo}
             onChange={this.onInputDateChange}
             switchToOneWay={this.switchToOneWay}
             switchToReturn={this.switchToReturn}
@@ -214,7 +214,6 @@ export default class FormSearch extends React.Component {
             travelType={this.state.travelType}
             stopTrip={this.state.stopTrip}
             //flexibleDates={this.state.flexibleDates}
-            isHomePage={this.props.isHomePage}
           />
         </div>
 
@@ -242,7 +241,7 @@ export default class FormSearch extends React.Component {
           address={this.state.address}
         />
         <button
-          className={this.props.isHomePage ? 'btn btn-flat' : 'btn btn-flat-results'}
+          className="btn btn-flat"
           name="button"
           disabled={!(this.state.dateFrom && this.state.cities.length > 0)}
           type="submit"

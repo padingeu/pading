@@ -4,7 +4,7 @@
   align-items: center;
   margin-top: 7rem;
   height: calc(100vh - 7rem);
-  .formsearch-home {
+  .formsearch {
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -30,7 +30,7 @@
 }
 
 @media (max-width: 1201px) {
-  .formsearch-home {
+  .formsearch {
     width: 100%;
   }
   .map-home {
@@ -39,10 +39,10 @@
 }
 
 @media (orientation: landscape) and (min-width: 1201px) {
-  .formsearch-home {
+  .formsearch {
     width: 25%;
   }
-  .formsearch-home-mobile {
+  .formsearch-mobile {
     display: none;
   }
   .map-home {
