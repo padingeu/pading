@@ -1,0 +1,111 @@
+.cities-departure {
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  bottom: 10rem;
+  max-height: 30%;
+  width: 100%;
+  overflow-y: auto;
+  padding: 0 0.5rem 0 0.5rem;
+}
+
+.city-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0 0.5rem 0 0.5rem;
+  .number-of-people-edit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: -0.7rem;
+    .number-of-people {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 0.5rem 0 1rem;
+      .fa-user-friends {
+        color: #f5a741;
+      }
+      h5 {
+        color: #f5a741;
+      }
+    }
+    .people-number-change {
+      .fa-minus-circle {
+        cursor: pointer;
+        color: #f5a741;
+        margin-right: 0.2rem;
+        &:hover {
+          color: #f6b040;
+        }
+      }
+      .fa-plus-circle {
+        cursor: pointer;
+        color: #f5a741;
+        &:hover {
+          color: #f6b040;
+        }
+      }
+    }
+  }
+}
+
+.city-departure {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 3.5rem;
+  border-radius: 2.5rem;
+  padding: 0 1rem 0 1rem;
+  background-color: #f5a741;
+  .city-departure-name {
+    color: white;
+    font-family: 'roboto' sans-serif;
+    font-weight: bold;
+    font-size: 1.4rem;
+    margin-right: 1rem;
+  }
+  .fa-times-circle {
+    cursor: pointer;
+    vertical-align: center;
+    color: rgba(255, 255, 255, 0.7);
+    &:hover {
+      color: white;
+    }
+  }
+}
+
+button.number-of-people {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  height: 35px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.chevron-up-down {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-left: 4px;
+}
+
+.remove-city-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.5);
+  border: none;
+  outline: none;
+  &:hover {
+    color: white;
+  }
+}

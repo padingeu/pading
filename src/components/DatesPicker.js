@@ -28,6 +28,7 @@ class DatesPicker extends React.Component {
 
   showOnCalendar = () => {
     this.setState({ showTravelTypeBtn: false });
+    this.setState({ showStopTripBtn: false });
     this.setState({ showCalendar: true });
   };
 

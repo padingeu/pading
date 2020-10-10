@@ -18,7 +18,7 @@ class LocationSearchInput extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="location-search-input">
         <PlacesAutocomplete
           value={this.props.address}
           onChange={this.props.handleAddressChange}
@@ -37,33 +37,45 @@ class LocationSearchInput extends React.Component {
                     onClick={this.cityAutocompleteActive}
                     {...getInputProps({ className: 'city-departure-input' })}
                   />
-                  <span className="label">We travel from</span>
+                  <div className="arrow-and-label">
+                    <i className="fas fa-location-arrow fa-xl"></i>
+                    <span className="label">We travel from ...</span>
+                  </div>
                   <span className="focus-bg"></span>
                   <div>{loading ? <div>...Loading</div> : null}</div>
-                  {suggestions.map((suggestion) => {
-                    const style = {
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'flex-start',
-                      backgroundColor: suggestion.active ? '#f7f7f7' : '#fff',
-                      cursor: 'pointer',
-                      color: '#262626',
-                      fontFamily: 'Arimo',
-                      fontWeight: suggestion.active ? '700' : '400',
-                      textAlign: 'left',
-                      paddingLeft: '15px',
-                      height: '25px',
-                    };
-                    return (
-                      <div
-                        className="suggestions-form"
-                        {...getSuggestionItemProps(suggestion, { style })}
-                      >
-                        {suggestion.active ? <i className="fas fa-map-marker-alt"></i> : null}
-                        {suggestion.description}
-                      </div>
-                    );
-                  })}
+                  <div className="cities-proposal">
+                    {suggestions.map((suggestion) => {
+                      if (!suggestion.id) {
+                        suggestion.id = Math.random();
+                      }
+                      const style = {
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'flex-start',
+                        backgroundColor: '#fff',
+                        cursor: 'pointer',
+                        color: '#262626',
+                        fontFamily: 'Roboto',
+                        fontSize: '1.4rem',
+                        fontWeight: suggestion.active ? '700' : '400',
+                        textAlign: 'left',
+                        paddingLeft: '2rem',
+                        height: '3rem',
+                      };
+                      {
+                        console.log(suggestion);
+                      }
+                      return (
+                        <div
+                          className="suggestions-form"
+                          {...getSuggestionItemProps(suggestion, { style })}
+                        >
+                          {suggestion.active ? <i class="far fa-dot-circle"></i> : null}
+                          <span>{suggestion.description}</span>
+                        </div>
+                      );
+                    })}
+                  </div>
                 </label>
               </form>
             </div>
