@@ -25,8 +25,8 @@ export default class Home extends React.Component {
       <div>
         <NavBar />
         <div className="banner">
-          <div className="formsearch-home">
-            <FormSearch searchTrips={this.props.searchTrips} isHomePage={this.state.isHomePage} />
+          <div className="formsearch">
+            <FormSearch searchTrips={this.props.searchTrips} />
           </div>
           <div className="map-home">Carte</div>
         </div>

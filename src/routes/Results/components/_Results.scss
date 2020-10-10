@@ -4,8 +4,9 @@
   align-items: center;
   margin-top: 7rem;
   background-color: #f4f6f8;
-  .formsearch-results {
-    height: calc(100vh - 7rem);
+  height: calc(100vh - 7rem);
+  .formsearch {
+    height: 100%;
     background-color: white;
   }
   .linear-progress-edit-view {
@@ -26,6 +27,7 @@
       display: flex;
       justify-content: center;
       align-items: flex-end;
+      margin-top: 3rem;
       .btn-edit-search {
         background-color: #29b3c1;
         border: none;
@@ -69,24 +71,25 @@
     }
   }
 }
-.formsearch-results-mobile {
+.formsearch-mobile {
   position: absolute;
   top: 7;
   left: 0;
   z-index: 1;
-  height: 100vh;
+  height: calc(100vh - 10rem);
   width: 100vw;
   background-color: white;
-  .close-formsearch {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    color: #f6b040;
-  }
-  .close-formsearch:hover {
-    color: #f49d11;
-    cursor: pointer;
-  }
+}
+.fa-times-circle {
+  position: absolute;
+  top: 2.7rem;
+  right: 1rem;
+  color: #f6b040;
+  cursor: pointer;
+  z-index: 1;
+}
+.fa-times-circle:hover {
+  color: #f49d11;
 }
 
 @media (max-width: 800px) {
@@ -144,7 +147,7 @@
 }
 
 @media (max-width: 1201px) {
-  .formsearch-results {
+  .formsearch {
     display: none;
   }
   .cards-map-results {
@@ -153,10 +156,10 @@
 }
 
 @media (orientation: landscape) and (min-width: 1201px) {
-  .formsearch-results {
+  .formsearch {
     width: 25%;
   }
-  .formsearch-results-mobile {
+  .formsearch-mobile {
     display: none;
   }
   .linear-progress-edit-view {

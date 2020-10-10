@@ -58,8 +58,8 @@ export default class Results extends React.Component {
       <div>
         <NavBar />
         {this.state.showFormSearch ? (
-          <div className="formsearch-results-mobile">
-            <i class="fas fa-times-circle close-formsearch fa-3x" onClick={this.editSearch}></i>
+          <div className="formsearch-mobile">
+            <i class="fas fa-times-circle fa-3x" onClick={this.editSearch}/>
             <FormSearch
               searchTrips={this.props.searchTrips}
               dateFrom={this.props.search.dateFrom}
@@ -71,7 +71,7 @@ export default class Results extends React.Component {
           ''
         )}
         <div className="travel-results">
-          <div className="formsearch-results">
+          <div className="formsearch">
             <FormSearch
               searchTrips={this.props.searchTrips}
               dateFrom={this.props.search.dateFrom}
