@@ -28,7 +28,12 @@ export default class Home extends React.Component {
           <div className="formsearch">
             <FormSearch searchTrips={this.props.searchTrips} />
           </div>
-          <div className="map-home">Carte</div>
+          <div className="map-home">
+            <Map
+              citiesFrom={[]}
+              citiesTo={[]}
+            />
+          </div>
         </div>
         <Why />
         <How />

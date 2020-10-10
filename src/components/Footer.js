@@ -9,7 +9,7 @@ import swal from 'sweetalert2';
 const CustomForm = ({ status, message, onValidated }) => {
   let email;
 
-  const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@(([[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
   const submit = () => {
     if (email && emailRegex.test(email.value)) {
@@ -105,7 +105,7 @@ export default class Footer extends React.Component {
             <div className="footer-menu-app-contact">
               <div className="footer-menu-app">
                 <h4>Pading</h4>
-                <a className="btn-product" onClick={this.props.scrollToTop}>
+                <a className="btn-product" onClick={this.props.scrollToTop} href="">
                   <p>Product</p>
                 </a>
                 <Popup
