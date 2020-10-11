@@ -145,6 +145,10 @@ export default class Results extends React.Component {
               dateFrom={this.props.search.dateFrom}
               dateTo={this.props.search.dateTo}
               citiesFrom={this.props.search.cities}
+              addCity={this.addCity}
+              removeCity={this.removeCity}
+              handleAddressChange={this.handleAddressChange}
+              address={this.state.address}
             />
           </div>
         ) : (
