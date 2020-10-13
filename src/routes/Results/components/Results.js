@@ -165,6 +165,7 @@ export default class Results extends React.Component {
                     handleAddressChange={this.handleAddressChange}
                     address={this.state.address}
                   />
+
                 </div>
 
               :
