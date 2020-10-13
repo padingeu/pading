@@ -37,7 +37,7 @@ const SelectedCities = ({
                 <i
                   className="fas fa-times-circle"
                   onClick={(event) => removeCity(event, index)}
-                ></i>
+                />
               </div>
             </div>
           </div>

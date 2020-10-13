@@ -13,9 +13,9 @@ export default class Map extends React.Component {
   state = {
     viewport: {
       width: '100%',
-      height: '500px',
+      height: '100%',
       latitude: 48.856614,
-      longitude: 2.352222,
+      longitude: 4.352222,
       zoom: 3,
     },
     destinations:[]
@@ -39,14 +39,16 @@ export default class Map extends React.Component {
       );
     }
   }
+  
 
   render() {
+
     return (
       
       <ReactMapGL
         {...this.state.viewport}
         mapboxApiAccessToken="pk.eyJ1IjoibG91aXMxNDA0IiwiYSI6ImNrNm0zOGFkMDBqdG8zZXA3NGR5ejhzYnQifQ.Yt9WzWg8hdm6b9h5k5sxHw"
-        mapStyle="mapbox://styles/louis1404/ck81ia7to0qxs1io6wcvcckig"
+        mapStyle="mapbox://styles/louis1404/ckbfbhg8x21z51ik4rb1ylkrn"
         onViewportChange={(viewport) => this.setState({ viewport })}
       >
         {this.props.citiesFrom.map((city) => (

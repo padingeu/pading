@@ -115,7 +115,7 @@ export default class Home extends React.Component {
             handleAddressChange={this.handleAddressChange}
             address={this.state.address}/>
           </div>
-          <div className="map-home">
+          <div className="map">
             <Map
               citiesFrom={this.state.citiesFrom}
               citiesTo={[]}

@@ -9,19 +9,19 @@
     flex-direction: column;
     height: 100%;
   }
-  .map-home {
+  .map {
     height: 100%;
   }
 }
 
 @media (orientation: portrait) {
-  .map-home {
+  .map {
     display: none;
   }
 }
 
 @media (orientation: landscape) {
-  .map-home {
+  .map {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -33,7 +33,7 @@
   .formsearch {
     width: 100%;
   }
-  .map-home {
+  .map {
     display: none;
   }
 }
@@ -45,7 +45,7 @@
   .formsearch-mobile {
     display: none;
   }
-  .map-home {
+  .map {
     width: 75%;
   }
 }
