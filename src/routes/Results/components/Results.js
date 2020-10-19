@@ -13,6 +13,8 @@ export default class Results extends React.Component {
   };*/
 
   state = {
+    windowWidth: window.innerWidth,
+    mapView: false,
     showMobileFormSearch: false,
     showMobileResults: true,
     activeMapView: false,
@@ -21,10 +23,15 @@ export default class Results extends React.Component {
   };
 
   componentDidMount() {
+    window.addEventListener('resize', this._handleWindowResize)
     // console.log(this.props);
     if (!this.props.search.isLoading && !this.props.search.success) {
       // history.push('/')
     }
+  }
+
+  _handleWindowResize = () => {
+    this.setState({ windowWidth: window.innerWidth })
   }
 
   displayMobileFormSearch = (event) => {
@@ -133,8 +140,9 @@ export default class Results extends React.Component {
 
   switchViewType = (event) => {
     event.preventDefault();
-    this.setState({ activeMapView: !this.state.activeMapView})
-  }
+    this.setState({ activeMapView: !this.state.activeMapView });
+    this.setState({ mapView: !this.state.mapView })
+  };
 
   /*loadMore = (event) => {
     event.preventDefault();
@@ -183,7 +191,7 @@ export default class Results extends React.Component {
                       <button className="btn-edit-search" onClick={this.displayMobileFormSearch}>
                         Edit
                       </button>
-                      <button className="btn-edit-view" onClick={this.switchViewType}>Map</button>
+                      <button className="btn-edit-view" onClick={this.switchViewType}>{this.state.mapView ? "cities" : "map"}</button>
                       <div className="edit-filter">
                         <h4>€</h4>
                         <i className="fas fa-angle-down fa-lg"></i>
@@ -251,7 +259,7 @@ export default class Results extends React.Component {
                     <button className="btn-edit-search" onClick={this.displayMobileFormSearch}>
                       Edit
                     </button>
-                    <button className="btn-edit-view" onClick={this.switchViewType}>Map</button>
+                    <button className="btn-edit-view" onClick={this.switchViewType}>{this.state.mapView ? "cities" : "map"}</button>
                     <div className="edit-filter">
                       <h4>€</h4>
                       <i className="fas fa-angle-down fa-lg"></i>
