@@ -14,10 +14,10 @@ export default class FormSearch extends React.Component {
     stopTrip: 'All',
     //flexibleDates: 0,
     plane: true,
-    train: true,
-    bus: true,
+    //train: true,
+    //bus: true,
     shouldSearch: false,
-    onlyDepartureCitiesSearch: false,
+    //onlyDepartureCitiesSearch: false,
   };
 
   search = () => {
@@ -54,17 +54,15 @@ export default class FormSearch extends React.Component {
 
   switchToDirect = (event) => {
     event.preventDefault();
-
     this.setState({ stopTrip: 'Direct' });
   };
 
 
   addTraveler = (event, city) => {
-    console.log('add traveler')
     event.preventDefault();
-    city.numberOfPeople++;
     const cities = [...this.props.citiesFrom];
     cities[cities.findIndex((el) => el === city)] = city;
+    city.numberOfPeople++;
     this.setState({
       cities: cities,
     });
@@ -73,16 +71,16 @@ export default class FormSearch extends React.Component {
   removeTraveler = (event, city) => {
     event.preventDefault();
     if (city.numberOfPeople >= 2) {
-      city.numberOfPeople--;
       const cities = [...this.state.cities];
       cities[cities.findIndex((el) => el === city)] = city;
+      city.numberOfPeople--;
       this.setState({
         cities: cities,
       });
     }
   };
 
-  onPlaneClick = () => {
+  /*onPlaneClick = () => {
     this.setState({ plane: !this.state.plane });
   };
 
@@ -92,18 +90,19 @@ export default class FormSearch extends React.Component {
 
   onBusClick = () => {
     this.setState({ bus: !this.state.bus });
-  };
+  };*/
 
-  switchSearchBtn = () => {
+  /*switchSearchBtn = () => {
     this.setState({
       onlyDepartureCitiesSearch: !this.state.onlyDepartureCitiesSearch,
     });
-  };
+  };*/
 
   render() {
     return (
       <div className="travel-form">
         <div className="search-box">
+
           <DatesPicker
             dateFrom={this.state.dateFrom}
             dateTo={this.state.dateTo}
@@ -114,13 +113,13 @@ export default class FormSearch extends React.Component {
             switchToReturn={this.switchToReturn}
             switchToIndirect={this.switchToIndirect}
             switchToDirect={this.switchToDirect}
-            //changeFlexibleDates={this.changeFlexibleDates}
             travelType={this.state.travelType}
             stopTrip={this.state.stopTrip}
+            //changeFlexibleDates={this.changeFlexibleDates}
             //flexibleDates={this.state.flexibleDates}
           />
         </div>
-        {console.log(this.props.citiesFrom)}
+
         <LocationSearchInput
           address={this.props.address}
           cities={this.props.citiesFrom}
@@ -128,7 +127,7 @@ export default class FormSearch extends React.Component {
           removeCity={this.props.removeCity}
           handleAddressChange={this.props.handleAddressChange}
         />
-        {console.log(this.props.citiesFrom)}
+
         <SelectedCities
           cities={this.props.citiesFrom}
           addCity={this.props.addCity}
@@ -138,6 +137,7 @@ export default class FormSearch extends React.Component {
           removeTraveler={this.removeTraveler}
           address={this.props.address}
         />
+
         <button
           className="btn btn-flat"
           name="button"
@@ -147,6 +147,7 @@ export default class FormSearch extends React.Component {
         >
           Explore
         </button>
+        
       </div>
     );
   }

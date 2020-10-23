@@ -3,7 +3,7 @@ import ReactMapGL, { Marker } from 'react-map-gl';
 import Geocode from 'react-geocode';
 import './_Map.scss';
 import yellowMarker from '../img/yellow-marker.png';
-import greenMarker from '../img/green-marker.png';
+import greenMarkerDest from '../img/green-marker-dest.png';
 
 const API_KEY = process.env.REACT_APP_GOOGLE_MAPS_KEY;
 
@@ -42,7 +42,7 @@ export default class Map extends React.Component {
   
 
   render() {
-
+    
     return (
       
       <ReactMapGL
@@ -61,7 +61,7 @@ export default class Map extends React.Component {
         {this.state.destinations.map((city) =>  (
            <Marker key={city.name} latitude={city.lat} longitude={city.lng}>
           <button className="marker-departure-city">
-            <img src={greenMarker} alt="Destination city" />
+            <img src={greenMarkerDest} alt="Destination city" />
           </button>
         </Marker>
         )

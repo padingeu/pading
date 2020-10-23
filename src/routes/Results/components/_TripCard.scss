@@ -17,7 +17,6 @@
     justify-content: space-between;
     align-items: flex-end;
     padding: 0.5rem 0.5rem 0 0.5rem;
-
     .trip-city-pricing {
       display: flex;
       justify-content: space-between;
@@ -26,9 +25,9 @@
       h4 {
         line-height: 0.5rem;
       }
-    }
-    .trip-pricing {
-      color: #3e936f;
+      .trip-pricing {
+        color: #3e936f;
+      }
     }
     .trip-carbonfootprint {
       p {

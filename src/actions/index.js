@@ -1,6 +1,7 @@
 import axios from 'axios';
 import lodash from 'lodash';
 import { history } from '../index';
+
 export const searchTrips = (cities, dateFrom, dateTo, stopTrip) => {
   const promises = [];
   return (dispatch) => {
@@ -11,7 +12,6 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip) => {
     };
     dispatch({ type: 'CLEAR_SEARCH' });
     dispatch({ type: 'FORM_DATA', formData });
-
     dispatch({ type: 'LOADING' });
     history.push('/results');
 
@@ -35,7 +35,7 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip) => {
     for (let i = 0; i < cities.length; i++) {
       travelers[cities[i].name] = cities[i].numberOfPeople;
       const promise = axios.get(
-        `https://kiwicom-prod.apigee.net/v2/search?fly_from=${cities[i].coordinates}&date_from=${dateFromStr}&date_to=${dateFromStr}&return_from=${dateToStr}&max_stopovers=${maxStopover}&flight_type=round&nights_in_dst_from=${differenceInDays}&nights_in_dst_to=${differenceInDays}&adults=${cities[i].numberOfPeople}&vehicle_type=aircraft,train&ret_to_diff_airport=0&ret_from_diff_airport=0`,
+        `https://kiwicom-prod.apigee.net/v2/search?fly_from=${cities[i].coordinates}&date_from=${dateFromStr}&date_to=${dateFromStr}&return_from=${dateToStr}&max_stopovers=${maxStopover}&flight_type=round&nights_in_dst_from=${differenceInDays}&nights_in_dst_to=${differenceInDays}&adults=${cities[i].numberOfPeople}&vehicle_type=aircraft&ret_to_diff_airport=0&ret_from_diff_airport=0`,
         config
       );
       promises.push(promise);
@@ -44,7 +44,7 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip) => {
     Promise.all(promises)
       .then((results) => {
         const trips = {};
-        //Construction d un objet avec une liste de voyage
+        //Construction d'un objet avec une liste de voyage
         for (let i = 0; i < results.length; i++) {
           if (typeof results[i].data.data[0] !== 'undefined') {
             const city = results[i].data.data[0].cityFrom;
@@ -83,7 +83,7 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip) => {
             commonDestinations.push(commonTrips[i].cityTo);
           }
         }
-        //Retirer les voages qui ne font pas parti des destinations communes
+        //Retirer les voyages qui ne font pas parti des destinations communes
         for (let i = 0; i < cities.length; i++) {
           let city = cities[i].name;
           if (city in trips) {

@@ -1,10 +1,11 @@
 import React from 'react';
-import TripCard from './TripCard';
 import Map from '../../../components/Map';
 import NavBar from '../../../components/NavBar';
 import FormSearch from '../../../components/FormSearch';
 import './_Results.scss';
 import LinearProgress from '@material-ui/core/LinearProgress';
+import TripCard from './TripCard';
+import TripCardSkeleton from './TripCardSkeleton';
 import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 
 export default class Results extends React.Component {
@@ -29,9 +30,10 @@ export default class Results extends React.Component {
       // history.push('/')
     }
   }
-
+  
   _handleWindowResize = () => {
     this.setState({ windowWidth: window.innerWidth })
+    this.setState({ windowWidth: window.innerHeight })
   }
 
   displayMobileFormSearch = (event) => {
@@ -107,7 +109,7 @@ export default class Results extends React.Component {
     const position = await geocodeByAddress(address);
     const coordinates = await getLatLng(position[0]);
     const coordinatesFormatted = this.getFormattedCoordinate(coordinates);
-    const cityName = position[0].address_components[0].long_name;
+    const cityName = position[0].addresscomponents[0].long_name;
     const cities = [...this.state.citiesFrom];
     const cityIndex = this.findCityIndex(cityName, cities);
 
@@ -209,6 +211,7 @@ export default class Results extends React.Component {
                     </div>
                   :
                     <div className="cards-results">
+        
                       {this.props.search.commonDestinations
                         /*.slice(0, this.state.visible)*/
                         .map((destination, index) => {
@@ -276,20 +279,38 @@ export default class Results extends React.Component {
                     />
                   </div>
                 :
-                  <div className="cards-results">
-                    {this.props.search.commonDestinations
-                      /*.slice(0, this.state.visible)*/
-                      .map((destination, index) => {
-                        return (
-                          <div key={index}>
-                            <TripCard
-                              destination={destination}
-                              prices={this.getTotalPrice(this.props.search.trips, destination)}
-                              travelers={this.props.search.travelers}
-                            />
-                          </div>  
-                        )
-                      })}
+                  <div>
+                    {this.props.search.isLoading ?
+                      <div className="cards-results">
+                        <TripCardSkeleton />
+                        <TripCardSkeleton />
+                        <TripCardSkeleton />
+                        <TripCardSkeleton />
+                        <TripCardSkeleton />
+                        <TripCardSkeleton />
+                        <TripCardSkeleton />
+                        <TripCardSkeleton />
+                        <TripCardSkeleton />
+                        <TripCardSkeleton />
+                        <TripCardSkeleton />
+                        <TripCardSkeleton />
+                      </div>
+                    :
+                      <div className="cards-results">
+                        {this.props.search.commonDestinations
+                          .map((destination, index) => {
+                            return (
+                              <div key={index}>
+                                <TripCard
+                                  destination={destination}
+                                  prices={this.getTotalPrice(this.props.search.trips, destination)}
+                                  travelers={this.props.search.travelers}
+                                />
+                              </div>  
+                            )
+                          })}
+                      </div>
+                    }
                   </div>
                 }
               </div>
