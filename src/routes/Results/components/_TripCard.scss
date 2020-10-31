@@ -53,10 +53,3 @@
     }
   }
 }
-.trip-card:hover {
-  transform: scale3d(1.004, 1.004, 1);
-  box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.1);
-  .citytrip-card {
-    visibility: visible;
-  }
-}

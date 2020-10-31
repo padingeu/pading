@@ -4,6 +4,7 @@ import Geocode from 'react-geocode';
 import './_Map.scss';
 import yellowMarker from '../img/yellow-marker.png';
 import greenMarkerDest from '../img/green-marker-dest.png';
+import { PersonPinCircleSharp } from '@material-ui/icons';
 
 const API_KEY = process.env.REACT_APP_GOOGLE_MAPS_KEY;
 
@@ -66,7 +67,6 @@ export default class Map extends React.Component {
         </Marker>
         )
         )}
-       
       </ReactMapGL>
     );
   }

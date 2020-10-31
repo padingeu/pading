@@ -24,7 +24,7 @@ const TripCard = ({ destination, prices, travelers }) => {
           </p>
         </div>
         <div className="citytrips">
-          {/*prices.pricesPerDestination.map((object) => {
+          {prices.pricesPerDestination.map((object) => {
             return (
               <div key={object.city} className="citytrip-card">
                 {Math.round(object.price / travelers[object.city])}€ {''}{' '}
@@ -32,7 +32,7 @@ const TripCard = ({ destination, prices, travelers }) => {
                 {object.city}
               </div>
             );
-          })*/}
+          })}
         </div>
       </div>
     </div>

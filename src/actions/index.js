@@ -92,10 +92,11 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip) => {
             });
           }
         }
+
         const data = {
-          commonDestinations: commonDestinations,
-          trips: trips,
-          travelers: travelers,
+          commonDestinations,
+          trips,
+          travelers
         };
         dispatch({ type: 'SEARCH', data });
         dispatch({ type: 'SUCCESS' });

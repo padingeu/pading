@@ -9,9 +9,6 @@ import TripCardSkeleton from './TripCardSkeleton';
 import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 
 export default class Results extends React.Component {
-  /*state = {
-    visible: 8,
-  };*/
 
   state = {
     windowWidth: window.innerWidth,
@@ -167,6 +164,7 @@ export default class Results extends React.Component {
                   <i className="fas fa-times-circle close-formsearch fa-3x" onClick={this.displayMobileFormSearch}/>
                   <FormSearch
                     searchTrips={this.props.searchTrips}
+                    isLoading={this.props.search.isLoading}
                     dateFrom={this.props.search.dateFrom}
                     dateTo={this.props.search.dateTo}
                     citiesFrom={this.props.search.cities}
@@ -193,11 +191,12 @@ export default class Results extends React.Component {
                       <button className="btn-edit-search" onClick={this.displayMobileFormSearch}>
                         Edit
                       </button>
-                      <button className="btn-edit-view" onClick={this.switchViewType}>{this.state.mapView ? "cities" : "map"}</button>
-                      <div className="edit-filter">
-                        <h4>€</h4>
-                        <i className="fas fa-angle-down fa-lg"></i>
-                      </div>
+                      <button className="btn-edit-view"
+                        onClick={this.switchViewType}>{this.state.mapView ? "cities" : "map"}
+                      </button>
+                      <button className="btn-edit-filter">
+                        Filter
+                      </button>
                     </div>
                   </div>
 
@@ -210,21 +209,40 @@ export default class Results extends React.Component {
                       />
                     </div>
                   :
-                    <div className="cards-results">
-        
-                      {this.props.search.commonDestinations
-                        /*.slice(0, this.state.visible)*/
-                        .map((destination, index) => {
-                          return (
-                            <div key={index}>
-                              <TripCard
-                                destination={destination}
-                                prices={this.getTotalPrice(this.props.search.trips, destination)}
-                                travelers={this.props.search.travelers}
-                              />
-                            </div>  
-                          )
-                        })}
+                    <div>
+                      {this.props.search.isLoading ?
+                        <div className="cards-results">
+                          <TripCardSkeleton />
+                          <TripCardSkeleton />
+                          <TripCardSkeleton />
+                          <TripCardSkeleton />
+                          <TripCardSkeleton />
+                          <TripCardSkeleton />
+                          <TripCardSkeleton />
+                          <TripCardSkeleton />
+                          <TripCardSkeleton />
+                          <TripCardSkeleton />
+                          <TripCardSkeleton />
+                          <TripCardSkeleton />
+                        </div>
+                      :
+                        <div className="cards-results">
+                          {console.log(this.props.search.commonDestinations)}
+                          {console.log(this.props.search.pricesList)}
+                          {this.props.search.commonDestinations
+                            .map((destination, index) => {
+                              return (
+                                <div key={index}>
+                                  <TripCard
+                                    destination={destination}
+                                    prices={this.getTotalPrice(this.props.search.trips, destination)}
+                                    travelers={this.props.search.travelers}
+                                  />
+                                </div>  
+                              )
+                            })}
+                        </div>
+                      }
                     </div>
                   }
                 </div>
@@ -239,6 +257,7 @@ export default class Results extends React.Component {
               <div className="formsearch">
                 <FormSearch
                   searchTrips={this.props.searchTrips}
+                  isLoading={this.props.search.isLoading}
                   dateFrom={this.props.search.dateFrom}
                   dateTo={this.props.search.dateTo}
                   citiesFrom={this.props.search.cities}
@@ -262,11 +281,12 @@ export default class Results extends React.Component {
                     <button className="btn-edit-search" onClick={this.displayMobileFormSearch}>
                       Edit
                     </button>
-                    <button className="btn-edit-view" onClick={this.switchViewType}>{this.state.mapView ? "cities" : "map"}</button>
-                    <div className="edit-filter">
-                      <h4>€</h4>
-                      <i className="fas fa-angle-down fa-lg"></i>
-                    </div>
+                    <button className="btn-edit-view"
+                      onClick={this.switchViewType}>{this.state.mapView ? "cities" : "map"}
+                    </button>
+                    <button className="btn-edit-filter">
+                      Filter
+                    </button>
                   </div>
                 </div>
 
@@ -297,6 +317,8 @@ export default class Results extends React.Component {
                       </div>
                     :
                       <div className="cards-results">
+                        {console.log(this.props.search.commonDestinations)}
+                        {console.log(this.props.search.pricesList)}
                         {this.props.search.commonDestinations
                           .map((destination, index) => {
                             return (
