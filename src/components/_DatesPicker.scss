@@ -149,9 +149,10 @@
   .calendar {
     position: absolute;
     bottom: 0;
-    margin: 0 1rem 1rem 1rem;
+    margin: 0 0.5rem 0 0.5rem;
     z-index: 101;
     transition: all 0.15s ease-in-out 0s;
+    min-width: 95%;
     .react-calendar {
       width: 100%;
       padding: 1.5rem;
@@ -229,7 +230,7 @@
 @media (orientation: portrait) {
   .calendar {
     .react-calendar {
-      height: 72vh;
+      height: 62vh;
       .react-calendar__tile {
         height: 5rem;
       }

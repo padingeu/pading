@@ -32,12 +32,12 @@
   .cards-map-results {
     display: flex;
     flex-direction: column;
-    height: 100%;
     .linear-progress-edit-view {
       display: flex;
-      margin-top: 2rem;
+      margin-top: 2.5rem;
+      margin-bottom: 2rem;
       .linear-progress-div {
-        width: 95%;
+        width: 90%;
         .linear-progress {
           .MuiLinearProgress-colorPrimary {
             background-color: rgba(62, 147, 111, 0.4);
@@ -69,16 +69,12 @@
         .btn-edit-view:hover {
           background-color: #f6b040 !important;
         }
-        .edit-filter {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin: 0 2rem 0 4rem;
-          width: 3rem;
-          i {
-            color: #262626;
-            cursor: pointer;
-          }
+        .btn-edit-filter {
+          background-color: #3e936f;
+          border: none;
+          width: 10rem;
+          margin-left: 2rem;
+          margin-right: 2rem;
         }
       }
     }
@@ -99,14 +95,6 @@
 }
 
 @media (max-width: 800px) {
-  .linear-progress-edit-view {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    .linear-progress-div {
-      margin-bottom: 1rem;
-    }
-  }
   .cards-map-results {
     .cards-results {
       grid-template-columns: repeat(1, 1fr);
@@ -119,12 +107,6 @@
 }
 
 @media (min-width: 801px) {
-  .linear-progress-edit-view {
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-    margin-left: 1rem;
-  }
   .cards-map-results {
     .cards-results {
       grid-template-columns: repeat(3, 1fr);
@@ -152,8 +134,35 @@
   }
 }
 
-@media (orientation: landscape) and (min-width: 1201px) {
+@media (max-width: 1200px) {
+  .cards-map-results {
+    height: 100%;
+    .linear-progress-edit-view {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100vw;
+      .linear-progress-div {
+        position: absolute;
+        top: -1.5rem;
+        margin-bottom: 0.7rem;
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (min-width: 1201px) {
   .linear-progress-edit-view {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    .linear-progress-div {
+      margin-bottom: 0.7rem;
+      width: 100%;
+    }
     .edit-div {
       .btn-edit-search {
         display: none;
@@ -165,6 +174,7 @@
     .cards-results {
       overflow-y: scroll;
       grid-template-columns: repeat(4, 1fr);
+      height: calc(100vh - 16rem) !important;
       :nth-of-type(2) {
         grid-column: 2 / 4;
       }
