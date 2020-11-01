@@ -12,7 +12,6 @@ export default class Results extends React.Component {
 
   state = {
     windowWidth: window.innerWidth,
-    mapView: false,
     showMobileFormSearch: false,
     showMobileResults: true,
     activeMapView: false,
@@ -140,7 +139,6 @@ export default class Results extends React.Component {
   switchViewType = (event) => {
     event.preventDefault();
     this.setState({ activeMapView: !this.state.activeMapView });
-    this.setState({ mapView: !this.state.mapView })
   };
 
   /*loadMore = (event) => {
@@ -191,8 +189,8 @@ export default class Results extends React.Component {
                       <button className="btn-edit-search" onClick={this.displayMobileFormSearch}>
                         Edit
                       </button>
-                      <button className="btn-edit-view"
-                        onClick={this.switchViewType}>{this.state.mapView ? "cities" : "map"}
+                      <button className="btn-edit-view" onClick={this.switchViewType}>
+                        {this.state.activeMapView ? "cities" : "map"}
                       </button>
                       <button className="btn-edit-filter">
                         Filter
@@ -247,12 +245,8 @@ export default class Results extends React.Component {
                   }
                 </div>
               }
-
-              
-        
             </div>
           :
-
             <div className="travel-results">
               <div className="formsearch">
                 <FormSearch
@@ -281,8 +275,8 @@ export default class Results extends React.Component {
                     <button className="btn-edit-search" onClick={this.displayMobileFormSearch}>
                       Edit
                     </button>
-                    <button className="btn-edit-view"
-                      onClick={this.switchViewType}>{this.state.mapView ? "cities" : "map"}
+                    <button className="btn-edit-view" onClick={this.switchViewType}>
+                      {this.state.activeMapView ? "cities" : "map"}
                     </button>
                     <button className="btn-edit-filter">
                       Filter
@@ -291,7 +285,7 @@ export default class Results extends React.Component {
                 </div>
 
                 {this.state.activeMapView ?
-                
+                  
                   <div className="map">
                     <Map
                       citiesFrom={this.props.search.cities}
