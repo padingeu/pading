@@ -6,6 +6,8 @@ import './_Results.scss';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import TripCard from './TripCard';
 import TripCardSkeleton from './TripCardSkeleton';
+import Popup from "reactjs-popup";
+import DetailsResults from './DetailsResults';
 import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 
 export default class Results extends React.Component {
@@ -316,13 +318,19 @@ export default class Results extends React.Component {
                         {this.props.search.commonDestinations
                           .map((destination, index) => {
                             return (
-                              <div key={index}>
-                                <TripCard
-                                  destination={destination}
-                                  prices={this.getTotalPrice(this.props.search.trips, destination)}
-                                  travelers={this.props.search.travelers}
-                                />
-                              </div>  
+                              <div className={index}>
+                                <Popup modal trigger={
+                                  <div>
+                                  <TripCard
+                                    destination={destination}
+                                    prices={this.getTotalPrice(this.props.search.trips, destination)}
+                                    travelers={this.props.search.travelers}
+                                  />
+                                </div>  
+                                }>
+                                  <DetailsResults />
+                                </Popup>
+                              </div>
                             )
                           })}
                       </div>
