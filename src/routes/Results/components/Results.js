@@ -8,6 +8,7 @@ import TripCard from './TripCard';
 import TripCardSkeleton from './TripCardSkeleton';
 import Popup from 'reactjs-popup';
 import DetailsResultsPopup from './DetailsResultsPopup';
+import DetailsResults from './DetailsResults';
 import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 
 export default class Results extends React.Component {
@@ -317,6 +318,8 @@ export default class Results extends React.Component {
                       </div>
                     ) : (
                       <div className="cards-results">
+                        {console.log(this.props.search.commonDestinations)}
+                        {console.log(this.props.search.pricesList)}
                         {this.props.search.commonDestinations.map((destination, index) => {
                           return (
                             <div className={index}>
