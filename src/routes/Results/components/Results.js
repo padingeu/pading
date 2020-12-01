@@ -25,7 +25,6 @@ export default class Results extends React.Component {
     window.addEventListener('resize', this._handleWindowResize);
     // console.log(this.props);
     if (!this.props.search.isLoading && !this.props.search.success) {
-      // history.push('/')
     }
   }
 
@@ -40,17 +39,21 @@ export default class Results extends React.Component {
     this.setState({ showMobileResults: !this.state.showMobileResults });
   };
 
+  getPriceForDestination = (trips, destination, city) => {
+    let tripsForDestination = trips[city].filter((trip) => {
+      return trip.cityTo === destination;
+    });
+    let prices = tripsForDestination.map((trip) => {
+      return trip.price;
+    });
+    return Math.min.apply(null, prices);
+  };
+
   getTotalPrice = (trips, destination) => {
     const pricesList = [];
     let totalPrice = 0;
     Object.keys(trips).forEach((city) => {
-      let tripsForDestination = trips[city].filter((trip) => {
-        return trip.cityTo === destination;
-      });
-      let prices = tripsForDestination.map((trip) => {
-        return trip.price;
-      });
-      const price = Math.min.apply(null, prices);
+      const price = this.getPriceForDestination(trips, destination, city);
       totalPrice += price;
       pricesList.push({ city: city, price: price });
     });
@@ -59,6 +62,18 @@ export default class Results extends React.Component {
       pricesPerDestination: pricesList,
       totalPrice: totalPrice,
     };
+  };
+
+  getDestinationsWithPrices = (trips, commonDestinations) => {
+    const destinations = [];
+    commonDestinations.forEach((destinationName) => {
+      let totalPrice = this.getTotalPrice(trips, destinationName);
+      destinations.push({
+        cityName: destinationName,
+        totalPrice: totalPrice,
+      });
+    });
+    return destinations;
   };
 
   getFormattedCoordinate = (coordinates) => {
@@ -194,7 +209,10 @@ export default class Results extends React.Component {
                     <div className="map">
                       <Map
                         citiesFrom={this.props.search.cities}
-                        citiesTo={this.props.search.commonDestinations}
+                        citiesTo={this.getDestinationsWithPrices(
+                          this.props.search.trips,
+                          this.props.search.commonDestinations
+                        )}
                       />
                     </div>
                   ) : (
@@ -276,7 +294,10 @@ export default class Results extends React.Component {
                   <div className="map">
                     <Map
                       citiesFrom={this.props.search.cities}
-                      citiesTo={this.props.search.commonDestinations}
+                      citiesTo={this.getDestinationsWithPrices(
+                        this.props.search.trips,
+                        this.props.search.commonDestinations
+                      )}
                     />
                   </div>
                 ) : (
