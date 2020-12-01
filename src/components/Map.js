@@ -25,14 +25,16 @@ export default class Map extends React.Component {
   componentDidMount() {
     const destinations = this.props.citiesTo
     for (let i = 0; i < destinations.length; i++) {
-     Geocode.fromAddress(destinations[i]).then(
+     Geocode.fromAddress(destinations[i].cityName).then(
         response => {
           const { lat, lng } = response.results[0].geometry.location;
           this.setState({ destinations: [...this.state.destinations, {
-            name: destinations[i],
+            name: destinations[i].cityName,
             lat: lat,
-            lng: lng
+            lng: lng,
+            prices: destinations[i].totalPrice,
           }] });
+          console.log('state changed')
         },
         error => {
           console.error(error);
@@ -59,10 +61,12 @@ export default class Map extends React.Component {
             </button>
           </Marker>
         ))}
+        {console.log(this.state.destinations)}
         {this.state.destinations.map((city) =>  (
            <Marker key={city.name} latitude={city.lat} longitude={city.lng}>
           <button className="marker-departure-city">
             <img src={greenMarkerDest} alt="Destination city" />
+            {city.prices.totalPrice}
           </button>
         </Marker>
         )
