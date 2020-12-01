@@ -10,7 +10,7 @@ const SelectedCities = ({
 }) => {
   return (
     <div className="cities-departure">
-      {console.log(cities)}
+  
       {cities.map((city, index) => {
         return (
           <div key={index}>
