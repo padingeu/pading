@@ -14,12 +14,8 @@ export default class FormSearch extends React.Component {
     showDateTo: false,
     travelType: 'Return',
     stopTrip: 'All',
-    //flexibleDates: 0,
     plane: true,
-    //train: true,
-    //bus: true,
-    shouldSearch: false,
-    //onlyDepartureCitiesSearch: false,
+    shouldSearch: false
   };
 
   search = () => {
@@ -34,6 +30,7 @@ export default class FormSearch extends React.Component {
   onInputDateChange = (date) => {
     this.setState({ showDateFrom: true });
     this.setState({ showDateTo: true });
+    console.log(typeof date[0])
     this.setState({ dateFrom: date[0] });
     this.setState({ dateTo: date[1] });
   };
@@ -82,23 +79,6 @@ export default class FormSearch extends React.Component {
     }
   };
 
-  /*onPlaneClick = () => {
-    this.setState({ plane: !this.state.plane });
-  };
-
-  onTrainClick = () => {
-    this.setState({ train: !this.state.train });
-  };
-
-  onBusClick = () => {
-    this.setState({ bus: !this.state.bus });
-  };*/
-
-  /*switchSearchBtn = () => {
-    this.setState({
-      onlyDepartureCitiesSearch: !this.state.onlyDepartureCitiesSearch,
-    });
-  };*/
 
   render() {
     return (
