@@ -220,7 +220,6 @@ export default class Results extends React.Component {
 
                   {this.state.activeMapView ?     
                     <div className="map">
-                      {console.log(this.getDestinationsWithPrices(this.props.search.trips, this.props.search.commonDestinations))}
                       <Map
                         citiesFrom={this.props.search.cities}
                         citiesTo={this.getDestinationsWithPrices(this.props.search.trips, this.props.search.commonDestinations)}
@@ -304,7 +303,6 @@ export default class Results extends React.Component {
 
                 {this.state.activeMapView ?
                   <div className="map">
-                    {console.log(this.getDestinationsWithPrices(this.props.search.trips, this.props.search.commonDestinations))}
                     <Map
                       citiesFrom={this.props.search.cities}
                       citiesTo={this.getDestinationsWithPrices(this.props.search.trips, this.props.search.commonDestinations)}

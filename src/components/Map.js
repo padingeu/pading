@@ -4,7 +4,6 @@ import Geocode from 'react-geocode';
 import './_Map.scss';
 import yellowMarker from '../img/yellow-marker.png';
 import greenMarkerDest from '../img/green-marker-dest.png';
-import { PersonPinCircleSharp } from '@material-ui/icons';
 
 const API_KEY = process.env.REACT_APP_GOOGLE_MAPS_KEY;
 
@@ -19,35 +18,36 @@ export default class Map extends React.Component {
       longitude: 4.352222,
       zoom: 3,
     },
-    destinations:[]
+    destinations: [],
   };
 
   componentDidMount() {
-    const destinations = this.props.citiesTo
+    const destinations = this.props.citiesTo;
     for (let i = 0; i < destinations.length; i++) {
-     Geocode.fromAddress(destinations[i].cityName).then(
-        response => {
+      Geocode.fromAddress(destinations[i].cityName).then(
+        (response) => {
           const { lat, lng } = response.results[0].geometry.location;
-          this.setState({ destinations: [...this.state.destinations, {
-            name: destinations[i].cityName,
-            lat: lat,
-            lng: lng,
-            prices: destinations[i].totalPrice,
-          }] });
-          console.log('state changed')
+          this.setState({
+            destinations: [
+              ...this.state.destinations,
+              {
+                name: destinations[i].cityName,
+                lat: lat,
+                lng: lng,
+                prices: destinations[i].totalPrice,
+              },
+            ],
+          });
         },
-        error => {
+        (error) => {
           console.error(error);
         }
       );
     }
   }
-  
 
   render() {
-    
     return (
-      
       <ReactMapGL
         {...this.state.viewport}
         mapboxApiAccessToken="pk.eyJ1IjoibG91aXMxNDA0IiwiYSI6ImNrNm0zOGFkMDBqdG8zZXA3NGR5ejhzYnQifQ.Yt9WzWg8hdm6b9h5k5sxHw"
@@ -61,16 +61,14 @@ export default class Map extends React.Component {
             </button>
           </Marker>
         ))}
-        {console.log(this.state.destinations)}
-        {this.state.destinations.map((city) =>  (
-           <Marker key={city.name} latitude={city.lat} longitude={city.lng}>
-          <button className="marker-departure-city">
-            <img src={greenMarkerDest} alt="Destination city" />
-            {city.prices.totalPrice}
-          </button>
-        </Marker>
-        )
-        )}
+        {this.state.destinations.map((city) => (
+          <Marker key={city.name} latitude={city.lat} longitude={city.lng}>
+            <button className="marker-departure-city">
+              <img src={greenMarkerDest} alt="Destination city" />
+              {city.prices.totalPrice}
+            </button>
+          </Marker>
+        ))}
       </ReactMapGL>
     );
   }
