@@ -28,7 +28,7 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip) => {
     let config = {
       headers: {
         accept: 'application/json',
-        apikey: 'IKxLuAAkQC8WZ45VUByiK9SSetOFSjnL',
+        apikey: 'OZKMONJlN0ntClVlOy1Qv7dXRC4btk4f',
       },
     };
     const travelers = {};
@@ -96,7 +96,7 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip) => {
         const data = {
           commonDestinations,
           trips,
-          travelers
+          travelers,
         };
         dispatch({ type: 'SEARCH', data });
         dispatch({ type: 'SUCCESS' });
