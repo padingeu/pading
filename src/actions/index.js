@@ -96,7 +96,7 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip) => {
         const data = {
           commonDestinations,
           trips,
-          travelers
+          travelers,
         };
         dispatch({ type: 'SEARCH', data });
         dispatch({ type: 'SUCCESS' });
