@@ -9,33 +9,31 @@ import TripCardSkeleton from './TripCardSkeleton';
 import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 
 export default class Results extends React.Component {
-
   state = {
     windowWidth: window.innerWidth,
     showMobileFormSearch: false,
     showMobileResults: true,
     activeMapView: false,
-    citiesFrom: [],
-    address: ''
+    citiesFrom: this.props.search.cities,
+    address: '',
   };
 
   componentDidMount() {
-    window.addEventListener('resize', this._handleWindowResize)
+    window.addEventListener('resize', this._handleWindowResize);
 
     if (!this.props.search.isLoading && !this.props.search.success) {
-
     }
   }
-  
+
   _handleWindowResize = () => {
-    this.setState({ windowWidth: window.innerWidth })
-    this.setState({ windowWidth: window.innerHeight })
-  }
+    this.setState({ windowWidth: window.innerWidth });
+    this.setState({ windowWidth: window.innerHeight });
+  };
 
   displayMobileFormSearch = (event) => {
     event.preventDefault();
     this.setState({ showMobileFormSearch: !this.state.showMobileFormSearch });
-    this.setState({ showMobileResults: !this.state.showMobileResults })
+    this.setState({ showMobileResults: !this.state.showMobileResults });
   };
 
   getPriceForDestination = (trips, destination, city) => {
@@ -46,13 +44,13 @@ export default class Results extends React.Component {
       return trip.price;
     });
     return Math.min.apply(null, prices);
-  } 
+  };
 
   getTotalPrice = (trips, destination) => {
     const pricesList = [];
     let totalPrice = 0;
     Object.keys(trips).forEach((city) => {
-      const price = this.getPriceForDestination(trips, destination, city)
+      const price = this.getPriceForDestination(trips, destination, city);
       totalPrice += price;
       pricesList.push({ city: city, price: price });
     });
@@ -63,21 +61,17 @@ export default class Results extends React.Component {
     };
   };
 
-  
-
   getDestinationsWithPrices = (trips, commonDestinations) => {
-    const destinations = []
+    const destinations = [];
     commonDestinations.forEach((destinationName) => {
-      let totalPrice = this.getTotalPrice(trips, destinationName)
-      destinations.push(
-        {
-          cityName: destinationName,
-          totalPrice: totalPrice
-        }
-      )
-    })
-    return destinations
-  }
+      let totalPrice = this.getTotalPrice(trips, destinationName);
+      destinations.push({
+        cityName: destinationName,
+        totalPrice: totalPrice,
+      });
+    });
+    return destinations;
+  };
 
   getFormattedCoordinate = (coordinates) => {
     coordinates.lat = coordinates.lat.toFixed(6);
@@ -125,7 +119,7 @@ export default class Results extends React.Component {
     const position = await geocodeByAddress(address);
     const coordinates = await getLatLng(position[0]);
     const coordinatesFormatted = this.getFormattedCoordinate(coordinates);
-    const cityName = position[0].addresscomponents[0].long_name;
+    const cityName = position[0].address_components[0].long_name;
     const cities = [...this.state.citiesFrom];
     const cityIndex = this.findCityIndex(cityName, cities);
 
@@ -170,16 +164,16 @@ export default class Results extends React.Component {
     return (
       <div>
         <NavBar />
-        
-        <div>
-        
-          {window.innerWidth < 1200 ?
 
+        <div>
+          {window.innerWidth < 1200 ? (
             <div className="travel-results">
-              
-              {this.state.showMobileFormSearch ?
+              {this.state.showMobileFormSearch ? (
                 <div className="formsearch-mobile">
-                  <i className="fas fa-times-circle close-formsearch fa-3x" onClick={this.displayMobileFormSearch}/>
+                  <i
+                    className="fas fa-times-circle close-formsearch fa-3x"
+                    onClick={this.displayMobileFormSearch}
+                  />
                   <FormSearch
                     searchTrips={this.props.searchTrips}
                     isLoading={this.props.search.isLoading}
@@ -191,11 +185,8 @@ export default class Results extends React.Component {
                     handleAddressChange={this.handleAddressChange}
                     address={this.state.address}
                   />
-
                 </div>
-
-              :
-              
+              ) : (
                 <div className="cards-map-results">
                   <div className="linear-progress-edit-view">
                     <div className="linear-progress-div">
@@ -210,24 +201,25 @@ export default class Results extends React.Component {
                         Edit
                       </button>
                       <button className="btn-edit-view" onClick={this.switchViewType}>
-                        {this.state.activeMapView ? "cities" : "map"}
+                        {this.state.activeMapView ? 'cities' : 'map'}
                       </button>
-                      <button className="btn-edit-filter">
-                        Filter
-                      </button>
+                      <button className="btn-edit-filter">Filter</button>
                     </div>
                   </div>
 
-                  {this.state.activeMapView ?     
+                  {this.state.activeMapView ? (
                     <div className="map">
                       <Map
                         citiesFrom={this.props.search.cities}
-                        citiesTo={this.getDestinationsWithPrices(this.props.search.trips, this.props.search.commonDestinations)}
+                        citiesTo={this.getDestinationsWithPrices(
+                          this.props.search.trips,
+                          this.props.search.commonDestinations
+                        )}
                       />
                     </div>
-                  :
+                  ) : (
                     <div>
-                      {this.props.search.isLoading ?
+                      {this.props.search.isLoading ? (
                         <div className="cards-results">
                           <TripCardSkeleton />
                           <TripCardSkeleton />
@@ -242,28 +234,27 @@ export default class Results extends React.Component {
                           <TripCardSkeleton />
                           <TripCardSkeleton />
                         </div>
-                      :
+                      ) : (
                         <div className="cards-results">
-                          {this.props.search.commonDestinations
-                            .map((destination, index) => {
-                              return (
-                                <div key={index}>
-                                  <TripCard
-                                    destination={destination}
-                                    prices={this.getTotalPrice(this.props.search.trips, destination)}
-                                    travelers={this.props.search.travelers}
-                                  />
-                                </div>  
-                              )
-                            })}
+                          {this.props.search.commonDestinations.map((destination, index) => {
+                            return (
+                              <div key={index}>
+                                <TripCard
+                                  destination={destination}
+                                  prices={this.getTotalPrice(this.props.search.trips, destination)}
+                                  travelers={this.props.search.travelers}
+                                />
+                              </div>
+                            );
+                          })}
                         </div>
-                      }
+                      )}
                     </div>
-                  }
+                  )}
                 </div>
-              }
+              )}
             </div>
-          :
+          ) : (
             <div className="travel-results">
               <div className="formsearch">
                 <FormSearch
@@ -271,7 +262,7 @@ export default class Results extends React.Component {
                   isLoading={this.props.search.isLoading}
                   dateFrom={this.props.search.dateFrom}
                   dateTo={this.props.search.dateTo}
-                  citiesFrom={this.props.search.cities}
+                  citiesFrom={this.state.citiesFrom}
                   addCity={this.addCity}
                   removeCity={this.removeCity}
                   handleAddressChange={this.handleAddressChange}
@@ -293,24 +284,25 @@ export default class Results extends React.Component {
                       Edit
                     </button>
                     <button className="btn-edit-view" onClick={this.switchViewType}>
-                      {this.state.activeMapView ? "cities" : "map"}
+                      {this.state.activeMapView ? 'cities' : 'map'}
                     </button>
-                    <button className="btn-edit-filter">
-                      Filter
-                    </button>
+                    <button className="btn-edit-filter">Filter</button>
                   </div>
                 </div>
 
-                {this.state.activeMapView ?
+                {this.state.activeMapView ? (
                   <div className="map">
                     <Map
                       citiesFrom={this.props.search.cities}
-                      citiesTo={this.getDestinationsWithPrices(this.props.search.trips, this.props.search.commonDestinations)}
+                      citiesTo={this.getDestinationsWithPrices(
+                        this.props.search.trips,
+                        this.props.search.commonDestinations
+                      )}
                     />
                   </div>
-                :
+                ) : (
                   <div>
-                    {this.props.search.isLoading ?
+                    {this.props.search.isLoading ? (
                       <div className="cards-results">
                         <TripCardSkeleton />
                         <TripCardSkeleton />
@@ -325,27 +317,26 @@ export default class Results extends React.Component {
                         <TripCardSkeleton />
                         <TripCardSkeleton />
                       </div>
-                    :
+                    ) : (
                       <div className="cards-results">
-                        {this.props.search.commonDestinations
-                          .map((destination, index) => {
-                            return (
-                              <div key={index}>
-                                <TripCard
-                                  destination={destination}
-                                  prices={this.getTotalPrice(this.props.search.trips, destination)}
-                                  travelers={this.props.search.travelers}
-                                />
-                              </div>  
-                            )
-                          })}
+                        {this.props.search.commonDestinations.map((destination, index) => {
+                          return (
+                            <div key={index}>
+                              <TripCard
+                                destination={destination}
+                                prices={this.getTotalPrice(this.props.search.trips, destination)}
+                                travelers={this.props.search.travelers}
+                              />
+                            </div>
+                          );
+                        })}
                       </div>
-                    }
+                    )}
                   </div>
-                }
+                )}
               </div>
             </div>
-          }
+          )}
         </div>
       </div>
     );
