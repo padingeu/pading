@@ -5,7 +5,6 @@ import SelectedCities from './SelectedCities';
 import './_FormSearch.scss';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
-
 export default class FormSearch extends React.Component {
   state = {
     dateFrom: this.props.dateFrom,
@@ -15,7 +14,7 @@ export default class FormSearch extends React.Component {
     travelType: 'Return',
     stopTrip: 'All',
     plane: true,
-    shouldSearch: false
+    shouldSearch: false,
   };
 
   search = () => {
@@ -30,7 +29,6 @@ export default class FormSearch extends React.Component {
   onInputDateChange = (date) => {
     this.setState({ showDateFrom: true });
     this.setState({ showDateTo: true });
-    console.log(typeof date[0])
     this.setState({ dateFrom: date[0] });
     this.setState({ dateTo: date[1] });
   };
@@ -56,7 +54,6 @@ export default class FormSearch extends React.Component {
     this.setState({ stopTrip: 'Direct' });
   };
 
-
   addTraveler = (event, city) => {
     event.preventDefault();
     const cities = [...this.props.citiesFrom];
@@ -79,17 +76,15 @@ export default class FormSearch extends React.Component {
     }
   };
 
-
   render() {
     return (
       <div className="travel-form">
         <div className="search-box">
-
           <DatesPicker
             dateFrom={this.state.dateFrom}
             dateTo={this.state.dateTo}
-            showDateFrom={this.state.showDateFrom}
-            showDateTo={this.state.showDateTo}
+            showDateFrom={true}
+            showDateTo={true}
             onChange={this.onInputDateChange}
             switchToOneWay={this.switchToOneWay}
             switchToReturn={this.switchToReturn}
@@ -97,8 +92,6 @@ export default class FormSearch extends React.Component {
             switchToDirect={this.switchToDirect}
             travelType={this.state.travelType}
             stopTrip={this.state.stopTrip}
-            //changeFlexibleDates={this.changeFlexibleDates}
-            //flexibleDates={this.state.flexibleDates}
           />
         </div>
 
@@ -128,15 +121,16 @@ export default class FormSearch extends React.Component {
           onClick={() => this.search()}
         >
           {this.props.dis}
-          {this.props.isLoading ?
-          <div>
-            <CircularProgress />
-          </div> :
-          <div>
-            <h4>Explore</h4>
-          </div>}
+          {this.props.isLoading ? (
+            <div>
+              <CircularProgress />
+            </div>
+          ) : (
+            <div>
+              <h4>Explore</h4>
+            </div>
+          )}
         </button>
-        
       </div>
     );
   }

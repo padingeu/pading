@@ -17,10 +17,9 @@ const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk
 render(
   <Provider store={store}>
     <Router history={history}>
-      <Route component={App}>
-        <Route exact path="/" component={Home} /> {/* app = home */}
-        <Route path="/results" component={Results} />
-      </Route>
+      <Route component={App} />
+      <Route exact path="/" component={Home} />
+      <Route path="/results" component={Results} />
     </Router>
   </Provider>,
   document.getElementById('root')

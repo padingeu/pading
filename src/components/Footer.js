@@ -105,15 +105,15 @@ export default class Footer extends React.Component {
             <div className="footer-menu-app-contact">
               <div className="footer-menu-app">
                 <h4>Pading</h4>
-                <a className="btn-product" onClick={this.props.scrollToTop} href="">
+                <button className="btn-product" onClick={this.props.scrollToTop} href="">
                   <p>Product</p>
-                </a>
+                </button>
                 <Popup
                   modal
                   trigger={
-                    <a>
+                    <button>
                       <p>FAQ</p>
-                    </a>
+                    </button>
                   }
                 >
                   <Faq />
@@ -147,6 +147,7 @@ export default class Footer extends React.Component {
             <a
               href="https://tree-nation.com/profile/impact/pading-1#co2"
               target="_blank"
+              rel="noopener noreferrer"
               style={{
                 paddingBottom: '2rem',
                 position: 'relative',

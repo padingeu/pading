@@ -17,13 +17,13 @@ export default class Results extends React.Component {
     showMobileFormSearch: false,
     showMobileResults: true,
     activeMapView: false,
-    citiesFrom: [],
+    citiesFrom: this.props.search.cities,
     address: '',
   };
 
   componentDidMount() {
     window.addEventListener('resize', this._handleWindowResize);
-    // console.log(this.props);
+
     if (!this.props.search.isLoading && !this.props.search.success) {
     }
   }
@@ -122,7 +122,7 @@ export default class Results extends React.Component {
     const position = await geocodeByAddress(address);
     const coordinates = await getLatLng(position[0]);
     const coordinatesFormatted = this.getFormattedCoordinate(coordinates);
-    const cityName = position[0].addresscomponents[0].long_name;
+    const cityName = position[0].address_components[0].long_name;
     const cities = [...this.state.citiesFrom];
     const cityIndex = this.findCityIndex(cityName, cities);
 
@@ -234,8 +234,6 @@ export default class Results extends React.Component {
                         </div>
                       ) : (
                         <div className="cards-results">
-                          {console.log(this.props.search.commonDestinations)}
-                          {console.log(this.props.search.pricesList)}
                           {this.props.search.commonDestinations.map((destination, index) => {
                             return (
                               <div key={index}>
@@ -262,7 +260,7 @@ export default class Results extends React.Component {
                   isLoading={this.props.search.isLoading}
                   dateFrom={this.props.search.dateFrom}
                   dateTo={this.props.search.dateTo}
-                  citiesFrom={this.props.search.cities}
+                  citiesFrom={this.state.citiesFrom}
                   addCity={this.addCity}
                   removeCity={this.removeCity}
                   handleAddressChange={this.handleAddressChange}
@@ -319,8 +317,6 @@ export default class Results extends React.Component {
                       </div>
                     ) : (
                       <div className="cards-results">
-                        {console.log(this.props.search.commonDestinations)}
-                        {console.log(this.props.search.pricesList)}
                         {this.props.search.commonDestinations.map((destination, index) => {
                           return (
                             <div className={index}>
@@ -339,7 +335,6 @@ export default class Results extends React.Component {
                                   </div>
                                 }
                               >
-                                {console.log(this.props)}
                                 <DetailsResultsPopup destination={destination} />
                               </Popup>
                             </div>
