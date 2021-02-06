@@ -27,7 +27,7 @@ export default function DetailsResults(props) {
                 <div className="quatre-bis"></div>
                 <div className="quatre-bis-bis"></div>
                 <div className="quatre-round"></div>
-                <h5>Manchester</h5>
+                <h5>{props.cityFrom}</h5>
                 <h6>Manchester airport (MAN)</h6>
               </div>
               <div className="cinq"></div>
@@ -111,7 +111,7 @@ export default function DetailsResults(props) {
         </div>
         <div className="details-results-travel-return">
           <div className="details-results-travel-return-city">
-            <h4>To Manchester</h4>
+            <h4>To {props.cityFrom}</h4>
           </div>
           <div className="details-results-travel-return-content">
             <div className="details-results-travel-return-content-section">
@@ -197,14 +197,14 @@ export default function DetailsResults(props) {
                 <div className="dix-bis"></div>
                 <div className="dix-bis-bis"></div>
                 <div className="dix-round"></div>
-                <h5>Manchester</h5>
+                <h5>{props.cityFrom}</h5>
                 <h6>Manchester airport (MAN)</h6>
               </div>
               <div className="onze"></div>
               <div className="douze">
                 <div className="douze-bis"></div>
                 <i class="fas fa-map-marker-alt fa-lg"></i>
-                <h5>Come back to Manchester</h5>
+                <h5>Come back to {props.cityFrom}</h5>
                 <h6>Welcome home!</h6>
               </div>
             </div>

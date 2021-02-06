@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './_DetailsResultsPopup.scss';
 import DetailsResults from './DetailsResults.js';
 import PropTypes from 'prop-types';
@@ -8,8 +8,6 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import { Divider } from 'material-ui';
-import { DropdownDivider } from 'react-bootstrap/Dropdown';
 
 const TabPanel = (props) => {
   const { children, value, index, ...other } = props;
@@ -57,7 +55,7 @@ export default function DetailsResultsPopup(props) {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
-  const handleChange = (event, newValue) => {
+  const handleChange = (ewValue) => {
     setValue(newValue);
   };
 
@@ -73,24 +71,25 @@ export default function DetailsResultsPopup(props) {
           scrollButtons="auto"
           aria-label="scrollable auto tabs example"
         >
-          <Tab label="Item One" {...a11yProps(0)} />
-          <Tab label="Item Two" {...a11yProps(1)} />
+          {Object.keys(props.trips).map((city) => {
+            return <Tab label={city} {...a11yProps(city)} />;
+          })}
+
+          {/* <Tab label="Item Two" {...a11yProps(1)} />
           <Tab label="Item Three" {...a11yProps(2)} />
           <Tab label="Item Four" {...a11yProps(3)} />
           <Tab label="Item Five" {...a11yProps(4)} />
           <Tab label="Item Six" {...a11yProps(5)} />
-          <Tab label="Item Seven" {...a11yProps(6)} />
+          <Tab label="Item Seven" {...a11yProps(6)} /> */}
         </Tabs>
       </AppBar>
-      <TabPanel className="details-results" value={value} index={0}>
-        <DetailsResults destination={props.destination} />
-      </TabPanel>
-      {/* <TabPanel value={value} index={1}></TabPanel>
-      <TabPanel value={value} index={2}></TabPanel>
-      <TabPanel value={value} index={3}></TabPanel>
-      <TabPanel value={value} index={4}></TabPanel>
-      <TabPanel value={value} index={5}></TabPanel>
-      <TabPanel value={value} index={6}></TabPanel> */}
+      {Object.keys(props.trips).map((city) => {
+        return (
+          <TabPanel className="details-results" value={city} index={city}>
+            <DetailsResults destination={props.destination} cityFrom={city} />
+          </TabPanel>
+        );
+      })}
     </div>
   );
 }

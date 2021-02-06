@@ -27,7 +27,6 @@ export default class Results extends React.Component {
 
   componentDidMount() {
     window.addEventListener('resize', this._handleWindowResize);
-
     if (!this.props.search.isLoading && !this.props.search.success) {
     }
   }
@@ -321,8 +320,6 @@ export default class Results extends React.Component {
                       </div>
                     ) : (
                       <div className="cards-results">
-                        {console.log(this.props.search.commonDestinations)}
-                        {console.log(this.props.search.pricesList)}
                         {this.props.search.commonDestinations.map((destination, index) => {
                           return (
                             <div className={index}>
@@ -341,7 +338,10 @@ export default class Results extends React.Component {
                                   </div>
                                 }
                               >
-                                <DetailsResultsPopup destination={destination} />
+                                <DetailsResultsPopup
+                                  destination={destination}
+                                  trips={this.props.search.trips}
+                                />
                               </Popup>
                             </div>
                           );
