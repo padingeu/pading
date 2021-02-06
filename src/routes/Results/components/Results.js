@@ -6,12 +6,11 @@ import './_Results.scss';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import TripCard from './TripCard';
 import TripCardSkeleton from './TripCardSkeleton';
-import Popup from "reactjs-popup";
+import Popup from 'reactjs-popup';
 import DetailsResultsPopup from './DetailsResultsPopup';
 import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 
 export default class Results extends React.Component {
-
   state = {
     windowWidth: window.innerWidth,
     windowHeight: window.innerHeight,
@@ -19,26 +18,26 @@ export default class Results extends React.Component {
     showMobileResults: true,
     activeMapView: false,
     citiesFrom: [],
-    address: ''
+    address: '',
   };
 
   componentDidMount() {
-    window.addEventListener('resize', this._handleWindowResize)
+    window.addEventListener('resize', this._handleWindowResize);
     // console.log(this.props);
     if (!this.props.search.isLoading && !this.props.search.success) {
       // history.push('/')
     }
   }
-  
+
   _handleWindowResize = () => {
-    this.setState({ windowWidth: window.innerWidth })
-    this.setState({ windowHeight: window.innerHeight })
-  }
+    this.setState({ windowWidth: window.innerWidth });
+    this.setState({ windowHeight: window.innerHeight });
+  };
 
   displayMobileFormSearch = (event) => {
     event.preventDefault();
     this.setState({ showMobileFormSearch: !this.state.showMobileFormSearch });
-    this.setState({ showMobileResults: !this.state.showMobileResults })
+    this.setState({ showMobileResults: !this.state.showMobileResults });
   };
 
   getTotalPrice = (trips, destination) => {
@@ -144,25 +143,20 @@ export default class Results extends React.Component {
     this.setState({ activeMapView: !this.state.activeMapView });
   };
 
-  /*loadMore = (event) => {
-    event.preventDefault();
-    this.setState({ visible: this.state.visible + 4 });
-  };*/
-
   render() {
     return (
       <div>
         <NavBar />
-        
-        <div>
-        
-          {window.innerWidth < 1200 ?
 
+        <div>
+          {window.innerWidth < 1200 ? (
             <div className="travel-results">
-              
-              {this.state.showMobileFormSearch ?
+              {this.state.showMobileFormSearch ? (
                 <div className="formsearch-mobile">
-                  <i className="fas fa-times-circle close-formsearch fa-3x" onClick={this.displayMobileFormSearch}/>
+                  <i
+                    className="fas fa-times-circle close-formsearch fa-3x"
+                    onClick={this.displayMobileFormSearch}
+                  />
                   <FormSearch
                     searchTrips={this.props.searchTrips}
                     isLoading={this.props.search.isLoading}
@@ -174,11 +168,8 @@ export default class Results extends React.Component {
                     handleAddressChange={this.handleAddressChange}
                     address={this.state.address}
                   />
-
                 </div>
-
-              :
-              
+              ) : (
                 <div className="cards-map-results">
                   <div className="linear-progress-edit-view">
                     <div className="linear-progress-div">
@@ -193,25 +184,22 @@ export default class Results extends React.Component {
                         Edit
                       </button>
                       <button className="btn-edit-view" onClick={this.switchViewType}>
-                        {this.state.activeMapView ? "cities" : "map"}
+                        {this.state.activeMapView ? 'cities' : 'map'}
                       </button>
-                      <button className="btn-edit-filter">
-                        Filter
-                      </button>
+                      <button className="btn-edit-filter">Filter</button>
                     </div>
                   </div>
 
-                  {this.state.activeMapView ?
-                  
+                  {this.state.activeMapView ? (
                     <div className="map">
                       <Map
                         citiesFrom={this.props.search.cities}
                         citiesTo={this.props.search.commonDestinations}
                       />
                     </div>
-                  :
+                  ) : (
                     <div>
-                      {this.props.search.isLoading ?
+                      {this.props.search.isLoading ? (
                         <div className="cards-results">
                           <TripCardSkeleton />
                           <TripCardSkeleton />
@@ -226,30 +214,29 @@ export default class Results extends React.Component {
                           <TripCardSkeleton />
                           <TripCardSkeleton />
                         </div>
-                      :
+                      ) : (
                         <div className="cards-results">
                           {console.log(this.props.search.commonDestinations)}
                           {console.log(this.props.search.pricesList)}
-                          {this.props.search.commonDestinations
-                            .map((destination, index) => {
-                              return (
-                                <div key={index}>
-                                  <TripCard
-                                    destination={destination}
-                                    prices={this.getTotalPrice(this.props.search.trips, destination)}
-                                    travelers={this.props.search.travelers}
-                                  />
-                                </div>  
-                              )
-                            })}
+                          {this.props.search.commonDestinations.map((destination, index) => {
+                            return (
+                              <div key={index}>
+                                <TripCard
+                                  destination={destination}
+                                  prices={this.getTotalPrice(this.props.search.trips, destination)}
+                                  travelers={this.props.search.travelers}
+                                />
+                              </div>
+                            );
+                          })}
                         </div>
-                      }
+                      )}
                     </div>
-                  }
+                  )}
                 </div>
-              }
+              )}
             </div>
-          :
+          ) : (
             <div className="travel-results">
               <div className="formsearch">
                 <FormSearch
@@ -279,25 +266,22 @@ export default class Results extends React.Component {
                       Edit
                     </button>
                     <button className="btn-edit-view" onClick={this.switchViewType}>
-                      {this.state.activeMapView ? "cities" : "map"}
+                      {this.state.activeMapView ? 'cities' : 'map'}
                     </button>
-                    <button className="btn-edit-filter">
-                      Filter
-                    </button>
+                    <button className="btn-edit-filter">Filter</button>
                   </div>
                 </div>
 
-                {this.state.activeMapView ?
-                  
+                {this.state.activeMapView ? (
                   <div className="map">
                     <Map
                       citiesFrom={this.props.search.cities}
                       citiesTo={this.props.search.commonDestinations}
                     />
                   </div>
-                :
+                ) : (
                   <div>
-                    {this.props.search.isLoading ?
+                    {this.props.search.isLoading ? (
                       <div className="cards-results">
                         <TripCardSkeleton />
                         <TripCardSkeleton />
@@ -312,35 +296,41 @@ export default class Results extends React.Component {
                         <TripCardSkeleton />
                         <TripCardSkeleton />
                       </div>
-                    :
+                    ) : (
                       <div className="cards-results">
                         {console.log(this.props.search.commonDestinations)}
                         {console.log(this.props.search.pricesList)}
-                        {this.props.search.commonDestinations
-                          .map((destination, index) => {
-                            return (
-                              <div className={index}>
-                                <Popup modal trigger={
+                        {this.props.search.commonDestinations.map((destination, index) => {
+                          return (
+                            <div className={index}>
+                              <Popup
+                                modal
+                                trigger={
                                   <div>
-                                  <TripCard
-                                    destination={destination}
-                                    prices={this.getTotalPrice(this.props.search.trips, destination)}
-                                    travelers={this.props.search.travelers}
-                                  />
-                                </div>  
-                                }>
-                                  <DetailsResultsPopup />
-                                </Popup>
-                              </div>
-                            )
-                          })}
+                                    <TripCard
+                                      destination={destination}
+                                      prices={this.getTotalPrice(
+                                        this.props.search.trips,
+                                        destination
+                                      )}
+                                      travelers={this.props.search.travelers}
+                                    />
+                                  </div>
+                                }
+                              >
+                                {console.log(this.props)}
+                                <DetailsResultsPopup destination={destination} />
+                              </Popup>
+                            </div>
+                          );
+                        })}
                       </div>
-                    }
+                    )}
                   </div>
-                }
+                )}
               </div>
             </div>
-          }
+          )}
         </div>
       </div>
     );

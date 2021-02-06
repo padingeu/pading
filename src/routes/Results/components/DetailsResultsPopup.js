@@ -11,7 +11,7 @@ import Box from '@material-ui/core/Box';
 import { Divider } from 'material-ui';
 import { DropdownDivider } from 'react-bootstrap/Dropdown';
 
-const TabPanel = props => {
+const TabPanel = (props) => {
   const { children, value, index, ...other } = props;
 
   return (
@@ -29,7 +29,7 @@ const TabPanel = props => {
       )}
     </div>
   );
-}
+};
 
 TabPanel.propTypes = {
   children: PropTypes.node,
@@ -53,8 +53,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function DetailsResultsPopup() {
-
+export default function DetailsResultsPopup(props) {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
@@ -84,27 +83,14 @@ export default function DetailsResultsPopup() {
         </Tabs>
       </AppBar>
       <TabPanel className="details-results" value={value} index={0}>
-        <DetailsResults />
+        <DetailsResults destination={props.destination} />
       </TabPanel>
-      <TabPanel value={value} index={1}>
-       
-      </TabPanel>
-      <TabPanel value={value} index={2}>
-       
-      </TabPanel>
-      <TabPanel value={value} index={3}>
-        
-      </TabPanel>
-      <TabPanel value={value} index={4}>
-       
-      </TabPanel>
-      <TabPanel value={value} index={5}>
-      
-      </TabPanel>
-      <TabPanel value={value} index={6}>
-       
-      </TabPanel>
+      {/* <TabPanel value={value} index={1}></TabPanel>
+      <TabPanel value={value} index={2}></TabPanel>
+      <TabPanel value={value} index={3}></TabPanel>
+      <TabPanel value={value} index={4}></TabPanel>
+      <TabPanel value={value} index={5}></TabPanel>
+      <TabPanel value={value} index={6}></TabPanel> */}
     </div>
   );
 }
-
