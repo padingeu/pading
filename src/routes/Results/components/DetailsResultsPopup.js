@@ -55,7 +55,7 @@ export default function DetailsResultsPopup(props) {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
-  const handleChange = (ewValue) => {
+  const handleChange = (newValue) => {
     setValue(newValue);
   };
 
@@ -85,6 +85,7 @@ export default function DetailsResultsPopup(props) {
       </AppBar>
       {Object.keys(props.trips).map((city) => {
         return (
+          // {value}
           <TabPanel className="details-results" value={city} index={city}>
             <DetailsResults destination={props.destination} cityFrom={city} />
           </TabPanel>

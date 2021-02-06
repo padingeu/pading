@@ -8,10 +8,6 @@ import TripCard from './TripCard';
 import TripCardSkeleton from './TripCardSkeleton';
 import Popup from 'reactjs-popup';
 import DetailsResultsPopup from './DetailsResultsPopup';
-import DetailsResults from './DetailsResults';
-
-import DetailsResultsPopup from './DetailsResultsPopup';
-
 import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 
 export default class Results extends React.Component {
