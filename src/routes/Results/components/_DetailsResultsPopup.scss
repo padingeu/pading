@@ -1,0 +1,47 @@
+.MuiButtonBase-root {
+  &:hover {
+    background-color: transparent;
+  }
+}
+.MuiTab-wrapper {
+  font-size: 1.4rem;
+  font-family: 'Roboto', 'sans-serif';
+  text-transform: capitalize;
+  font-weight: bold !important;
+  color: white;
+}
+
+.MuiSvgIcon-root {
+  font-size: 2.5rem !important;
+  font-family: 'Roboto', 'sans-serif';
+  text-transform: capitalize;
+  font-weight: bold !important;
+  color: white;
+}
+
+.MuiTab-textColorPrimary.Mui-selected {
+  color: white !important;
+}
+
+.MuiTabs-indicator {
+  background-color: #f49d11 !important;
+  height: 0.4rem !important;
+}
+
+.MuiAppBar-root {
+  border-radius: 0.5rem 0.5rem 0 0;
+  background-color: #29b3c1;
+  .MuiTabs-root {
+    background-color: #29b3c1;
+    border-radius: 0.5rem 0.5rem 0 0;
+  }
+}
+.MuiBox-root {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50rem;
+  margin: 0rem !important;
+  padding: 0.5rem !important;
+}

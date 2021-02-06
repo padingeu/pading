@@ -7,13 +7,14 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 import TripCard from './TripCard';
 import TripCardSkeleton from './TripCardSkeleton';
 import Popup from "reactjs-popup";
-import DetailsResults from './DetailsResults';
+import DetailsResultsPopup from './DetailsResultsPopup';
 import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 
 export default class Results extends React.Component {
 
   state = {
     windowWidth: window.innerWidth,
+    windowHeight: window.innerHeight,
     showMobileFormSearch: false,
     showMobileResults: true,
     activeMapView: false,
@@ -31,7 +32,7 @@ export default class Results extends React.Component {
   
   _handleWindowResize = () => {
     this.setState({ windowWidth: window.innerWidth })
-    this.setState({ windowWidth: window.innerHeight })
+    this.setState({ windowHeight: window.innerHeight })
   }
 
   displayMobileFormSearch = (event) => {
@@ -328,7 +329,7 @@ export default class Results extends React.Component {
                                   />
                                 </div>  
                                 }>
-                                  <DetailsResults />
+                                  <DetailsResultsPopup />
                                 </Popup>
                               </div>
                             )

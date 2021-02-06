@@ -28,14 +28,14 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip) => {
     let config = {
       headers: {
         accept: 'application/json',
-        apikey: 'IKxLuAAkQC8WZ45VUByiK9SSetOFSjnL',
+        apikey: 'OZKMONJlN0ntClVlOy1Qv7dXRC4btk4f',
       },
     };
     const travelers = {};
     for (let i = 0; i < cities.length; i++) {
       travelers[cities[i].name] = cities[i].numberOfPeople;
       const promise = axios.get(
-        `https://kiwicom-prod.apigee.net/v2/search?fly_from=${cities[i].coordinates}&date_from=${dateFromStr}&date_to=${dateFromStr}&return_from=${dateToStr}&max_stopovers=${maxStopover}&flight_type=round&nights_in_dst_from=${differenceInDays}&nights_in_dst_to=${differenceInDays}&adults=${cities[i].numberOfPeople}&vehicle_type=aircraft&ret_to_diff_airport=0&ret_from_diff_airport=0`,
+        `https://tequila-api.kiwi.com/v2/search?fly_from=${cities[i].coordinates}&date_from=${dateFromStr}&date_to=${dateFromStr}&return_from=${dateToStr}&max_stopovers=${maxStopover}&flight_type=round&nights_in_dst_from=${differenceInDays}&nights_in_dst_to=${differenceInDays}&adults=${cities[i].numberOfPeople}&vehicle_type=aircraft&ret_to_diff_airport=0&ret_from_diff_airport=0`,
         config
       );
       promises.push(promise);
