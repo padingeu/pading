@@ -11,7 +11,10 @@ export default function DetailsResults(props) {
         <div className="details-results-travel-way">
           <div className="details-results-travel-way-city">
             <h4>To {props.destination}</h4>
+
+            {props.stopover ? <span>Escale</span> : <span>Pas d escale</span>}
           </div>
+
           <div className="details-results-travel-way-content">
             <div className="details-results-travel-way-content-section">
               <div className="un"></div>
