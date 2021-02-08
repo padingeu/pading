@@ -240,6 +240,7 @@ export default class Results extends React.Component {
                                   destination={destination}
                                   prices={this.getTotalPrice(this.props.search.trips, destination)}
                                   travelers={this.props.search.travelers}
+                                  key={index}
                                 />
                               </div>
                             );
@@ -318,7 +319,7 @@ export default class Results extends React.Component {
                       <div className="cards-results">
                         {this.props.search.commonDestinations.map((destination, index) => {
                           return (
-                            <div className={index}>
+                            <div className={index} key={index}>
                               <Popup
                                 modal
                                 trigger={
@@ -330,13 +331,16 @@ export default class Results extends React.Component {
                                         destination
                                       )}
                                       travelers={this.props.search.travelers}
+                                      key={index}
                                     />
                                   </div>
                                 }
+                                key={index}
                               >
                                 <DetailsResultsPopup
                                   destination={destination}
                                   trips={this.props.search.trips}
+                                  key={index}
                                 />
                               </Popup>
                             </div>

@@ -37,7 +37,11 @@ export default function DetailsResults(props) {
                 <h6>one traveler</h6>
               </div>
               <div className="sept">
-                <img src="https://www.sebogo.fr/images/airlines/ori/FR.png" width="20px"></img>
+                <img
+                  src="https://www.sebogo.fr/images/airlines/ori/FR.png"
+                  width="20px"
+                  alt="TODO"
+                ></img>
               </div>
               <div className="huit">
                 <div className="huit-bis"></div>
@@ -67,6 +71,7 @@ export default function DetailsResults(props) {
                           <img
                             src="https://www.sebogo.fr/images/airlines/ori/FR.png"
                             width="15px"
+                            alt="TODO"
                           ></img>
                           <h6>Airline</h6>
                         </div>
@@ -138,7 +143,11 @@ export default function DetailsResults(props) {
                 <h6>one traveler</h6>
               </div>
               <div className="sept">
-                <img src="https://www.sebogo.fr/images/airlines/ori/FR.png" width="20px"></img>
+                <img
+                  src="https://www.sebogo.fr/images/airlines/ori/FR.png"
+                  width="20px"
+                  alt="TODO"
+                />
               </div>
               <div className="huit">
                 <div className="huit-bis"></div>
@@ -170,7 +179,8 @@ export default function DetailsResults(props) {
                           <img
                             src="https://www.sebogo.fr/images/airlines/ori/FR.png"
                             width="15px"
-                          ></img>
+                            alt="TODO"
+                          />
                           <h6>Airline</h6>
                         </div>
                         <div className="airline-response">

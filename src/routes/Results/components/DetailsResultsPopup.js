@@ -86,12 +86,13 @@ export default function DetailsResultsPopup(props) {
       {Object.keys(props.trips).map((city) => {
         return (
           <TabPanel className="details-results" value={city} index={city} key={city}>
-            {console.log(props.trips)}
             <DetailsResults
               key={city}
               destination={props.destination}
               cityFrom={city}
-              stopover={props.trips[city][0].stopover}
+              stopover={
+                props.trips[city].filter((trip) => trip.cityTo === props.destination)[0].stopover
+              }
             />
           </TabPanel>
         );
