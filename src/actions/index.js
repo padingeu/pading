@@ -56,6 +56,7 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip) => {
                 local_departure: trip.local_departure,
                 local_arrival: trip.local_arrival,
                 route: trip.route,
+                stopover: trip.transfers.lenght === 0,
               };
             });
             trips[city] = trips_by_city;

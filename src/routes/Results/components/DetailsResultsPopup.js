@@ -72,7 +72,7 @@ export default function DetailsResultsPopup(props) {
           aria-label="scrollable auto tabs example"
         >
           {Object.keys(props.trips).map((city) => {
-            return <Tab label={city} {...a11yProps(city)} />;
+            return <Tab key={city} label={city} {...a11yProps(city)} />;
           })}
 
           {/* <Tab label="Item Two" {...a11yProps(1)} />
@@ -85,9 +85,14 @@ export default function DetailsResultsPopup(props) {
       </AppBar>
       {Object.keys(props.trips).map((city) => {
         return (
-          // {value}
-          <TabPanel className="details-results" value={city} index={city}>
-            <DetailsResults destination={props.destination} cityFrom={city} />
+          <TabPanel className="details-results" value={city} index={city} key={city}>
+            {console.log(props.trips)}
+            <DetailsResults
+              key={city}
+              destination={props.destination}
+              cityFrom={city}
+              stopover={props.trips[city][0].stopover}
+            />
           </TabPanel>
         );
       })}
