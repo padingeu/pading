@@ -93,6 +93,7 @@ export default function DetailsResultsPopup(props) {
               stopover={
                 props.trips[city].filter((trip) => trip.cityTo === props.destination)[0].stopover
               }
+              trip={props.trips[city].filter((trip) => trip.cityTo === props.destination)[0]}
             />
           </TabPanel>
         );

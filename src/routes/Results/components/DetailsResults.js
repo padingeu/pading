@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import './_DetailsResults.scss';
+import moment from 'moment';
 
 export default function DetailsResults(props) {
   const [showDetailsWay, setDetailsWay] = useState(false);
   const [showDetailsReturn, setDetailsReturn] = useState(false);
+  const departureDate = moment(props.trip.local_departure).format('MMM Do YY');
+  console.log(departureDate);
 
   return (
     <div>
@@ -11,7 +14,7 @@ export default function DetailsResults(props) {
         <div className="details-results-travel-way">
           <div className="details-results-travel-way-city">
             <h4>To {props.destination}</h4>
-
+            {console.log(props.trip)}
             {props.stopover ? <span>Escale</span> : <span>Pas d escale</span>}
           </div>
 
@@ -21,10 +24,10 @@ export default function DetailsResults(props) {
               <div className="deux">
                 <div className="deux-bis"></div>
                 <i class="fas fa-calendar-day fa-lg"></i>
-                <h5>Wed Nov 11</h5>
+                <h5>{moment(props.trip.local_departure).format('MMM Do YY')}</h5>
               </div>
               <div className="trois">
-                <h5>12:30 PM</h5>
+                <h5>{moment(props.trip.local_departure).format('HH:mm a')}</h5>
               </div>
               <div className="quatre">
                 <div className="quatre-bis"></div>
@@ -37,7 +40,7 @@ export default function DetailsResults(props) {
               <div className="six">
                 <div className="six-bis"></div>
                 <i className="fas fa-user-friends fa-xs"></i>
-                <h6>one traveler</h6>
+                <h6>{props.trip.travelers} traveler</h6>
               </div>
               <div className="sept">
                 <img
@@ -55,7 +58,13 @@ export default function DetailsResults(props) {
                     <h5>Ryanair</h5>
                   </div>
                   <div className="travel-time">
-                    <h5>2h 10m</h5>
+                    <h5>
+                      {moment
+                        .utc(
+                          moment.duration(props.trip.duration.departure, 'seconds').asMilliseconds()
+                        )
+                        .format('H mm')}
+                    </h5>
                   </div>
                   <div className="show-more-details" onClick={() => setDetailsWay(!showDetailsWay)}>
                     <i class="fas fa-angle-up fa-lg"></i>
@@ -96,7 +105,7 @@ export default function DetailsResults(props) {
                 ) : null}
               </div>
               <div className="neuf">
-                <h5>2:30 PM</h5>
+                <h5>{moment(props.trip.local_arrival).format('HH:mm a')}</h5>
               </div>
               <div className="dix">
                 <div className="dix-bis"></div>
@@ -111,7 +120,7 @@ export default function DetailsResults(props) {
                 <div className="douze-bis"></div>
                 <i class="fas fa-map-marker-alt fa-lg"></i>
                 <h5>Arrive at {props.destination}</h5>
-                <h6>4 nights at the destination</h6>
+                <h6>{props.trip.nightsInDest} nights at the destination</h6>
               </div>
             </div>
             <footer className="details-results-travel-way-content-footer"></footer>
@@ -234,7 +243,7 @@ export default function DetailsResults(props) {
         </div>
         <div className="details-results-price-book">
           <div className="details-results-price">
-            <h4>94€</h4>
+            <h4>{props.trip.price}€</h4>
           </div>
           <button className="details-results-book">Book tickets</button>
         </div>
