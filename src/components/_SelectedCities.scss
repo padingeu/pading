@@ -3,11 +3,11 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  bottom: 10rem;
-  max-height: 30%;
+  bottom: 7rem;
+  max-height: 35%;
   width: 100%;
   overflow-y: auto;
-  padding: 0 0.5rem 0 0.5rem;
+  padding: 0 0.5rem;
 }
 
 .city-div {
@@ -15,17 +15,17 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  margin: 0 0.5rem 0 0.5rem;
+  margin: 0 0.5rem;
   .number-of-people-edit {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: -0.7rem;
+    margin-bottom: -0.8rem;
     .number-of-people {
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: 0 0.5rem 0 1rem;
+      margin: 0 0.5rem;
       .fa-user-friends {
         color: #f5a741;
       }
@@ -36,15 +36,15 @@
     .people-number-change {
       .fa-minus-circle {
         cursor: pointer;
-        color: #f5a741;
+        color: #dce3e9;
         margin-right: 0.2rem;
         &:hover {
-          color: #f6b040;
+          color: #f5a741;
         }
       }
       .fa-plus-circle {
         cursor: pointer;
-        color: #f5a741;
+        color: #dce3e9;
         &:hover {
           color: #f6b040;
         }
@@ -55,7 +55,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 3.5rem;
+    height: 3rem;
     border-radius: 2.5rem;
     padding: 0 1rem 0 1rem;
     background-color: #f5a741;

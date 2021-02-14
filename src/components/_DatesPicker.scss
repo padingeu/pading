@@ -10,7 +10,6 @@
       align-items: center;
       justify-content: flex-start;
       width: 100%;
-      margin-bottom: 2rem;
       .travel-type {
         button.travel-type-btn {
           position: relative;
@@ -18,9 +17,14 @@
           align-items: center;
           justify-content: space-around;
           width: 10rem;
+          padding: 1rem;
+          border-radius: 1rem;
           border: none;
           outline: none;
           cursor: pointer;
+          background-color: #29b3c1;
+          color: white;
+          font-weight: bold;
         }
         .travel-type-change {
           position: absolute;
@@ -53,10 +57,15 @@
       align-items: center;
       justify-content: space-around;
       width: 10rem;
+      padding: 1rem;
+      border-radius: 1rem;
       margin-left: 1rem;
       border: none;
       outline: none;
       cursor: pointer;
+      background-color: #29b3c1;
+      color: white;
+      font-weight: bold;
     }
     .stop-trip-change {
       position: absolute;
@@ -87,19 +96,19 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin-top: 3rem;
+    margin-top: 3.5rem;
     width: 100%;
     .inputdatefrom {
       cursor: pointer;
       text-align: left;
-      height: 5rem;
+      height: 4.5rem;
       border: solid #dce3e9;
       border-width: 0.2rem;
-      border-radius: 5rem;
+      border-radius: 1rem;
       width: 100%;
       margin-bottom: 1rem;
-      padding-left: 3rem;
-      font-size: 1.6rem;
+      padding-left: 2rem;
+      font-size: 1.4rem;
       font-family: 'roboto' sans-serif;
       font-weight: bold;
       color: #262626;
@@ -111,14 +120,13 @@
     .inputdateto {
       cursor: pointer;
       text-align: left;
-      height: 5rem;
+      height: 4.5rem;
       border: solid #dce3e9;
       border-width: 0.2rem;
-      border-radius: 5rem;
+      border-radius: 1rem;
       width: 100%;
-      margin-bottom: 1rem;
-      padding-left: 3rem;
-      font-size: 1.6rem;
+      padding-left: 2rem;
+      font-size: 1.4rem;
       font-family: 'roboto' sans-serif;
       font-weight: bold;
       color: #262626;
@@ -134,7 +142,7 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    height: 5rem;
+    height: 4.5rem;
     border-radius: 5rem;
     width: 95%;
     margin: 1rem;
@@ -149,40 +157,40 @@
   .calendar {
     position: absolute;
     bottom: 0;
-    margin: 0 0.5rem 0 0.5rem;
-    z-index: 101;
+    margin: 0 1rem;
+    z-index: 2;
     transition: all 0.15s ease-in-out 0s;
-    min-width: 95%;
     .react-calendar {
-      width: 100%;
       padding: 1.5rem;
       border: none;
-      box-shadow: 1px 1px 20px 0 rgba(0, 0, 0, 0.4);
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
       border-radius: 2.5rem;
       button[disabled] {
         color: #dce3e9;
       }
+      .react-calendar__tile {
+        margin-bottom: 0.5rem;
+      }
       .react-calendar__tile--now {
-        color: #44a7bc;
+        color: #262626;
         font-weight: bold;
       }
       .react-calendar__navigation {
-        height: 4.5rem;
-        margin: -1.5rem -1.5rem 1.5rem;
+        height: 4rem;
         border-radius: 2.5rem 2.5rem 0 0;
-        background-color: #f5a741;
-        color: white;
-        button[disabled] {
-          background-color: #f5a741;
-          color: #f5a741;
+        color: #f49d11;
+        font-size: 1.4rem;
+        font-weight: bold;
+        font-weight: button[disabled] {
+          background-color: white;
         }
         button.react-calendar__navigation__label {
-          background-color: #f5a741;
+          background-color: white;
           pointer-events: none;
         }
       }
       button.react-calendar__navigation__arrow {
-        background-color: #f5a741;
+        background-color: white;
       }
     }
     .react-calendar__tile:disabled {
@@ -190,8 +198,8 @@
     }
     .react-calendar__month-view__weekdays,
     .react-calendar__month-view__days__day--neighboringMonth {
-      height: 4rem;
-      color: #44a7bc;
+      height: 3rem;
+      color: #f49d11;
       & abbr {
         border-bottom: none;
         text-decoration: none;
@@ -202,7 +210,7 @@
     }
     .react-calendar__tile--active {
       color: white;
-      background-color: #44a7bc;
+      background-color: #53c2cd;
       border-radius: 0;
     }
     .react-calendar__tile--hover {
@@ -210,7 +218,7 @@
     }
     .react-calendar__tile--active:enabled:hover,
     .react-calendar__tile--active:enabled:focus {
-      background-color: #44a7bc;
+      background-color: #53c2cd;
       color: white;
     }
     .react-calendar__tile--rangeStart {

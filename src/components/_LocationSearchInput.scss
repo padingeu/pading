@@ -1,14 +1,14 @@
 .location-search-input {
   position: relative;
   width: 100%;
-  margin-top: 3rem;
-  z-index: 100;
+  margin-top: 2rem;
+  z-index: 1;
   .inp {
     position: relative;
     overflow: hidden;
     width: 100%;
     input {
-      border-radius: 5rem;
+      border-radius: 3rem;
       width: 100%;
       border: 0;
       padding: 2rem 2rem 0 2rem;
@@ -19,9 +19,8 @@
       background: rgba(0, 0, 0, 0.02);
       &:focus {
         outline: none;
-        background: rgba(0, 0, 0, 0.03);
-        border-bottom-width: 90%;
-        font-size: 1.6rem;
+        background: rgba(0, 0, 0, 0.02);
+        font-size: 1.4rem;
         font-family: 'Roboto', sans-serif;
         font-weight: bold;
         color: #262626;
@@ -41,7 +40,7 @@
     .label {
       position: absolute;
       top: 2rem;
-      left: 1.2rem;
+      left: 1.5rem;
       -webkit-transform-origin: 0 0;
       transform-origin: 0 0;
       -webkit-transform: translate3d(0, 0, 0);
@@ -49,21 +48,21 @@
       -webkit-transition: all 0.2s ease;
       transition: all 0.2s ease;
       pointer-events: none;
-      font-size: 1.6rem;
+      font-size: 1.4rem;
       font-family: 'roboto' sans-serif;
       font-weight: bold;
       color: #f49d11;
     }
     .fa-location-arrow {
       position: absolute;
-      top: 2.4rem;
+      top: 2.3rem;
       right: 2rem;
-      z-index: 2;
+      z-index: 1;
       color: #dce3e9;
     }
     .cities-proposal {
       .fa-dot-circle {
-        margin-right: 1rem;
+        margin-right: 0.5rem;
         color: #f49d11;
       }
     }
