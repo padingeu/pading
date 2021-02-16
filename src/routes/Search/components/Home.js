@@ -8,16 +8,16 @@ import MyClimate from './MyClimate';
 import Footer from '../../../components/Footer';
 
 export default class Home extends React.Component {
-
   scrollUp() {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
   }
 
   render() {
+    console.log(this.props);
     return (
       <div>
-        <NavBar />
+        <NavBar searchTrips={this.props.searchTrips} />
         <Why />
         <How />
         <Simple />

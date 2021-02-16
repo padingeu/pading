@@ -5,12 +5,11 @@ import FormSearch from './FormSearch';
 import Map from './Map';
 import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 
-
 export default class NavBarHome extends React.Component {
   state = {
     isHomePage: true,
     citiesFrom: [],
-    address: ''
+    address: '',
   };
 
   getFormattedCoordinate = (coordinates) => {
@@ -91,6 +90,7 @@ export default class NavBarHome extends React.Component {
   };
 
   render() {
+    console.log(this.props);
     return (
       <div className="header">
         <div className="navbar">
@@ -112,25 +112,28 @@ export default class NavBarHome extends React.Component {
           </div>
           <div className="value-prop">
             <h1>Trains and flights combinations for people traveling from multiple places</h1>
-            <p><b>Enter your different departure cities, explore all common destinations to meet at the lowest fare</b></p>
+            <p>
+              <b>
+                Enter your different departure cities, explore all common destinations to meet at
+                the lowest fare
+              </b>
+            </p>
           </div>
         </div>
         <div className="form">
           <div className="formsearch">
-            <FormSearch 
-            searchTrips={this.props.searchTrips}
-            isHomePage={this.state.isHomePage}
-            addCity={this.addCity}
-            removeCity={this.removeCity}
-            citiesFrom={this.state.citiesFrom}
-            handleAddressChange={this.handleAddressChange}
-            address={this.state.address}/>
+            <FormSearch
+              searchTrips={this.props.searchTrips}
+              isHomePage={this.state.isHomePage}
+              addCity={this.addCity}
+              removeCity={this.removeCity}
+              citiesFrom={this.state.citiesFrom}
+              handleAddressChange={this.handleAddressChange}
+              address={this.state.address}
+            />
           </div>
           <div className="map">
-            <Map
-              citiesFrom={this.state.citiesFrom}
-              citiesTo={[]}
-            />
+            <Map citiesFrom={this.state.citiesFrom} citiesTo={[]} />
           </div>
         </div>
       </div>
