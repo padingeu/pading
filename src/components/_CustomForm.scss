@@ -1,0 +1,46 @@
+.swal2-popup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+  padding: 2rem 5rem;
+  .swal2-title {
+    font-size: 1.6rem;
+  }
+  .swal2-content {
+    font-size: 1.4rem;
+  }
+  .swal2-icon.swal2-success {
+    border-color: #3e936f;
+    color: #3e936f;
+    border-width: 0.3rem;
+    .swal2-success-line-tip {
+      background-color: #3e936f;
+    }
+    .swal2-success-line-long {
+      background-color: #3e936f;
+    }
+    .swal2-success-ring {
+      border-color: #3e936f;
+      color: #3e936f;
+      border-width: 0.3rem;
+    }
+  }
+  .swal2-icon.swal2-info {
+    border-color: #29b3c1;
+    color: #29b3c1;
+    border-width: 0.3rem;
+  }
+  .swal2-icon.swal2-error {
+    border-color: #f49d11;
+    color: #f49d11;
+    border-width: 0.3rem;
+
+    .swal2-x-mark-line-left {
+      background-color: #f49d11;
+    }
+    .swal2-x-mark-line-right {
+      background-color: #f49d11;
+    }
+  }
+}

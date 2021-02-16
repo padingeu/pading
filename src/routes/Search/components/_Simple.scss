@@ -5,28 +5,55 @@
     align-items: center;
     .simple-solution-gif {
       text-align: center;
-
       img {
         transition-duration: 1s;
       }
     }
     .simple-solution-content {
-      text-align: center;
+      text-align: left;
     }
   }
 }
 
-// extra-small screens
-@media (max-width: 900px) {
+@media (max-width: 320px) and (orientation: portrait) {
   .wrapper {
     .simple-solution {
-      flex-direction: column-reverse;
-      margin: 2.5rem 2rem 2.5rem 2rem;
+      .simple-solution-gif {
+        text-align: center;
+        width: 100%;
+        .catsbasket {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 321px) and (orientation: portrait) {
+  .wrapper {
+    .simple-solution {
+      .simple-solution-gif {
+        text-align: center;
+        width: 100%;
+        .catsbasket {
+          width: 100%;
+        }
+      }
     }
   }
 }
 
 // small screens
+@media (max-width: 900px) {
+  .wrapper {
+    .simple-solution {
+      flex-direction: column-reverse;
+      margin: 2.5rem 3rem;
+    }
+  }
+}
+
+// tablet screens portrait
 @media (min-width: 901px) {
   .wrapper {
     .simple-solution {
@@ -41,18 +68,14 @@
   }
 }
 
-// normal and big screens
+// laptop and computer screens
 @media (min-width: 1201px) {
   .wrapper {
     .simple-solution {
-      padding: 8rem 10rem 0 10rem;
+      padding: 10rem 15rem;
       .simple-solution-gif {
         text-align: center;
-        width: 30%;
-      }
-      .simple-solution-content {
-        width: 70%;
-        padding: 0 5rem 0 5rem;
+        width: 50%;
       }
     }
   }

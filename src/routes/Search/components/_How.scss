@@ -1,7 +1,8 @@
 .wrapper {
   .how-to-use-it {
     background-color: #29b3c1;
-    padding: 5rem 5rem 12.5rem 0;
+    padding-top: 5rem;
+    padding: 5rem 0 12.5rem 0;
     .how-to-use-it-title {
       text-align: center;
       background-color: white;
@@ -16,7 +17,7 @@
       text-align: left;
       background-color: #53c2cd;
       border-radius: 7.5rem 0 0 7.5rem;
-      padding: 4.5rem 1rem 4.5rem 1rem;
+      padding: 5rem 1rem 5rem 1rem;
       h2 {
         color: white;
       }
@@ -69,6 +70,26 @@
       .how-to-use-it-content {
         margin: 2rem 0 0 10rem;
       }
+    }
+  }
+}
+
+// normal and big screens
+@media (min-width: 1101px) {
+  .wrapper {
+    .how-to-use-it {
+      position: relative;
+      .how-to-use-it-title {
+        margin: 0 2.5rem 1rem 10rem;
+      }
+    }
+  }
+}
+
+@media (min-width: 1351px) {
+  .wrapper {
+    .how-to-use-it {
+      position: relative;
     }
   }
 }

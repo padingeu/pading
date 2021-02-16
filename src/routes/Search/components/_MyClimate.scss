@@ -3,16 +3,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #f9fafa;
     .fa-globe-europe {
       color: #29b3c1;
       text-align: center;
+      font-size: 25rem;
     }
     .myclimate-img {
       text-align: center;
     }
     .myclimate-content {
-      align-items: center;
-      text-align: center;
+      align-items: left;
+      text-align: left;
     }
   }
 }
@@ -22,7 +24,7 @@
   .wrapper {
     .myclimate {
       flex-direction: column-reverse;
-      padding: 8rem 2rem 8rem 2rem;
+      padding: 8rem 3rem;
     }
   }
 }
@@ -31,7 +33,7 @@
 @media (min-width: 901px) {
   .wrapper {
     .myclimate {
-      padding: 10rem 5rem 10rem 5rem;
+      padding: 10rem 5rem;
       .myclimate-img {
         width: 40%;
       }
@@ -46,11 +48,8 @@
 @media (min-width: 1201px) {
   .wrapper {
     .myclimate {
-      padding: 8rem 10rem 8rem 10rem;
+      padding: 10rem 15rem;
       .myclimate-img {
-        width: 30%;
-      }
-      .myclimate-content {
         width: 70%;
       }
     }
