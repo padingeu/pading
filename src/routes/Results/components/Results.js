@@ -153,15 +153,11 @@ export default class Results extends React.Component {
     this.setState({ activeMapView: !this.state.activeMapView });
   };
 
-  /*loadMore = (event) => {
-    event.preventDefault();
-    this.setState({ visible: this.state.visible + 4 });
-  };*/
-
   render() {
     return (
       <div>
-        <NavBar />
+        {console.log(this.props)}
+        <NavBar searchData={this.props.search} searchTrips={this.props.searchTrips} />
 
         <div>
           {window.innerWidth < 1200 ? (

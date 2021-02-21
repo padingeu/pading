@@ -8,7 +8,7 @@ import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 export default class NavBarHome extends React.Component {
   state = {
     isHomePage: true,
-    citiesFrom: [],
+    citiesFrom: this.props.searchData ? this.props.searchData.cities : [],
     address: '',
   };
 
@@ -89,6 +89,43 @@ export default class NavBarHome extends React.Component {
     this.setState({ citiesFrom });
   };
 
+  getDestinationsWithPrices = (trips, commonDestinations) => {
+    const destinations = [];
+    commonDestinations.forEach((destinationName) => {
+      let totalPrice = this.getTotalPrice(trips, destinationName);
+      destinations.push({
+        cityName: destinationName,
+        totalPrice: totalPrice,
+      });
+    });
+    return destinations;
+  };
+
+  getTotalPrice = (trips, destination) => {
+    const pricesList = [];
+    let totalPrice = 0;
+    Object.keys(trips).forEach((city) => {
+      const price = this.getPriceForDestination(trips, destination, city);
+      totalPrice += price;
+      pricesList.push({ city: city, price: price });
+    });
+
+    return {
+      pricesPerDestination: pricesList,
+      totalPrice: totalPrice,
+    };
+  };
+
+  getPriceForDestination = (trips, destination, city) => {
+    let tripsForDestination = trips[city].filter((trip) => {
+      return trip.cityTo === destination;
+    });
+    let prices = tripsForDestination.map((trip) => {
+      return trip.price;
+    });
+    return Math.min.apply(null, prices);
+  };
+
   render() {
     console.log(this.props);
     return (
@@ -120,6 +157,7 @@ export default class NavBarHome extends React.Component {
             </p>
           </div>
         </div>
+
         <div className="form">
           <div className="formsearch">
             <FormSearch
@@ -130,10 +168,24 @@ export default class NavBarHome extends React.Component {
               citiesFrom={this.state.citiesFrom}
               handleAddressChange={this.handleAddressChange}
               address={this.state.address}
+              dateFrom={this.props.searchData ? this.props.searchData.dateFrom : ''}
+              dateTo={this.props.searchData ? this.props.searchData.dateTo : ''}
             />
           </div>
           <div className="map">
-            <Map citiesFrom={this.state.citiesFrom} citiesTo={[]} />
+            <Map
+              citiesFrom={
+                this.props.searchData ? this.props.searchData.cities : this.state.citiesFrom
+              }
+              citiesTo={
+                this.props.searchData
+                  ? this.getDestinationsWithPrices(
+                      this.props.searchData.trips,
+                      this.props.searchData.commonDestinations
+                    )
+                  : []
+              }
+            />
           </div>
         </div>
       </div>
