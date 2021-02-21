@@ -1,7 +1,5 @@
 import React from 'react';
-import Map from '../../../components/Map';
 import NavBar from '../../../components/NavBar';
-import FormSearch from '../../../components/FormSearch';
 import './_Results.scss';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import TripCard from './TripCard';
@@ -169,23 +167,7 @@ export default class Results extends React.Component {
           {window.innerWidth < 1200 ? (
             <div className="travel-results">
               {this.state.showMobileFormSearch ? (
-                <div className="formsearch-mobile">
-                  <i
-                    className="fas fa-times-circle close-formsearch fa-3x"
-                    onClick={this.displayMobileFormSearch}
-                  />
-                  <FormSearch
-                    searchTrips={this.props.searchTrips}
-                    isLoading={this.props.search.isLoading}
-                    dateFrom={this.props.search.dateFrom}
-                    dateTo={this.props.search.dateTo}
-                    citiesFrom={this.props.search.cities}
-                    addCity={this.addCity}
-                    removeCity={this.removeCity}
-                    handleAddressChange={this.handleAddressChange}
-                    address={this.state.address}
-                  />
-                </div>
+                ''
               ) : (
                 <div className="cards-map-results">
                   <div className="linear-progress-edit-view">
@@ -208,15 +190,7 @@ export default class Results extends React.Component {
                   </div>
 
                   {this.state.activeMapView ? (
-                    <div className="map">
-                      <Map
-                        citiesFrom={this.props.search.cities}
-                        citiesTo={this.getDestinationsWithPrices(
-                          this.props.search.trips,
-                          this.props.search.commonDestinations
-                        )}
-                      />
-                    </div>
+                    ''
                   ) : (
                     <div>
                       {this.props.search.isLoading ? (
@@ -256,20 +230,6 @@ export default class Results extends React.Component {
             </div>
           ) : (
             <div className="travel-results">
-              <div className="formsearch">
-                <FormSearch
-                  searchTrips={this.props.searchTrips}
-                  isLoading={this.props.search.isLoading}
-                  dateFrom={this.props.search.dateFrom}
-                  dateTo={this.props.search.dateTo}
-                  citiesFrom={this.state.citiesFrom}
-                  addCity={this.addCity}
-                  removeCity={this.removeCity}
-                  handleAddressChange={this.handleAddressChange}
-                  address={this.state.address}
-                />
-              </div>
-
               <div className="cards-map-results">
                 <div className="linear-progress-edit-view">
                   <div className="linear-progress-div">
@@ -291,15 +251,7 @@ export default class Results extends React.Component {
                 </div>
 
                 {this.state.activeMapView ? (
-                  <div className="map">
-                    <Map
-                      citiesFrom={this.props.search.cities}
-                      citiesTo={this.getDestinationsWithPrices(
-                        this.props.search.trips,
-                        this.props.search.commonDestinations
-                      )}
-                    />
-                  </div>
+                  ''
                 ) : (
                   <div>
                     {this.props.search.isLoading ? (
