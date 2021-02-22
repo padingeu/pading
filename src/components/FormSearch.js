@@ -18,7 +18,6 @@ export default class FormSearch extends React.Component {
   };
 
   search = () => {
-    console.log(this.props);
     this.props.searchTrips(
       this.props.citiesFrom,
       this.state.dateFrom,

@@ -1,6 +1,32 @@
 import axios from 'axios';
 import lodash from 'lodash';
 import { history } from '../index';
+import Geocode from 'react-geocode';
+
+const getPriceForDestination = (trips, destination, city) => {
+  let tripsForDestination = trips[city].filter((trip) => {
+    return trip.cityTo === destination;
+  });
+  let prices = tripsForDestination.map((trip) => {
+    return trip.price;
+  });
+  return Math.min.apply(null, prices);
+};
+
+const getTotalPrice = (trips, destination) => {
+  const pricesList = [];
+  let totalPrice = 0;
+  Object.keys(trips).forEach((city) => {
+    const price = getPriceForDestination(trips, destination, city);
+    totalPrice += price;
+    pricesList.push({ city: city, price: price });
+  });
+
+  return {
+    pricesPerDestination: pricesList,
+    totalPrice: totalPrice,
+  };
+};
 
 export const searchTrips = (cities, dateFrom, dateTo, stopTrip) => {
   const promises = [];
@@ -92,14 +118,32 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip) => {
             });
           }
         }
+        const destinationsWithPrice = [];
+        let locationPromises = [];
+        commonDestinations.forEach((destinationName) => {
+          locationPromises.push(Geocode.fromAddress(destinationName));
+        });
 
-        const data = {
-          commonDestinations,
-          trips,
-          travelers,
-        };
-        dispatch({ type: 'SEARCH', data });
-        dispatch({ type: 'SUCCESS' });
+        Promise.all(locationPromises).then((responses) => {
+          for (let i = 0; i < responses.length; i++) {
+            const { lat, lng } = responses[i].results[0].geometry.location;
+            destinationsWithPrice.push({
+              name: commonDestinations[i],
+              lat: lat,
+              lng: lng,
+              prices: getTotalPrice(trips, commonDestinations[i]),
+            });
+          }
+          const data = {
+            commonDestinations,
+            trips,
+            travelers,
+            destinationsWithPrice,
+          };
+          console.log('dispatch search');
+          dispatch({ type: 'SEARCH', data });
+          dispatch({ type: 'SUCCESS' });
+        });
       })
       .catch((error) => {
         dispatch({ type: 'FAILURE' });

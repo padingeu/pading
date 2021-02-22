@@ -22,31 +22,6 @@ export default class Map extends React.Component {
     destinations: [],
   };
 
-  componentDidMount() {
-    const destinations = this.props.citiesTo;
-    for (let i = 0; i < destinations.length; i++) {
-      Geocode.fromAddress(destinations[i].cityName).then(
-        (response) => {
-          const { lat, lng } = response.results[0].geometry.location;
-          this.setState({
-            destinations: [
-              ...this.state.destinations,
-              {
-                name: destinations[i].cityName,
-                lat: lat,
-                lng: lng,
-                prices: destinations[i].totalPrice,
-              },
-            ],
-          });
-        },
-        (error) => {
-          console.error(error);
-        }
-      );
-    }
-  }
-
   render() {
     return (
       <ReactMapGL
@@ -56,6 +31,7 @@ export default class Map extends React.Component {
         onViewportChange={(viewport) => this.setState({ viewport })}
         width="dummyValue"
       >
+        {console.log(this.props)}
         {this.props.citiesFrom.map((city) => (
           <Marker key={city.name} latitude={parseFloat(city.lat)} longitude={parseFloat(city.lng)}>
             <button className="marker-departure-city">
@@ -63,7 +39,7 @@ export default class Map extends React.Component {
             </button>
           </Marker>
         ))}
-        {this.state.destinations.map((city) => (
+        {this.props.citiesTo.map((city) => (
           <Marker key={city.name} latitude={city.lat} longitude={city.lng}>
             <button className="marker-departure-city">
               <img src={greenMarkerDest} alt="Destination city" />

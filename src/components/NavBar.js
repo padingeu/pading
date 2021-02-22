@@ -89,47 +89,38 @@ export default class NavBarHome extends React.Component {
     this.setState({ citiesFrom });
   };
 
-  getDestinationsWithPrices = (trips, commonDestinations) => {
-    const destinations = [];
-    commonDestinations.forEach((destinationName) => {
-      let totalPrice = this.getTotalPrice(trips, destinationName);
-      destinations.push({
-        cityName: destinationName,
-        totalPrice: totalPrice,
-      });
-    });
-    return destinations;
-  };
+  // getDestinationsWithPrices = (trips, commonDestinations) => {
+  //   const destinations = [];
+  //   commonDestinations.forEach((destinationName) => {
+  //     let totalPrice = this.getTotalPrice(trips, destinationName);
+  //     Geocode.fromAddress(destinationName).then(
+  //       (response) => {
+  //         const { lat, lng } = response.results[0].geometry.location;
+  //         this.setState({
+  //           destinations: [
+  //             ...this.state.destinations,
+  //             {
+  //               name: destinationName,
+  //               lat: lat,
+  //               lng: lng,
+  //               prices: totalPrice,
+  //             },
+  //           ],
+  //         });
+  //       },
+  //       (error) => {
+  //         console.error(error);
+  //       }
+  //     );
+  //   });
 
-  getTotalPrice = (trips, destination) => {
-    const pricesList = [];
-    let totalPrice = 0;
-    Object.keys(trips).forEach((city) => {
-      const price = this.getPriceForDestination(trips, destination, city);
-      totalPrice += price;
-      pricesList.push({ city: city, price: price });
-    });
-
-    return {
-      pricesPerDestination: pricesList,
-      totalPrice: totalPrice,
-    };
-  };
-
-  getPriceForDestination = (trips, destination, city) => {
-    let tripsForDestination = trips[city].filter((trip) => {
-      return trip.cityTo === destination;
-    });
-    let prices = tripsForDestination.map((trip) => {
-      return trip.price;
-    });
-    return Math.min.apply(null, prices);
-  };
+  //   return destinations;
+  // };
 
   render() {
-    console.log(this.props);
     return (
       <div className="header">
+        {console.log(this.props)}
         <div className="navbar">
           <div className="navbar-menu">
             <div className="navbar-brand">
@@ -173,16 +164,15 @@ export default class NavBarHome extends React.Component {
             />
           </div>
           <div className="map">
+            {console.log('render map')}
+            {console.log(this.props)}
             <Map
               citiesFrom={
                 this.props.searchData ? this.props.searchData.cities : this.state.citiesFrom
               }
               citiesTo={
-                this.props.searchData
-                  ? this.getDestinationsWithPrices(
-                      this.props.searchData.trips,
-                      this.props.searchData.commonDestinations
-                    )
+                this.props.searchData && this.props.searchData.destinationsWithPrice
+                  ? this.props.searchData.destinationsWithPrice
                   : []
               }
             />

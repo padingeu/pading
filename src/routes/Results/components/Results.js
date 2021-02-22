@@ -156,7 +156,6 @@ export default class Results extends React.Component {
   render() {
     return (
       <div>
-        {console.log(this.props)}
         <NavBar searchData={this.props.search} searchTrips={this.props.searchTrips} />
 
         <div>
