@@ -138,28 +138,30 @@
   ::placeholder {
     color: #dce3e9;
   }
-  .btn-date {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    height: 4.5rem;
-    border-radius: 5rem;
-    width: 95%;
-    margin: 1rem;
-    color: white;
-    background: #3e936f;
-    transition: background 0.3s ease;
-    &:hover {
-      background: #429882;
-      color: white;
-    }
-  }
+
   .calendar {
     position: absolute;
     bottom: 0;
     margin: 0 1rem;
+    padding: 1rem;
     z-index: 2;
     transition: all 0.15s ease-in-out 0s;
+    .btn-date {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 4.5rem;
+      border-radius: 5rem;
+      width: 95%;
+      margin: 1rem;
+      color: white;
+      background: #3e936f;
+      transition: background 0.3s ease;
+      &:hover {
+        background: #429882;
+        color: white;
+      }
+    }
     .react-calendar {
       padding: 1.5rem;
       border: none;
@@ -231,28 +233,6 @@
     }
     .react-calendar__viewContainer {
       padding-bottom: 5rem;
-    }
-  }
-}
-
-@media (orientation: portrait) {
-  .calendar {
-    .react-calendar {
-      height: 62vh;
-      .react-calendar__tile {
-        height: 5rem;
-      }
-    }
-  }
-}
-
-@media (orientation: landscape) {
-  .calendar {
-    .react-calendar {
-      height: 55vh;
-      .react-calendar__tile {
-        height: 4rem;
-      }
     }
   }
 }
