@@ -18,6 +18,10 @@ export default class Map extends React.Component {
       longitude: 4.352222,
       maxZoom: 3,
       minZoom: 3,
+      interactive: true,
+
+        iconAllowOverlap: false
+
     },
     destinations: [],
   };
@@ -35,15 +39,15 @@ export default class Map extends React.Component {
         {this.props.citiesFrom.map((city) => (
           <Marker key={city.name} latitude={parseFloat(city.lat)} longitude={parseFloat(city.lng)}>
             <button className="marker-departure-city">
-              <img src={yellowMarker} alt="Departure city" />
+              <img src={yellowMarker} alt="Departure city"/>
             </button>
           </Marker>
         ))}
         {this.props.citiesTo.map((city) => (
           <Marker key={city.name} latitude={city.lat} longitude={city.lng}>
-            <button className="marker-departure-city">
-              <img src={greenMarkerDest} alt="Destination city" />
-              {city.prices.totalPrice}
+            <button className="marker-destination">
+              <img src={greenMarkerDest} alt="Destination city"/>
+              <p>{city.prices.totalPrice} €</p>
             </button>
           </Marker>
         ))}

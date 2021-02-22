@@ -8,8 +8,6 @@ import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 
 export default class Results extends React.Component {
   state = {
-    windowWidth: window.innerWidth,
-    showMobileFormSearch: false,
     showMobileResults: true,
     activeMapView: false,
     citiesFrom: this.props.search.cities,
@@ -17,20 +15,13 @@ export default class Results extends React.Component {
   };
 
   componentDidMount() {
-    window.addEventListener('resize', this._handleWindowResize);
 
     if (!this.props.search.isLoading && !this.props.search.success) {
     }
   }
 
-  _handleWindowResize = () => {
-    this.setState({ windowWidth: window.innerWidth });
-    this.setState({ windowWidth: window.innerHeight });
-  };
-
   displayMobileFormSearch = (event) => {
     event.preventDefault();
-    this.setState({ showMobileFormSearch: !this.state.showMobileFormSearch });
     this.setState({ showMobileResults: !this.state.showMobileResults });
   };
 
@@ -158,14 +149,10 @@ export default class Results extends React.Component {
       <div>
         <NavBar searchData={this.props.search} searchTrips={this.props.searchTrips} />
 
-        <div>
-          {window.innerWidth < 1200 ? (
+      
             <div className="travel-results">
-              {this.state.showMobileFormSearch ? (
-                ''
-              ) : (
-                <div className="cards-map-results">
-                  <div className="linear-progress-edit-view">
+                <div className="travel-results-cards">
+                  <div className="linear-progress-filter">
                     <div className="linear-progress-div">
                       {this.props.search.isLoading && (
                         <div className="linear-progress">
@@ -173,15 +160,10 @@ export default class Results extends React.Component {
                         </div>
                       )}
                     </div>
-                    <div className="edit-div">
-                      <button className="btn-edit-search" onClick={this.displayMobileFormSearch}>
-                        Edit
-                      </button>
-                      <button className="btn-edit-view" onClick={this.switchViewType}>
-                        {this.state.activeMapView ? 'cities' : 'map'}
-                      </button>
-                      <button className="btn-edit-filter">Filter</button>
-                    </div>
+ 
+                      <button className="btn-filter">Filter</button>
+      
+                    <i class="fas fa-sort-amount-down-alt fa-lg"></i>
                   </div>
 
                   {this.state.activeMapView ? (
@@ -221,70 +203,8 @@ export default class Results extends React.Component {
                     </div>
                   )}
                 </div>
-              )}
             </div>
-          ) : (
-            <div className="travel-results">
-              <div className="cards-map-results">
-                <div className="linear-progress-edit-view">
-                  <div className="linear-progress-div">
-                    {this.props.search.isLoading && (
-                      <div className="linear-progress">
-                        <LinearProgress />
-                      </div>
-                    )}
-                  </div>
-                  <div className="edit-div">
-                    <button className="btn-edit-search" onClick={this.displayMobileFormSearch}>
-                      Edit
-                    </button>
-                    <button className="btn-edit-view" onClick={this.switchViewType}>
-                      {this.state.activeMapView ? 'cities' : 'map'}
-                    </button>
-                    <button className="btn-edit-filter">Filter</button>
-                  </div>
-                </div>
-
-                {this.state.activeMapView ? (
-                  ''
-                ) : (
-                  <div>
-                    {this.props.search.isLoading ? (
-                      <div className="cards-results">
-                        <TripCardSkeleton />
-                        <TripCardSkeleton />
-                        <TripCardSkeleton />
-                        <TripCardSkeleton />
-                        <TripCardSkeleton />
-                        <TripCardSkeleton />
-                        <TripCardSkeleton />
-                        <TripCardSkeleton />
-                        <TripCardSkeleton />
-                        <TripCardSkeleton />
-                        <TripCardSkeleton />
-                        <TripCardSkeleton />
-                      </div>
-                    ) : (
-                      <div className="cards-results">
-                        {this.props.search.commonDestinations.map((destination, index) => {
-                          return (
-                            <div key={index}>
-                              <TripCard
-                                destination={destination}
-                                prices={this.getTotalPrice(this.props.search.trips, destination)}
-                                travelers={this.props.search.travelers}
-                              />
-                            </div>
-                          );
-                        })}
-                      </div>
-                    )}
-                  </div>
-                )}
-              </div>
-            </div>
-          )}
-        </div>
+       
       </div>
     );
   }
