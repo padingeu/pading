@@ -24,7 +24,15 @@ export default class FormSearch extends React.Component {
       this.state.dateTo,
       this.state.stopTrip
     );
+    this.scrollDown()
   };
+
+  scrollDown() {
+    document.scrollingElement.scrollTo({
+      top: 750,
+      behavior: 'smooth'
+    })
+  }
 
   onInputDateChange = (date) => {
     this.setState({ showDateFrom: true });
@@ -120,7 +128,6 @@ export default class FormSearch extends React.Component {
           type="submit"
           onClick={() => this.search()}
         >
-          {this.props.dis}
           {this.props.isLoading ? (
             <div>
               <CircularProgress />

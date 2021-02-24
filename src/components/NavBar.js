@@ -153,6 +153,7 @@ export default class NavBarHome extends React.Component {
           <div className="formsearch">
             <FormSearch
               searchTrips={this.props.searchTrips}
+              isLoading={this.props.isLoading}
               isHomePage={this.state.isHomePage}
               addCity={this.addCity}
               removeCity={this.removeCity}

@@ -8,21 +8,8 @@ import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 
 export default class Results extends React.Component {
   state = {
-    showMobileResults: true,
-    activeMapView: false,
     citiesFrom: this.props.search.cities,
     address: '',
-  };
-
-  componentDidMount() {
-
-    if (!this.props.search.isLoading && !this.props.search.success) {
-    }
-  }
-
-  displayMobileFormSearch = (event) => {
-    event.preventDefault();
-    this.setState({ showMobileResults: !this.state.showMobileResults });
   };
 
   getPriceForDestination = (trips, destination, city) => {
@@ -139,17 +126,11 @@ export default class Results extends React.Component {
     this.setState({ citiesFrom });
   };
 
-  switchViewType = (event) => {
-    event.preventDefault();
-    this.setState({ activeMapView: !this.state.activeMapView });
-  };
-
   render() {
     return (
       <div>
-        <NavBar searchData={this.props.search} searchTrips={this.props.searchTrips} />
+        <NavBar searchData={this.props.search} isLoading={this.props.search.isLoading} searchTrips={this.props.searchTrips} />
 
-      
             <div className="travel-results">
                 <div className="travel-results-cards">
                   <div className="linear-progress-filter">
@@ -160,51 +141,44 @@ export default class Results extends React.Component {
                         </div>
                       )}
                     </div>
- 
-                      <button className="btn-filter">Filter</button>
-      
+                    <button className="btn-filter">Filter</button>
                     <i class="fas fa-sort-amount-down-alt fa-lg"></i>
-                  </div>
 
-                  {this.state.activeMapView ? (
-                    ''
-                  ) : (
-                    <div>
-                      {this.props.search.isLoading ? (
-                        <div className="cards-results">
-                          <TripCardSkeleton />
-                          <TripCardSkeleton />
-                          <TripCardSkeleton />
-                          <TripCardSkeleton />
-                          <TripCardSkeleton />
-                          <TripCardSkeleton />
-                          <TripCardSkeleton />
-                          <TripCardSkeleton />
-                          <TripCardSkeleton />
-                          <TripCardSkeleton />
-                          <TripCardSkeleton />
-                          <TripCardSkeleton />
-                        </div>
-                      ) : (
-                        <div className="cards-results">
-                          {this.props.search.commonDestinations.map((destination, index) => {
-                            return (
-                              <div key={index}>
-                                <TripCard
-                                  destination={destination}
-                                  prices={this.getTotalPrice(this.props.search.trips, destination)}
-                                  travelers={this.props.search.travelers}
-                                />
-                              </div>
-                            );
-                          })}
-                        </div>
-                      )}
-                    </div>
-                  )}
+                  </div>
+                  <div id="hello">
+                    {this.props.search.isLoading ? (
+                      <div className="cards-results">
+                        <TripCardSkeleton />
+                        <TripCardSkeleton />
+                        <TripCardSkeleton />
+                        <TripCardSkeleton />
+                        <TripCardSkeleton />
+                        <TripCardSkeleton />
+                        <TripCardSkeleton />
+                        <TripCardSkeleton />
+                        <TripCardSkeleton />
+                        <TripCardSkeleton />
+                        <TripCardSkeleton />
+                        <TripCardSkeleton />
+                      </div>
+                    ) : (
+                      <div className="cards-results">
+                        {this.props.search.commonDestinations.map((destination, index) => {
+                          return (
+                            <div key={index}>
+                              <TripCard
+                                destination={destination}
+                                prices={this.getTotalPrice(this.props.search.trips, destination)}
+                                travelers={this.props.search.travelers}
+                              />
+                            </div>
+                          );
+                        })}
+                      </div>
+                    )}
+                  </div>    
                 </div>
             </div>
-       
       </div>
     );
   }

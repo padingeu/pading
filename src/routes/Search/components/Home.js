@@ -9,8 +9,10 @@ import Footer from '../../../components/Footer';
 
 export default class Home extends React.Component {
   scrollUp() {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
+    document.scrollingElement.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
   }
 
   render() {
