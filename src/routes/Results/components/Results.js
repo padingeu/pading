@@ -4,6 +4,8 @@ import './_Results.scss';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import TripCard from './TripCard';
 import TripCardSkeleton from './TripCardSkeleton';
+import Popup from 'reactjs-popup';
+import DetailsResultsPopup from './DetailsResultsPopup';
 import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 
 export default class Results extends React.Component {
@@ -165,12 +167,30 @@ export default class Results extends React.Component {
                       <div className="cards-results">
                         {this.props.search.commonDestinations.map((destination, index) => {
                           return (
-                            <div key={index}>
-                              <TripCard
-                                destination={destination}
-                                prices={this.getTotalPrice(this.props.search.trips, destination)}
-                                travelers={this.props.search.travelers}
-                              />
+                            <div className={index} key={index}>
+                              <Popup
+                                modal
+                                trigger={
+                                  <div>
+                                    <TripCard
+                                      destination={destination}
+                                      prices={this.getTotalPrice(
+                                        this.props.search.trips,
+                                        destination
+                                      )}
+                                      travelers={this.props.search.travelers}
+                                      key={index}
+                                    />
+                                  </div>
+                                }
+                                key={index}
+                              >
+                                <DetailsResultsPopup
+                                  destination={destination}
+                                  trips={this.props.search.trips}
+                                  key={index}
+                                />
+                              </Popup>
                             </div>
                           );
                         })}
