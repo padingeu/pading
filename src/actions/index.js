@@ -81,6 +81,7 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip) => {
                 price: trip.price,
                 local_departure: trip.local_departure,
                 local_arrival: trip.local_arrival,
+
                 route: trip.route,
               };
             });
@@ -140,7 +141,6 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip) => {
             travelers,
             destinationsWithPrice,
           };
-          console.log('dispatch search');
           dispatch({ type: 'SEARCH', data });
           dispatch({ type: 'SUCCESS' });
         });
