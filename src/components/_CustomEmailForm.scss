@@ -1,3 +1,40 @@
+input {
+  font-family: 'Roboto', sans-serif;
+  height: 4.5rem;
+  min-width: 33rem;
+  font-weight: 400;
+  background: white;
+  color: #373737;
+  border: solid white;
+  text-align: left;
+  border-radius: 1rem;
+  font-size: 1.6rem;
+  padding: 1rem 10rem 1rem 1rem;
+  &:focus {
+    transition-duration: 0.5s;
+    outline: 0;
+  }
+}
+.btn-blue-newsletter {
+  position: absolute;
+  right: 0rem;
+  bottom: 0rem;
+  height: 4.5rem;
+  width: 7rem;
+  padding: 0 2rem;
+  border-radius: 1rem;
+  border: none;
+  background-color: #29b3c1;
+  color: white;
+  font-weight: 700;
+  &:hover {
+    transition: background-color 0.5s;
+    background-color: #53c2cd;
+  }
+  &:focus {
+    outline: none;
+  }
+}
 .swal2-popup {
   display: flex;
   justify-content: center;

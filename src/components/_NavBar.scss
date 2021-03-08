@@ -69,16 +69,16 @@
   }
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 1200px) {
   .formsearch {
-    width: 100vw;
+    width: 75vw;
   }
   .map {
     display: none;
   }
 }
 
-@media (min-width: 1401px) {
+@media (min-width: 1201px) {
   .formsearch {
     width: 30%;
   }
