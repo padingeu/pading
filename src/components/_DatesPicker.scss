@@ -10,6 +10,7 @@
       align-items: center;
       justify-content: flex-start;
       width: 100%;
+      margin-bottom: 2rem;
       .travel-type {
         button.travel-type-btn {
           position: relative;
@@ -17,22 +18,21 @@
           align-items: center;
           justify-content: space-around;
           width: 10rem;
-          padding: 1rem;
-          border-radius: 1rem;
           border: none;
+          height: 3.5rem;
           outline: none;
           cursor: pointer;
-          background-color: #29b3c1;
-          color: white;
-          font-weight: bold;
+          background-color: white;
+          color: #29b3c1;
         }
         .travel-type-change {
           position: absolute;
-          border-radius: 2rem;
+          border-radius: 1rem;
+          padding: 0.5rem;
           width: 10rem;
+          background-color: white;
           z-index: 1;
-          box-shadow: rgba(37, 42, 49, 0.16) 0px 4px 8px 0px,
-            rgba(37, 42, 49, 0.24) 0px 8px 24px 0px;
+          box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
           a {
             background-color: white;
             display: flex;
@@ -58,22 +58,23 @@
       justify-content: space-around;
       width: 10rem;
       padding: 1rem;
-      border-radius: 1rem;
       margin-left: 1rem;
       border: none;
+      height: 3.5rem;
       outline: none;
       cursor: pointer;
-      background-color: #29b3c1;
-      color: white;
-      font-weight: bold;
+      background-color: white;
+      color: #29b3c1;
     }
     .stop-trip-change {
       position: absolute;
-      z-index: 1;
+      border-radius: 1rem;
+      padding: 0.5rem;
       margin-left: 1rem;
-      border-radius: 2rem;
       width: 10rem;
-      box-shadow: rgba(37, 42, 49, 0.16) 0px 4px 8px 0px, rgba(37, 42, 49, 0.24) 0px 8px 24px 0px;
+      background-color: white;
+      z-index: 1;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
       a {
         background-color: white;
         display: flex;
@@ -91,6 +92,11 @@
       }
     }
   }
+  label {
+    text-align: left;
+    width: 100%;
+    padding-left: 2rem;
+  }
   .inputdate {
     display: flex;
     flex-direction: column;
@@ -102,7 +108,7 @@
       cursor: pointer;
       text-align: left;
       height: 4.5rem;
-      border: solid #dce3e9;
+      border: solid #d1d8dd;
       border-width: 0.2rem;
       border-radius: 1rem;
       width: 100%;
@@ -121,7 +127,7 @@
       cursor: pointer;
       text-align: left;
       height: 4.5rem;
-      border: solid #dce3e9;
+      border: solid #d1d8dd;
       border-width: 0.2rem;
       border-radius: 1rem;
       width: 100%;
