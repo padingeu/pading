@@ -110,7 +110,16 @@ export default class NavBarHome extends React.Component {
             </div>
           </div>
           <div className="value-prop">
-            <h1>Trains and flights combinations for people traveling from multiple places</h1>
+            <h1>
+              Trains and flights{' '}
+              <div className="focus-text">
+                <span className="green-underline"></span>combinations
+              </div>{' '}
+              for people traveling{' '}
+              <div className="focus-text">
+                <span className="blue-underline"></span>from multiple places
+              </div>
+            </h1>
             <p>
               <b>
                 Enter your different departure cities, explore all common destinations to meet at

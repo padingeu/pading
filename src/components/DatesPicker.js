@@ -149,12 +149,14 @@ class DatesPicker extends React.Component {
               </div>
             </div>
             <div className="inputdate">
+              <label>Your dates ..</label>
+
               <input
                 className="inputdatefrom"
                 type="text"
                 onChange={this.props.onChange}
                 onClick={this.showOnCalendar}
-                placeholder="Departure"
+                placeholder="Departure date"
                 value={
                   this.props.showDateFrom && this.props.dateFrom
                     ? this.props.dateFrom.toLocaleDateString()
@@ -167,7 +169,7 @@ class DatesPicker extends React.Component {
                   type="text"
                   onChange={this.props.onChange}
                   onClick={this.showOnCalendar}
-                  placeholder="Return"
+                  placeholder="Return date"
                   value={
                     this.props.showDateTo && this.props.dateTo
                       ? this.props.dateTo.toLocaleDateString()
