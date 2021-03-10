@@ -80,17 +80,16 @@ export default class Footer extends React.Component {
                 display: 'block',
                 zIndex: 1,
               }}
+            ></a>
+            <a
+              href="https://tree-nation.com/profile/pading-1"
+              rel="noopener noreferrer"
+              target="_blank"
             >
-              <a
-                href="https://tree-nation.com/profile/pading-1"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <img
-                  src="https://tree-nation.com/images/tracking/label-co2-website-white-en.png"
-                  style={{ width: 150, height: 'auto' }}
-                />
-              </a>
+              <img
+                src="https://tree-nation.com/images/tracking/label-co2-website-white-en.png"
+                style={{ width: 150, height: 'auto' }}
+              />
             </a>
           </div>
         </div>

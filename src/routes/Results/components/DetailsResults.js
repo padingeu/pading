@@ -5,7 +5,6 @@ import moment from 'moment';
 export default function DetailsResults(props) {
   const [showDetailsWay, setDetailsWay] = useState(false);
   const [showDetailsReturn, setDetailsReturn] = useState(false);
-  const departureDate = moment(props.trip.local_departure).format('MMM Do YY');
 
   return (
     <div>

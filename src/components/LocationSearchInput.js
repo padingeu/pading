@@ -40,7 +40,7 @@ class LocationSearchInput extends React.Component {
                   <div className="arrow-and-label">
                     <i className="fas fa-location-arrow fa-xl"></i>
 
-                    {this.props.cities.length == 0 ? (
+                    {this.props.cities.length === 0 ? (
                       <span className="label">Enter a first departure city</span>
                     ) : (
                       <span className="label">Enter more departure cities</span>
