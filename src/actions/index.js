@@ -122,7 +122,7 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip) => {
         const destinationsWithPrice = [];
         let locationPromises = [];
         commonDestinations.forEach((destinationName) => {
-          locationPromises.push(Geocode.fromAddress(destinationName));
+          // locationPromises.push(Geocode.fromAddress(destinationName));
         });
 
         Promise.all(locationPromises).then((responses) => {
