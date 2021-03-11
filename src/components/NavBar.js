@@ -99,15 +99,6 @@ export default class NavBarHome extends React.Component {
                 <img src={logo} alt="Pading find the perfect place to meet" />
               </a>
             </div>
-            <div className="navbar-social">
-              <a
-                href="https://www.instagram.com/padingapp/?hl=fr"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <i className="fab fa-instagram"></i>
-              </a>
-            </div>
           </div>
           <div className="value-prop">
             <h1>
