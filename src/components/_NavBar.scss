@@ -27,18 +27,6 @@
         border-radius: 3rem;
       }
     }
-    .navbar-social {
-      a {
-        background: transparent;
-        color: rgba(255, 255, 255, 0.7);
-      }
-      :hover {
-        color: white;
-      }
-      i {
-        font-size: 4rem;
-      }
-    }
   }
   .value-prop {
     display: flex;
@@ -72,10 +60,6 @@
       font-size: 3rem;
       color: white;
       margin-bottom: 2rem;
-    }
-    p {
-      width: 80%;
-      color: rgba(255, 255, 255, 0.7);
       .focus-text {
         position: relative;
         display: inline-block;
@@ -84,10 +68,10 @@
       .green-underline {
         position: absolute;
         z-index: -1;
+        bottom: 0;
         right: -0.5rem;
-        bottom: 0rem;
-        height: 2rem;
-        width: 400rem;
+        left: -0.5rem;
+        height: 15rem;
         background-color: #3e936f;
         border-radius: 2rem;
       }
@@ -97,10 +81,14 @@
         left: 0;
         bottom: 0rem;
         height: 2rem;
-        width: 400rem;
+        width: 130%;
         background-color: #29b3c1;
         border-radius: 2rem;
       }
+    }
+    p {
+      width: 80%;
+      color: rgba(255, 255, 255, 0.7);
     }
   }
 }
@@ -137,7 +125,7 @@
         left: 0;
         bottom: 0rem;
         height: 2rem;
-        width: 400rem;
+        width: 50vw;
         background-color: #29b3c1;
         border-radius: 2rem;
       }

@@ -17,9 +17,11 @@
           display: flex;
           align-items: center;
           justify-content: space-around;
-          width: 10rem;
-          border: none;
-          height: 3.5rem;
+          width: 11rem;
+          border: solid #29b3c1;
+          border-width: 0.2rem;
+          height: 3rem;
+          font-size: 1.2rem;
           outline: none;
           cursor: pointer;
           background-color: white;
@@ -29,7 +31,7 @@
           position: absolute;
           border-radius: 1rem;
           padding: 0.5rem;
-          width: 10rem;
+          width: 11rem;
           background-color: white;
           z-index: 1;
           box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
@@ -56,11 +58,13 @@
       display: flex;
       align-items: center;
       justify-content: space-around;
-      width: 10rem;
+      width: 11rem;
       padding: 1rem;
       margin-left: 1rem;
-      border: none;
-      height: 3.5rem;
+      border: solid #29b3c1;
+      border-width: 0.2rem;
+      height: 3rem;
+      font-size: 1.2rem;
       outline: none;
       cursor: pointer;
       background-color: white;
@@ -71,7 +75,7 @@
       border-radius: 1rem;
       padding: 0.5rem;
       margin-left: 1rem;
-      width: 10rem;
+      width: 11rem;
       background-color: white;
       z-index: 1;
       box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
@@ -92,12 +96,9 @@
       }
     }
   }
-  label {
-    text-align: left;
-    width: 100%;
-    padding-left: 2rem;
-  }
+
   .inputdate {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -108,7 +109,7 @@
       cursor: pointer;
       text-align: left;
       height: 4.5rem;
-      border: solid #d1d8dd;
+      border: solid #c2c8cd;
       border-width: 0.2rem;
       border-radius: 1rem;
       width: 100%;
@@ -118,6 +119,7 @@
       font-family: 'roboto' sans-serif;
       font-weight: bold;
       color: #262626;
+
       &:focus {
         outline: none;
       }
@@ -127,7 +129,7 @@
       cursor: pointer;
       text-align: left;
       height: 4.5rem;
-      border: solid #d1d8dd;
+      border: solid #c2c8cd;
       border-width: 0.2rem;
       border-radius: 1rem;
       width: 100%;
@@ -142,7 +144,7 @@
     }
   }
   ::placeholder {
-    color: #dce3e9;
+    color: #c2c8cd;
   }
 
   .calendar {

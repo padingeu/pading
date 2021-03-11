@@ -112,12 +112,12 @@ class DatesPicker extends React.Component {
                       }}
                     >
                       <div className="check-box">
-                        {this.props.stopTrip === 'All' ? (
+                        {this.props.stopTrip === 'All routes' ? (
                           <i className="fas fa-check fa-xs"></i>
                         ) : null}
                       </div>
                       <div className="stop-div">
-                        <h5>All</h5>
+                        <h5>All routes</h5>
                       </div>
                     </a>
 
@@ -129,12 +129,12 @@ class DatesPicker extends React.Component {
                       }}
                     >
                       <div className="check-box">
-                        {this.props.stopTrip === 'Direct' ? (
+                        {this.props.stopTrip === 'Only direct' ? (
                           <i className="fas fa-check fa-xs"></i>
                         ) : null}
                       </div>
                       <div className="stop-div">
-                        <h5>Direct</h5>
+                        <h5>Only direct</h5>
                       </div>
                     </a>
                   </div>
@@ -149,8 +149,6 @@ class DatesPicker extends React.Component {
               </div>
             </div>
             <div className="inputdate">
-              <label>Your dates ..</label>
-
               <input
                 className="inputdatefrom"
                 type="text"
