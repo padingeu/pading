@@ -1,6 +1,7 @@
 .details-results {
   position: relative;
   .MuiBox-root {
+    padding: 0 !important;
     .MuiTypography-root {
       width: 100%;
       overflow-y: scroll;
@@ -10,10 +11,8 @@
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
-        height: 100%;
-        border: solid green;
-
         width: 100%;
+        padding-bottom: 2rem;
         .details-results-travel-way {
           display: flex;
           flex-direction: column;
@@ -22,7 +21,7 @@
           background-color: #f4f6f8;
           width: 100%;
           .details-results-travel-way-city {
-            width: 100%;
+            width: 80%;
             text-align: left;
             padding: 2.5rem 0rem 2rem 0rem;
           }
@@ -741,6 +740,7 @@
               display: grid;
               grid-template-columns: repeat(5, 1fr);
               width: 80%;
+              padding-bottom: 2rem;
               .destination-div-1 {
                 grid-column: 1/2;
                 grid-row: 7;
@@ -784,12 +784,6 @@
                 }
               }
             }
-
-            .details-results-travel-way-content-footer {
-              background-color: transparent;
-              width: 80%;
-              margin-bottom: 5rem;
-            }
           }
         }
         .details-results-travel-return {
@@ -799,10 +793,11 @@
           align-items: center;
           background-color: #f4f6f8;
           width: 100%;
+          padding-bottom: 5rem;
           .details-results-travel-return-city {
             width: 80%;
             text-align: left;
-            padding: 2.5rem 0rem 2rem 0rem;
+            padding: 0rem 0rem 2rem 0rem;
           }
           .details-results-travel-return-content {
             display: flex;
@@ -1179,6 +1174,7 @@
             align-items: flex-start;
             padding: 5rem 0 0.5rem 2.2rem;
             background-color: #f4f6f8;
+
             .douze-bis {
               position: absolute;
               left: 0.6rem;
@@ -1204,11 +1200,6 @@
             }
           }
         }
-        .details-results-travel-way-content-footer {
-          background-color: transparent;
-          width: 80%;
-          margin-bottom: 5rem;
-        }
       }
     }
   }
@@ -1221,7 +1212,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2rem;
+    padding-top: 1rem;
     .details-results-share {
       display: flex;
       justify-content: space-around;
@@ -1235,7 +1226,7 @@
     }
     .details-results-price-book {
       display: flex;
-      justify-content: space-around;
+      justify-content: flex-end;
       align-items: center;
       width: 60%;
       .details-results-price {
@@ -1244,11 +1235,19 @@
         }
       }
       .details-results-book {
-        width: 80%;
+        position: relative;
+        width: 100%;
         border: none;
-        background-color: #3e936f;
+        height: 4.5rem;
+        border-radius: 5rem;
+        background: #3e936f;
+        color: white;
         &:hover {
-          background-color: #429882;
+          background-color: rgba(62, 147, 111, 0.9);
+        }
+        .ticket-price {
+          position: absolute;
+          right: 2rem;
         }
       }
     }
