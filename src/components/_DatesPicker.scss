@@ -149,24 +149,24 @@
 
   .calendar {
     position: absolute;
-    bottom: 0;
+    bottom: 0rem;
     left: 0;
     right: 0;
-    height: 88%;
+    height: 83%;
     z-index: 2;
     transition: all 0.15s ease-in-out 0s;
     .btn-date {
       position: absolute;
-      bottom: 0;
-      left: 0;
+      bottom: 1rem;
+      left: 1rem;
       height: 4.5rem;
       border-radius: 5rem;
-      width: 100%;
+      width: 95%;
       color: white;
       background: #3e936f;
       transition: background 0.3s ease;
       &:hover {
-        background: #429882;
+        background: rgba(62, 147, 111, 0.9);
         color: white;
       }
     }

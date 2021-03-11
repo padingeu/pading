@@ -330,15 +330,17 @@ export default function DetailsResults(props) {
       <div className="details-results-share-book">
         <div className="details-results-share">
           <button>
-            <i class="fas fa-share fa-xl"></i>
+            <i class="fas fa-share fa-2x"></i>
           </button>
-          <h4>Share</h4>
         </div>
         <div className="details-results-price-book">
           <div className="details-results-price">
-            <h4>{props.trip.price}€</h4>
+            <h4></h4>
           </div>
-          <button className="details-results-book">Book tickets</button>
+          <button className="details-results-book">
+            <h4>Book ticket</h4>
+            <h4 className="ticket-price">{props.trip.price}€</h4>
+          </button>
         </div>
       </div>
     </div>
