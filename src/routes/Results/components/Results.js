@@ -131,74 +131,74 @@ export default class Results extends React.Component {
   render() {
     return (
       <div>
-        <NavBar searchData={this.props.search} isLoading={this.props.search.isLoading} searchTrips={this.props.searchTrips} />
+        <NavBar
+          searchData={this.props.search}
+          isLoading={this.props.search.isLoading}
+          searchTrips={this.props.searchTrips}
+        />
 
-            <div className="travel-results">
-                <div className="travel-results-cards">
-                  <div className="linear-progress-filter">
-                    <div className="linear-progress-div">
-                      {this.props.search.isLoading && (
-                        <div className="linear-progress">
-                          <LinearProgress />
-                        </div>
-                      )}
-                    </div>
-                    <button className="btn-filter">Filter</button>
-                    <i class="fas fa-sort-amount-down-alt fa-lg"></i>
-
+        <div className="travel-results">
+          <div className="travel-results-cards">
+            <div className="linear-progress-filter">
+              <div className="linear-progress-div">
+                {this.props.search.isLoading && (
+                  <div className="linear-progress">
+                    <LinearProgress />
                   </div>
-                  <div id="hello">
-                    {this.props.search.isLoading ? (
-                      <div className="cards-results">
-                        <TripCardSkeleton />
-                        <TripCardSkeleton />
-                        <TripCardSkeleton />
-                        <TripCardSkeleton />
-                        <TripCardSkeleton />
-                        <TripCardSkeleton />
-                        <TripCardSkeleton />
-                        <TripCardSkeleton />
-                        <TripCardSkeleton />
-                        <TripCardSkeleton />
-                        <TripCardSkeleton />
-                        <TripCardSkeleton />
-                      </div>
-                    ) : (
-                      <div className="cards-results">
-                        {this.props.search.commonDestinations.map((destination, index) => {
-                          return (
-                            <div className={index} key={index}>
-                              <Popup
-                                modal
-                                trigger={
-                                  <div>
-                                    <TripCard
-                                      destination={destination}
-                                      prices={this.getTotalPrice(
-                                        this.props.search.trips,
-                                        destination
-                                      )}
-                                      travelers={this.props.search.travelers}
-                                      key={index}
-                                    />
-                                  </div>
-                                }
-                                key={index}
-                              >
-                                <DetailsResultsPopup
-                                  destination={destination}
-                                  trips={this.props.search.trips}
-                                  key={index}
-                                />
-                              </Popup>
-                            </div>
-                          );
-                        })}
-                      </div>
-                    )}
-                  </div>    
-                </div>
+                )}
+              </div>
+              <button className="btn-filter">Filter</button>
+              <i class="fas fa-sort-amount-down-alt fa-lg"></i>
             </div>
+            <div id="hello">
+              {this.props.search.isLoading ? (
+                <div className="cards-results">
+                  <TripCardSkeleton />
+                  <TripCardSkeleton />
+                  <TripCardSkeleton />
+                  <TripCardSkeleton />
+                  <TripCardSkeleton />
+                  <TripCardSkeleton />
+                  <TripCardSkeleton />
+                  <TripCardSkeleton />
+                  <TripCardSkeleton />
+                  <TripCardSkeleton />
+                  <TripCardSkeleton />
+                  <TripCardSkeleton />
+                </div>
+              ) : (
+                <div className="cards-results">
+                  {this.props.search.commonDestinations.map((destination, index) => {
+                    return (
+                      <div className={index} key={index}>
+                        <Popup
+                          modal
+                          trigger={
+                            <div>
+                              <TripCard
+                                destination={destination}
+                                prices={this.getTotalPrice(this.props.search.trips, destination)}
+                                travelers={this.props.search.travelers}
+                                key={index}
+                              />
+                            </div>
+                          }
+                          key={index}
+                        >
+                          <DetailsResultsPopup
+                            destination={destination}
+                            trips={this.props.search.trips}
+                            key={index}
+                          />
+                        </Popup>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

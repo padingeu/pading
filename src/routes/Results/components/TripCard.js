@@ -20,7 +20,10 @@ const TripCard = ({ destination, prices, travelers }) => {
         </div>
         <div className="trip-carbonfootprint">
           <p>
-            <i className="fas fa-cloud"></i> 1.399 t
+            C02{' '}
+            <b className="focus-text">
+              <span className="underline"></span>1.399 t
+            </b>
           </p>
         </div>
         <div className="citytrips">
