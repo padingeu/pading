@@ -41,7 +41,7 @@ export default class Footer extends React.Component {
                 <Popup
                   modal
                   trigger={
-                    <a>
+                    <a href="/">
                       <p>FAQ</p>
                     </a>
                   }
@@ -71,8 +71,9 @@ export default class Footer extends React.Component {
           </div>
           <div className="tree-nations">
             <a
-              src="https://tree-nation.com/profile/impact/pading-1#co2"
+              href="https://tree-nation.com/profile/impact/pading-1#co2"
               target="_blank"
+              rel="noopener noreferrer"
               style={{
                 paddingBottom: '2rem',
                 position: 'relative',
@@ -80,14 +81,10 @@ export default class Footer extends React.Component {
                 display: 'block',
                 zIndex: 1,
               }}
-            ></a>
-            <a
-              href="https://tree-nation.com/profile/pading-1"
-              rel="noopener noreferrer"
-              target="_blank"
             >
               <img
                 src="https://tree-nation.com/images/tracking/label-co2-website-white-en.png"
+                alt="logo of tree nation, environmental non profit association"
                 style={{ width: 150, height: 'auto' }}
               />
             </a>
