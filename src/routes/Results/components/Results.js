@@ -148,7 +148,7 @@ export default class Results extends React.Component {
                 )}
               </div>
               <button className="btn-filter">Filter</button>
-              <i class="fas fa-sort-amount-down-alt fa-lg"></i>
+              <i className="fas fa-sort-amount-down-alt fa-lg"></i>
             </div>
             <div id="hello">
               {this.props.search.isLoading ? (

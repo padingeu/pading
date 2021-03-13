@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './_DetailsResults.scss';
 import moment from 'moment';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 export default function DetailsResults(props) {
   const [showDetailsWay, setDetailsWay] = useState(false);
@@ -430,18 +431,21 @@ export default function DetailsResults(props) {
 
       <div className="details-results-share-book">
         <div className="details-results-share">
-          <a>
-            <i class="far fa-envelope fa-2x"></i>
+          <a href="whatsapp://send?text=https://kiwi.com" target="_blank" rel="noopener noreferrer">
+            <i className="fab fa-whatsapp fa-2x"></i>
           </a>
-          <a>
-            <i class="fab fa-whatsapp fa-2x"></i>
+          <a
+            href="https://www.facebook.com/sharer/sharer.php?u=https://kiwi.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i className="fab fa-facebook-messenger fa-2x"></i>
           </a>
-          <a>
-            <i class="fab fa-facebook-messenger fa-2x"></i>
-          </a>
-          <a>
-            <i class="fas fa-link fa-2x"></i>
-          </a>
+          <CopyToClipboard text={'https://kiwi.com'} className="clipboard-btn">
+            <button>
+              <i className="fas fa-link fa-2x"></i>
+            </button>
+          </CopyToClipboard>
         </div>
         <div className="details-results-price-book">
           <h4 className="ticket-price">{props.trip.price}€</h4>
