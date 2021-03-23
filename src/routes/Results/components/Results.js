@@ -3,6 +3,7 @@ import NavBar from '../../../components/NavBar';
 import './_Results.scss';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import TripCard from './TripCard';
+import Filter from './Filter';
 import TripCardSkeleton from './TripCardSkeleton';
 import Popup from 'reactjs-popup';
 import DetailsResultsPopup from './DetailsResultsPopup';
@@ -12,6 +13,11 @@ export default class Results extends React.Component {
   state = {
     citiesFrom: this.props.search.cities,
     address: '',
+    showFilter: false,
+  };
+
+  displayFilter = () => {
+    this.setState({ showFilter: !this.state.showFilter });
   };
 
   getPriceForDestination = (trips, destination, city) => {
@@ -135,8 +141,8 @@ export default class Results extends React.Component {
           searchData={this.props.search}
           isLoading={this.props.search.isLoading}
           searchTrips={this.props.searchTrips}
+          travelType={this.props.travelType}
         />
-
         <div className="travel-results">
           <div className="travel-results-cards">
             <div className="linear-progress-filter">
@@ -147,9 +153,65 @@ export default class Results extends React.Component {
                   </div>
                 )}
               </div>
-              <button className="btn-filter">Filter</button>
+              <button className="btn-filter" onClick={this.displayFilter}>
+                Filter
+              </button>
               <i className="fas fa-sort-amount-down-alt fa-lg"></i>
             </div>
+            {this.state.showFilter ? (
+              <div className="filter-div">
+                <div className="filter-table">
+                  <div className="filter-table-header">
+                    <div className="filter-table-header-city"></div>
+                    <div className="filter-table-header-departure">
+                      <p>Departure time</p>
+                    </div>
+                    {this.props.search.dateTo ? (
+                      <div className="filter-table-header-return">
+                        <p>Return time</p>
+                      </div>
+                    ) : (
+                      ''
+                    )}
+                  </div>
+                  {console.log(this.props.travelType)}
+                  <div className="filter-table-body">
+                    <div className="row">
+                      <div className="filter-table-body-city">
+                        <p>from Paris</p>
+                      </div>
+                      <div className="filter-table-body-departure">
+                        <Filter />
+                      </div>
+                      {this.props.search.dateTo ? (
+                        <div className="filter-table-body-return">
+                          <Filter />
+                        </div>
+                      ) : (
+                        ''
+                      )}
+                    </div>
+                    <div className="row">
+                      <div className="filter-table-body-city">
+                        <p>from Bilbao</p>
+                      </div>
+                      <div className="filter-table-body-departure">
+                        <Filter />
+                      </div>
+                      {this.props.search.dateTo ? (
+                        <div className="filter-table-body-return">
+                          <Filter />
+                        </div>
+                      ) : (
+                        ''
+                      )}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              ''
+            )}
             <div id="hello">
               {this.props.search.isLoading ? (
                 <div className="cards-results">

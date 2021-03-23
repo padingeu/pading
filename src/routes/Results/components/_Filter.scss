@@ -1,0 +1,24 @@
+.MuiSlider-root {
+  width: 100% !important;
+  color: #29b3c1 !important;
+  padding: none !important;
+  .MuiSlider-rail {
+    height: 0.5rem;
+  }
+  .MuiSlider-track {
+    height: 0.5rem;
+  }
+  .MuiSlider-thumb {
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+}
+.timerange {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: -0.7rem;
+  p {
+    color: #c2c8cd !important;
+    font-size: 1.2rem !important;
+  }
+}
