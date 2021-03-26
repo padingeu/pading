@@ -7,6 +7,8 @@
   .travel-results-cards {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 85%;
     .linear-progress-filter {
       display: flex;
@@ -39,18 +41,98 @@
         cursor: pointer;
       }
     }
+    .filter-div {
+      width: 100%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      background-color: white;
+      box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+      border-radius: 1.5rem;
+      .filter-table {
+        width: 100%;
+        .filter-table-header {
+          display: flex;
+          justify-content: center;
+          align-items: space-between;
+          width: 100%;
+          p {
+            font-weight: bold;
+            color: #f49d11;
+          }
+          .filter-table-header-city {
+            width: 25%;
+          }
+          .filter-table-header-departure {
+            width: 40%;
+            display: flex;
+            justify-content: flex-start;
+            flex-grow: 2;
+            padding: 0 1rem;
+            margin: 0 1rem;
+          }
+          .filter-table-header-return {
+            width: 40%;
+            display: flex;
+            justify-content: flex-start;
+            padding: 0 1rem;
+            margin: 0 1rem;
+          }
+        }
+        .filter-table-body {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          p {
+            font-weight: bold;
+            color: #262626;
+          }
+          .row {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            width: 100%;
+            .filter-table-body-city {
+              width: 25%;
+            }
+            .filter-table-body-departure {
+              width: 40%;
+              text-align: center;
+              padding: 0 1rem;
+              margin: 0 1rem;
+              flex-grow: 2;
+            }
+            .filter-table-body-return {
+              width: 40%;
+              text-align: center;
+              padding: 0 1rem;
+              margin: 0 1rem;
+            }
+          }
+        }
+      }
+    }
     .cards-results {
       display: grid;
       height: 100%;
-      grid-gap: 2rem;
-      align-content: start;
-      padding: 1rem 1rem 0 1rem;
+      grid-gap: 1.5rem;
+
+      padding: 1rem 1rem 0rem 1rem;
     }
   }
 }
 
 @media (max-width: 800px) {
   .travel-results-cards {
+    .filter-div {
+      p {
+        font-size: 1.2rem;
+      }
+    }
     .cards-results {
       grid-template-columns: repeat(1, 1fr);
     }
@@ -59,6 +141,11 @@
 
 @media (min-width: 801px) {
   .travel-results-cards {
+    .filter-div {
+      p {
+        font-size: 1.4rem;
+      }
+    }
     .cards-results {
       grid-template-columns: repeat(2, 1fr);
     }
