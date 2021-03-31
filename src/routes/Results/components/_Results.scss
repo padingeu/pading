@@ -1,3 +1,7 @@
+#cards-results-wrapper {
+  width: 100%;
+}
+
 .travel-results {
   position: relative;
   display: flex;
@@ -23,6 +27,9 @@
         .linear-progress {
           .MuiLinearProgress-colorPrimary {
             background-color: rgba(62, 147, 111, 0.4);
+            height: 0.5rem;
+            border-radius: 1rem;
+            margin: 0.2rem;
           }
           .MuiLinearProgress-barColorPrimary {
             background-color: #3e936f;
@@ -33,7 +40,11 @@
       .btn-filter {
         background-color: #f49d11;
         color: white;
-      }
+        width: 10rem;
+        &:hover {
+          background-color: #f5a729;
+        }
+      } 
 
       .fa-sort-amount-down-alt {
         margin: 0 2rem;

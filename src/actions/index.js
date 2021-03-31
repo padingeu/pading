@@ -28,7 +28,8 @@ const getTotalPrice = (trips, destination) => {
   };
 };
 
-export const searchTrips = (cities, dateFrom, dateTo, stopTrip) => {
+export const searchTrips = (cities, dateFrom, dateTo, stopTrip, travelType) => {
+  console.log(travelType)
   const promises = [];
   return (dispatch) => {
     const formData = {
@@ -140,6 +141,7 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip) => {
             trips,
             travelers,
             destinationsWithPrice,
+            travelType
           };
           dispatch({ type: 'SEARCH', data });
           dispatch({ type: 'SUCCESS' });

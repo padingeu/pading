@@ -17,7 +17,7 @@ export default class Results extends React.Component {
   };
 
   displayFilter = () => {
-    this.setState({ showFilter: !this.state.showFilter });
+      this.setState({ showFilter: !this.state.showFilter });
   };
 
   getPriceForDestination = (trips, destination, city) => {
@@ -138,10 +138,8 @@ export default class Results extends React.Component {
     return (
       <div>
         <NavBar
-          searchData={this.props.search}
           isLoading={this.props.search.isLoading}
           searchTrips={this.props.searchTrips}
-          travelType={this.props.travelType}
         />
         <div className="travel-results">
           <div className="travel-results-cards">
@@ -153,7 +151,10 @@ export default class Results extends React.Component {
                   </div>
                 )}
               </div>
-              <button className="btn-filter" onClick={this.displayFilter}>
+              <button
+                className="btn-filter"
+                onClick={this.displayFilter}
+              >
                 Filter
               </button>
               <i className="fas fa-sort-amount-down-alt fa-lg"></i>
@@ -166,7 +167,7 @@ export default class Results extends React.Component {
                     <div className="filter-table-header-departure">
                       <p>Departure time</p>
                     </div>
-                    {this.props.search.dateTo ? (
+                    {this.props.search.travelType === "Return" ? (
                       <div className="filter-table-header-return">
                         <p>Return time</p>
                       </div>
@@ -174,45 +175,35 @@ export default class Results extends React.Component {
                       ''
                     )}
                   </div>
-                  {console.log(this.props.travelType)}
-                  <div className="filter-table-body">
-                    <div className="row">
-                      <div className="filter-table-body-city">
-                        <p>from Paris</p>
+             
+                  <div className="filter-table-body">                
+                    {this.props.search.cities.map((city, index) => {
+                      return (
+                        <div className="row" key={index}>
+                          <div className="filter-table-body-city">
+                            <p>{city.name}</p>
+                          </div>
+                          <div className="filter-table-body-departure">
+                            <Filter
+                            />
+                          </div>
+                          {this.props.search.travelType === "Return" ? (
+                            <div className="filter-table-body-return">
+                              <Filter />
+                            </div>
+                          ) : (
+                            ''
+                          )}
                       </div>
-                      <div className="filter-table-body-departure">
-                        <Filter />
-                      </div>
-                      {this.props.search.dateTo ? (
-                        <div className="filter-table-body-return">
-                          <Filter />
-                        </div>
-                      ) : (
-                        ''
-                      )}
-                    </div>
-                    <div className="row">
-                      <div className="filter-table-body-city">
-                        <p>from Bilbao</p>
-                      </div>
-                      <div className="filter-table-body-departure">
-                        <Filter />
-                      </div>
-                      {this.props.search.dateTo ? (
-                        <div className="filter-table-body-return">
-                          <Filter />
-                        </div>
-                      ) : (
-                        ''
-                      )}
-                    </div>
+                      )
+                    })}
                   </div>
                 </div>
               </div>
             ) : (
               ''
             )}
-            <div id="hello">
+            <div id="cards-results-wrapper">
               {this.props.search.isLoading ? (
                 <div className="cards-results">
                   <TripCardSkeleton />
