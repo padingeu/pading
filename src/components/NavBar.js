@@ -131,8 +131,6 @@ export default class NavBarHome extends React.Component {
               citiesFrom={this.state.citiesFrom}
               handleAddressChange={this.handleAddressChange}
               address={this.state.address}
-              dateFrom={this.props.searchData ? this.props.searchData.dateFrom : ''}
-              dateTo={this.props.searchData ? this.props.searchData.dateTo : ''}
             />
           </div>
           <div className="map">

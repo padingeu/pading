@@ -3,7 +3,6 @@ import DatesPicker from './DatesPicker';
 import LocationSearchInput from './LocationSearchInput';
 import SelectedCities from './SelectedCities';
 import './_FormSearch.scss';
-import CircularProgress from '@material-ui/core/CircularProgress';
 
 export default class FormSearch extends React.Component {
   state = {
@@ -22,14 +21,15 @@ export default class FormSearch extends React.Component {
       this.props.citiesFrom,
       this.state.dateFrom,
       this.state.dateTo,
-      this.state.stopTrip
+      this.state.stopTrip,
+      this.state.travelType
     );
     this.scrollDown();
   };
 
   scrollDown() {
     document.scrollingElement.scrollTo({
-      top: 750,
+      top: 800,
       behavior: 'smooth',
     });
   }
@@ -129,8 +129,7 @@ export default class FormSearch extends React.Component {
           onClick={() => this.search()}
         >
           {this.props.isLoading ? (
-            <div>
-              <CircularProgress />
+            <div className="loader">
             </div>
           ) : (
             <div>
