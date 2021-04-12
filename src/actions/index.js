@@ -29,7 +29,7 @@ const getTotalPrice = (trips, destination) => {
 };
 
 export const searchTrips = (cities, dateFrom, dateTo, stopTrip, travelType) => {
-  console.log(travelType)
+  console.log(travelType);
   const promises = [];
   return (dispatch) => {
     const formData = {
@@ -123,7 +123,23 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip, travelType) => {
         const destinationsWithPrice = [];
         let locationPromises = [];
         commonDestinations.forEach((destinationName) => {
-          // locationPromises.push(Geocode.fromAddress(destinationName));
+          //TODO get latlgt from aws
+          axios
+            .get(
+              `https://ah7knu3l38.execute-api.eu-west-1.amazonaws.com/prod/coordinates/${destinationName}`,
+              {
+                headers: {
+                  'Access-Control-Allow-Origin': 'http://localhost:3000',
+                },
+              }
+            )
+            .then((results) => {
+              console.log(results);
+            })
+            .catch((error) => {
+              console.log(error + destinationName);
+              // locationPromises.push(Geocode.fromAddress(destinationName));
+            });
         });
 
         Promise.all(locationPromises).then((responses) => {
@@ -135,13 +151,21 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip, travelType) => {
               lng: lng,
               prices: getTotalPrice(trips, commonDestinations[i]),
             });
+            // axios.post(
+            //   `https://t9csxfz28a.execute-api.eu-west-1.amazonaws.com/prod/coordinates/${commonDestinations[i]}`,
+            //   {
+            //     city: commonDestinations[i],
+            //     lat: lat,
+            //     lng: lng,
+            //   }
+            // );
           }
           const data = {
             commonDestinations,
             trips,
             travelers,
             destinationsWithPrice,
-            travelType
+            travelType,
           };
           dispatch({ type: 'SEARCH', data });
           dispatch({ type: 'SUCCESS' });
