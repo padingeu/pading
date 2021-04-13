@@ -126,19 +126,15 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip, travelType) => {
           //TODO get latlgt from aws
           axios
             .get(
-              `https://ah7knu3l38.execute-api.eu-west-1.amazonaws.com/prod/coordinates/${destinationName}`,
-              {
-                headers: {
-                  'Access-Control-Allow-Origin': 'http://localhost:3000',
-                },
-              }
+              `https://mocnu2fybd.execute-api.eu-west-1.amazonaws.com/prod/coordinates/${destinationName}`
             )
             .then((results) => {
-              console.log(results);
+              if (results.status === 204) {
+                locationPromises.push(Geocode.fromAddress(destinationName));
+              }
             })
             .catch((error) => {
               console.log(error + destinationName);
-              // locationPromises.push(Geocode.fromAddress(destinationName));
             });
         });
 
@@ -151,14 +147,22 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip, travelType) => {
               lng: lng,
               prices: getTotalPrice(trips, commonDestinations[i]),
             });
-            // axios.post(
-            //   `https://t9csxfz28a.execute-api.eu-west-1.amazonaws.com/prod/coordinates/${commonDestinations[i]}`,
-            //   {
-            //     city: commonDestinations[i],
-            //     lat: lat,
-            //     lng: lng,
-            //   }
-            // );
+            console.log('post to api');
+            axios
+              .post(
+                `https://mocnu2fybd.execute-api.eu-west-1.amazonaws.com/prod/coordinates/${commonDestinations[i]}`,
+                {
+                  city: commonDestinations[i],
+                  lat: lat,
+                  lng: lng,
+                }
+              )
+              .then((results) => {
+                console.log(results);
+              })
+              .catch((error) => {
+                console.log(error + commonDestinations[i]);
+              });
           }
           const data = {
             commonDestinations,
