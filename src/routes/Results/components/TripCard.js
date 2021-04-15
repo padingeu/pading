@@ -5,7 +5,7 @@ const TripCard = ({ destination, prices, travelers }) => {
   return (
     <div className="trip-card">
       <img
-        src="https://a.cdn-hotels.com/gdcs/production43/d534/1bd81a82-de7a-4cf5-a625-ca3cd27a3346.jpg"
+        src={require(`../../../img/cities/${destination.toLowerCase()}.jpg`)}
         alt="booking tickets and traveling to bilbao"
       />
 

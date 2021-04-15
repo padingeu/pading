@@ -5,6 +5,7 @@
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
   border-radius: 0.7rem;
   cursor: pointer;
+  transition: 0.3s;
   img {
     height: 20rem;
     width: 100%;
@@ -68,5 +69,8 @@
       color: white;
       margin-bottom: 0.5rem;
     }
+  }
+  &:hover {
+    transform: scale(1.01);
   }
 }
