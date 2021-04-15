@@ -2,13 +2,21 @@ import React from 'react';
 import './_TripCard.scss';
 
 const TripCard = ({ destination, prices, travelers }) => {
+
+  let image_path = '';
+
+  try {  
+    image_path = require(`../../../img/cities/${destination.toLowerCase()}.jpg`); 
+  } catch(err){  
+      image_path = require(`../../../img/cities/defaultcityimage.jpg`)
+  }
+
   return (
     <div className="trip-card">
       <img
-        src={require(`../../../img/cities/${destination.toLowerCase()}.jpg`)}
-        alt="booking tickets and traveling to bilbao"
+        src={image_path}
+        alt={destination}
       />
-
       <div className="trip-infos">
         <div className="trip-city-pricing">
           <div className="trip-city">
