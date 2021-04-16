@@ -28,6 +28,16 @@ const getTotalPrice = (trips, destination) => {
   };
 };
 
+const compare = (a, b) => {
+  if (a.prices.totalPrice < b.prices.totalPrice) {
+    return -1;
+  }
+  if (a.prices.totalPrice > b.prices.totalPrice) {
+    return 1;
+  }
+  return 0;
+};
+
 const getGeolocalisationPromisesFromAws = (commonDestinations, locationPromises) => {
   const geolocalisations = [];
   commonDestinations.forEach((destinationName) => {
@@ -178,6 +188,7 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip, travelType) => {
                   console.log(error + destinationName);
                 });
             }
+            destinationsWithPrice.sort(compare);
             const data = {
               commonDestinations,
               trips,

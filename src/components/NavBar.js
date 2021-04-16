@@ -123,6 +123,8 @@ export default class NavBarHome extends React.Component {
         <div className="form">
           <div className="formsearch">
             <FormSearch
+              dateFrom={this.props.searchData ? this.props.searchData.dateFrom : ''}
+              dateTo={this.props.searchData ? this.props.searchData.dateTo : ''}
               searchTrips={this.props.searchTrips}
               isLoading={this.props.isLoading}
               isHomePage={this.state.isHomePage}
@@ -134,7 +136,6 @@ export default class NavBarHome extends React.Component {
             />
           </div>
           <div className="map">
-            {console.log(this.props)}
             <Map
               citiesFrom={
                 this.props.searchData ? this.props.searchData.cities : this.state.citiesFrom

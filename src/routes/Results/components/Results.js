@@ -137,11 +137,6 @@ export default class Results extends React.Component {
   render() {
     return (
       <div>
-        {console.log('props')}
-        {console.log(this.props)}
-        {console.log(this.props.search.cities)}
-        {console.log('state')}
-        {console.log(this.state)}
         <NavBar
           isLoading={this.props.search.isLoading}
           searchTrips={this.props.searchTrips}
@@ -180,25 +175,26 @@ export default class Results extends React.Component {
                   </div>
 
                   <div className="filter-table-body">
-                    {this.props.search.cities.map((city, index) => {
-                      return (
-                        <div className="row" key={index}>
-                          <div className="filter-table-body-city">
-                            <p>{city.name}</p>
-                          </div>
-                          <div className="filter-table-body-departure">
-                            <Filter />
-                          </div>
-                          {this.props.search.travelType === 'Return' ? (
-                            <div className="filter-table-body-return">
+                    {this.props.search &&
+                      this.props.search.cities.map((city, index) => {
+                        return (
+                          <div className="row" key={index}>
+                            <div className="filter-table-body-city">
+                              <p>{city.name}</p>
+                            </div>
+                            <div className="filter-table-body-departure">
                               <Filter />
                             </div>
-                          ) : (
-                            ''
-                          )}
-                        </div>
-                      );
-                    })}
+                            {this.props.search.travelType === 'Return' ? (
+                              <div className="filter-table-body-return">
+                                <Filter />
+                              </div>
+                            ) : (
+                              ''
+                            )}
+                          </div>
+                        );
+                      })}
                   </div>
                 </div>
               </div>
