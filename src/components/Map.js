@@ -3,7 +3,6 @@ import ReactMapGL, { Marker } from 'react-map-gl';
 import Geocode from 'react-geocode';
 import './_Map.scss';
 import yellowMarker from '../img/yellow-marker.png';
-import greenMarkerDest from '../img/green-marker-dest.png';
 
 const API_KEY = process.env.REACT_APP_GOOGLE_MAPS_KEY;
 
@@ -26,7 +25,7 @@ export default class Map extends React.Component {
   };
 
   render() {
-    return (
+    return ( 
       <ReactMapGL
         {...this.state.viewport}
         mapboxApiAccessToken="pk.eyJ1IjoibG91aXMxNDA0IiwiYSI6ImNrNm0zOGFkMDBqdG8zZXA3NGR5ejhzYnQifQ.Yt9WzWg8hdm6b9h5k5sxHw"
@@ -35,18 +34,15 @@ export default class Map extends React.Component {
         width="dummyValue"
       >
         {this.props.citiesFrom.map((city) => (
-          <Marker key={city.name} latitude={parseFloat(city.lat)} longitude={parseFloat(city.lng)}>
-            <button className="marker-departure-city">
+          <Marker className="marker-departure-city" key={city.name} latitude={parseFloat(city.lat)} longitude={parseFloat(city.lng)}>
               <img src={yellowMarker} alt="Departure city" />
-            </button>
           </Marker>
         ))}
         {this.props.citiesTo.map((city) => (
-          <Marker key={city.name} latitude={parseFloat(city.lat)} longitude={parseFloat(city.lng)}>
-            <button className="marker-destination">
-              <img src={greenMarkerDest} alt="Destination city" />
-              <p>{city.prices.totalPrice} €</p>
+          <Marker className="marker-destination" key={city.name} latitude={parseFloat(city.lat)} longitude={parseFloat(city.lng)}>
+            <button className="marker-destination-btn">
             </button>
+            <p className="destination-price">{city.prices.totalPrice}€</p>
           </Marker>
         ))}
       </ReactMapGL>

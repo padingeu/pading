@@ -11,40 +11,45 @@
   img {
     position: absolute;
     z-index: 0;
-    top: -4.5rem;
-    left: -3.5rem;
-    width: 5rem;
+    top: -1.8rem;
+    left: -1rem;
+    width: 2rem;
+    background-color: transparent;
   }
 }
 
 .marker-destination {
   position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: solid orange;
-  background-color: transparent;
-  border: none;
-  outline: none;
-  img {
+  .marker-destination-btn {
     position: absolute;
-    z-index: 0;
-    top: -4rem;
-    left: -3.5rem;
-    width: 5rem;
+    top: -0.5rem;
+    left: -0.5rem;
+    background-color: #3e936f;
+    border: none;
+    outline: none;
+    width: 1.2rem;
+    height: 1.2rem;
+    border-radius: 1rem;
+    margin: none;
+    box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.4);
   }
-  p {
-    position: absolute;
-    top: -2.5rem;
-    left: -3.5rem;
-    z-index: 1;
-    width: 5rem;
-    text-align: center;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: white;
+  &:hover {
+    .destination-price {
+      position: absolute;
+      top: -2rem;
+      right: -1.4rem;
+      font-family: 'Roboto', sans-serif;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #262626;
+      display: block;
+    }
+  }
+  .destination-price {
+    display: none;
   }
 }
+
 
 .mapboxgl-ctrl-logo {
   display: none !important;
