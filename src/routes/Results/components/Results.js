@@ -17,7 +17,7 @@ export default class Results extends React.Component {
   };
 
   displayFilter = () => {
-      this.setState({ showFilter: !this.state.showFilter });
+    this.setState({ showFilter: !this.state.showFilter });
   };
 
   getPriceForDestination = (trips, destination, city) => {
@@ -137,9 +137,15 @@ export default class Results extends React.Component {
   render() {
     return (
       <div>
+        {console.log('props')}
+        {console.log(this.props)}
+        {console.log(this.props.search.cities)}
+        {console.log('state')}
+        {console.log(this.state)}
         <NavBar
           isLoading={this.props.search.isLoading}
           searchTrips={this.props.searchTrips}
+          searchData={this.props.search}
         />
         <div className="travel-results">
           <div className="travel-results-cards">
@@ -151,10 +157,7 @@ export default class Results extends React.Component {
                   </div>
                 )}
               </div>
-              <button
-                className="btn-filter"
-                onClick={this.displayFilter}
-              >
+              <button className="btn-filter" onClick={this.displayFilter}>
                 Filter
               </button>
               <i className="fas fa-sort-amount-down-alt fa-lg"></i>
@@ -167,7 +170,7 @@ export default class Results extends React.Component {
                     <div className="filter-table-header-departure">
                       <p>Departure time</p>
                     </div>
-                    {this.props.search.travelType === "Return" ? (
+                    {this.props.search.travelType === 'Return' ? (
                       <div className="filter-table-header-return">
                         <p>Return time</p>
                       </div>
@@ -175,8 +178,8 @@ export default class Results extends React.Component {
                       ''
                     )}
                   </div>
-             
-                  <div className="filter-table-body">                
+
+                  <div className="filter-table-body">
                     {this.props.search.cities.map((city, index) => {
                       return (
                         <div className="row" key={index}>
@@ -184,18 +187,17 @@ export default class Results extends React.Component {
                             <p>{city.name}</p>
                           </div>
                           <div className="filter-table-body-departure">
-                            <Filter
-                            />
+                            <Filter />
                           </div>
-                          {this.props.search.travelType === "Return" ? (
+                          {this.props.search.travelType === 'Return' ? (
                             <div className="filter-table-body-return">
                               <Filter />
                             </div>
                           ) : (
                             ''
                           )}
-                      </div>
-                      )
+                        </div>
+                      );
                     })}
                   </div>
                 </div>

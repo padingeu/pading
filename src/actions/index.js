@@ -42,7 +42,6 @@ const getGeolocalisationPromisesFromAws = (commonDestinations, locationPromises)
 };
 
 export const searchTrips = (cities, dateFrom, dateTo, stopTrip, travelType) => {
-  console.log(travelType);
   const promises = [];
   return (dispatch) => {
     const formData = {
@@ -141,11 +140,9 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip, travelType) => {
         const awsPromises = getGeolocalisationPromisesFromAws(commonDestinations);
         const destinationsWithPrice = [];
         Promise.all(awsPromises).then((responses) => {
-          console.log('start with aws request');
           for (let i = 0; i < responses.length; i++) {
             //TODO if 200
             if (responses[i].status === 200) {
-              console.log(responses[i]);
               destinationsWithPrice.push({
                 name: commonDestinations[i],
                 lat: responses[i].data.latitude,

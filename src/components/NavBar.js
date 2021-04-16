@@ -134,6 +134,7 @@ export default class NavBarHome extends React.Component {
             />
           </div>
           <div className="map">
+            {console.log(this.props)}
             <Map
               citiesFrom={
                 this.props.searchData ? this.props.searchData.cities : this.state.citiesFrom

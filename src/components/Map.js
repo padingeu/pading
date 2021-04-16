@@ -26,6 +26,9 @@ export default class Map extends React.Component {
   };
 
   render() {
+    {
+      console.log(this.props);
+    }
     return (
       <ReactMapGL
         {...this.state.viewport}
@@ -41,8 +44,9 @@ export default class Map extends React.Component {
             </button>
           </Marker>
         ))}
+        {console.log(this.props.citiesTo)}
         {this.props.citiesTo.map((city) => (
-          <Marker key={city.name} latitude={city.lat} longitude={city.lng}>
+          <Marker key={city.name} latitude={parseFloat(city.lat)} longitude={parseFloat(city.lng)}>
             <button className="marker-destination">
               <img src={greenMarkerDest} alt="Destination city" />
               <p>{city.prices.totalPrice} €</p>
