@@ -35,6 +35,7 @@
     display: none;
   }
   &:hover {
+    z-index: 1;
     .marker-destination-btn {
       background-color: #48ad83;
     }
