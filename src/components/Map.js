@@ -15,7 +15,6 @@ export default class Map extends React.Component {
       width: '100%',
       latitude: 48.856614,
       longitude: 4.352222,
-      maxZoom: 3,
       minZoom: 3,
       interactive: true,
 
@@ -42,7 +41,7 @@ export default class Map extends React.Component {
           <Marker className="marker-destination" key={city.name} latitude={parseFloat(city.lat)} longitude={parseFloat(city.lng)}>
             <button className="marker-destination-btn">
             </button>
-            <p className="destination-price">{city.prices.totalPrice}€</p>
+            <button className="destination-price">{city.name}  {city.prices.totalPrice}€</button>
           </Marker>
         ))}
       </ReactMapGL>
