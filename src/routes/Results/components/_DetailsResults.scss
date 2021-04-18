@@ -20,7 +20,6 @@
           align-items: center;
           background-color: #f4f6f8;
           width: 100%;
-
           .details-results-travel-way-city {
             width: 80%;
             text-align: left;
@@ -31,8 +30,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            width: 100%;
-
+            width: 57rem;
             .details-results-travel-way-content-section {
               display: grid;
               grid-template-columns: repeat(5, 1fr);
@@ -121,7 +119,7 @@
                 grid-column: 1/2;
                 grid-row: 3;
                 height: 2rem;
-                background-color: #e8f4fd;
+                background-color: #eefafc;
               }
               .traveler-div-2 {
                 position: relative;
@@ -132,7 +130,7 @@
                 align-items: center;
                 padding: 0.5rem 0 0.5rem 2.2rem;
                 height: 2rem;
-                background-color: #e8f4fd;
+                background-color: #eefafc;
                 .number-travelers {
                   position: absolute;
                   left: 0.6rem;
@@ -211,7 +209,7 @@
                   .travel-time {
                     border-radius: 5rem;
                     padding: 0.2rem 1rem;
-                    background-color: #e8f4fd;
+                    background-color: #eefafc;
                     h5 {
                       font-size: 1.2rem;
                       line-height: 0rem;
@@ -475,7 +473,7 @@
                 grid-column: 1/2;
                 grid-row: 3;
                 height: 2rem;
-                background-color: #e8f4fd;
+                background-color: #eefafc;
               }
               .traveler-div-2 {
                 position: relative;
@@ -486,7 +484,7 @@
                 align-items: center;
                 padding: 0.5rem 0 0.5rem 2.2rem;
                 height: 2rem;
-                background-color: #e8f4fd;
+                background-color: #eefafc;
                 .number-travelers {
                   position: absolute;
                   left: 0.6rem;
@@ -565,7 +563,7 @@
                   .travel-time {
                     border-radius: 5rem;
                     padding: 0.2rem 1rem;
-                    background-color: #e8f4fd;
+                    background-color: #eefafc;
                     h5 {
                       font-size: 1.2rem;
                       line-height: 0rem;
@@ -895,7 +893,7 @@
                 grid-column: 1/2;
                 grid-row: 3;
                 height: 2rem;
-                background-color: #e8f4fd;
+                background-color: #eefafc;
               }
               .traveler-div-2 {
                 position: relative;
@@ -906,7 +904,7 @@
                 align-items: center;
                 padding: 0.5rem 0 0.5rem 2.2rem;
                 height: 2rem;
-                background-color: #e8f4fd;
+                background-color: #eefafc;
                 .number-travelers {
                   position: absolute;
                   left: 0.6rem;
@@ -985,7 +983,7 @@
                   .travel-time {
                     border-radius: 5rem;
                     padding: 0.2rem 1rem;
-                    background-color: #e8f4fd;
+                    background-color: #eefafc;
                     h5 {
                       font-size: 1.2rem;
                       line-height: 0rem;
@@ -1250,7 +1248,7 @@
               grid-column: 1/2;
               grid-row: 3;
               height: 2rem;
-              background-color: #e8f4fd;
+              background-color: #eefafc;
             }
             .traveler-div-2 {
               position: relative;
@@ -1261,7 +1259,7 @@
               align-items: center;
               padding: 0.5rem 0 0.5rem 2.2rem;
               height: 2rem;
-              background-color: #e8f4fd;
+              background-color: #eefafc;
               .number-travelers {
                 position: absolute;
                 left: 0.6rem;
@@ -1340,7 +1338,7 @@
                 .travel-time {
                   border-radius: 5rem;
                   padding: 0.2rem 1rem;
-                  background-color: #e8f4fd;
+                  background-color: #eefafc;
                   h5 {
                     font-size: 1.2rem;
                     line-height: 0rem;
@@ -1586,7 +1584,7 @@
           color: #3e936f;
         }
         :hover {
-          color: rgba(62, 147, 111, 0.9);
+          color: #48ad83;
         }
       }
       .clipboard-btn {
@@ -1621,7 +1619,7 @@
         background: #3e936f;
         color: white;
         &:hover {
-          background-color: rgba(62, 147, 111, 0.9);
+          background-color: #48ad83;
         }
       }
     }
