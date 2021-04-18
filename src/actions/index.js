@@ -106,6 +106,10 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip, travelType) => {
                 local_arrival: trip.local_arrival,
 
                 route: trip.route,
+                stopover: trip.transfers.lenght === 0,
+                nightsInDest: trip.nightsInDest,
+                duration: trip.duration,
+                travelers: trip.availability.seats,
               };
             });
             trips[city] = trips_by_city;

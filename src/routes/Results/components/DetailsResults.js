@@ -7,12 +7,17 @@ export default function DetailsResults(props) {
   const [showDetailsWay, setDetailsWay] = useState(false);
   const [showDetailsReturn, setDetailsReturn] = useState(false);
 
+  const departureDate = moment(props.trip.local_departure).format('MMM Do YY');
+  console.log(departureDate);
+
   return (
     <div>
       <div className="details-results-travel">
         <div className="details-results-travel-way">
           <div className="details-results-travel-way-city">
             <h4>To {props.destination}</h4>
+            {console.log(props.trip)}
+            {props.stopover ? <span>Escale</span> : <span>Pas d escale</span>}
           </div>
 
           <div className="details-results-travel-way-content">
@@ -46,6 +51,7 @@ export default function DetailsResults(props) {
                   alt="TODO"
                 ></img>
               </div>
+
               <div className="carrier-div-2">
                 <div className="line-top"></div>
                 <div className="line-bottom"></div>
@@ -55,7 +61,13 @@ export default function DetailsResults(props) {
                     <h5>Ryanair</h5>
                   </div>
                   <div className="travel-time">
-                    <h5>2h</h5>
+                    <h5>
+                      {moment
+                        .utc(
+                          moment.duration(props.trip.duration.departure, 'seconds').asMilliseconds()
+                        )
+                        .format('H mm')}
+                    </h5>
                   </div>
                   <div className="show-more-details" onClick={() => setDetailsWay(!showDetailsWay)}>
                     <i class="fas fa-angle-up fa-lg"></i>
@@ -95,6 +107,7 @@ export default function DetailsResults(props) {
                   </div>
                 ) : null}
               </div>
+
               <div className="arrival-div-1">
                 <h5>{moment(props.trip.local_arrival).format('HH:mm a')}</h5>
               </div>

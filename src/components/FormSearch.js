@@ -3,6 +3,7 @@ import DatesPicker from './DatesPicker';
 import LocationSearchInput from './LocationSearchInput';
 import SelectedCities from './SelectedCities';
 import './_FormSearch.scss';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 export default class FormSearch extends React.Component {
   state = {
@@ -128,8 +129,10 @@ export default class FormSearch extends React.Component {
           type="submit"
           onClick={() => this.search()}
         >
+          {this.props.dis}
           {this.props.isLoading ? (
-            <div className="loader">
+            <div>
+              <CircularProgress />
             </div>
           ) : (
             <div>

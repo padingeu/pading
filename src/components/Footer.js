@@ -38,12 +38,15 @@ export default class Footer extends React.Component {
             <div className="footer-menu-app-contact">
               <div className="footer-menu-app">
                 <h4>Pading</h4>
+                <button className="btn-product" onClick={this.props.scrollToTop} href="">
+                  <p>Product</p>
+                </button>
                 <Popup
                   modal
                   trigger={
-                    <a href="/">
+                    <button>
                       <p>FAQ</p>
-                    </a>
+                    </button>
                   }
                 >
                   <Faq />

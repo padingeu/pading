@@ -24,7 +24,7 @@ export default class Map extends React.Component {
   };
 
   render() {
-    return ( 
+    return (
       <ReactMapGL
         {...this.state.viewport}
         mapboxApiAccessToken="pk.eyJ1IjoibG91aXMxNDA0IiwiYSI6ImNrNm0zOGFkMDBqdG8zZXA3NGR5ejhzYnQifQ.Yt9WzWg8hdm6b9h5k5sxHw"
@@ -33,15 +33,26 @@ export default class Map extends React.Component {
         width="dummyValue"
       >
         {this.props.citiesFrom.map((city) => (
-          <Marker className="marker-departure-city" key={city.name} latitude={parseFloat(city.lat)} longitude={parseFloat(city.lng)}>
-              <img src={yellowMarker} alt="Departure city" />
+          <Marker
+            className="marker-departure-city"
+            key={city.name}
+            latitude={parseFloat(city.lat)}
+            longitude={parseFloat(city.lng)}
+          >
+            <img src={yellowMarker} alt="Departure city" />
           </Marker>
         ))}
         {this.props.citiesTo.map((city) => (
-          <Marker className="marker-destination" key={city.name} latitude={parseFloat(city.lat)} longitude={parseFloat(city.lng)}>
-            <button className="marker-destination-btn">
+          <Marker
+            className="marker-destination"
+            key={city.name}
+            latitude={parseFloat(city.lat)}
+            longitude={parseFloat(city.lng)}
+          >
+            <button className="marker-destination-btn"></button>
+            <button className="destination-price">
+              {city.name} {city.prices.totalPrice}€
             </button>
-            <button className="destination-price">{city.name}  {city.prices.totalPrice}€</button>
           </Marker>
         ))}
       </ReactMapGL>
