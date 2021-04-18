@@ -2,12 +2,12 @@
   position: relative;
   overflow: hidden;
   background: white;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  border-radius: 0.5rem;
-  transition: all 0.2s ease-in;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+  border-radius: 0.7rem;
   cursor: pointer;
+  transition: 0.3s;
   img {
-    height: 14rem;
+    height: 20rem;
     width: 100%;
     object-fit: cover;
   }
@@ -16,7 +16,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-end;
-    padding: 0.5rem 0.5rem 0 0.5rem;
+    padding: 0.5rem 1.5rem 0 1.5rem;
     .trip-city-pricing {
       display: flex;
       justify-content: space-between;
@@ -31,10 +31,28 @@
     }
     .trip-carbonfootprint {
       p {
-        line-height: 0.5rem;
         font-size: 1.2rem;
         color: #262626;
         font-weight: bold;
+      }
+      .focus-text {
+        position: relative;
+        z-index: 0;
+        color: #262626;
+        display: inline-block;
+        .underline {
+          position: absolute;
+          z-index: -1;
+          left: 0;
+          right: 0;
+          bottom: 0.2rem;
+          height: 0;
+          border: 0.3rem solid #f6b040;
+          border-radius: 0.2rem;
+        }
+        i {
+          color: #29b3c1;
+        }
       }
     }
   }
@@ -51,5 +69,8 @@
       color: white;
       margin-bottom: 0.5rem;
     }
+  }
+  &:hover {
+    transform: scale(1.01);
   }
 }

@@ -1,5 +1,10 @@
 const initialState = {
-  commonDestinations: []
+  commonDestinations: [],
+  trips: {},
+  travelers: {},
+  destinationsWithPrice: [],
+  travelType: '',
+  cities: [],
 };
 
 const search = (state = initialState, action) => {

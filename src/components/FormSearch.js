@@ -12,7 +12,7 @@ export default class FormSearch extends React.Component {
     showDateFrom: false,
     showDateTo: false,
     travelType: 'Return',
-    stopTrip: 'All',
+    stopTrip: 'All routes',
     plane: true,
     shouldSearch: false,
   };
@@ -22,9 +22,18 @@ export default class FormSearch extends React.Component {
       this.props.citiesFrom,
       this.state.dateFrom,
       this.state.dateTo,
-      this.state.stopTrip
+      this.state.stopTrip,
+      this.state.travelType
     );
+    this.scrollDown();
   };
+
+  scrollDown() {
+    document.scrollingElement.scrollTo({
+      top: 800,
+      behavior: 'smooth',
+    });
+  }
 
   onInputDateChange = (date) => {
     this.setState({ showDateFrom: true });
@@ -46,12 +55,12 @@ export default class FormSearch extends React.Component {
 
   switchToIndirect = (event) => {
     event.preventDefault();
-    this.setState({ stopTrip: 'All' });
+    this.setState({ stopTrip: 'All routes' });
   };
 
   switchToDirect = (event) => {
     event.preventDefault();
-    this.setState({ stopTrip: 'Direct' });
+    this.setState({ stopTrip: 'Only direct' });
   };
 
   addTraveler = (event, city) => {

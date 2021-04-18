@@ -39,7 +39,12 @@ class LocationSearchInput extends React.Component {
                   />
                   <div className="arrow-and-label">
                     <i className="fas fa-location-arrow fa-xl"></i>
-                    <span className="label">We travel from ...</span>
+
+                    {this.props.cities.length === 0 ? (
+                      <span className="label">Enter a first departure city</span>
+                    ) : (
+                      <span className="label">Enter more departure cities</span>
+                    )}
                   </div>
                   <span className="focus-bg"></span>
                   <div>{loading ? <div>...Loading</div> : null}</div>

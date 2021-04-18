@@ -2,13 +2,21 @@ import React from 'react';
 import './_TripCard.scss';
 
 const TripCard = ({ destination, prices, travelers }) => {
+
+  let image_path = '';
+
+  try {  
+    image_path = require(`../../../img/cities/${destination.toLowerCase()}.jpg`); 
+  } catch(err){  
+      image_path = require(`../../../img/cities/defaultcityimage.jpg`)
+  }
+
   return (
     <div className="trip-card">
       <img
-        src="https://a.cdn-hotels.com/gdcs/production43/d534/1bd81a82-de7a-4cf5-a625-ca3cd27a3346.jpg"
-        alt="booking tickets and traveling to bilbao"
+        src={image_path}
+        alt={destination}
       />
-
       <div className="trip-infos">
         <div className="trip-city-pricing">
           <div className="trip-city">
@@ -20,7 +28,10 @@ const TripCard = ({ destination, prices, travelers }) => {
         </div>
         <div className="trip-carbonfootprint">
           <p>
-            <i className="fas fa-cloud"></i> 1.399 t
+            C02{' '}
+            <b className="focus-text">
+              <span className="underline"></span>1.399 t
+            </b>
           </p>
         </div>
         <div className="citytrips">

@@ -1,5 +1,13 @@
+.popup-content {
+  border-radius: 2rem;
+  max-height: 80vh;
+  overflow-y: scroll;
+}
+
 .MuiButtonBase-root {
-  &:hover {
+  background-color: white;
+
+  >>>>>>>master &:hover {
     background-color: transparent;
   }
 }
@@ -24,16 +32,16 @@
 }
 
 .MuiTabs-indicator {
-  background-color: #f49d11 !important;
-  height: 0.4rem !important;
+  background-color: white !important;
+  height: 0.3rem !important;
 }
 
 .MuiAppBar-root {
   border-radius: 0.5rem 0.5rem 0 0;
-  background-color: #29b3c1;
+  background-color: #3e936f;
   .MuiTabs-root {
-    background-color: #29b3c1;
-    border-radius: 0.5rem 0.5rem 0 0;
+    background-color: #3e936f;
+    border-radius: 1rem 1rem 0 0;
   }
 }
 .MuiBox-root {

@@ -46,16 +46,15 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
     width: '100%',
-    borderRadius: '0.5rem',
-    backgroundColor: theme.palette.background.paper,
+    borderRadius: '1rem',
+    backgroundColor: 'theme.palette.background.paper',
   },
 }));
 
 export default function DetailsResultsPopup(props) {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
-
-  const handleChange = (newValue) => {
+  const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
@@ -72,20 +71,13 @@ export default function DetailsResultsPopup(props) {
           aria-label="scrollable auto tabs example"
         >
           {Object.keys(props.trips).map((city) => {
-            return <Tab key={city} label={city} {...a11yProps(city)} />;
+            return <Tab key={city} label={'from ' + city} {...a11yProps(city)} />;
           })}
-
-          {/* <Tab label="Item Two" {...a11yProps(1)} />
-          <Tab label="Item Three" {...a11yProps(2)} />
-          <Tab label="Item Four" {...a11yProps(3)} />
-          <Tab label="Item Five" {...a11yProps(4)} />
-          <Tab label="Item Six" {...a11yProps(5)} />
-          <Tab label="Item Seven" {...a11yProps(6)} /> */}
         </Tabs>
       </AppBar>
-      {Object.keys(props.trips).map((city) => {
+      {Object.keys(props.trips).map((city, index) => {
         return (
-          <TabPanel className="details-results" value={city} index={city} key={city}>
+          <TabPanel className="details-results" value={value} index={index}>
             <DetailsResults
               key={city}
               destination={props.destination}

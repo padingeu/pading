@@ -4,12 +4,13 @@
 //$body-font:: 'Roboto', 'sans-serif';
 
 $yellow: #f49d11;
-$yellow-light: #f6b040;
+$yellow-light: #f5a729;
 $blue: #29b3c1;
-$blue-light: #53c2cd;
+$blue-light: #35c4d4;
 $green: #3e936f;
+$green-light: #48ad83;
 $gray: #262626;
-$light-gray: #5f5f5f;
+$light-gray: #c2c8cd;
 
 h1 {
   font-family: 'Roboto', sans-serif;
@@ -49,4 +50,14 @@ p {
   color: $gray;
   font-weight: regular 400;
   font-size: 1.6rem;
+}
+
+button {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-weight: bold;
 }

@@ -1,10 +1,9 @@
 import React from 'react';
-import Map from '../../../components/Map';
 import NavBar from '../../../components/NavBar';
-import FormSearch from '../../../components/FormSearch';
 import './_Results.scss';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import TripCard from './TripCard';
+import Filter from './Filter';
 import TripCardSkeleton from './TripCardSkeleton';
 import Popup from 'reactjs-popup';
 import DetailsResultsPopup from './DetailsResultsPopup';
@@ -12,30 +11,13 @@ import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 
 export default class Results extends React.Component {
   state = {
-    windowWidth: window.innerWidth,
-    windowHeight: window.innerHeight,
-    showMobileFormSearch: false,
-    showMobileResults: true,
-    activeMapView: false,
     citiesFrom: this.props.search.cities,
     address: '',
+    showFilter: false,
   };
 
-  componentDidMount() {
-    window.addEventListener('resize', this._handleWindowResize);
-    if (!this.props.search.isLoading && !this.props.search.success) {
-    }
-  }
-
-  _handleWindowResize = () => {
-    this.setState({ windowWidth: window.innerWidth });
-    this.setState({ windowHeight: window.innerHeight });
-  };
-
-  displayMobileFormSearch = (event) => {
-    event.preventDefault();
-    this.setState({ showMobileFormSearch: !this.state.showMobileFormSearch });
-    this.setState({ showMobileResults: !this.state.showMobileResults });
+  displayFilter = () => {
+    this.setState({ showFilter: !this.state.showFilter });
   };
 
   getPriceForDestination = (trips, destination, city) => {
@@ -152,207 +134,121 @@ export default class Results extends React.Component {
     this.setState({ citiesFrom });
   };
 
-  switchViewType = (event) => {
-    event.preventDefault();
-    this.setState({ activeMapView: !this.state.activeMapView });
-  };
-
   render() {
     return (
       <div>
-        <NavBar />
-
-        <div>
-          {window.innerWidth < 1200 ? (
-            <div className="travel-results">
-              {this.state.showMobileFormSearch ? (
-                <div className="formsearch-mobile">
-                  <i
-                    className="fas fa-times-circle close-formsearch fa-3x"
-                    onClick={this.displayMobileFormSearch}
-                  />
-                  <FormSearch
-                    searchTrips={this.props.searchTrips}
-                    isLoading={this.props.search.isLoading}
-                    dateFrom={this.props.search.dateFrom}
-                    dateTo={this.props.search.dateTo}
-                    citiesFrom={this.props.search.cities}
-                    addCity={this.addCity}
-                    removeCity={this.removeCity}
-                    handleAddressChange={this.handleAddressChange}
-                    address={this.state.address}
-                  />
-                </div>
-              ) : (
-                <div className="cards-map-results">
-                  <div className="linear-progress-edit-view">
-                    <div className="linear-progress-div">
-                      {this.props.search.isLoading && (
-                        <div className="linear-progress">
-                          <LinearProgress />
-                        </div>
-                      )}
-                    </div>
-                    <div className="edit-div">
-                      <button className="btn-edit-search" onClick={this.displayMobileFormSearch}>
-                        Edit
-                      </button>
-                      <button className="btn-edit-view" onClick={this.switchViewType}>
-                        {this.state.activeMapView ? 'cities' : 'map'}
-                      </button>
-                      <button className="btn-edit-filter">Filter</button>
-                    </div>
-                  </div>
-
-                  {this.state.activeMapView ? (
-                    <div className="map">
-                      <Map
-                        citiesFrom={this.props.search.cities}
-                        citiesTo={this.getDestinationsWithPrices(
-                          this.props.search.trips,
-                          this.props.search.commonDestinations
-                        )}
-                      />
-                    </div>
-                  ) : (
-                    <div>
-                      {this.props.search.isLoading ? (
-                        <div className="cards-results">
-                          <TripCardSkeleton />
-                          <TripCardSkeleton />
-                          <TripCardSkeleton />
-                          <TripCardSkeleton />
-                          <TripCardSkeleton />
-                          <TripCardSkeleton />
-                          <TripCardSkeleton />
-                          <TripCardSkeleton />
-                          <TripCardSkeleton />
-                          <TripCardSkeleton />
-                          <TripCardSkeleton />
-                          <TripCardSkeleton />
-                        </div>
-                      ) : (
-                        <div className="cards-results">
-                          {this.props.search.commonDestinations.map((destination, index) => {
-                            return (
-                              <div key={index}>
-                                <TripCard
-                                  destination={destination}
-                                  prices={this.getTotalPrice(this.props.search.trips, destination)}
-                                  travelers={this.props.search.travelers}
-                                  key={index}
-                                />
-                              </div>
-                            );
-                          })}
-                        </div>
-                      )}
-                    </div>
-                  )}
-                </div>
-              )}
-            </div>
-          ) : (
-            <div className="travel-results">
-              <div className="formsearch">
-                <FormSearch
-                  searchTrips={this.props.searchTrips}
-                  isLoading={this.props.search.isLoading}
-                  dateFrom={this.props.search.dateFrom}
-                  dateTo={this.props.search.dateTo}
-                  citiesFrom={this.state.citiesFrom}
-                  addCity={this.addCity}
-                  removeCity={this.removeCity}
-                  handleAddressChange={this.handleAddressChange}
-                  address={this.state.address}
-                />
-              </div>
-
-              <div className="cards-map-results">
-                <div className="linear-progress-edit-view">
-                  <div className="linear-progress-div">
-                    {this.props.search.isLoading && (
-                      <div className="linear-progress">
-                        <LinearProgress />
-                      </div>
-                    )}
-                  </div>
-                  <div className="edit-div">
-                    <button className="btn-edit-search" onClick={this.displayMobileFormSearch}>
-                      Edit
-                    </button>
-                    <button className="btn-edit-view" onClick={this.switchViewType}>
-                      {this.state.activeMapView ? 'cities' : 'map'}
-                    </button>
-                    <button className="btn-edit-filter">Filter</button>
-                  </div>
-                </div>
-
-                {this.state.activeMapView ? (
-                  <div className="map">
-                    <Map
-                      citiesFrom={this.props.search.cities}
-                      citiesTo={this.getDestinationsWithPrices(
-                        this.props.search.trips,
-                        this.props.search.commonDestinations
-                      )}
-                    />
-                  </div>
-                ) : (
-                  <div>
-                    {this.props.search.isLoading ? (
-                      <div className="cards-results">
-                        <TripCardSkeleton />
-                        <TripCardSkeleton />
-                        <TripCardSkeleton />
-                        <TripCardSkeleton />
-                        <TripCardSkeleton />
-                        <TripCardSkeleton />
-                        <TripCardSkeleton />
-                        <TripCardSkeleton />
-                        <TripCardSkeleton />
-                        <TripCardSkeleton />
-                        <TripCardSkeleton />
-                        <TripCardSkeleton />
-                      </div>
-                    ) : (
-                      <div className="cards-results">
-                        {this.props.search.commonDestinations.map((destination, index) => {
-                          return (
-                            <div className={index} key={index}>
-                              <Popup
-                                modal
-                                trigger={
-                                  <div>
-                                    <TripCard
-                                      destination={destination}
-                                      prices={this.getTotalPrice(
-                                        this.props.search.trips,
-                                        destination
-                                      )}
-                                      travelers={this.props.search.travelers}
-                                      key={index}
-                                    />
-                                  </div>
-                                }
-                                key={index}
-                              >
-                                <DetailsResultsPopup
-                                  destination={destination}
-                                  trips={this.props.search.trips}
-                                  key={index}
-                                />
-                              </Popup>
-                            </div>
-                          );
-                        })}
-                      </div>
-                    )}
+        <NavBar
+          isLoading={this.props.search.isLoading}
+          searchTrips={this.props.searchTrips}
+          searchData={this.props.search}
+        />
+        <div className="travel-results">
+          <div className="travel-results-cards">
+            <div className="linear-progress-filter">
+              <div className="linear-progress-div">
+                {this.props.search.isLoading && (
+                  <div className="linear-progress">
+                    <LinearProgress />
                   </div>
                 )}
               </div>
+              <button className="btn-filter" onClick={this.displayFilter}>
+                Filter
+              </button>
+              <i className="fas fa-sort-amount-down-alt fa-lg"></i>
             </div>
-          )}
+            {this.state.showFilter ? (
+              <div className="filter-div">
+                <div className="filter-table">
+                  <div className="filter-table-header">
+                    <div className="filter-table-header-city"></div>
+                    <div className="filter-table-header-departure">
+                      <p>Departure time</p>
+                    </div>
+                    {this.props.search.travelType === 'Return' ? (
+                      <div className="filter-table-header-return">
+                        <p>Return time</p>
+                      </div>
+                    ) : (
+                      ''
+                    )}
+                  </div>
+
+                  <div className="filter-table-body">
+                    {this.props.search &&
+                      this.props.search.cities.map((city, index) => {
+                        return (
+                          <div className="row" key={index}>
+                            <div className="filter-table-body-city">
+                              <p>{city.name}</p>
+                            </div>
+                            <div className="filter-table-body-departure">
+                              <Filter />
+                            </div>
+                            {this.props.search.travelType === 'Return' ? (
+                              <div className="filter-table-body-return">
+                                <Filter />
+                              </div>
+                            ) : (
+                              ''
+                            )}
+                          </div>
+                        );
+                      })}
+                  </div>
+                </div>
+              </div>
+            ) : (
+              ''
+            )}
+            <div id="cards-results-wrapper">
+              {this.props.search.isLoading ? (
+                <div className="cards-results">
+                  <TripCardSkeleton />
+                  <TripCardSkeleton />
+                  <TripCardSkeleton />
+                  <TripCardSkeleton />
+                  <TripCardSkeleton />
+                  <TripCardSkeleton />
+                  <TripCardSkeleton />
+                  <TripCardSkeleton />
+                  <TripCardSkeleton />
+                  <TripCardSkeleton />
+                  <TripCardSkeleton />
+                  <TripCardSkeleton />
+                </div>
+              ) : (
+                <div className="cards-results">
+                  {this.props.search.commonDestinations.map((destination, index) => {
+                    return (
+                      <div className={index} key={index}>
+                        <Popup
+                          modal
+                          trigger={
+                            <div>
+                              <TripCard
+                                destination={destination}
+                                prices={this.getTotalPrice(this.props.search.trips, destination)}
+                                travelers={this.props.search.travelers}
+                                key={index}
+                              />
+                            </div>
+                          }
+                          key={index}
+                        >
+                          <DetailsResultsPopup
+                            destination={destination}
+                            trips={this.props.search.trips}
+                            key={index}
+                          />
+                        </Popup>
+                      </div>
+                    );
+                  })}
+                </div>
+              )}
+            </div>
+          </div>
         </div>
       </div>
     );
