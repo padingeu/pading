@@ -51,6 +51,31 @@ const getGeolocalisationPromisesFromAws = (commonDestinations, locationPromises)
   return geolocalisations;
 };
 
+const getDepartureRoutes = (routes, cityTo) => {
+  const departureRoutes = [];
+  for (let i = 0; i < routes.length; i++) {
+    if (routes[i].cityFrom === cityTo) {
+      break;
+    }
+    departureRoutes.push(routes[i]);
+  }
+  return departureRoutes;
+};
+
+const routes = [];
+routes.push({});
+
+const getArrivalRoutes = (routes, cityTo) => {
+  const arrivalRoutes = [];
+  for (let i = routes.length - 1; i >= 0; i--) {
+    if (routes[i].cityTo === cityTo) {
+      break;
+    }
+    arrivalRoutes.push(routes[i]);
+  }
+  return arrivalRoutes.reverse();
+};
+
 export const searchTrips = (cities, dateFrom, dateTo, stopTrip, travelType) => {
   const promises = [];
   return (dispatch) => {
@@ -102,14 +127,12 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip, travelType) => {
                 cityFrom: trip.cityFrom,
                 cityTo: trip.cityTo,
                 price: trip.price,
-                local_departure: trip.local_departure,
-                local_arrival: trip.local_arrival,
-
-                route: trip.route,
-                stopover: trip.transfers.lenght === 0,
+                departureRoutes: getDepartureRoutes(trip.route, trip.cityTo),
+                arrivalsRoutes: getArrivalRoutes(trip.route, trip.cityTo),
                 nightsInDest: trip.nightsInDest,
                 duration: trip.duration,
-                travelers: trip.availability.seats,
+                travelers: travelers[trip.cityFrom],
+                token: trip.booking_token,
               };
             });
             trips[city] = trips_by_city;
