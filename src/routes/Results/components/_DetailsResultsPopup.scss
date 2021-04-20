@@ -6,8 +6,7 @@
 
 .MuiButtonBase-root {
   background-color: white;
-
-  >>>>>>>master &:hover {
+  &:hover {
     background-color: transparent;
   }
 }

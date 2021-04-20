@@ -1,14 +1,16 @@
 import React, { useState } from 'react';
+import './_FlightInfo.scss';
 import './_DetailsResults.scss';
 import moment from 'moment';
 
 export default function FlightInfo(props) {
   const [showDetailsWay, setDetailsWay] = useState(false);
   return (
-    <div className="details-results-travel-way-content">
-      <div className="details-results-travel-way-content-section">
+    <div className="details-results-travel-content">
+      <div className="details-results-travel-content-section">
         <div className="date-div-1"></div>
         <div className="date-div-2">
+          {console.log(props)}
           <div className="date-from"></div>
           <i class="fas fa-calendar-day fa-lg"></i>
           <h5>{moment(props.route.local_departure).format('MMM Do YYYY')}</h5>
@@ -57,11 +59,11 @@ export default function FlightInfo(props) {
           </div>
 
           {showDetailsWay ? (
-            <div className="way-details">
-              <div className="way-details-connection-info">
+            <div className="route-details">
+              <div className="route-details-connection-info">
                 <h5>Connection info</h5>
               </div>
-              <div className="way-details-connection-info-content">
+              <div className="route-details-connection-info-content">
                 <div className="airline">
                   <div className="airline-logo">
                     <img

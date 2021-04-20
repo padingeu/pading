@@ -7,8 +7,8 @@ export default function DetailsResults(props) {
   return (
     <div>
       <div className="details-results-travel">
-        <div className="details-results-travel-way">
-          <div className="details-results-travel-way-city">
+        <div className="details-results-travel">
+          <div className="details-results-travel-city">
             <h4>To {props.destination}</h4>
           </div>
           {props.trip.departureRoutes.map((route) => {
@@ -22,8 +22,19 @@ export default function DetailsResults(props) {
           })}
         </div>
 
-        <div className="details-results-travel-return">
-          <div className="details-results-travel-return-city">
+        <div className="details-results-travel-destination-content-section">
+          <div className="destination-div-1"></div>
+
+          <div className="destination-div-2">
+            <div className="line"></div>
+            <i class="fas fa-map-marker-alt fa-lg"></i>
+            <h5>Arrive at {props.destination}</h5>
+            <h6>{props.trip.nightsInDest} nights at the destination</h6>
+          </div>
+        </div>
+
+        <div className="details-results-travel">
+          <div className="details-results-travel-city">
             <h4>To {props.cityFrom}</h4>
           </div>
           {props.trip.arrivalsRoutes.map((route) => {
@@ -35,6 +46,16 @@ export default function DetailsResults(props) {
               />
             );
           })}
+        </div>
+
+        <div className="details-results-travel-destination-content-section">
+          <div className="destination-div-1"></div>
+          <div className="destination-div-2">
+            <div className="line"></div>
+            <i class="fas fa-map-marker-alt fa-lg"></i>
+            <h5>Arrive at {props.cityFrom}</h5>
+            <h6>Welcome back!</h6>
+          </div>
         </div>
       </div>
 
