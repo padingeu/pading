@@ -1,5 +1,7 @@
 import React from 'react';
 import './_TripCard.scss';
+import Img from "react-cool-img";
+
 
 const TripCard = ({ destination, prices, travelers }) => {
 
@@ -13,7 +15,7 @@ const TripCard = ({ destination, prices, travelers }) => {
 
   return (
     <div className="trip-card">
-      <img
+      <Img
         src={image_path}
         alt={destination}
       />
