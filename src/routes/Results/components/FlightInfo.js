@@ -5,12 +5,25 @@ import moment from 'moment';
 
 export default function FlightInfo(props) {
   const [showDetailsWay, setDetailsWay] = useState(false);
+
+  const getDuration = (departure_time, arrival_time) => {
+    const diff = moment(arrival_time).diff(moment(departure_time));
+    console.log(diff);
+    let duration = moment.utc(diff).hours() + 'h';
+    console.log(duration);
+    console.log(moment.utc(diff).hours);
+    const minutes = moment.utc(diff).minutes();
+    if (minutes > 0) {
+      duration += minutes;
+    }
+    return duration;
+  };
+
   return (
     <div className="details-results-travel-content">
       <div className="details-results-travel-content-section">
         <div className="date-div-1"></div>
         <div className="date-div-2">
-          {console.log(props)}
           <div className="date-from"></div>
           <i class="fas fa-calendar-day fa-lg"></i>
           <h5>{moment(props.route.local_departure).format('MMM Do YYYY')}</h5>
@@ -46,11 +59,7 @@ export default function FlightInfo(props) {
               <h5>Ryanair</h5>
             </div>
             <div className="travel-time">
-              <h5>
-                {moment
-                  .utc(moment.duration(props.duration.departure, 'seconds').asMilliseconds())
-                  .format('H.mm')}
-              </h5>
+              <h5>{getDuration(props.route.local_departure, props.route.local_arrival)}</h5>
             </div>
             <div className="show-more-details" onClick={() => setDetailsWay(!showDetailsWay)}>
               <i class="fas fa-angle-up fa-lg"></i>
