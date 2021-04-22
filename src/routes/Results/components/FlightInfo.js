@@ -2,11 +2,14 @@ import React, { useState } from 'react';
 import './_FlightInfo.scss';
 import './_DetailsResults.scss';
 import moment from 'moment';
-import AvFastForward from 'material-ui/svg-icons/av/fast-forward';
-import { FALSE } from 'node-sass';
 
 export default function FlightInfo(props) {
   const [showDetailsWay, setDetailsWay] = useState(false);
+  const airlines = {
+    U2: 'EasyJet',
+    AF: 'Air France',
+    FA: 'Ryanair',
+  };
 
   const getDuration = (departure_time, arrival_time) => {
     const diff = moment(arrival_time).diff(moment(departure_time));
@@ -19,6 +22,10 @@ export default function FlightInfo(props) {
       duration += minutes;
     }
     return duration;
+  };
+
+  const getAirlineName = (airline_code) => {
+    return airlines[airline_code];
   };
 
   return (
@@ -60,14 +67,10 @@ export default function FlightInfo(props) {
           <div className="travel-company-time">
             <i class="fas fa-plane fa-lg"></i>
             <div className="travel-company">
-              <h5>Ryanair</h5>
+              <h5>{getAirlineName(props.route.airline)}</h5>
             </div>
             <div className="travel-time">
-              <h5>
-                {moment
-                  .utc(moment.duration(props.duration.departure, 'seconds').asMilliseconds())
-                  .format('H.mm')}
-              </h5>
+              <h5>{getDuration(props.route.local_departure, props.route.local_arrival)}</h5>
             </div>
             <div className="show-more-details" onClick={() => setDetailsWay(!showDetailsWay)}>
               <i class="fas fa-angle-up fa-lg"></i>
@@ -91,6 +94,7 @@ export default function FlightInfo(props) {
                     <h6>Airline</h6>
                   </div>
                   <div className="airline-response">
+                    ---->
                     <h6>{getAirlineName(props.route.airline)}</h6>
                   </div>
                 </div>
