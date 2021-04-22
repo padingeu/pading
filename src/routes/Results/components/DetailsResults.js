@@ -10,6 +10,7 @@ export default function DetailsResults(props) {
         <div className="details-results-travel">
           <div className="details-results-travel-city">
             <h4>To {props.destination}</h4>
+            {console.log(props)}
           </div>
           {props.trip.departureRoutes.map((route) => {
             return (
@@ -17,6 +18,7 @@ export default function DetailsResults(props) {
                 route={route}
                 duration={props.trip.duration}
                 travelers={props.trip.travelers}
+                token={props.trip.token}
               />
             );
           })}

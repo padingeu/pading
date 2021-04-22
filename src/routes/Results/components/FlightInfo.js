@@ -13,10 +13,8 @@ export default function FlightInfo(props) {
 
   const getDuration = (departure_time, arrival_time) => {
     const diff = moment(arrival_time).diff(moment(departure_time));
-    console.log(diff);
+
     let duration = moment.utc(diff).hours() + 'h';
-    console.log(duration);
-    console.log(moment.utc(diff).hours);
     const minutes = moment.utc(diff).minutes();
     if (minutes > 0) {
       duration += minutes;
@@ -31,10 +29,10 @@ export default function FlightInfo(props) {
   return (
     <div className="details-results-travel-content">
       {console.log(props)}
+      {console.log('https://www.kiwi.com/fr/booking?&booking_token=' + props.token)}
       <div className="details-results-travel-content-section">
         <div className="date-div-1"></div>
         <div className="date-div-2">
-          {console.log(props)}
           <div className="date-from"></div>
           <i class="fas fa-calendar-day fa-lg"></i>
           <h5>{moment(props.route.local_departure).format('MMM Do YYYY')}</h5>
