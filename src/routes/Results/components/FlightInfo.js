@@ -8,7 +8,56 @@ export default function FlightInfo(props) {
   const airlines = {
     U2: 'EasyJet',
     AF: 'Air France',
-    FA: 'Ryanair',
+    FR: 'Ryanair',
+    VY: 'Vueling',
+    TO: 'Transavia',
+    LH: 'Lufhansa',
+    IB: 'Iberia',
+    W6: 'Wizz Air',
+    V7: 'Volotea',
+    AZ: 'Alitalia',
+    BA: 'British Airways',
+    OS: 'Austrian Airlines',
+    AY: 'Finnair',
+    SK: 'Scandinavian Airlines System',
+    KL: 'KLM',
+    TK: 'Turkish Airlines',
+    SU: 'Aeroflot',
+    AB: 'Air Berlin',
+    LX: 'SWISS',
+    SN: 'Brussels Airlines',
+    EI: 'Aer Lingus',
+    OU: 'Croatia Airlines',
+    LV: 'Air Albania',
+    TP: 'Tap Air Portugal',
+    A3: 'Aegean Airlines',
+    BE: 'Flybe',
+    UX: 'Air Europa',
+    XK: 'Air Corsica',
+    OK: 'Czech Airlines',
+    LO: 'LOT Polish Airlines',
+    PS: 'Ukraine International Airlines',
+    RO: 'TAROM',
+    '6B': 'TUIfly',
+    A5: 'Hop!',
+    BT: 'Air Baltic',
+    JU: 'Air Serbia',
+    KM: 'Air Malta',
+    B2: 'Belavia',
+    FB: 'Bulgaria Air',
+    JP: 'Adria Airways',
+    ZI: 'Aigle Azur',
+    YM: 'Montenegro Airlines',
+    '4U': 'German Wings',
+    U6: 'Ural Airlines',
+    BJ: 'Nouvelair Tunisia',
+    '9U': 'Air Moldova',
+    BM: 'BMI Regional',
+    T7: 'TWIN JET',
+    '2L': 'Helvetic',
+    '0B': 'Blue Air',
+    TU: 'Tunisair',
+    PC: 'Pegasus Airlines'
   };
 
   const getDuration = (departure_time, arrival_time) => {
@@ -92,7 +141,6 @@ export default function FlightInfo(props) {
                     <h6>Airline</h6>
                   </div>
                   <div className="airline-response">
-                    ---->
                     <h6>{getAirlineName(props.route.airline)}</h6>
                   </div>
                 </div>
@@ -103,8 +151,8 @@ export default function FlightInfo(props) {
                   </div>
                   <div className="flight-number-response">
                     <h6>
-                      {props.route.operating_carrier}
-                      {props.route.operating_flight_no}
+                      {props.route.airline}
+                      {props.route.flight_no}
                     </h6>
                   </div>
                 </div>
@@ -122,7 +170,7 @@ export default function FlightInfo(props) {
           <div className="line-bottom"></div>
           <h5>{props.route.cityTo}</h5>
           <h6>
-            {props.cityTo} Airport ({props.route.flyTo})
+            {props.route.cityTo} Airport ({props.route.flyTo})
           </h6>
         </div>
       </div>
