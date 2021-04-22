@@ -7,11 +7,6 @@ import { FALSE } from 'node-sass';
 
 export default function FlightInfo(props) {
   const [showDetailsWay, setDetailsWay] = useState(false);
-  const airlines = {
-    "U2": "EasyJet",
-    "AF": "Air France",
-    "FA": "Ryanair"
-  }
 
   const getDuration = (departure_time, arrival_time) => {
     const diff = moment(arrival_time).diff(moment(departure_time));
@@ -26,16 +21,13 @@ export default function FlightInfo(props) {
     return duration;
   };
 
-  const getAirlineName = (airline_code) => {
-    return airlines[airline_code];
-  }
-
   return (
     <div className="details-results-travel-content">
       {console.log(props)}
       <div className="details-results-travel-content-section">
         <div className="date-div-1"></div>
         <div className="date-div-2">
+          {console.log(props)}
           <div className="date-from"></div>
           <i class="fas fa-calendar-day fa-lg"></i>
           <h5>{moment(props.route.local_departure).format('MMM Do YYYY')}</h5>
@@ -71,7 +63,11 @@ export default function FlightInfo(props) {
               <h5>Ryanair</h5>
             </div>
             <div className="travel-time">
-              <h5>{getDuration(props.route.local_departure, props.route.local_arrival)}</h5>
+              <h5>
+                {moment
+                  .utc(moment.duration(props.duration.departure, 'seconds').asMilliseconds())
+                  .format('H.mm')}
+              </h5>
             </div>
             <div className="show-more-details" onClick={() => setDetailsWay(!showDetailsWay)}>
               <i class="fas fa-angle-up fa-lg"></i>
@@ -104,7 +100,10 @@ export default function FlightInfo(props) {
                     <h6>Flight no</h6>
                   </div>
                   <div className="flight-number-response">
-                    <h6>{props.route.operating_carrier}{props.route.operating_flight_no}</h6>
+                    <h6>
+                      {props.route.operating_carrier}
+                      {props.route.operating_flight_no}
+                    </h6>
                   </div>
                 </div>
               </div>
