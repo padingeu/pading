@@ -129,6 +129,9 @@
       }
       .details-results-book {
         position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         width: 50%;
         border: none;
         margin-right: 1rem;
@@ -136,6 +139,7 @@
         border-radius: 5rem;
         background: #3e936f;
         color: white;
+        text-decoration: none;
         &:hover {
           background-color: #48ad83;
         }

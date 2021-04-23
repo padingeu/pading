@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './_FlightInfo.scss';
 import './_DetailsResults.scss';
 import moment from 'moment';
+import Img from "react-cool-img";
 
 export default function FlightInfo(props) {
   const [showDetailsWay, setDetailsWay] = useState(false);
@@ -60,6 +61,14 @@ export default function FlightInfo(props) {
     PC: 'Pegasus Airlines'
   };
 
+  let image_path = '';
+
+  try {  
+    image_path = require(`../../../img/logos_airlines/${props.route.airline}.png`); 
+  } catch(err){  
+      image_path = require(`../../../img/simple-logo.png`)
+  }
+
   const getDuration = (departure_time, arrival_time) => {
     const diff = moment(arrival_time).diff(moment(departure_time));
 
@@ -78,7 +87,6 @@ export default function FlightInfo(props) {
   return (
     <div className="details-results-travel-content">
       {console.log(props)}
-      {console.log('https://www.kiwi.com/fr/booking?&booking_token=' + props.token)}
       <div className="details-results-travel-content-section">
         <div className="date-div-1"></div>
         <div className="date-div-2">
@@ -102,10 +110,13 @@ export default function FlightInfo(props) {
         <div className="traveler-div-2">
           <div className="number-travelers"></div>
           <i className="fas fa-user-friends fa-xs"></i>
-          <h6>{props.travelers} traveler</h6>
+          <h6>{props.travelers} traveler{props.travelers > 1 ? 's' : ''}</h6>
         </div>
         <div className="carrier-div-1">
-          <img src="https://www.sebogo.fr/images/airlines/ori/FR.png" width="20px" alt="TODO"></img>
+          <Img
+            src={image_path}
+            alt={getAirlineName(props.route.airline)}
+          />
         </div>
 
         <div className="carrier-div-2">
@@ -133,11 +144,10 @@ export default function FlightInfo(props) {
               <div className="route-details-connection-info-content">
                 <div className="airline">
                   <div className="airline-logo">
-                    <img
-                      src="https://www.sebogo.fr/images/airlines/ori/FR.png"
-                      width="15px"
-                      alt="TODO"
-                    ></img>
+                  <Img
+                    src={image_path}
+                    alt={getAirlineName(props.route.airline)}
+                  />
                     <h6>Airline</h6>
                   </div>
                   <div className="airline-response">

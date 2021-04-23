@@ -63,17 +63,21 @@ export default function DetailsResults(props) {
 
       <div className="details-results-share-book">
         <div className="details-results-share">
-          <a href="whatsapp://send?text=https://kiwi.com" target="_blank" rel="noopener noreferrer">
+          <a
+            href={'whatsapp://send?text=https://www.kiwi.com/fr/booking?&affilid=padingpadingapp&booking_token=' + props.trip.token}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <i className="fab fa-whatsapp fa-2x"></i>
           </a>
           <a
-            href="https://www.facebook.com/sharer/sharer.php?u=https://kiwi.com"
+            href={'whatsapp://send?text=https://www.kiwi.com/fr/booking?&affilid=padingpadingapp&booking_token=' + props.trip.token}
             target="_blank"
             rel="noopener noreferrer"
           >
             <i className="fab fa-facebook-messenger fa-2x"></i>
           </a>
-          <CopyToClipboard text={'https://kiwi.com'} className="clipboard-btn">
+          <CopyToClipboard text={'https://www.kiwi.com/fr/booking?&affilid=padingpadingapp&booking_token=' + props.trip.token} className="clipboard-btn">
             <button>
               <i className="fas fa-link fa-2x"></i>
             </button>
@@ -81,9 +85,14 @@ export default function DetailsResults(props) {
         </div>
         <div className="details-results-price-book">
           <h4 className="ticket-price">{props.trip.price}€</h4>
-          <button className="details-results-book">
-            <h4>Book ticket</h4>
-          </button>
+          <a
+            href={'https://www.kiwi.com/fr/booking?&affilid=padingpadingapp&booking_token=' + props.trip.token}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="details-results-book"
+          >
+            <h4>Book from {props.cityFrom}</h4>
+          </a>
         </div>
       </div>
     </div>

@@ -12,7 +12,7 @@
       .date-div-1 {
         grid-column: 1/2;
         grid-row: 1;
-        background-color: #f4f6f8;
+        background-color: white;
         border-radius: 1rem 0 0 0;
         padding-bottom: 2rem;
       }
@@ -23,7 +23,7 @@
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        background-color: #f4f6f8;
+        background-color: white;
         border-radius: 0 1rem 0 0;
         .date-from {
           position: absolute;
@@ -42,7 +42,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: white;
+        background-color: #f4f6f8;
         h5 {
           font-size: 1.3rem;
         }
@@ -56,7 +56,7 @@
         justify-content: center;
         align-items: flex-start;
         padding: 0.5rem 0 0.5rem 2.2rem;
-        background-color: white;
+        background-color: #f4f6f8;
         .line-top {
           position: absolute;
           left: 0.6rem;
@@ -130,9 +130,12 @@
         grid-row: 4;
         display: flex;
         justify-content: center;
-        align-items: flex-start;
-        background-color: #f4f6f8;
+        align-items: center;
+        background-color: white;
         padding: 1.2rem 0;
+        img {
+          height: 3rem;
+        }
       }
       .carrier-div-2 {
         position: relative;
@@ -143,7 +146,7 @@
         justify-content: flex-start;
         align-items: center;
         padding: 0.5rem 0 0.5rem 2.2rem;
-        background-color: #f4f6f8;
+        background-color: white;
         .line-top {
           position: absolute;
           left: 0.6rem;
@@ -169,14 +172,14 @@
             top: 1.5rem;
             left: 0rem;
             color: #f49d11;
-            background-color: #f4f6f8;
+            background-color: white;
             padding: 0.5rem 0;
           }
           .travel-company {
             border-radius: 3rem;
             padding: 0.2rem 1.5rem;
             margin-right: 0.5rem;
-            background-color: white;
+            background-color: #f4f6f8;
             h5 {
               font-size: 1.2rem;
               line-height: 0rem;
@@ -241,6 +244,9 @@
                 justify-content: flex-start;
                 align-items: center;
                 width: 30%;
+                img {
+                  height: 2rem;
+                }
                 h6 {
                   font-size: 1.2rem;
                   font-weight: lighter;
@@ -307,7 +313,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: white;
+        background-color: #f4f6f8;
         h5 {
           font-size: 1.3rem;
         }
@@ -320,7 +326,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
-        background-color: white;
+        background-color: #f4f6f8;
         padding: 0.5rem 0 0.5rem 2.2rem;
         .line-top {
           position: absolute;
