@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import './_FlightInfo.scss';
 import './_DetailsResults.scss';
 import moment from 'moment';
-import Img from "react-cool-img";
+import 'moment-duration-format';
+import Img from 'react-cool-img';
 
 export default function FlightInfo(props) {
   const [showDetailsWay, setDetailsWay] = useState(false);
+
   const airlines = {
     U2: 'EasyJet',
     AF: 'Air France',
@@ -58,26 +60,24 @@ export default function FlightInfo(props) {
     '2L': 'Helvetic',
     '0B': 'Blue Air',
     TU: 'Tunisair',
-    PC: 'Pegasus Airlines'
+    PC: 'Pegasus Airlines',
   };
 
   let image_path = '';
-
-  try {  
-    image_path = require(`../../../img/logos_airlines/${props.route.airline}.png`); 
-  } catch(err){  
-      image_path = require(`../../../img/simple-logo.png`)
+  try {
+    image_path = require(`../../../img/logos_airlines/${props.route.airline}.png`);
+  } catch (err) {
+    image_path = require(`../../../img/simple-logo.png`);
   }
 
   const getDuration = (departure_time, arrival_time) => {
-    const diff = moment(arrival_time).diff(moment(departure_time));
-
-    let duration = moment.utc(diff).hours() + 'h';
-    const minutes = moment.utc(diff).minutes();
-    if (minutes > 0) {
-      duration += minutes;
+    const milliseconds = moment(arrival_time).diff(moment(departure_time));
+    const duration = moment.duration(milliseconds, 'milliseconds');
+    if (duration.hours() === 0) {
+      return duration.format('m') + ' min';
+    } else {
+      return duration.format('h ; mm').replace(';', 'h');
     }
-    return duration;
   };
 
   const getAirlineName = (airline_code) => {
@@ -86,16 +86,17 @@ export default function FlightInfo(props) {
 
   return (
     <div className="details-results-travel-content">
-      {console.log(props)}
+      {props.isFirstFlight && 'This is the first flight'}
+      {!props.isFirstFlight && 'This is not the first flight'}
       <div className="details-results-travel-content-section">
         <div className="date-div-1"></div>
         <div className="date-div-2">
           <div className="date-from"></div>
           <i class="fas fa-calendar-day fa-lg"></i>
-          <h5>{moment(props.route.local_departure).format('MMM Do YYYY')}</h5>
+          <h5>{moment.utc(props.route.local_departure).format('MMM Do YYYY')}</h5>
         </div>
         <div className="departure-div-1">
-          <h5>{moment(props.route.local_departure).format('HH:mm a')}</h5>
+          <h5>{moment.utc(props.route.local_departure).format('HH:mm a')}</h5>
         </div>
         <div className="departure-div-2">
           <div className="line-top"></div>
@@ -110,13 +111,12 @@ export default function FlightInfo(props) {
         <div className="traveler-div-2">
           <div className="number-travelers"></div>
           <i className="fas fa-user-friends fa-xs"></i>
-          <h6>{props.travelers} traveler{props.travelers > 1 ? 's' : ''}</h6>
+          <h6>
+            {props.travelers} traveler{props.travelers > 1 ? 's' : ''}
+          </h6>
         </div>
         <div className="carrier-div-1">
-          <Img
-            src={image_path}
-            alt={getAirlineName(props.route.airline)}
-          />
+          <Img src={image_path} alt={getAirlineName(props.route.airline)} />
         </div>
 
         <div className="carrier-div-2">
@@ -144,10 +144,7 @@ export default function FlightInfo(props) {
               <div className="route-details-connection-info-content">
                 <div className="airline">
                   <div className="airline-logo">
-                  <Img
-                    src={image_path}
-                    alt={getAirlineName(props.route.airline)}
-                  />
+                    <Img src={image_path} alt={getAirlineName(props.route.airline)} />
                     <h6>Airline</h6>
                   </div>
                   <div className="airline-response">
@@ -172,7 +169,7 @@ export default function FlightInfo(props) {
         </div>
 
         <div className="arrival-div-1">
-          <h5>{moment(props.route.local_arrival).format('HH:mm a')}</h5>
+          <h5>{moment.utc(props.route.local_arrival).format('HH:mm a')}</h5>
         </div>
         <div className="arrival-div-2">
           <div className="line-top"></div>

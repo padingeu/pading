@@ -77,15 +77,13 @@ export default function DetailsResultsPopup(props) {
       </AppBar>
       {Object.keys(props.trips).map((city, index) => {
         return (
-          <TabPanel className="details-results" value={value} index={index}>
+          <TabPanel className="details-results" value={value} index={index} key={index}>
             <DetailsResults
               key={city}
               destination={props.destination}
               cityFrom={city}
-              stopover={
-                props.trips[city].filter((trip) => trip.cityTo === props.destination)[0].stopover
-              }
               trip={props.trips[city].filter((trip) => trip.cityTo === props.destination)[0]}
+              travelType={props.travelType}
             />
           </TabPanel>
         );

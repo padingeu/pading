@@ -240,6 +240,7 @@ export default class Results extends React.Component {
                             destination={destination}
                             trips={this.props.search.trips}
                             key={index}
+                            travelType={this.props.search.travelType}
                           />
                         </Popup>
                       </div>
