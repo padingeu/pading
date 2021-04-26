@@ -46,7 +46,6 @@ export default function DetailsResults(props) {
             );
           })}
         </div>
-
         <div className="details-results-travel-destination-content-section">
           <div className="destination-div-1"></div>
 
@@ -58,32 +57,31 @@ export default function DetailsResults(props) {
           </div>
         </div>
         {props.travelType === 'Return' && (
-          <div>
-            <div className="details-results-travel">
-              <div className="details-results-travel-city">
-                <h4>To {props.cityFrom}</h4>
-              </div>
-              {props.trip.arrivalsRoutes.map((route, index) => {
-                return (
-                  <FlightInfo
-                    route={route}
-                    duration={props.trip.duration}
-                    travelers={props.trip.travelers}
-                    isFirstFlight={index === 0}
-                    key={index}
-                  />
-                );
-              })}
+          <div className="details-results-travel">
+            <div className="details-results-travel-city">
+              <h4>To {props.cityFrom}</h4>
             </div>
-
-            <div className="details-results-travel-destination-content-section">
-              <div className="destination-div-1"></div>
-              <div className="destination-div-2">
-                <div className="line"></div>
-                <i class="fas fa-map-marker-alt fa-lg"></i>
-                <h5>Arrive at {props.cityFrom}</h5>
-                <h6>Welcome back!</h6>
-              </div>
+            {props.trip.arrivalsRoutes.map((route, index) => {
+              return (
+                <FlightInfo
+                  route={route}
+                  duration={props.trip.duration}
+                  travelers={props.trip.travelers}
+                  isFirstFlight={index === 0}
+                  key={index}
+                />
+              );
+            })}
+          </div>
+        )}
+        {props.travelType === 'Return' && (
+          <div className="details-results-travel-destination-content-section">
+            <div className="destination-div-1"></div>
+            <div className="destination-div-2">
+              <div className="line"></div>
+              <i class="fas fa-map-marker-alt fa-lg"></i>
+              <h5>Arrive at {props.cityFrom}</h5>
+              <h6>Welcome back!</h6>
             </div>
           </div>
         )}

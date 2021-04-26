@@ -6,11 +6,12 @@ function valuetext(value) {
   return `${value}`;
 }
 
-export default function Filter() {
+export default function Filter(props) {
   const [value, setValue] = React.useState([0, 24]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
+    props.filter(newValue, props.city, props.type);
   };
 
   return (
@@ -18,13 +19,13 @@ export default function Filter() {
       <div>
         <div className="timerange">
           <p>
-            from {value[0]}h00 to {value[1]}h00
+            from {value[0]}h00 to {value[1]}h
           </p>
         </div>
       </div>
       <Slider
         min={0}
-        max={24}
+        max={23}
         value={value}
         onChange={handleChange}
         aria-labelledby="range-slider"

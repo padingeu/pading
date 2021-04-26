@@ -130,8 +130,7 @@ export default class FormSearch extends React.Component {
         >
           {this.props.dis}
           {this.props.isLoading ? (
-            <div className="loader">
-            </div>
+            <div className="loader"></div>
           ) : (
             <div>
               <h4>Explore</h4>
