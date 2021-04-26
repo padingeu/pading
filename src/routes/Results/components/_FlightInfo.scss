@@ -36,6 +36,16 @@
           margin-right: 1rem;
         }
       }
+      .stopover-div {
+        display: flex;
+        align-items: center;
+        background-color: white;
+        color: #f49d11;
+        padding: 1rem 0;
+        i {
+          margin-right: 1rem;
+        }
+      }
       .departure-div-1 {
         grid-column: 1/2;
         grid-row: 2;

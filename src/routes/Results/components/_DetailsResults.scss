@@ -8,6 +8,13 @@
       height: 100%;
       padding-bottom: 10rem;
       background-color: white;
+      .details-results-travel-return {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+      }
       .details-results-travel {
         display: flex;
         flex-direction: column;

@@ -58,7 +58,7 @@ export default function DetailsResults(props) {
           </div>
         </div>
         {props.travelType === 'Return' && (
-          <div>
+          <div className="details-results-travel-return">
             <div className="details-results-travel">
               <div className="details-results-travel-city">
                 <h4>To {props.cityFrom}</h4>
@@ -91,11 +91,8 @@ export default function DetailsResults(props) {
       {!isBusy && (
         <div className="details-results-share-book">
           <div className="details-results-share">
-            <a href={link} target="_blank" rel="noopener noreferrer">
+            <a href={'whatsapp://send?text=' + link} target="_blank" rel="noopener noreferrer">
               <i className="fab fa-whatsapp fa-2x"></i>
-            </a>
-            <a href={link} target="_blank" rel="noopener noreferrer">
-              <i className="fab fa-facebook-messenger fa-2x"></i>
             </a>
             <CopyToClipboard text={link} className="clipboard-btn">
               <button>

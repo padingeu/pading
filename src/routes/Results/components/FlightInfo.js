@@ -86,15 +86,20 @@ export default function FlightInfo(props) {
 
   return (
     <div className="details-results-travel-content">
-      {props.isFirstFlight && 'This is the first flight'}
-      {!props.isFirstFlight && 'This is not the first flight'}
       <div className="details-results-travel-content-section">
         <div className="date-div-1"></div>
-        <div className="date-div-2">
-          <div className="date-from"></div>
-          <i class="fas fa-calendar-day fa-lg"></i>
-          <h5>{moment.utc(props.route.local_departure).format('MMM Do YYYY')}</h5>
-        </div>
+        {props.isFirstFlight ?
+          <div className="date-div-2">
+            <div className="date-from"></div>
+            <i class="fas fa-calendar-day fa-lg"></i>
+            <h5>{moment.utc(props.route.local_departure).format('MMM Do YYYY')}</h5>
+          </div>
+        :
+          <div className="stopover-div">
+            <i class="fas fa-exchange-alt"></i>
+            <h5>stopover</h5>
+          </div>
+       }
         <div className="departure-div-1">
           <h5>{moment.utc(props.route.local_departure).format('HH:mm a')}</h5>
         </div>
