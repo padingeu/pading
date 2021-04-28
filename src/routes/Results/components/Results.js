@@ -7,12 +7,11 @@ import Filter from './Filter';
 import TripCardSkeleton from './TripCardSkeleton';
 import Popup from 'reactjs-popup';
 import DetailsResultsPopup from './DetailsResultsPopup';
-import moment from 'moment';
-import lodash from 'lodash';
 
 export default function Result(props) {
   const [showFilter, setShowFilter] = React.useState(false);
-  const [filter, setFilter] = React.useState({});
+  const [departureFilter, setDepartureFilter] = React.useState({});
+  const [returnFilter, setReturnFilter] = React.useState({});
 
   const displayFilter = () => {
     setShowFilter(!showFilter);
@@ -20,8 +19,27 @@ export default function Result(props) {
 
   const doFilter = (filter, city, type) => {
     const trips = { ...props.search.initialTrips };
+    const fullFilter = {
+      departure: departureFilter,
+      return: returnFilter,
+    };
 
-    props.doFilter(filter, trips, props.search.cities, city);
+    if (type === 'departure') {
+      setDepartureFilter({
+        start: filter[0],
+        end: filter[1],
+      });
+      fullFilter['departure'] = departureFilter;
+    }
+    if (type === 'return') {
+      setReturnFilter({
+        start: filter[0],
+        end: filter[1],
+      });
+      fullFilter['return'] = returnFilter;
+    }
+
+    props.doFilter(fullFilter, trips, props.search.cities, city);
   };
 
   const getPriceForDestination = (trips, destination, city) => {
@@ -56,7 +74,6 @@ export default function Result(props) {
         searchTrips={props.searchTrips}
         searchData={props.search}
       />
-      {console.log('render')}
       <div className="travel-results">
         <div className="travel-results-cards">
           <div className="linear-progress-filter">

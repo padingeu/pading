@@ -74,6 +74,14 @@ const getArrivalRoutes = (routes, cityTo) => {
   return arrivalRoutes.reverse();
 };
 
+const getLocalDepartureDate = (arrivalRoutes) => {
+  return arrivalRoutes[arrivalRoutes.length - 1].local_departure;
+};
+
+const getLocalArrivalDate = (arrivalRoutes) => {
+  return arrivalRoutes[arrivalRoutes.length - 1].local_arrival;
+};
+
 const getCommonDestinations = (trips, cities) => {
   //Recuperer une liste des destinations communes
   let commonTrips = [];
@@ -167,15 +175,18 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip, travelType) => {
           if (typeof results[i].data.data[0] !== 'undefined') {
             const city = results[i].data.data[0].cityFrom;
             const trips_by_city = results[i].data.data.map((trip) => {
+              const arrivalRoutes = getArrivalRoutes(trip.route, trip.cityTo);
               return {
                 cityFrom: trip.cityFrom,
                 cityTo: trip.cityTo,
                 price: trip.price,
-                local_departure: trip.local_departure,
-                local_arrival: trip.local_arrival,
+                way: { local_departure: trip.local_departure, local_arrival: trip.local_arrival },
+                return: {
+                  local_departure: getLocalDepartureDate(arrivalRoutes),
+                  local_arrival: getLocalArrivalDate(arrivalRoutes),
+                },
                 departureRoutes: getDepartureRoutes(trip.route, trip.cityTo),
-                arrivalsRoutes:
-                  travelType === 'Return' ? getArrivalRoutes(trip.route, trip.cityTo) : [],
+                arrivalsRoutes: travelType === 'Return' ? arrivalRoutes : [],
                 nightsInDest: trip.nightsInDest,
                 duration: trip.duration,
                 travelers: travelers[trip.cityFrom],
@@ -189,7 +200,6 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip, travelType) => {
         //TODO
         const commonDestinations = getCommonDestinations(trips, cities);
 
-        // commonDestinations = commonDestinations.slice(0, 2); //TODO temporaire
         let googlePromises = [];
         let destinationNames = [];
         const awsPromises = getGeolocalisationPromisesFromAws(commonDestinations);
@@ -253,23 +263,31 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip, travelType) => {
   };
 };
 
-export const doFilter = (filter, trips, cities, city) => {
+export const doFilter = (fullFilter, trips, cities, city) => {
   return (dispatch) => {
-    const filterObjs = {
-      departure: {
-        start: filter[0],
-        end: filter[1],
-      },
-    };
     let trips_by_city = trips[city];
-
-    const filterTypes = Object.keys(filterObjs);
+    const filterTypes = Object.keys(fullFilter);
     filterTypes.forEach(function (filterType) {
-      if (filterType === 'departure') {
+      if (
+        filterType === 'departure' &&
+        'start' in fullFilter.departure &&
+        'end' in fullFilter.departure
+      ) {
         trips_by_city = trips_by_city.filter((trip) => {
           if (
-            moment.utc(trip.local_departure).hours() >= filterObjs.departure.start &&
-            moment.utc(trip.local_departure).hours() <= filterObjs.departure.end
+            moment.utc(trip.way.local_departure).hours() >= fullFilter.departure.start &&
+            moment.utc(trip.way.local_departure).hours() <= fullFilter.departure.end
+          ) {
+            return true;
+          }
+          return false;
+        });
+      }
+      if (filterType === 'return' && 'start' in fullFilter.return && 'end' in fullFilter.return) {
+        trips_by_city = trips_by_city.filter((trip) => {
+          if (
+            moment.utc(trip.return.local_arrival).hours() >= fullFilter.return.start &&
+            moment.utc(trip.return.local_arrival).hours() <= fullFilter.return.end
           ) {
             return true;
           }

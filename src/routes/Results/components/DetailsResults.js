@@ -6,17 +6,14 @@ import TinyURL from 'tinyurl';
 
 export default function DetailsResults(props) {
   const [link, setLink] = useState();
-  const [isBusy, setBusy] = useState();
 
   useEffect(() => {
-    setBusy(true);
-
     async function fetchData() {
       TinyURL.shorten(
         'https://www.kiwi.com/fr/booking?&affilid=padingpadingapp&booking_token=' + props.trip.token
       ).then(
         function (res) {
-          setBusy(false);
+          console.log(res);
           setLink(res);
         },
         function (err) {
@@ -86,35 +83,37 @@ export default function DetailsResults(props) {
           </div>
         )}
       </div>
-      {!isBusy && (
-        <div className="details-results-share-book">
-          <div className="details-results-share">
-            <a href={link} target="_blank" rel="noopener noreferrer">
-              <i className="fab fa-whatsapp fa-2x"></i>
-            </a>
-            <a href={link} target="_blank" rel="noopener noreferrer">
-              <i className="fab fa-facebook-messenger fa-2x"></i>
-            </a>
-            <CopyToClipboard text={link} className="clipboard-btn">
-              <button>
-                <i className="fas fa-link fa-2x"></i>
-              </button>
-            </CopyToClipboard>
-          </div>
-          <div className="details-results-price-book">
-            <h4 className="ticket-price">{props.trip.price}€</h4>
 
-            <a
-              href={link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="details-results-book"
-            >
-              <h4>Book from {props.cityFrom}</h4>
-            </a>
-          </div>
+      <div className="details-results-share-book">
+        <div className="details-results-share">
+          <a href={link} target="_blank" rel="noopener noreferrer">
+            <i className="fab fa-whatsapp fa-2x"></i>
+          </a>
+          <a href={link} target="_blank" rel="noopener noreferrer">
+            <i className="fab fa-facebook-messenger fa-2x"></i>
+          </a>
+          <CopyToClipboard text={link} className="clipboard-btn">
+            <button>
+              <i className="fas fa-link fa-2x"></i>
+            </button>
+          </CopyToClipboard>
         </div>
-      )}
+        <div className="details-results-price-book">
+          <h4 className="ticket-price">{props.trip.price}€</h4>
+
+          <a
+            href={
+              'https://www.kiwi.com/fr/booking?&affilid=padingpadingapp&booking_token=' +
+              props.trip.token
+            }
+            target="_blank"
+            rel="noopener noreferrer"
+            className="details-results-book"
+          >
+            <h4>Book from {props.cityFrom}</h4>
+          </a>
+        </div>
+      </div>
     </div>
   );
 }
