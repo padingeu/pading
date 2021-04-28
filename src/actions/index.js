@@ -2,6 +2,7 @@ import axios from 'axios';
 import lodash from 'lodash';
 import { history } from '../index';
 import Geocode from 'react-geocode';
+import moment from 'moment';
 
 const getPriceForDestination = (trips, destination, city) => {
   let tripsForDestination = trips[city].filter((trip) => {
@@ -73,6 +74,50 @@ const getArrivalRoutes = (routes, cityTo) => {
   return arrivalRoutes.reverse();
 };
 
+const getLocalDepartureDate = (arrivalRoutes) => {
+  return arrivalRoutes[arrivalRoutes.length - 1].local_departure;
+};
+
+const getLocalArrivalDate = (arrivalRoutes) => {
+  return arrivalRoutes[arrivalRoutes.length - 1].local_arrival;
+};
+
+const getCommonDestinations = (trips, cities) => {
+  //Recuperer une liste des destinations communes
+  let commonTrips = [];
+  if (cities.length === 1 && cities[0].name in trips) {
+    commonTrips = trips[cities[0].name];
+  } else {
+    for (let i = 1; i < cities.length; i++) {
+      let city1 = cities[i - 1].name;
+      let city2 = cities[i].name;
+      if (commonTrips.length > 0) {
+        commonTrips = lodash.intersectionBy(commonTrips, trips[city2], 'cityTo');
+      } else {
+        commonTrips = lodash.intersectionBy(trips[city1], trips[city2], 'cityTo');
+      }
+    }
+  }
+
+  let commonDestinations = [];
+  for (let i = 0; i < commonTrips.length; i++) {
+    if (!commonDestinations.includes(commonTrips[i].cityTo)) {
+      commonDestinations.push(commonTrips[i].cityTo);
+    }
+  }
+
+  //Retirer les voyages qui ne font pas parti des destinations communes
+  for (let i = 0; i < cities.length; i++) {
+    let city = cities[i].name;
+    if (city in trips) {
+      trips[city] = trips[city].filter((trip) => {
+        return commonDestinations.includes(trip.cityTo);
+      });
+    }
+  }
+  return commonDestinations;
+};
+
 export const searchTrips = (cities, dateFrom, dateTo, stopTrip, travelType) => {
   const promises = [];
   return (dispatch) => {
@@ -130,13 +175,18 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip, travelType) => {
           if (typeof results[i].data.data[0] !== 'undefined') {
             const city = results[i].data.data[0].cityFrom;
             const trips_by_city = results[i].data.data.map((trip) => {
+              const arrivalRoutes = getArrivalRoutes(trip.route, trip.cityTo);
               return {
                 cityFrom: trip.cityFrom,
                 cityTo: trip.cityTo,
                 price: trip.price,
+                way: { local_departure: trip.local_departure, local_arrival: trip.local_arrival },
+                return: {
+                  local_departure: getLocalDepartureDate(arrivalRoutes),
+                  local_arrival: getLocalArrivalDate(arrivalRoutes),
+                },
                 departureRoutes: getDepartureRoutes(trip.route, trip.cityTo),
-                arrivalsRoutes:
-                  travelType === 'Return' ? getArrivalRoutes(trip.route, trip.cityTo) : [],
+                arrivalsRoutes: travelType === 'Return' ? arrivalRoutes : [],
                 nightsInDest: trip.nightsInDest,
                 duration: trip.duration,
                 travelers: travelers[trip.cityFrom],
@@ -146,40 +196,10 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip, travelType) => {
             trips[city] = trips_by_city;
           }
         }
-        //Recuperer une liste des destinations communes
-        let commonTrips = [];
-        if (cities.length === 1 && cities[0].name in trips) {
-          commonTrips = trips[cities[0].name];
-        } else {
-          for (let i = 1; i < cities.length; i++) {
-            let city1 = cities[i - 1].name;
-            let city2 = cities[i].name;
-            if (commonTrips.length > 0) {
-              commonTrips = lodash.intersectionBy(commonTrips, trips[city2], 'cityTo');
-            } else {
-              commonTrips = lodash.intersectionBy(trips[city1], trips[city2], 'cityTo');
-            }
-          }
-        }
 
-        let commonDestinations = [];
-        for (let i = 0; i < commonTrips.length; i++) {
-          if (!commonDestinations.includes(commonTrips[i].cityTo)) {
-            commonDestinations.push(commonTrips[i].cityTo);
-          }
-        }
+        //TODO
+        const commonDestinations = getCommonDestinations(trips, cities);
 
-        //Retirer les voyages qui ne font pas parti des destinations communes
-        for (let i = 0; i < cities.length; i++) {
-          let city = cities[i].name;
-          if (city in trips) {
-            trips[city] = trips[city].filter((trip) => {
-              return commonDestinations.includes(trip.cityTo);
-            });
-          }
-        }
-
-        // commonDestinations = commonDestinations.slice(0, 2); //TODO temporaire
         let googlePromises = [];
         let destinationNames = [];
         const awsPromises = getGeolocalisationPromisesFromAws(commonDestinations);
@@ -226,6 +246,7 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip, travelType) => {
             destinationsWithPrice.sort(compare);
             const data = {
               commonDestinations,
+              initialTrips: trips,
               trips,
               travelers,
               destinationsWithPrice,
@@ -239,5 +260,48 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip, travelType) => {
       .catch((error) => {
         dispatch({ type: 'FAILURE' });
       });
+  };
+};
+
+export const doFilter = (fullFilter, trips, cities, city) => {
+  return (dispatch) => {
+    let trips_by_city = trips[city];
+    const filterTypes = Object.keys(fullFilter);
+    filterTypes.forEach(function (filterType) {
+      if (
+        filterType === 'departure' &&
+        'start' in fullFilter.departure &&
+        'end' in fullFilter.departure
+      ) {
+        trips_by_city = trips_by_city.filter((trip) => {
+          if (
+            moment.utc(trip.way.local_departure).hours() >= fullFilter.departure.start &&
+            moment.utc(trip.way.local_departure).hours() <= fullFilter.departure.end
+          ) {
+            return true;
+          }
+          return false;
+        });
+      }
+      if (filterType === 'return' && 'start' in fullFilter.return && 'end' in fullFilter.return) {
+        trips_by_city = trips_by_city.filter((trip) => {
+          if (
+            moment.utc(trip.return.local_arrival).hours() >= fullFilter.return.start &&
+            moment.utc(trip.return.local_arrival).hours() <= fullFilter.return.end
+          ) {
+            return true;
+          }
+          return false;
+        });
+      }
+    });
+
+    trips[city] = trips_by_city;
+    const commonDestinations = getCommonDestinations(trips, cities);
+    const data = {
+      commonDestinations,
+      trips,
+    };
+    dispatch({ type: 'FILTER', data });
   };
 };
