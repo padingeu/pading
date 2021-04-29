@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import './_DetailsResults.scss';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import FlightInfo from './FlightInfo.js';
-import TinyURL from 'tinyurl';
 
 export default function DetailsResults(props) {
   return (
