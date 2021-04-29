@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import './_DetailsResults.scss';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import FlightInfo from './FlightInfo.js';
@@ -11,7 +11,7 @@ export default function DetailsResults(props) {
           <div className="details-results-travel-city">
             <h4>To {props.destination}</h4>
           </div>
-          {props.trip.departureRoutes.map((route, index) => {
+          {props.trip.wayRoutes.map((route, index) => {
             return (
               <FlightInfo
                 route={route}
@@ -39,7 +39,7 @@ export default function DetailsResults(props) {
               <div className="details-results-travel-city">
                 <h4>To {props.cityFrom}</h4>
               </div>
-              {props.trip.arrivalsRoutes.map((route, index) => {
+              {props.trip.returnRoutes.map((route, index) => {
                 return (
                   <FlightInfo
                     route={route}
@@ -51,17 +51,6 @@ export default function DetailsResults(props) {
                 );
               })}
             </div>
-            {props.trip.arrivalsRoutes.map((route, index) => {
-              return (
-                <FlightInfo
-                  route={route}
-                  duration={props.trip.duration}
-                  travelers={props.trip.travelers}
-                  isFirstFlight={index === 0}
-                  key={index}
-                />
-              );
-            })}
           </div>
         )}
         {props.travelType === 'Return' && (

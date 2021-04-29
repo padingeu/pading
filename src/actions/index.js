@@ -52,18 +52,19 @@ const getGeolocalisationPromisesFromAws = (commonDestinations, locationPromises)
   return geolocalisations;
 };
 
-const getDepartureRoutes = (routes, cityTo) => {
-  const departureRoutes = [];
+const getWayRoutes = (routes, cityTo) => {
+  const wayRoutes = [];
   for (let i = 0; i < routes.length; i++) {
     if (routes[i].cityFrom === cityTo) {
       break;
     }
-    departureRoutes.push(routes[i]);
+    wayRoutes.push(routes[i]);
   }
-  return departureRoutes;
+  return wayRoutes;
 };
 
-const getArrivalRoutes = (routes, cityTo) => {
+const getReturnRoutes = (routes, cityTo) => {
+  console.log(routes);
   const arrivalRoutes = [];
   for (let i = routes.length - 1; i >= 0; i--) {
     if (routes[i].cityTo === cityTo) {
@@ -71,6 +72,7 @@ const getArrivalRoutes = (routes, cityTo) => {
     }
     arrivalRoutes.push(routes[i]);
   }
+  console.log('hey');
   return arrivalRoutes.reverse();
 };
 
@@ -158,6 +160,8 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip, travelType) => {
           config
         );
       } else {
+        console.log('requete aller simple');
+        console.log(travelType);
         promise = axios.get(
           `https://tequila-api.kiwi.com/v2/search?fly_from=${cities[i].coordinates}&date_from=${dateFromStr}&max_stopovers=${maxStopover}&flight_type=oneway&adults=${cities[i].numberOfPeople}&vehicle_type=aircraft`,
           config
@@ -175,28 +179,32 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip, travelType) => {
           if (typeof results[i].data.data[0] !== 'undefined') {
             const city = results[i].data.data[0].cityFrom;
             const trips_by_city = results[i].data.data.map((trip) => {
-              const arrivalRoutes = getArrivalRoutes(trip.route, trip.cityTo);
-              return {
+              const padingTrip = {
                 cityFrom: trip.cityFrom,
                 cityTo: trip.cityTo,
                 price: trip.price,
                 way: { local_departure: trip.local_departure, local_arrival: trip.local_arrival },
-                return: {
-                  local_departure: getLocalDepartureDate(arrivalRoutes),
-                  local_arrival: getLocalArrivalDate(arrivalRoutes),
-                },
-                departureRoutes: getDepartureRoutes(trip.route, trip.cityTo),
-                arrivalsRoutes: travelType === 'Return' ? arrivalRoutes : [],
+                return: {},
+                wayRoutes: getWayRoutes(trip.route, trip.cityTo),
+                returnRoutes: [],
                 nightsInDest: trip.nightsInDest,
                 duration: trip.duration,
                 travelers: travelers[trip.cityFrom],
                 token: trip.booking_token,
               };
+              if (travelType === 'Return') {
+                const returnRoutes = getReturnRoutes(trip.route, trip.cityTo);
+                padingTrip['returnRoutes'] = returnRoutes;
+                padingTrip['return']['local_departure'] = getLocalDepartureDate(returnRoutes);
+                padingTrip['return']['local_arrival'] = getLocalArrivalDate(returnRoutes);
+              }
+              return padingTrip;
             });
+            console.log(trips_by_city);
             trips[city] = trips_by_city;
           }
         }
-
+        console.log(trips);
         //TODO
         const commonDestinations = getCommonDestinations(trips, cities);
 

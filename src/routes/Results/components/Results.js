@@ -69,6 +69,7 @@ export default function Result(props) {
 
   return (
     <div>
+      {console.log(props)}
       <NavBar
         isLoading={props.search.isLoading}
         searchTrips={props.searchTrips}
