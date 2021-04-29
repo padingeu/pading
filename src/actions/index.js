@@ -64,7 +64,6 @@ const getWayRoutes = (routes, cityTo) => {
 };
 
 const getReturnRoutes = (routes, cityTo) => {
-  console.log(routes);
   const arrivalRoutes = [];
   for (let i = routes.length - 1; i >= 0; i--) {
     if (routes[i].cityTo === cityTo) {
@@ -72,7 +71,6 @@ const getReturnRoutes = (routes, cityTo) => {
     }
     arrivalRoutes.push(routes[i]);
   }
-  console.log('hey');
   return arrivalRoutes.reverse();
 };
 
@@ -160,8 +158,6 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip, travelType) => {
           config
         );
       } else {
-        console.log('requete aller simple');
-        console.log(travelType);
         promise = axios.get(
           `https://tequila-api.kiwi.com/v2/search?fly_from=${cities[i].coordinates}&date_from=${dateFromStr}&max_stopovers=${maxStopover}&flight_type=oneway&adults=${cities[i].numberOfPeople}&vehicle_type=aircraft`,
           config
@@ -200,11 +196,9 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip, travelType) => {
               }
               return padingTrip;
             });
-            console.log(trips_by_city);
             trips[city] = trips_by_city;
           }
         }
-        console.log(trips);
         //TODO
         const commonDestinations = getCommonDestinations(trips, cities);
 
@@ -248,7 +242,7 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip, travelType) => {
                   }
                 )
                 .catch((error) => {
-                  console.log(error + destinationName);
+                  console.error(error + destinationName);
                 });
             }
             destinationsWithPrice.sort(compare);
@@ -257,6 +251,7 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip, travelType) => {
               initialTrips: trips,
               trips,
               travelers,
+              initialDestinationsWithPrice: destinationsWithPrice,
               destinationsWithPrice,
               travelType,
             };
@@ -271,7 +266,7 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip, travelType) => {
   };
 };
 
-export const doFilter = (fullFilter, trips, cities, city) => {
+export const doFilter = (fullFilter, trips, cities, city, destinationsWithPrice) => {
   return (dispatch) => {
     let trips_by_city = trips[city];
     const filterTypes = Object.keys(fullFilter);
@@ -306,9 +301,22 @@ export const doFilter = (fullFilter, trips, cities, city) => {
 
     trips[city] = trips_by_city;
     const commonDestinations = getCommonDestinations(trips, cities);
+    destinationsWithPrice = destinationsWithPrice.filter((destinationWithPrice) => {
+      return commonDestinations.includes(destinationWithPrice.name);
+    });
+    destinationsWithPrice = destinationsWithPrice.map((destinationWithPrice) => {
+      return {
+        name: destinationWithPrice.name,
+        lat: destinationWithPrice.lat,
+        lng: destinationWithPrice.lng,
+        prices: getTotalPrice(trips, destinationWithPrice.name),
+      };
+    });
+
     const data = {
       commonDestinations,
       trips,
+      destinationsWithPrice,
     };
     dispatch({ type: 'FILTER', data });
   };

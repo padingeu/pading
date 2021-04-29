@@ -39,7 +39,13 @@ export default function Result(props) {
       fullFilter['return'] = returnFilter;
     }
 
-    props.doFilter(fullFilter, trips, props.search.cities, city);
+    props.doFilter(
+      fullFilter,
+      trips,
+      props.search.cities,
+      city,
+      props.search.initialDestinationsWithPrice
+    );
   };
 
   const getPriceForDestination = (trips, destination, city) => {
@@ -69,7 +75,6 @@ export default function Result(props) {
 
   return (
     <div>
-      {console.log(props)}
       <NavBar
         isLoading={props.search.isLoading}
         searchTrips={props.searchTrips}
