@@ -1,5 +1,5 @@
 import React from 'react';
-import './_Navbar.scss';
+import './_NavBar.scss';
 import { Link } from "react-router-dom";
 import logoPading from '../img/logo-pading.jpeg';
 

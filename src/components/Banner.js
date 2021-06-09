@@ -1,6 +1,6 @@
 import React from 'react';
 import './_Banner.scss';
-import Navbar from './Navbar';
+import NavBar from './NavBar';
 import FormSearch from './FormSearch';
 import bannerDesktop1 from '../img/travel-markers.svg';
 import bannerDesktop2 from '../img/cats-traveling.svg';
@@ -93,7 +93,7 @@ export default class Banner extends React.Component {
   render() {
     return (
       <div>
-        <Navbar />
+        <NavBar />
         <div className="banner">
           <div className="banner-background">
             <img className="banner-1" alt="coloured shapes of the logo Pading" src={bannerDesktop1}/>
