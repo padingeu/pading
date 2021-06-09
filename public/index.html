@@ -1,51 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/pading.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Pading" />
+    <!-- <link rel="apple-touch-icon" href="logo192.png" /> -->
+    <!--
+        manifest.json provides metadata used when your web app is installed on a
+        user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
+      -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/icon.css" />
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.css' rel='stylesheet' />
 
-<head>
-  <meta charset="utf-8" />
-  <link rel="icon" href="%PUBLIC_URL%/pading.ico" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#000000" />
-  <meta name="description" content="Pading" />
-  <!-- <link rel="apple-touch-icon" href="logo192.png" /> -->
-  <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/components/icon.css" />
-  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.0.1/mapbox-gl.css' rel='stylesheet' />
+    <!--
+        Notice the use of %PUBLIC_URL% in the tags above.
+        It will be replaced with the URL of the `public` folder during the build.
+        Only files inside the `public` folder can be referenced from the HTML.
 
-  <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+        Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
+        work correctly both with client-side routing and a non-root public URL.
+        Learn how to configure a non-root public URL by running `npm run build`.
+      -->
+    <title>Pading | Travel app organiser that finds all common destinations where too meet</title>
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-  <title>Pading | The travel comparator</title>
-</head>
 
-<body>
-  <noscript>You need to enable JavaScript to run this app.</noscript>
-  <script
-    src="https://maps.googleapis.com/maps/api/js?key=%REACT_APP_GOOGLE_MAPS_KEY%&libraries=places&language=en"></script>
-  <script src="https://kit.fontawesome.com/27ed4b637e.js" crossorigin="anonymous"></script>
-  <div id="root"></div>
-  <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+    <!-- Google / Search Engine Tags -->
+    <meta itemprop="name" content="Pading | The travel app organiser that brings you closer to your friendss">
+    <meta itemprop="description" content="Travel to gather. From multiple departure cities, explore all common destinations to meet with your friends">
+    <meta itemprop="image" content="https://scontent.fbru4-1.fna.fbcdn.net/v/t1.0-9/89118314_103573031271656_845241227321278464_n.png?_nc_cat=108&ccb=2&_nc_sid=e3f864&_nc_ohc=-NLGpjQRxvsAX_wOGfC&_nc_ht=scontent.fbru4-1.fna&oh=7d92e8bcc343e83fa9f7d2daa12522bf&oe=5FFE58B3">
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://pading.eu">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Pading | The travel app organiser that brings you closer to your friends">
+    <meta property="og:description" content="Travel to gather. From multiple departure cities, explore all common destinations to meet with your friends">
+    <meta property="og:image" content="https://scontent.fbru4-1.fna.fbcdn.net/v/t1.0-9/89118314_103573031271656_845241227321278464_n.png?_nc_cat=108&ccb=2&_nc_sid=e3f864&_nc_ohc=-NLGpjQRxvsAX_wOGfC&_nc_ht=scontent.fbru4-1.fna&oh=7d92e8bcc343e83fa9f7d2daa12522bf&oe=5FFE58B3">
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-</body>
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pading | The travel app organiser that brings you closer to your friends">
+    <meta name="twitter:description" content="Travel to gather. From multiple departure cities, explore all common destinations to meet with your friends">
+    <meta name="twitter:image" content="https://scontent.fbru4-1.fna.fbcdn.net/v/t1.0-9/89118314_103573031271656_845241227321278464_n.png?_nc_cat=108&ccb=2&_nc_sid=e3f864&_nc_ohc=-NLGpjQRxvsAX_wOGfC&_nc_ht=scontent.fbru4-1.fna&oh=7d92e8bcc343e83fa9f7d2daa12522bf&oe=5FFE58B3">
+    <meta name="twitter:site" content="@Pading">
 
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-167990061-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-167990061-1");
+    </script>
+
+    <!-- Facebook Pixel Code -->
+    <script>
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod
+            ? n.callMethod.apply(n, arguments)
+            : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(
+        window,
+        document,
+        "script",
+        "https://connect.facebook.net/en_US/fbevents.js"
+      );
+      fbq("init", "1655732994583827");
+      fbq("track", "PageView");
+    </script>
+    <noscript
+      ><img
+        height="1"
+        width="1"
+        style="display: none;"
+        src="https://www.facebook.com/tr?id=1655732994583827&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Facebook Pixel Code -->
+    
+  </head>
+
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=%REACT_APP_GOOGLE_MAPS_KEY%&libraries=places&language=en"></script>
+      <script src="https://kit.fontawesome.com/27ed4b637e.js" crossorigin="anonymous"></script>
+    <div id="root"></div>
+    <!--
+        This HTML file is a template.
+        If you open it directly in the browser, you will see an empty page.
+
+        You can add webfonts, meta tags, or analytics to this file.
+        The build step will place the bundled scripts into the <body> tag.
+
+        To begin the development, run `npm start` or `yarn start`.
+        To create a production bundle, use `npm run build` or `yarn build`.
+      -->
+  </body>
 </html>

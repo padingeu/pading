@@ -9,8 +9,8 @@ $blue: #19a6ee;
 $blue-light: #41B6F1;
 $green: #427103;
 $green-light: #5C9F04;
-$gray: #333333;
-$light-gray: #4c4c4c;
+$gray: #4c4c4c;
+$light-gray: #dce4e9;
 
 h1 {
   font-family: $headers-font;
@@ -32,6 +32,12 @@ h4 {
 }
 
 p {
+  font-family: $body-font;
+  color: $gray;
+  font-size: 1.6rem;
+}
+
+body {
   font-family: $body-font;
   color: $gray;
   font-size: 1.6rem;

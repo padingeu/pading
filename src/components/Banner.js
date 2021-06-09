@@ -96,8 +96,8 @@ export default class Banner extends React.Component {
         <Navbar />
         <div className="banner">
           <div className="banner-background">
-            <img className="banner-1" src={bannerDesktop1}/>
-            {this.props.isResultsPage ? '' : <img className="banner-2" src={bannerDesktop2}/>}
+            <img className="banner-1" alt="coloured shapes of the logo Pading" src={bannerDesktop1}/>
+            {this.props.isResultsPage ? '' : <img className="banner-2" alt="cats friends gathering in a same place" src={bannerDesktop2}/>}
           </div>
           <div className="valueprop">
             <div className="valueprop-title-details">
@@ -119,7 +119,7 @@ export default class Banner extends React.Component {
               handleAddressChange={this.handleAddressChange}
               address={this.state.address}
             />
-        </div>
+          </div>
         </div>          
       </div>
     );

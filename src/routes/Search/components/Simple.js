@@ -3,12 +3,11 @@ import friendsMeeting from '../img/friends-meeting.svg';
 import './_Simple.scss';
 
 export default function Simple() {
-  let isIOS = /iPad|iPhone|iPod/.test(navigator.platform);
 
   return (
     <div className="wrapper">
       <div className="simple-solution">
-        <img className="simple-solution-image" src={friendsMeeting}/>
+        <img className="simple-solution-image" alt="friends gathering and chilling on the beach" src={friendsMeeting}/>
         <div className="simple-solution-content">
           <h2><span className="focus-text"><span className="underline"></span>SIMPLE SOLUTION FOR</span><br/><span className="focus-text"><span className="underline"></span>COMPLEX CONNECTIONS !</span></h2>
           <br />

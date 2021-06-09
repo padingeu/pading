@@ -1,6 +1,6 @@
 import React from 'react';
-import happyCatsGif from '../img/happycats.gif';
-import happyCatsVideo from '../img/happycats.mp4';
+import happyCatsGif from '../img/happy-cats.gif';
+import happyCatsVideo from '../img/happy-cats.mp4';
 import './_Why.scss';
 
 export default function Why() {
