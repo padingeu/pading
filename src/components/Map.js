@@ -17,7 +17,6 @@ export default class Map extends React.Component {
       longitude: 4.352222,
       minZoom: 3,
       interactive: true,
-
       iconAllowOverlap: false,
     },
     destinations: [],

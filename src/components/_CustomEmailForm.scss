@@ -1,40 +1,60 @@
-input {
-  font-family: 'Roboto', sans-serif;
-  height: 4.5rem;
-  min-width: 33rem;
-  font-weight: 400;
-  background: white;
-  color: #373737;
-  border: solid white;
+.register-form {
+  display: flex;
+  justify-content: center;
+  align-items: space-around;
+  font-family: 'PT Sans', sans-serif;
   text-align: left;
+  max-width: 99vw;
   border-radius: 1rem;
   font-size: 1.6rem;
-  padding: 1rem 10rem 1rem 1rem;
   &:focus {
     transition-duration: 0.5s;
     outline: 0;
   }
-}
-.btn-blue-newsletter {
-  position: absolute;
-  right: 0rem;
-  bottom: 0rem;
-  height: 4.5rem;
-  width: 7rem;
-  padding: 0 2rem;
-  border-radius: 1rem;
-  border: none;
-  background-color: #29b3c1;
-  color: white;
-  font-weight: 700;
-  &:hover {
-    transition: background-color 0.5s;
-    background-color: #53c2cd;
+  .input-newsletter {
+    height: 5rem;
+    min-width: 26rem;
+    flex-grow: 2;
+    border: solid white;
+    border-width: 0.1rem;
+    border-radius: 1rem;
+    margin: 0.2rem;
+    padding-left: 2.5rem;
+    text-align: left;
+    font-size: 1.6rem;
+    color: #4c4c4c;
+    font-weight: 700;
+    &::placeholder {
+      color: #4c4c4c;
+      font-weight: 700;
+    }
+    &:hover {
+      background-color: #f9f9f9;
+    }
+    &:focus {
+      outline: none;
+    }
   }
-  &:focus {
-    outline: none;
+  .btn-newsletter {
+    height: 5rem;
+    min-width: 7rem;
+    padding: 0 2rem;
+    border-radius: 1rem;
+    margin: 0.2rem;
+    border: none;
+    background-color: #19a6ee;
+    color: white;
+    font-weight: 700;
+    &:hover {
+      transition: background-color 0.5s;
+      background-color: #41B6F1;
+    }
+    &:focus {
+      outline: none;
+    }
   }
 }
+
 .swal2-popup {
   display: flex;
   justify-content: center;
@@ -79,5 +99,11 @@ input {
     .swal2-x-mark-line-right {
       background-color: #f49d11;
     }
+  }
+}
+
+@media (max-width: 600px) {
+  .register-form {
+    flex-direction: column;
   }
 }

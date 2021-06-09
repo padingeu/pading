@@ -1,0 +1,90 @@
+  .banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    margin-top: 7rem;
+    .valueprop {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      .valueprop-title-details {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .valueprop-title {
+          padding: 0 0.5rem;
+        }
+        .valueprop-details {
+          padding: 0 0.5rem;
+          text-align: center;
+        }
+      }
+     
+    }
+    .formsearch-banner {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+ 
+    }
+    .banner-background {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      width: 100%;
+      min-height: 40rem;
+    }
+    img {
+      width: 100%;
+      height: 100%;;
+    }
+  }
+  
+  @media only (max-width: 600px) {
+    .valueprop {
+      top: 2rem;
+      .valueprop-details {
+        display: none;
+      }
+    }
+    .formsearch-banner {
+      top: 12rem;
+    }
+    .banner-background {
+      .banner-1 {
+        padding: 0rem 1rem 37rem 1rem;
+      }
+      .banner-2 {
+        padding: 0em 6rem 0 6rem;
+      }
+    }
+  }
+  
+  @media only (min-width: 601px) {
+    .valueprop {
+      top: 2rem;
+    }
+    .formsearch-banner {
+      top: 14rem;
+    }
+    .banner-background {
+      .banner-1 {
+        padding: 0rem 5rem 0 10rem;
+        height: 45vh;
+      }
+      .banner-2 {
+        padding: 2rem;
+        height: calc(55vh - 7rem);
+        
+      }
+    }
+  }
+
+  

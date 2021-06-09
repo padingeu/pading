@@ -22,7 +22,7 @@ export default function Why() {
         </div>
         <div className="why-to-use-it-text" id="why">
           <div className="why-to-use-it-title">
-            <h2>Why use pading ?</h2>
+            <h2>WHY USE PADING ?</h2>
           </div>
           <div className="why-to-use-it-content">
             <div className="why-to-use-it-content-card">
@@ -30,13 +30,8 @@ export default function Why() {
                 <h2>1</h2>
               </div>
               <div className="why-to-use-it-details">
-                <h3>Save Time</h3>
-                <p>
-                  <b className="focus-text">
-                    <span className="underline"></span>In just one search
-                  </b>
-                  , you and your team can find your next common destination
-                </p>
+                <h3>SAVE TIME</h3>
+                <p>In just one search, you and your friends can find your next travel meeting point</p>
               </div>
             </div>
             <div className="why-to-use-it-content-card">
@@ -44,14 +39,8 @@ export default function Why() {
                 <h2>2</h2>
               </div>
               <div className="why-to-use-it-details">
-                <h3>Save Money</h3>
-                <p>
-                  Explore the{' '}
-                  <b className="focus-text">
-                    <span className="underline"></span>cheapest destinations
-                  </b>{' '}
-                  with people you plan to meet
-                </p>
+                <h3>SAVE MONEY</h3>
+                <p>Explore the cheapest destinations and journeys with people you plan to meet</p>
               </div>
             </div>
             <div className="why-to-use-it-content-card">
@@ -59,14 +48,8 @@ export default function Why() {
                 <h2>3</h2>
               </div>
               <div className="why-to-use-it-details">
-                <h3>Book Easily</h3>
-                <p>
-                  Share trip details with your team,{' '}
-                  <b className="focus-text">
-                    <span className="underline"></span>book easily
-                  </b>
-                  ... travel and meet
-                </p>
+                <h3>BOOK EASILY</h3>
+                <p>Share trip details with your team, book easily .. travel and meet !</p>
               </div>
             </div>
           </div>

@@ -34,7 +34,7 @@ const CustomEmailForm = ({ status, message, onValidated }) => {
   };
 
   return (
-    <div>
+    <div className="register-form">
       {status === 'error' && (
         <SweetAlert>
           {swal.fire({
@@ -64,9 +64,9 @@ const CustomEmailForm = ({ status, message, onValidated }) => {
         </SweetAlert>
       )}
 
-      <input ref={(node) => (email = node)} type="email" placeholder="Register with your email" />
+      <input className="input-newsletter" ref={(node) => (email = node)} type="email" placeholder="Register with your email" />
 
-      <button className="btn-blue-newsletter" onClick={submit} disabled={status === 'sending'}>
+      <button className="btn-newsletter" onClick={submit} disabled={status === 'sending'}>
         <i className="fas fa-paper-plane fa-lg"></i>
       </button>
     </div>

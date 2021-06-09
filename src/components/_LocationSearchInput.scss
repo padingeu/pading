@@ -1,22 +1,26 @@
-.location-search-input {
+.location-search-input {;
   position: relative;
-  width: 100%;
-  margin-top: 2rem;
-  z-index: 1;
+  form {
+    height: 5rem;
+    margin: 0.5rem;
+  }
   .inp {
     position: relative;
     overflow: hidden;
     width: 100%;
-    input {
-      border-radius: 3rem;
+    max-width: 97vw;
+    z-index: 1;
+    .city-departure-input {
+      height: 5rem;
+      min-width: 26rem;
+      border-width: 0.1rem !important;
+      border: solid #e7e7e7;
+      border-radius: 1rem;
       width: 100%;
-      border: 0;
-      padding: 2rem 2rem 0 2rem;
-      min-height: 5.5rem;
-      color: transparent;
+      padding-left: 2rem;
+      padding-top: 2rem;
       background: transparent;
       transition: all 0.5s ease;
-      background: rgba(0, 0, 0, 0.02);
       &:focus {
         outline: none;
         background: rgba(0, 0, 0, 0.02);
@@ -24,14 +28,15 @@
         font-family: 'Roboto', sans-serif;
         font-weight: bold;
         color: #262626;
+        border: solid #ff9e00;
         + {
           .arrow-and-label {
             .label {
               -webkit-transform: translate3d(0, -12px, 0) scale(0.75);
-              transform: translate3d(0, -12px, 0) scale(0.75);
+              transform: translate3d(5px, -12px, 0) scale(0.75);
             }
             .fa-location-arrow {
-              color: #f49d11;
+              color: #ff9e00;
             }
           }
         }
@@ -39,8 +44,9 @@
     }
     .label {
       position: absolute;
-      top: 2rem;
-      left: 1.5rem;
+      top: 1.4rem;
+      left: 0;
+      padding-left: 2rem;
       -webkit-transform-origin: 0 0;
       transform-origin: 0 0;
       -webkit-transform: translate3d(0, 0, 0);
@@ -48,22 +54,25 @@
       -webkit-transition: all 0.2s ease;
       transition: all 0.2s ease;
       pointer-events: none;
-      font-size: 1.4rem;
+      font-size: 1.6rem;
       font-family: 'roboto' sans-serif;
       font-weight: bold;
-      color: #f49d11;
+      color: #ff9e00;
     }
     .fa-location-arrow {
       position: absolute;
-      top: 2.3rem;
+      top: 2rem;
       right: 2rem;
       z-index: 1;
       color: #dce3e9;
     }
     .cities-proposal {
-      .fa-dot-circle {
-        margin-right: 0.5rem;
-        color: #f49d11;
+      margin-top: 1rem;
+      :first-child {
+        border-radius: 1rem 1rem 0 0;
+      }
+      :last-child {
+        border-radius: 0 0 1rem 1rem;
       }
     }
   }
@@ -73,6 +82,13 @@
       position: absolute;
       padding-bottom: 5rem;
       width: 100%;
+     
     }
+  }
+}
+
+@media (max-width: 1000px) {
+  .location-search-input {
+    min-width: 100%;
   }
 }

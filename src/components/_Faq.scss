@@ -11,18 +11,20 @@
 }
 .faq-title {
   h4 {
-    color: #3e936f !important;
-    font-weight: normal 400 !important;
-    font-size: 14px !important;
+    color: #427103 !important;
+    font-size: 1.6rem !important;
   }
 }
 
 .faq-answers {
   p {
-    color: #262626 !important;
-    font-weight: normal 400 !important;
-    font-size: 14px !important;
+    color: #333333 !important;
+    font-weight: bold !important;
+    font-size: 1.4rem !important;
     text-align: justify !important;
+  }
+  li {
+    color: #ff9e00 !important;
   }
 }
 
@@ -33,12 +35,12 @@
   }
   .faq-title {
     .h4 {
-      font-size: 12px !important;
+      font-size: 1.4rem !important;
     }
   }
   .faq-answers {
     p {
-      font-size: 12px !important;
+      font-size: 1.2rem !important;
     }
   }
 }

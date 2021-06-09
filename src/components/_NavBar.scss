@@ -1,164 +1,74 @@
-.header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-direction: center;
-}
 .navbar {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100vw;
-  max-height: 45rem;
-  z-index: 0;
-  padding: 1rem 2rem;
-  background-color: #f49d11;
-  .navbar-menu {
+    position: fixed;
+    top: 0;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     width: 100%;
-    margin: 0rem 1rem;
+    height: 7rem;
+    z-index: 99;
+    background-color: white;
     .navbar-brand {
       display: flex;
       align-items: center;
       img {
-        height: 5.5rem;
-        border-radius: 3rem;
-      }
-    }
-  }
-  .value-prop {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-}
-.form {
-  display: flex;
-  justify-content: center;
-  margin-top: -22rem;
-  padding: 1rem;
-  background-color: white;
-  border-radius: 2rem;
-  width: 85%;
-  z-index: 1;
-  box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.1);
-  .formsearch {
-    height: 50rem;
-  }
-}
-
-@media (max-width: 900px) {
-  .value-prop {
-    width: 95%;
-    margin-bottom: 35rem;
-    text-align: center;
-    z-index: 1;
-    h1 {
-      font-size: 3rem;
-      color: white;
-      margin-bottom: 2rem;
-      .focus-text {
-        position: relative;
-        display: inline-block;
-        z-index: 0;
-      }
-      .green-underline {
-        position: absolute;
-        z-index: -1;
-        bottom: 0;
-        right: -0.5rem;
-        left: -0.5rem;
-        height: 15rem;
-        background-color: #3e936f;
-        border-radius: 2rem;
-      }
-      .blue-underline {
-        position: absolute;
-        z-index: -1;
         left: 0;
-        bottom: 0rem;
-        height: 2rem;
-        width: 130%;
-        background-color: #29b3c1;
-        border-radius: 2rem;
+        height: 4rem;
       }
     }
-    p {
-      width: 80%;
-      color: rgba(255, 255, 255, 0.7);
-    }
-  }
-}
-
-@media (min-width: 901px) {
-  .value-prop {
-    width: 70%;
-    margin-bottom: 35rem;
-    text-align: center;
-    z-index: 1;
-    h1 {
-      position: relative;
-      font-size: 3.5rem;
-      color: white;
-      margin-bottom: 2rem;
-      .focus-text {
-        position: relative;
-        display: inline-block;
-        z-index: 0;
-      }
-      .green-underline {
-        position: absolute;
-        z-index: -1;
-        bottom: 0;
-        right: -0.5rem;
-        left: -0.5rem;
-        height: 15rem;
-        background-color: #3e936f;
-        border-radius: 2rem;
-      }
-      .blue-underline {
-        position: absolute;
-        z-index: -1;
-        left: 0;
-        bottom: 0rem;
-        height: 2rem;
-        width: 50vw;
-        background-color: #29b3c1;
-        border-radius: 2rem;
+    .navbar-menu {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      width: 100%;
+      .navbar-social {
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 1rem;
+        a {
+          cursor: pointer;
+          background: transparent;
+          width: 4.5rem;
+          text-decoration: none;
+          font-family: 'PT sans', sans-serif;
+          font-weight: bold;
+          color: #19a6ee;
+          transition: background 0.3s ease;
+        }
+        :hover {
+          color: #41B6F1;
+        }
+        i {
+          font-size: 3.5rem;
+        }
       }
     }
-    p {
-      width: 50%;
-      color: rgba(255, 255, 255, 0.7);
+  }
+
+  @media only (max-width: 600px) {
+    .navbar {
+      .navbar-menu {
+        .navbar-social{
+          display: none;
+        }
+      }
     }
   }
-}
-
-@media (max-width: 1200px) {
-  .formsearch {
-    width: 75vw;
+  
+  @media only (min-width: 601px) {
+    .navbar {
+      .navbar-brand {
+        margin-left: 0rem;
+      }
+    }
   }
-  .map {
-    display: none;
+  
+  @media only (min-width: 901px) {
+    .navbar {
+      .navbar-brand {
+        margin-left: 10rem;
+      }
+    }
   }
-}
-
-@media (min-width: 1201px) {
-  .formsearch {
-    width: 40%;
-  }
-  .map {
-    width: 60%;
-  }
-}
-
-@media (min-width: 1201px) {
-  .value-prop {
-    width: 55%;
-    margin-bottom: 35rem;
-    z-index: 1;
-  }
-}
+  
