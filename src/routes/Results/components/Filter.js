@@ -7,7 +7,7 @@ function valuetext(value) {
 }
 
 export default function Filter(props) {
-  const [value, setValue] = React.useState([0, 24]);
+  const [value, setValue] = React.useState([0, 23]);
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -19,7 +19,7 @@ export default function Filter(props) {
       <div>
         <div className="timerange">
           <p>
-            from {value[0]}h00 to {value[1]}h
+            {value[0]}h00 - {value[1]}h00
           </p>
         </div>
       </div>

@@ -1,6 +1,5 @@
 import React from 'react';
-import catsBasketGif from '../img/catsbasket.gif';
-import catsBasketVideo from '../img/catsbasket.mp4';
+import friendsMeeting from '../img/friends-meeting.svg';
 import './_Simple.scss';
 
 export default function Simple() {
@@ -9,28 +8,21 @@ export default function Simple() {
   return (
     <div className="wrapper">
       <div className="simple-solution">
-        <div className="simple-solution-gif">
-          {isIOS ? (
-            <div>
-              <img src={catsBasketGif} className="catsbasket" width="350px" alt="cat basket" />
-            </div>
-          ) : (
-            <video className="catsbasket" autoPlay="autoplay" loop muted playsInline width="350px">
-              <source src={catsBasketVideo} />
-            </video>
-          )}
-        </div>
+        <img className="simple-solution-image" src={friendsMeeting}/>
         <div className="simple-solution-content">
-          <h2>Simple solution for complex connections !</h2>
+          <h2><span className="focus-text"><span className="underline"></span>SIMPLE SOLUTION FOR</span><br/><span className="focus-text"><span className="underline"></span>COMPLEX CONNECTIONS !</span></h2>
           <br />
           <p>
-            <b>Planning an Erasmus meeting, joining friends living abroad, gathering with family</b>
+            Planning an Erasmus meeting, joining friends abroad, gathering with family ..
+            <br />
+            Pading is a simple solution built to bring you closer to each other
           </p>
-          <p>
-            <b>Pading is a simple solution built to bring you closer to each other</b>
-          </p>
+      
+         
+ 
         </div>
       </div>
     </div>
   );
 }
+

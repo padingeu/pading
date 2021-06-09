@@ -1,15 +1,13 @@
 .cities-departure {
   position: absolute;
+  right: 0rem;
+  left: 0rem;
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
-  bottom: 7rem;
-  max-height: 35%;
-  width: 100%;
-  overflow-y: auto;
+  flex-wrap: wrap;
+  overflow-y: scroll;
   padding: 0 0.5rem;
 }
-
 .city-div {
   display: flex;
   flex-direction: column;
@@ -27,26 +25,26 @@
       align-items: center;
       margin: 0 0.5rem;
       .fa-user-friends {
-        color: #f5a741;
+        color: #ff9e00;
       }
       h5 {
-        color: #f5a741;
+        color: #ff9e00;
       }
     }
     .people-number-change {
       .fa-minus-circle {
         cursor: pointer;
-        color: #dce3e9;
+        color: #e7e7e7;
         margin-right: 0.2rem;
         &:hover {
-          color: #f5a741;
+          color: #ff9e00;
         }
       }
       .fa-plus-circle {
         cursor: pointer;
-        color: #dce3e9;
+        color: #e7e7e7;
         &:hover {
-          color: #f6b040;
+          color: #ff9e00;
         }
       }
     }
@@ -58,7 +56,7 @@
     height: 3rem;
     border-radius: 2.5rem;
     padding: 0 1rem 0 1rem;
-    background-color: #f5a741;
+    background-color: #ff9e00;
     .city-departure-name {
       color: white;
       font-family: 'roboto' sans-serif;
@@ -74,5 +72,19 @@
         color: white;
       }
     }
+  }
+}
+
+@media (max-width: 1050px) {
+  .cities-departure {
+    bottom: -10em;
+    height: 12rem;
+  }
+}
+
+@media (min-width: 1051px) {
+  .cities-departure {
+    bottom: -7rem;
+    height: 6rem;
   }
 }

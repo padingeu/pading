@@ -1,10 +1,10 @@
 import React from 'react';
 import './_Home.scss';
-import NavBar from '../../../components/NavBar';
+import Banner from '../../../components/Banner';
 import Why from './Why';
 import How from './How';
 import Simple from './Simple';
-import MyClimate from './MyClimate';
+import Planet from './Planet';
 import Footer from '../../../components/Footer';
 
 export default class Home extends React.Component {
@@ -18,11 +18,11 @@ export default class Home extends React.Component {
   render() {
     return (
       <div>
-        <NavBar searchTrips={this.props.searchTrips} />
+        <Banner searchTrips={this.props.searchTrips} />
         <Why />
         <How />
         <Simple />
-        <MyClimate />
+        <Planet />
         <Footer scrollUp={this.scrollUp} />
       </div>
     );

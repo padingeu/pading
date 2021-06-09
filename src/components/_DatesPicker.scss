@@ -1,156 +1,66 @@
-.search {
-  .travel-options {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    .travel-options-details {
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      width: 100%;
-      margin-bottom: 2rem;
-      .travel-type {
-        button.travel-type-btn {
-          position: relative;
-          display: flex;
-          align-items: center;
-          justify-content: space-around;
-          width: 11rem;
-          border-width: 0.2rem;
-          height: 3rem;
-          font-size: 1.2rem;
-          outline: none;
-          cursor: pointer;
-          background-color: white;
-          color: #29b3c1;
-        }
-        .travel-type-change {
-          position: absolute;
-          border-radius: 1rem;
-          padding: 0.5rem;
-          width: 11rem;
-          background-color: white;
-          z-index: 1;
-          box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.1);
-          a {
-            background-color: white;
-            display: flex;
-            justify-content: left;
-            align-items: center;
-            cursor: pointer;
-            color: #262626;
-            text-decoration: none;
-            .check-box {
-              min-width: 3rem;
-              .fa-check {
-                color: #29b3c1;
-              }
-            }
-          }
-        }
-      }
-    }
-    button.stop-trip-btn {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: space-around;
-      width: 11rem;
-      padding: 1rem;
-      margin-left: 1rem;
-      border-width: 0.2rem;
-      height: 3rem;
-      font-size: 1.2rem;
-      outline: none;
-      cursor: pointer;
-      background-color: white;
-      color: #29b3c1;
-    }
-    .stop-trip-change {
-      position: absolute;
-      border-radius: 1rem;
-      padding: 0.5rem;
-      margin-left: 1rem;
-      width: 11rem;
-      background-color: white;
-      z-index: 1;
-      box-shadow: 0 0 1.5rem rgba(0, 0, 0, 0.1);
-      a {
-        background-color: white;
-        display: flex;
-        justify-content: left;
-        align-items: center;
-        cursor: pointer;
-        color: #262626;
-        text-decoration: none;
-        .check-box {
-          min-width: 3rem;
-          .fa-check {
-            color: #29b3c1;
-          }
-        }
-      }
-    }
-  }
-
+.datespicker {
+  position: relative;
+  width: 100%;
   .inputdate {
-    position: relative;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    margin-top: 3.5rem;
+    justify-content: flex-start;
+    flex-wrap: wrap;
     width: 100%;
     .inputdatefrom {
+      height: 5rem;
+      flex-grow: 2;
       cursor: pointer;
-      text-align: left;
-      height: 4.5rem;
-      border: solid #c2c8cd;
-      border-width: 0.2rem;
+      border: solid #e7e7e7;
+      border-width: 0.1rem;
       border-radius: 1rem;
-      width: 100%;
-      margin-bottom: 1rem;
+      margin: 0.5rem;
       padding-left: 2rem;
-      font-size: 1.4rem;
-      font-family: 'roboto' sans-serif;
-      font-weight: bold;
-      color: #262626;
-
+      text-align: left;
+      font-size: 1.6rem;
+      color: #4c4c4c;
+      font-weight: 700;
+      &::placeholder {
+        color: #4c4c4c;
+        font-weight: 700;
+      }
+      &:hover {
+        background-color: #f9f9f9;
+      }
       &:focus {
         outline: none;
       }
     }
-
     .inputdateto {
+      height: 5rem;
+      flex-grow: 4;
       cursor: pointer;
-      text-align: left;
-      height: 4.5rem;
-      border: solid #c2c8cd;
-      border-width: 0.2rem;
+      border: solid #e7e7e7;
+      border-width: 0.1rem;
       border-radius: 1rem;
-      width: 100%;
+      margin: 0.5rem;
       padding-left: 2rem;
-      font-size: 1.4rem;
-      font-family: 'roboto' sans-serif;
-      font-weight: bold;
-      color: #262626;
+      text-align: left;
+      font-size: 1.6rem;
+      color: #4c4c4c;
+      font-weight: 700;
+      &::placeholder {
+        color: #4c4c4c;
+        font-weight: 700;
+      }
+      &:hover {
+        background-color: #f9f9f9;
+      }
       &:focus {
         outline: none;
       }
     }
   }
-  ::placeholder {
-    color: #c2c8cd;
-  }
-
   .calendar {
     position: absolute;
-    bottom: 0rem;
+    top: 0;
     left: 0;
     right: 0;
-    height: 83%;
     z-index: 2;
     transition: all 0.15s ease-in-out 0s;
     .btn-date {
@@ -161,10 +71,14 @@
       border-radius: 5rem;
       width: 95%;
       color: white;
-      background: #3e936f;
+      background: #19a6ee;
       transition: background 0.3s ease;
+      font-family: 'PT sans', sans-serif;
+      font-size: 1.6rem;;
+      font-weight: bold;
+      
       &:hover {
-        background: rgba(62, 147, 111, 0.9);
+        background: #41B6F1;
         color: white;
       }
     }
@@ -173,27 +87,21 @@
       height: 100%;
       padding: 1.5rem;
       border: none;
-      box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 7px 0 rgba(0,0,0,0.12);
       border-radius: 2.5rem;
       button[disabled] {
-        color: #dce3e9;
+        color: #d6d6d6;
       }
       .react-calendar__tile {
         margin-bottom: 0.5rem;
         height: 4rem;
       }
-      .react-calendar__tile--now {
-        color: #262626;
-        font-weight: bold;
-      }
       .react-calendar__navigation {
-        height: 4rem;
+        height: 5rem;
         border-radius: 2.5rem 2.5rem 0 0;
-        color: #f49d11;
-        font-size: 1.4rem;
-        font-weight: bold;
+        color: #ff9e00;
         font-weight: button[disabled] {
-          background-color: white;
+        background-color: white;
         }
         button.react-calendar__navigation__label {
           background-color: white;
@@ -210,26 +118,27 @@
     .react-calendar__month-view__weekdays,
     .react-calendar__month-view__days__day--neighboringMonth {
       height: 3rem;
-      color: #f49d11;
+      color: #ff9e00;
       & abbr {
         border-bottom: none;
         text-decoration: none;
       }
     }
     .react-calendar__month-view__days__day {
-      color: #5f5f5f;
+      color: #4c4c4c;
+      background-color: white;
     }
     .react-calendar__tile--active {
       color: white;
-      background-color: #53c2cd;
+      background-color: #19a6ee;
       border-radius: 0;
     }
     .react-calendar__tile--hover {
-      background-color: #f7fbfc;
+      background-color: #f9f9f9;
     }
     .react-calendar__tile--active:enabled:hover,
     .react-calendar__tile--active:enabled:focus {
-      background-color: #53c2cd;
+      background-color: #19a6ee;
       color: white;
     }
     .react-calendar__tile--rangeStart {

@@ -1,48 +1,157 @@
-.travel-form {
-  position: relative;
+.formsearch {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  text-align: center;
-  height: 100%;
-  min-height: 40rem;
-  margin-top: 1rem;
-  padding: 0 1rem;
-  .search-box {
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 97vw;
+  box-shadow: 0 2px 7px 0 rgba(0,0,0,0.12);
+  border-width: 0.2rem;
+  background-color: white;
+  .travel-options{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: stretch;
-    width: 98%;
-  }
-  .btn-flat {
-    position: absolute;
-    bottom: 0rem;
-    width: 95%;
-    margin-bottom: 1rem;
-    display: flex;
-    justify-content: center;
     align-items: center;
-    color: white;
-    height: 4.5rem;
-    border-radius: 5rem;
-    background: #3e936f;
-    transition: background 0.3s ease;
-    &:hover {
-      background: #48ad83;
-      color: white;
+    .travel-type {
+      button.travel-type-btn {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        height: 4rem;
+        width: 11rem;
+        border-width: 0.2rem;
+        font-family: 'PT Sans', sans-serif;
+        font-size: 1.4rem;
+        outline: none;
+        cursor: pointer;
+        background-color: transparent;
+        color: #19a6ee;
+      }
+      .travel-type-change {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 11rem;
+        height: 7rem;
+        border-radius: 1rem;
+        padding: 0.5rem;
+        margin-left: 1rem;
+        background-color: white;
+        z-index: 1;
+        box-shadow: 0 2px 7px 0 rgba(0,0,0,0.12);
+        span {
+          font-family: 'PT Sans', sans-serif;
+          font-size: 1.4rem;
+          font-weight: bold;
+        }
+        a {
+          background-color: white;
+          display: flex;
+          justify-content: left;
+          align-items: center;
+          cursor: pointer;
+          color: #4c4c4c;
+          text-decoration: none;
+          .check-box {
+            min-width: 3rem;
+            .fa-check {
+              color: #19a6ee;
+            }
+          }
+        }
+      }
     }
-    &:focus {
+    button.stop-trip-btn {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      height: 4rem;
+      width: 11rem;
+      padding: 1rem;
+      margin-left: 1rem;
+      border-width: 0.2rem;
+      font-family: 'PT Sans', sans-serif;
+      font-size: 1.4rem;
       outline: none;
+      cursor: pointer;
+      background-color: transparent;
+      color: #19a6ee;
+    }
+    .stop-trip-change {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 11rem;
+      height: 7rem;
+      border-radius: 1rem;
+      padding: 0.5rem;
+      margin-left: 1rem;
+
+      background-color: white;
+      z-index: 1;
+      box-shadow: 0 2px 7px 0 rgba(0,0,0,0.12);
+      span {
+        font-family: 'PT Sans', sans-serif;
+        font-size: 1.4rem;
+        font-weight: bold;
+      }
+      a {
+        background-color: white;
+        display: flex;
+        justify-content: left;
+        align-items: center;
+        cursor: pointer;
+        color: #4c4c4c;
+        text-decoration: none;
+        .check-box {
+          min-width: 3rem;
+          .fa-check {
+            color: #19a6ee;
+          }
+        }
+      }
     }
   }
-  .MuiCircularProgress-colorPrimary {
-    color: white !important;
-    height: 3.5rem !important;
-    width: 3.5rem !important;
+  .travel-form {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 1rem 0;
+    .btn-explore {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      height: 5rem;
+      min-width: 10rem;
+      margin: 0.5rem;
+      border-radius: 1rem;
+      background: #19a6ee;
+      transition: background 0.3s ease;
+      font-family: 'PT sans', sans-serif;
+      font-size: 1.6rem;;
+      font-weight: bold;
+      cursor: pointer;
+      &:hover {
+        background: #41B6F1;
+        color: white;
+      }
+      &:focus {
+        outline: none;
+      }
+    }
+    .MuiCircularProgress-colorPrimary {
+      color: white !important;
+      height: 3.5rem !important;
+      width: 3.5rem !important;
+    }
   }
 }
+  
 
 
 .loader,
@@ -102,3 +211,31 @@
     box-shadow: 0 2.5em 0 0;
   }
 }
+
+@media (max-width: 800px) {
+  .formsearch {
+    min-width: 70vw;
+  }
+}
+
+
+@media (max-width: 1000px) {
+  .formsearch {
+    padding: 0.5rem;
+    border-radius: 1.2rem;
+    .travel-form {
+      flex-direction: column;
+      .btn-explore {
+        width: 98%;
+      }
+    }
+  }
+}
+
+@media (min-width: 1001px) {
+  .formsearch {
+    padding: 0 3rem;
+    border-radius: 7rem;
+  }
+}
+

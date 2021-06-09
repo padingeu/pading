@@ -41,13 +41,13 @@ class LocationSearchInput extends React.Component {
                     <i className="fas fa-location-arrow fa-xl"></i>
 
                     {this.props.cities.length === 0 ? (
-                      <span className="label">Enter a first departure city</span>
+                      <span className="label">Add a first departure city</span>
                     ) : (
-                      <span className="label">Enter more departure cities</span>
+                      <span className="label">Add more departure cities</span>
                     )}
                   </div>
                   <span className="focus-bg"></span>
-                  <div>{loading ? <div>...Loading</div> : null}</div>
+                  <div>{loading ? <p>...Loading</p> : null}</div>
                   <div className="cities-proposal">
                     {suggestions.map((suggestion) => {
                       if (!suggestion.id) {
@@ -57,14 +57,15 @@ class LocationSearchInput extends React.Component {
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'flex-start',
-                        backgroundColor: '#fff',
+                        backgroundColor: suggestion.active ? '#f5f5f5' : 'white',
+                        borderBottom: 'solid #ebebeb',
+                        borderWidth: '0.1rem',
                         cursor: 'pointer',
-                        color: '#262626',
-                        fontFamily: 'Roboto',
+                        fontFamily: 'PT Sans',
                         fontSize: '1.4rem',
-                        fontWeight: suggestion.active ? '700' : '400',
+                        fontWeight: '400',
                         textAlign: 'left',
-                        paddingLeft: '2rem',
+                        padding: '2rem 1rem 2rem 1rem',
                         height: '3rem',
                       };
                       return (
@@ -72,7 +73,6 @@ class LocationSearchInput extends React.Component {
                           className="suggestions-form"
                           {...getSuggestionItemProps(suggestion, { style })}
                         >
-                          {suggestion.active ? <i className="far fa-dot-circle"></i> : null}
                           <span>{suggestion.description}</span>
                         </div>
                       );

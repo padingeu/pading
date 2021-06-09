@@ -20,9 +20,11 @@ export default class Footer extends React.Component {
           <div className="footer-menu">
             <div className="footer-menu-email">
               <p>
-                <b>Redesigning travel search experience</b>
+                <b>We are redesigning travel search experience.
+                  <br/>
+                  To be notified of new features and receive travel tips, you can register with your mail</b>
               </p>
-              <div className="footer-menu-email-form">
+              <div>
                 <MailchimpSubscribe
                   url={url}
                   render={({ subscribe, status, message }) => (
@@ -37,15 +39,15 @@ export default class Footer extends React.Component {
             </div>
             <div className="footer-menu-app-contact">
               <div className="footer-menu-app">
-                <h4>Pading</h4>
+                <h4>PADING</h4>
                 <button className="btn-product" onClick={this.props.scrollToTop} href="">
-                  <p>Product</p>
+                  <p>Blog</p>
                 </button>
                 <Popup
                   modal
                   trigger={
-                    <button>
-                      <p>FAQ</p>
+                    <button className="btn-faq">
+                      <p>Questions</p>
                     </button>
                   }
                 >
@@ -56,11 +58,18 @@ export default class Footer extends React.Component {
                 </Link>
               </div>
               <div className="footer-menu-contact">
-                <h4>Contact</h4>
+                <h4>CONTACT</h4>
                 <a href="mailto:contact@pading.eu" target="_blank" rel="noopener noreferrer">
                   <p>Contact us</p>
                 </a>
                 <div className="footer-social">
+                <a
+                      href="https://www.facebook.com/Pading-103563007939325/?view_public_for=103563007939325"
+                      rel="noopener noreferrer"
+                      target="_blank"
+                  >
+                      <i className="fab fa-facebook"></i>
+                  </a>
                   <a
                     href="https://www.instagram.com/padingapp/?hl=fr"
                     rel="noopener noreferrer"

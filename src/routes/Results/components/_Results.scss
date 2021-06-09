@@ -1,5 +1,5 @@
 #cards-results-wrapper {
-  width: 100%;
+ width: 100%;
 }
 
 .travel-results {
@@ -7,24 +7,23 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 3rem;
+  max-width: 100%;
   .travel-results-cards {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 85%;
+    width: 100%;
     .linear-progress-filter {
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-top: 7rem;
-      margin-bottom: 2rem;
       width: 100%;
+      margin-bottom: 2rem;
       .linear-progress-div {
-        width: 100%;
-        margin-right: 2rem;
+        padding: 1rem;
         .linear-progress {
+          width: 100%;
           .MuiLinearProgress-colorPrimary {
             background-color: #F1F9F5;
             height: 0.5rem;
@@ -32,101 +31,62 @@
             margin: 0.2rem;
           }
           .MuiLinearProgress-barColorPrimary {
-            background-color: #3e936f;
+            background-color: #427103;
           }
         }
       }
-
-      .btn-filter {
-        background-color: #f49d11;
-        color: white;
-        width: 10rem;
-        padding: 1rem;
-        border-radius: 5rem;
-        &:hover {
-          background-color: #f5a729;
-        }
-      }
-
-      .fa-sort-amount-down-alt {
-        margin: 0 2rem;
-        color: #f49d11;
-        cursor: pointer;
-      }
-    }
-    .filter-div {
-      width: 100%;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      margin-bottom: 2rem;
-      padding: 1.5rem;
-      background-color: white;
-      box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
-      border-radius: 1.5rem;
-      .filter-table {
-        width: 100%;
-        .filter-table-header {
+      .filter-sort {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        .btn-filter {
+          position: relative;
           display: flex;
-          justify-content: center;
-          align-items: space-between;
-          width: 100%;
-          p {
-            font-weight: bold;
-            color: #f49d11;
-          }
-          .filter-table-header-city {
-            width: 25%;
-          }
-          .filter-table-header-departure {
-            width: 40%;
-            display: flex;
-            justify-content: flex-start;
-            flex-grow: 2;
-            padding: 0 1rem;
-            margin: 0 1rem;
-          }
-          .filter-table-header-return {
-            width: 40%;
-            display: flex;
-            justify-content: flex-start;
-            padding: 0 1rem;
-            margin: 0 1rem;
-          }
-        }
-        .filter-table-body {
-          display: flex;
-          flex-direction: column;
           justify-content: center;
           align-items: center;
-          width: 100%;
-          p {
-            font-weight: bold;
-            color: #262626;
-          }
-          .row {
-            display: flex;
-            justify-content: center;
-            align-items: flex-end;
-            width: 100%;
-            .filter-table-body-city {
-              width: 25%;
-            }
-            .filter-table-body-departure {
-              width: 40%;
-              text-align: center;
-              padding: 0 1rem;
-              margin: 0 1rem;
-              flex-grow: 2;
-            }
-            .filter-table-body-return {
-              width: 40%;
-              text-align: center;
-              padding: 0 1rem;
-              margin: 0 1rem;
-            }
+          color: #4c4c4c;
+          background-color: white;
+          cursor: pointer;
+          margin-left: 0.5rem;
+          i {
+            margin-right: 1rem;
           }
         }
+        .btn-sort {
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: #4c4c4c;
+          background-color: white;
+          cursor: pointer;
+          margin-left: 0.5rem;
+          i {
+            margin-right: 1rem;
+          }
+        }
+        .sortby-change {
+          position: absolute;
+          top: 0;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          align-items: center;
+          width: 10rem;
+          height: 10rem;
+          border-radius: 1rem;
+          padding: 0.5rem;
+          margin-left: 1rem;
+          background-color: white;
+          z-index: 1;
+          box-shadow: 0 2px 7px 0 rgba(0,0,0,0.12);
+          font-size: 1.4rem;
+        }
+      }
+      .fa-sort-amount-down-alt {
+        margin: 0 2rem;
+        color: #ff9e00;
+        cursor: pointer;
       }
     }
     .cards-results {
@@ -138,11 +98,13 @@
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
   .travel-results-cards {
-    .filter-div {
-      p {
-        font-size: 1.2rem;
+    margin: 20rem 2rem 0rem 2rem;
+    .linear-progress-filter {
+      flex-direction: column;
+      .linear-progress-div {
+        width: 100%;
       }
     }
     .cards-results {
@@ -151,11 +113,12 @@
   }
 }
 
-@media (min-width: 801px) {
+@media (min-width: 1001px) {
   .travel-results-cards {
-    .filter-div {
-      p {
-        font-size: 1.4rem;
+    margin: 10rem 15rem 0rem 15rem;
+    .linear-progress-filter {
+      .linear-progress-div {
+        width: 80%;
       }
     }
     .cards-results {

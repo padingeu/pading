@@ -5,17 +5,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #f49d11;
+    background-color: #ff9e00;
     .footer-menu {
       display: flex;
       flex-direction: column;
       justify-content: space-around;
       align-items: center;
-      width: 100%;
-      padding: 5rem;
-      h4 {
-        color: white;
-      }
+      background-color: transparent;
       p {
         color: white;
         text-align: center;
@@ -29,29 +25,33 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin: 7rem 2rem;
+        margin: 5rem 2rem;
         p {
           text-align: center;
-        }
-        .footer-menu-email-form {
-          position: relative;
-          text-align: left;
-          background: transparent;
         }
       }
     }
     .footer-menu-app-contact {
       display: flex;
       align-items: flex-start;
-      justify-content: center;
+      justify-content: space-between;
+      width: 25rem;
       .footer-menu-app {
-        margin-left: 2rem;
-        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        button {
+          background-color: transparent;
+          font-weight: normal;
+          padding: 0;
+        }
       }
       .footer-menu-contact {
-        margin-left: 2rem;
-        text-align: center;
-        margin-left: 10rem;
+        display: flex;
+        flex-direction: column;;
+        align-items: flex-start;
+        justify-content: center;
       }
     }
   }
@@ -61,31 +61,19 @@
     align-items: center;
     a {
       background: transparent;
-      width: 5rem;
+      width: 4.5rem;
       color: white;
+      transition: background 0.3s ease;
     }
     :hover {
-      transition: color 0.5s;
-      color: rgba(62, 147, 111, 0.8);
+      color: #f9f9f9;
     }
     i {
-      font-size: 4rem;
+      font-size: 3.5rem;
     }
   }
 }
 
-// extra-small screens
-@media (max-width: 340px) {
-  .wrapper {
-    .footer {
-      .footer-social {
-        a {
-          width: 3.5rem;
-        }
-        i {
-          font-size: 3rem;
-        }
-      }
-    }
-  }
+.tree-nations {
+  margin-top: 4rem;
 }
