@@ -1,19 +1,21 @@
 import React from 'react';
 import './_How.scss';
-
+import blueMarker from '../img/blue-marker.svg';
 
 export default function How() {
     return (
         <div className="wrapper">
+           
             <div className="how-to-use-it">
+                <img className="blue-marker-image" alt="blue marker" src={blueMarker}/>
                 <div className="how-to-use-it-title">
-                    <h2>HOW TO PLAN MY TRIP ?</h2>
+                    <h2><span className="focus-text"><span className="underline"></span>HOW TO PLAN MY TRIP ?</span></h2>
                 </div>
                 <div className="how-to-use-it-content">
 
                     <div className="how-to-use-it-content-card">           
                         <div className="how-to-use-it-number">
-                            <h2>1</h2>
+                            <h3>1</h3>
                         </div>
                         <div className="how-to-use-it-details">
                             <h3>SELECT YOUR DATES</h3>
@@ -22,7 +24,7 @@ export default function How() {
                     </div>
                     <div className="how-to-use-it-content-card">
                         <div className="how-to-use-it-number">
-                            <h2>2</h2>
+                            <h3>2</h3>
                         </div>
                         <div className="how-to-use-it-details">
                             <h3>TELL US WHERE YOUR JOURNEY BEGINS</h3>
@@ -31,7 +33,7 @@ export default function How() {
                     </div>
                     <div className="how-to-use-it-content-card">
                         <div className="how-to-use-it-number">
-                            <h2>3</h2>
+                            <h3>3</h3>
                         </div>
                         <div className="how-to-use-it-details">
                             <h3>EXPLORE ALL DESTINATIONS</h3>

@@ -1,30 +1,69 @@
 .wrapper {
   .simple-solution {
     display: flex;
-    justify-content: space-around;
-    align-items: center;
+    flex-direction: column;
     position: relative;
-    .simple-solution-image {
-      max-width: 40rem;
-      height: 50rem;      
-    }
     .simple-solution-content {
-      text-align: left;
-      p {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      position: relative;
+      .simple-solution-title-details {
+        text-align: center;
         font-weight: bold;
+        .focus-text {
+          color: white;
+          position: relative;
+          display: inline-block;
+          .underline {
+            position: absolute;
+            z-index: -1;
+            left: -0.5rem;
+            right: -0.5rem;
+            bottom: 0rem;
+            height: 0;
+            border-radius: 0.5rem;
+          }
+        }
       }
-      .focus-text {
-        color: white;
+      .simple-solution-image {
+        max-width: 40rem;
+        height: 50rem;      
+      }
+    }
+    .testimonials {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      .testimonial-card {
         position: relative;
-        display: inline-block;
-        .underline {
+        padding: 2rem;
+        margin: 2rem;
+        border-radius: 1rem;
+        background-color: #fcfcfc;
+        box-shadow: 0 2px 7px 0 rgba(0,0,0,0.12);
+        p {
+          font-size: 1.4rem;
+        }
+        .user-name {
           position: absolute;
-          z-index: -1;
-          left: -0.5rem;
-          right: -0.5rem;
-          bottom: 0rem;
-          height: 0;
-          border-radius: 0.5rem;
+          bottom: 1rem;
+          right: 1rem;
+          font-size: 1.4rem;
+          font-weight: bold;
+          color: #ff9e00;
+        }
+        .yellow-marker-image {
+          position: absolute;
+          top: -1rem;
+          right: -1rem;
+          height: 3rem;
+     
+        }
+        transition-duration: 0.5s;
+        &:hover {
+          box-shadow: 0 2px 7px 0 rgba(0,0,0,0.17);
+    
         }
       }
     }
@@ -32,63 +71,81 @@
 }
 
 @media (max-width: 500px) {
-  .wrapper {
-    .simple-solution {
-      flex-direction: column-reverse;
-      padding: 2rem 3rem 0rem 3rem;
-      .simple-solution-image {
-        max-width: 100vw;
+  .simple-solution-content {
+    flex-direction: column;
+    padding: 2rem 3rem 0rem 3rem;
+    .simple-solution-title-details {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: -5rem;
+      p {
+        text-align: center;
       }
-      .simple-solution-content {
-        .underline {
-         border: 1.5rem solid #ff9e00;
-        }
+      .underline {
+      border: 1.5rem solid #ff9e00;
       }
     }
-  }}
-
+    .simple-solution-image {
+      max-width: 100vw;
+    }
+  }
+  .testimonials {
+    flex-wrap: wrap;
+    padding: 2rem;
+  }
+}
 
 @media (min-width: 501px) {
-  .wrapper {
-    .simple-solution {
-      flex-direction: column-reverse;
-      padding: 2rem 3rem 0rem 3rem;
-      .simple-solution-image {
-        max-width: 100vw;
+  .simple-solution-content {
+    flex-direction: column;
+    padding: 2rem 3rem 0rem 3rem;
+    .simple-solution-title-details {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: -5rem;
+      p {
+        text-align: center;
       }
-      .simple-solution-content {
-        .underline {
-         border: 2rem solid #ff9e00;
-        }
+      .underline {
+      border: 2rem solid #ff9e00;
       }
     }
+    .simple-solution-image {
+      max-width: 100vw;
+    }
+  }
+  .testimonials {
+    flex-wrap: wrap;
+    padding: 0 5rem;
   }
 }
 
 // small screens
 @media (min-width: 901px) {
-  .wrapper {
-    .simple-solution {
-      flex-direction: row;
-      .simple-solution-image {
-        width: 45%;
-      }
-      .simple-solution-content {
-        width: 55%;
-        margin-bottom: 20rem;
-        .underline {
-          border: 2rem solid #ff9e00;
-        }
-      }
+  .simple-solution-content {
+    flex-direction: row;
+    .simple-solution-title-details {
+      width: 55%;
+      margin-bottom: 10rem;
     }
+    .simple-solution-image {
+      width: 45%;
+    }
+  }
+  .testimonials {
+    flex-wrap: nowrap;
+    padding: 0 10rem;
+    margin-top: -7rem;
   }
 }
 
 // normal and big screens
 @media (min-width: 1201px) {
-  .wrapper {
-    .simple-solution {
-      padding: 5rem 15rem 0rem 15rem;
-    }
+  .simple-solution-content {
+    padding: 5rem 15rem 0rem 15rem;
   }
 }

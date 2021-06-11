@@ -22,12 +22,12 @@ export default function Why() {
         </div>
         <div className="why-to-use-it-text" id="why">
           <div className="why-to-use-it-title">
-            <h2>WHY USE PADING ?</h2>
+            <h2><span className="focus-text"><span className="underline"></span>WHY USE PADING ?</span></h2>
           </div>
           <div className="why-to-use-it-content">
             <div className="why-to-use-it-content-card">
               <div className="why-to-use-it-number">
-                <h2>1</h2>
+                <h3>1</h3>
               </div>
               <div className="why-to-use-it-details">
                 <h3>SAVE TIME</h3>
@@ -36,7 +36,7 @@ export default function Why() {
             </div>
             <div className="why-to-use-it-content-card">
               <div className="why-to-use-it-number">
-                <h2>2</h2>
+                <h3>2</h3>
               </div>
               <div className="why-to-use-it-details">
                 <h3>SAVE MONEY</h3>
@@ -45,7 +45,7 @@ export default function Why() {
             </div>
             <div className="why-to-use-it-content-card">
               <div className="why-to-use-it-number">
-                <h2>3</h2>
+                <h3>3</h3>
               </div>
               <div className="why-to-use-it-details">
                 <h3>BOOK EASILY</h3>
