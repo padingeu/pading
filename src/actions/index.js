@@ -1,7 +1,6 @@
 import axios from 'axios';
 import lodash from 'lodash';
 import { history } from '../index';
-import Geocode from 'react-geocode';
 import moment from 'moment';
 
 const getPriceForDestination = (trips, destination, city) => {
@@ -37,19 +36,6 @@ const compare = (a, b) => {
     return 1;
   }
   return 0;
-};
-
-const getGeolocalisationPromisesFromAws = (commonDestinations, locationPromises) => {
-  const geolocalisations = [];
-  commonDestinations.forEach((destinationName) => {
-    //TODO get latlgt from aws
-    geolocalisations.push(
-      axios.get(
-        `https://mocnu2fybd.execute-api.eu-west-1.amazonaws.com/prod/coordinates/${destinationName}`
-      )
-    );
-  });
-  return geolocalisations;
 };
 
 const getWayRoutes = (routes, cityTo) => {
@@ -201,64 +187,26 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip, travelType) => {
         }
         //TODO
         const commonDestinations = getCommonDestinations(trips, cities);
-
-        let googlePromises = [];
-        let destinationNames = [];
-        const awsPromises = getGeolocalisationPromisesFromAws(commonDestinations);
         const destinationsWithPrice = [];
-        Promise.all(awsPromises).then((responses) => {
-          for (let i = 0; i < responses.length; i++) {
-            //TODO if 200
-            if (responses[i].status === 200) {
-              destinationsWithPrice.push({
-                name: commonDestinations[i],
-                lat: responses[i].data.latitude,
-                lng: responses[i].data.longitude,
-                prices: getTotalPrice(trips, commonDestinations[i]),
-              });
-            } else if (responses[i].status === 204) {
-              googlePromises.push(Geocode.fromAddress(commonDestinations[i]));
-              destinationNames.push(commonDestinations[i]);
-            }
-          }
-          Promise.all(googlePromises).then((responses) => {
-            for (let i = 0; i < responses.length; i++) {
-              const destinationName = destinationNames[i];
-              const response = responses[i];
-              const { lat, lng } = response.results[0].geometry.location;
-              destinationsWithPrice.push({
-                name: destinationName,
-                lat: lat,
-                lng: lng,
-                prices: getTotalPrice(trips, destinationName),
-              });
-              axios
-                .post(
-                  `https://mocnu2fybd.execute-api.eu-west-1.amazonaws.com/prod/coordinates/${destinationName}`,
-                  {
-                    city: destinationName,
-                    latitude: lat.toString(),
-                    longitude: lng.toString(),
-                  }
-                )
-                .catch((error) => {
-                  console.error(error + destinationName);
-                });
-            }
-            destinationsWithPrice.sort(compare);
-            const data = {
-              commonDestinations,
-              initialTrips: trips,
-              trips,
-              travelers,
-              initialDestinationsWithPrice: destinationsWithPrice,
-              destinationsWithPrice,
-              travelType,
-            };
-            dispatch({ type: 'SEARCH', data });
-            dispatch({ type: 'SUCCESS' });
+        for (let i = 0; i < commonDestinations; i++) {
+          destinationsWithPrice.push({
+            name: commonDestinations[i],
+            prices: getTotalPrice(trips, commonDestinations[i]),
           });
-        });
+        }
+
+        destinationsWithPrice.sort(compare);
+        const data = {
+          commonDestinations,
+          initialTrips: trips,
+          trips,
+          travelers,
+          initialDestinationsWithPrice: destinationsWithPrice,
+          destinationsWithPrice,
+          travelType,
+        };
+        dispatch({ type: 'SEARCH', data });
+        dispatch({ type: 'SUCCESS' });
       })
       .catch((error) => {
         dispatch({ type: 'FAILURE' });
