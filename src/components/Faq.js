@@ -60,7 +60,7 @@ export default function Faq() {
           id="panel3a-header"
         >
           <Typography className={`${classes.heading} faq-title`}>
-            <h4>THE CHEAPEST PRICE REALLY?</h4>
+            <h4>THE CHEAPEST PRICE REALLY ?</h4>
           </Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
@@ -142,7 +142,7 @@ export default function Faq() {
           id="panel7a-header"
         >
           <Typography className={`${classes.heading} faq-title`}>
-            <h4>HHOW PADING CAN BE FREE ?</h4>
+            <h4>HOW PADING CAN BE FREE ?</h4>
           </Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
@@ -160,7 +160,7 @@ export default function Faq() {
           id="panel8a-header"
         >
           <Typography className={`${classes.heading} faq-title`}>
-            <h4>WHAT IS KIWI ?</h4>
+            <h4>WHO IS KIWI THE PARTNER YOU ARE WORKING WITH ?</h4>
           </Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>

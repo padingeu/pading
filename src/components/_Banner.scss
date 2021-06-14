@@ -1,9 +1,10 @@
   .banner {
-    display: flex;
-    justify-content: center;
+   display: flex;
+   justify-content: center;
     align-items: center;
     position: relative;
     margin-top: 7rem;
+    min-height: calc(100vh - 7rem);
     .valueprop {
       position: absolute;
       display: flex;
@@ -17,10 +18,9 @@
         justify-content: center;
         align-items: center;
         .valueprop-title {
-          padding: 0 0.5rem;
+          text-align: center;
         }
         .valueprop-details {
-          padding: 0 0.5rem;
           text-align: center;
         }
       }
@@ -31,7 +31,6 @@
       display: flex;
       justify-content: center;
       align-items: center;
- 
     }
     .banner-background {
       display: flex;

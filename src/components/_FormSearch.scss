@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  max-width: 97vw;
+  max-width: 95vw;
   box-shadow: 0 2px 7px 0 rgba(0,0,0,0.12);
   border-width: 0.2rem;
   background-color: white;
@@ -205,16 +205,29 @@
   }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
   .formsearch {
+    padding: 0.5rem;
+    border-radius: 1.2rem;
+    min-width: 90vw;
+    .travel-form {
+      .btn-explore {
+        width: 98%;
+      }
+    }
+  }
+}
+
+@media (min-width: 901px) {
+  .formsearch {
+    padding: 0.5rem;
+    border-radius: 1.2rem;
     min-width: 70vw;
   }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
   .formsearch {
-    padding: 0.5rem;
-    border-radius: 1.2rem;
     .travel-form {
       flex-direction: column;
       .btn-explore {
@@ -224,7 +237,7 @@
   }
 }
 
-@media (min-width: 1001px) {
+@media (min-width: 1201px) {
   .formsearch {
     padding: 0 3rem;
     border-radius: 7rem;

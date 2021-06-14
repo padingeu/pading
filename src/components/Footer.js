@@ -19,11 +19,7 @@ export default class Footer extends React.Component {
         <div className="footer">
           <div className="footer-menu">
             <div className="footer-menu-email">
-              <p>
-                <b>We are redesigning travel search experience.
-                  <br/>
-                  To be notified of new features and receive travel tips, you can register with your mail</b>
-              </p>
+              <p>We are redesigning travel search experience</p>
               <div>
                 <MailchimpSubscribe
                   url={url}
@@ -81,7 +77,7 @@ export default class Footer extends React.Component {
               </div>
             </div>
           </div>
-          <div className="tree-nations">
+          {/*<div className="tree-nations">
             <a
               href="https://tree-nation.com/profile/impact/pading-1#co2"
               target="_blank"
@@ -100,7 +96,7 @@ export default class Footer extends React.Component {
                 style={{ width: 150, height: 'auto' }}
               />
             </a>
-          </div>
+          </div>*/}
         </div>
       </div>
     );

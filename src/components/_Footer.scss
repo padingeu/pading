@@ -6,6 +6,7 @@
     justify-content: center;
     align-items: center;
     background-color: #ff9e00;
+    padding: 3rem 0rem;
     .footer-menu {
       display: flex;
       flex-direction: column;
@@ -25,9 +26,10 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin: 5rem 2rem;
+        margin: 5rem 1rem;
         p {
           text-align: center;
+          font-weight: bold;
         }
       }
     }
@@ -72,8 +74,4 @@
       font-size: 3.5rem;
     }
   }
-}
-
-.tree-nations {
-  margin-top: 4rem;
 }

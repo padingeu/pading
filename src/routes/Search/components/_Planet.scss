@@ -37,7 +37,7 @@
   .wrapper {
     .myclimate {
       flex-direction: column;
-      padding: 7rem 3rem 7rem 3rem;
+      padding: 7rem 1rem 7rem 1rem;
       .earth-image {
         max-width: 100vw;
       }
@@ -49,7 +49,7 @@
 @media (min-width: 901px) {
   .wrapper {
     .myclimate {
-      padding: 0rem 3rem 2rem 3rem;
+      padding: 10rem 3rem 2rem 3rem;
       .earth-image {
         width: 45%;
       }
@@ -64,7 +64,7 @@
 @media (min-width: 1201px) {
   .wrapper {
     .myclimate {
-      padding: 0rem 15rem 2rem 15rem;
+      padding: 10rem 15rem 2rem 15rem;
     }
   }
 }
@@ -74,7 +74,7 @@
   .myclimate {
     .myclimate-content {
         .underline {
-          border: 1.5rem solid #427103;
+          border: 1.3rem solid #427103;
         }
     }
   }

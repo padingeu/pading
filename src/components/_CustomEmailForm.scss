@@ -4,7 +4,7 @@
   align-items: space-around;
   font-family: 'PT Sans', sans-serif;
   text-align: left;
-  max-width: 99vw;
+  max-width: 97vw;
   border-radius: 1rem;
   font-size: 1.6rem;
   &:focus {
@@ -13,18 +13,19 @@
   }
   .input-newsletter {
     height: 5rem;
-    min-width: 26rem;
+    width: 100%;
     flex-grow: 2;
     border: solid white;
     border-width: 0.1rem;
     border-radius: 1rem;
     margin: 0.2rem;
-    padding-left: 2.5rem;
+    padding: 0 2.5rem;
     text-align: left;
     font-size: 1.6rem;
     color: #4c4c4c;
     font-weight: 700;
     &::placeholder {
+      text-align: center;
       color: #4c4c4c;
       font-weight: 700;
     }
@@ -37,7 +38,7 @@
   }
   .btn-newsletter {
     height: 5rem;
-    min-width: 7rem;
+    width: 100%;
     padding: 0 2rem;
     border-radius: 1rem;
     margin: 0.2rem;
@@ -105,5 +106,14 @@
 @media (max-width: 600px) {
   .register-form {
     flex-direction: column;
+  }
+}
+
+@media (min-width: 601px) {
+  .register-form {
+    flex-direction: column;
+    .input-newsletter {
+    min-width: 30rem;
+    }
   }
 }

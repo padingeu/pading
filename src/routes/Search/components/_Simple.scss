@@ -37,7 +37,7 @@
       align-items: center;
       .testimonial-card {
         position: relative;
-        padding: 2rem;
+        padding: 2.5rem;
         margin: 2rem;
         border-radius: 1rem;
         background-color: #fcfcfc;
@@ -47,8 +47,9 @@
         }
         .user-name {
           position: absolute;
-          bottom: 1rem;
+          bottom: 0rem;
           right: 1rem;
+          padding-top: 2rem;
           font-size: 1.4rem;
           font-weight: bold;
           color: #ff9e00;
@@ -73,7 +74,7 @@
 @media (max-width: 500px) {
   .simple-solution-content {
     flex-direction: column;
-    padding: 2rem 3rem 0rem 3rem;
+    padding: 2rem 1rem 0rem 1rem;
     .simple-solution-title-details {
       display: flex;
       flex-direction: column;
@@ -84,7 +85,7 @@
         text-align: center;
       }
       .underline {
-      border: 1.5rem solid #ff9e00;
+      border: 1.3rem solid #ff9e00;
       }
     }
     .simple-solution-image {
