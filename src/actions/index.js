@@ -1,7 +1,6 @@
 import axios from 'axios';
 import lodash from 'lodash';
 import { history } from '../index';
-import Geocode from 'react-geocode';
 import moment from 'moment';
 
 const getPriceForDestination = (trips, destination, city) => {
@@ -37,19 +36,6 @@ const compare = (a, b) => {
     return 1;
   }
   return 0;
-};
-
-const getGeolocalisationPromisesFromAws = (commonDestinations, locationPromises) => {
-  const geolocalisations = [];
-  commonDestinations.forEach((destinationName) => {
-    //TODO get latlgt from aws
-    geolocalisations.push(
-      axios.get(
-        `https://mocnu2fybd.execute-api.eu-west-1.amazonaws.com/prod/coordinates/${destinationName}`
-      )
-    );
-  });
-  return geolocalisations;
 };
 
 const getWayRoutes = (routes, cityTo) => {
