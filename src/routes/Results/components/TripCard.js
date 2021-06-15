@@ -22,19 +22,20 @@ const TripCard = ({ destination, prices, travelers }) => {
       <div className="trip-infos">
         <div className="trip-city-pricing">
           <div className="trip-city">
-            <h4>{destination}</h4>
+            <span className="trip-city-name">{destination}</span>
+            <div className="trip-city-carbonfootprint">
+            <i className="fas fa-smog fa-xs"></i>
+            <span className="trip-city-carbonfootprint-amount">1.399 t</span>
+          </div>
           </div>
           <div className="trip-pricing">
-            <h4>{prices.totalPrice}€</h4>
+            <span className="trip-pricing-amount">
+              {prices.totalPrice}
+            </span>
+            <span className="trip-pricing-currency">
+              EUR / group
+            </span>
           </div>
-        </div>
-        <div className="trip-carbonfootprint">
-          <p>
-            C02{' '}
-            <b className="focus-text">
-              <span className="underline"></span>1.399 t
-            </b>
-          </p>
         </div>
         <div className="citytrips">
           {prices.pricesPerDestination.map((object) => {

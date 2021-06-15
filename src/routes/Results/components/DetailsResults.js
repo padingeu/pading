@@ -9,7 +9,7 @@ export default function DetailsResults(props) {
       <div className="details-results-travel">
         <div className="details-results-travel">
           <div className="details-results-travel-city">
-            <h4>To {props.destination}</h4>
+            <span className="to-city">To {props.destination}</span>
           </div>
           {props.trip.wayRoutes.map((route, index) => {
             return (
@@ -29,15 +29,15 @@ export default function DetailsResults(props) {
           <div className="destination-div-2">
             <div className="line"></div>
             <i class="fas fa-map-marker-alt fa-lg"></i>
-            <h5>Arrive at {props.destination}</h5>
-            <h6>{props.trip.nightsInDest} nights at the destination</h6>
+            <span className="arrive-at">Arrive at {props.destination}</span>
+            <span className="number-of-nights">{props.trip.nightsInDest} nights at the destination</span>
           </div>
         </div>
         {props.travelType === 'Return' && (
           <div className="details-results-travel-return">
             <div className="details-results-travel">
               <div className="details-results-travel-city">
-                <h4>To {props.cityFrom}</h4>
+                <span className="to-city">To {props.cityFrom}</span>
               </div>
               {props.trip.returnRoutes.map((route, index) => {
                 return (
@@ -59,8 +59,8 @@ export default function DetailsResults(props) {
             <div className="destination-div-2">
               <div className="line"></div>
               <i class="fas fa-map-marker-alt fa-lg"></i>
-              <h5>Arrive at {props.cityFrom}</h5>
-              <h6>Welcome back!</h6>
+              <span className="arrive-at">Arrive at {props.cityFrom}</span>
+              <span className="welcome-back">Welcome back!</span>
             </div>
           </div>
         )}
@@ -91,7 +91,7 @@ export default function DetailsResults(props) {
           </CopyToClipboard>
         </div>
         <div className="details-results-price-book">
-          <h4 className="ticket-price">{props.trip.price}€</h4>
+          <span className="ticket-price">{props.trip.price}€</span>
 
           <a
             href={
@@ -102,7 +102,7 @@ export default function DetailsResults(props) {
             rel="noopener noreferrer"
             className="details-results-book"
           >
-            <h4>Book from {props.cityFrom}</h4>
+            <span>Book from {props.cityFrom}</span>
           </a>
         </div>
       </div>

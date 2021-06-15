@@ -28,12 +28,13 @@
         .date-from {
           position: absolute;
           left: 0.6rem;
-          border-left: 0.15rem dotted #9b9b9b;
+          border-left: 0.15rem dotted #dce4e9;
           bottom: 0;
           height: 30%;
         }
         i {
           margin-right: 1rem;
+          color: #ff9e00;
         }
       }
       .stopover-div {
@@ -52,9 +53,10 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: #f4f6f8;
-        h5 {
-          font-size: 1.3rem;
+        background-color: #f9f9f9;
+        span.date-from-time {
+          font-size: 1.2rem;
+          font-weight: bold;
         }
       }
       .departure-div-2 {
@@ -66,17 +68,17 @@
         justify-content: center;
         align-items: flex-start;
         padding: 0.5rem 0 0.5rem 2.2rem;
-        background-color: #f4f6f8;
+        background-color: #f9f9f9;
         .line-top {
           position: absolute;
           left: 0.6rem;
-          border-left: 0.15rem dotted #9b9b9b;
+          border-left: 0.15rem dotted #dce4e9;
           top: 0.1rem;
           height: 30%;
         }
         .line-round {
           position: absolute;
-          background-color: #5f5f5f;
+          background-color: #dce4e9;
           top: 1.8rem;
           left: 0.13rem;
           width: 1.1rem;
@@ -86,26 +88,23 @@
         .line-bottom {
           position: absolute;
           left: 0.6rem;
-          border-left: 0.15rem solid #9b9b9b;
+          border-left: 0.15rem solid #dce4e9;
           bottom: 0rem;
           height: 40%;
         }
-        h5 {
+        span.city-from {
           font-size: 1.2rem;
-          line-height: 0rem;
+          font-weight: bold;
         }
-        h6 {
-          font-size: 1.2rem;
-          font-weight: lighter;
-          line-height: 0rem;
-          color: #5f5f5f;
+        span.city-from-code {
+          font-size: 1rem;
         }
       }
       .traveler-div-1 {
         grid-column: 1/2;
         grid-row: 3;
         height: 2rem;
-        background-color: #eefafc;
+        background-color: #f9f9f9;
       }
       .traveler-div-2 {
         position: relative;
@@ -116,23 +115,22 @@
         align-items: center;
         padding: 0.5rem 0 0.5rem 2.2rem;
         height: 2rem;
-        background-color: #eefafc;
-        .number-travelers {
+        background-color: #f9f9f9;
+        .travelers {
           position: absolute;
           left: 0.6rem;
-          border-left: 0.15rem solid #9b9b9b;
+          border-left: 0.15rem solid #dce4e9;
           top: 0;
           height: 100%;
+          font-size: 1.2rem;
         }
         .fa-user-friends {
-          color: #29b3c1;
+          color: #19a6ee;
           margin-right: 0.5rem;
         }
-        h6 {
-          font-size: 1.2rem;
-          font-weight: lighter;
-          line-height: 0rem;
-          color: #29b3c1;
+        span.travelers-number {
+          color: #19a6ee;
+          font-weight: bold;
         }
       }
       .carrier-div-1 {
@@ -160,14 +158,14 @@
         .line-top {
           position: absolute;
           left: 0.6rem;
-          border-left: 0.15rem solid #9b9b9b;
+          border-left: 0.15rem solid #dce4e9;
           top: 0;
           height: 30%;
         }
         .line-bottom {
           position: absolute;
           left: 0.6rem;
-          border-left: 0.15rem solid #9b9b9b;
+          border-left: 0.15rem solid #dce4e9;
           bottom: 0rem;
           height: 100%;
         }
@@ -189,20 +187,21 @@
             border-radius: 3rem;
             padding: 0.2rem 1.5rem;
             margin-right: 0.5rem;
-            background-color: #f4f6f8;
-            h5 {
+            background-color: #f9f9f9;
+            span.airline-name {
               font-size: 1.2rem;
               line-height: 0rem;
             }
           }
-          .travel-time {
+          .travel-duration {
             border-radius: 5rem;
             padding: 0.2rem 1rem;
-            background-color: #eefafc;
-            h5 {
+            background-color: #f9f9f9;
+            span.travel-duration-hours {
               font-size: 1.2rem;
+              font-weight: bold;
               line-height: 0rem;
-              color: #29b3c1;
+              color: #19a6ee;
             }
           }
           .show-more-details {
@@ -218,12 +217,6 @@
             padding: 0.5rem 1rem 0.5rem 1rem;
             border-radius: 0.5rem;
             cursor: pointer;
-            .fa-angle-up {
-              color: #262626;
-            }
-            .fa-angle-down {
-              color: #262626;
-            }
             &:hover {
               background-color: white;
             }
@@ -233,7 +226,7 @@
           width: 100%;
           padding: 1rem 0 1.5rem 0;
           .route-details-connection-info {
-            h5 {
+            span.connection-info {
               font-size: 1.2rem;
               line-height: 0rem;
             }
@@ -255,13 +248,12 @@
                 align-items: center;
                 width: 30%;
                 img {
-                  height: 2rem;
+                  text-align: center;
+                  width: 2.5rem;
                 }
-                h6 {
+                span.airline {
                   font-size: 1.2rem;
                   font-weight: lighter;
-                  line-height: 0rem;
-                  color: #5f5f5f;
                   margin-left: 0.5rem;
                 }
               }
@@ -270,11 +262,9 @@
                 justify-content: flex-end;
                 align-items: center;
                 width: 70%;
-                h6 {
+                span.airline-name {
                   font-size: 1.2rem;
                   font-weight: lighter;
-                  line-height: 0rem;
-                  color: #5f5f5f;
                   margin-right: 0.5rem;
                 }
               }
@@ -289,29 +279,25 @@
                 justify-content: flex-start;
                 align-items: center;
                 width: 30%;
+                height: 2rem;
                 i {
-                  color: #5f5f5f;
+                  text-align: center;
+                  width: 2.5rem;
                 }
-                h6 {
+                span.flight-no {
                   font-size: 1.2rem;
                   font-weight: lighter;
-                  line-height: 0rem;
-                  color: #5f5f5f;
                   margin-left: 0.5rem;
                 }
               }
-              .flight-number-response {
+              span.flight-number-response {
                 display: flex;
                 justify-content: flex-end;
                 align-items: center;
                 width: 70%;
-                h6 {
-                  font-size: 1.2rem;
-                  font-weight: lighter;
-                  line-height: 0rem;
-                  color: #5f5f5f;
-                  margin-right: 0.5rem;
-                }
+                font-size: 1.2rem;
+                font-weight: lighter;
+                margin-right: 0.5rem;
               }
             }
           }
@@ -323,9 +309,10 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: #f4f6f8;
-        h5 {
-          font-size: 1.3rem;
+        background-color: #f9f9f9;
+        span.arrival-time {
+          font-size: 1.2rem;
+          font-weight: bold;
         }
       }
       .arrival-div-2 {
@@ -336,18 +323,18 @@
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
-        background-color: #f4f6f8;
+        background-color: #f9f9f9;
         padding: 0.5rem 0 0.5rem 2.2rem;
         .line-top {
           position: absolute;
           left: 0.6rem;
-          border-left: 0.15rem solid #9b9b9b;
+          border-left: 0.15rem solid #dce4e9;
           top: 0;
           height: 30%;
         }
         .line-round {
           position: absolute;
-          background-color: #5f5f5f;
+          background-color: #dce4e9;
           top: 1.8rem;
           left: 0.13rem;
           width: 1.1rem;
@@ -357,19 +344,16 @@
         .line-bottom {
           position: absolute;
           left: 0.6rem;
-          border-left: 0.15rem dotted #9b9b9b;
+          border-left: 0.15rem dotted #dce4e9;
           bottom: 0rem;
           height: 40%;
         }
-        h5 {
+        span.city-to {
           font-size: 1.2rem;
-          line-height: 0rem;
+          font-weight: bold;
         }
-        h6 {
-          font-size: 1.2rem;
-          font-weight: lighter;
-          line-height: 0rem;
-          color: #5f5f5f;
+        span.city-to-code {
+          font-size: 1rem;
         }
       }
     }

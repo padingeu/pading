@@ -9,6 +9,7 @@
   img {
     height: 20rem;
     width: 100%;
+    border-radius: 0.5rem;
     object-fit: cover;
   }
   .trip-infos {
@@ -20,47 +21,60 @@
     .trip-city-pricing {
       display: flex;
       justify-content: space-between;
-      align-items: center;
+      align-items: flex-start;
       width: 100%;
-      h4 {
-        line-height: 0.5rem;
+      .trip-city {
+        span.trip-city-name {
+          font-family: 'PT Sans', sans-serif;
+          font-weight: bold;
+          font-size: 1.6rem;
+        }
+        .trip-city-carbonfootprint {
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+          color: #ff9e00;
+          span.trip-city-carbonfootprint-amount {
+            font-family: 'PT Sans', sans-serif;
+            font-weight: bold;
+            font-size: 1rem;
+            color: #4c4c4c;
+            margin-left: 0.5rem;
+          }
+        }
       }
       .trip-pricing {
-        color: #3e936f;
-      }
-    }
-    .trip-carbonfootprint {
-      p {
-        font-size: 1.2rem;
-        color: #262626;
-        font-weight: bold;
-      }
-      .focus-text {
-        position: relative;
-        z-index: 0;
-        color: #262626;
-        display: inline-block;
-        .underline {
-          position: absolute;
-          z-index: -1;
-          left: 0;
-          right: 0;
-          bottom: 0.2rem;
-          height: 0;
-          border: 0.3rem solid #f6b040;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        span.trip-pricing-amount {
+          font-family: 'PT Sans', sans-serif;
+          font-weight: bold;
+          font-size: 1.6rem;
+          color: white;
+          min-width: 4rem;
+          text-align: center;
           border-radius: 0.2rem;
+          padding: 0 0.2rem;
+          background-color: #427103;
         }
-        i {
-          color: #29b3c1;
+        span.trip-pricing-currency {
+          font-family: 'PT Sans', sans-serif;
+          font-weight: bold;
+          font-size: 1rem;
+          color: #4c4c4c;
         }
       }
     }
   }
 
+
   .citytrips {
     position: absolute;
     bottom: 5rem;
     left: 0.5rem;
+    color: white;
     .citytrip-card {
       visibility: hidden;
       font-family: 'Roboto', sans-serif;

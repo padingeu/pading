@@ -1,28 +1,14 @@
 .popup-content {
-  border-radius: 2rem;
+  border-radius: 1rem;
   max-height: 80vh;
   overflow-y: scroll;
 }
 
-.MuiButtonBase-root {
-  background-color: white;
-  &:hover {
-    background-color: transparent;
-  }
-}
 .MuiTab-wrapper {
-  font-size: 1.4rem;
-  font-family: 'Roboto', 'sans-serif';
+  font-size: 1.6rem;
+  font-family: 'PT Sans', sans-serif;
   text-transform: capitalize;
-  font-weight: bold !important;
-  color: white;
-}
-
-.MuiSvgIcon-root {
-  font-size: 2.5rem !important;
-  font-family: 'Roboto', 'sans-serif';
-  text-transform: capitalize;
-  font-weight: bold !important;
+  font-weight: bold;
   color: white;
 }
 
@@ -33,14 +19,16 @@
 .MuiTabs-indicator {
   background-color: white !important;
   height: 0.4rem !important;
+  border-radius: 0.5rem;
 }
 
 .MuiAppBar-root {
   border-radius: 0.5rem 0.5rem 0 0;
-  background-color: #f49d11;
+  background-color: #19a6ee;
   .MuiTabs-root {
-    background-color: #f49d11;
+    background-color: #19a6ee;
     border-radius: 1rem 1rem 0 0;
+    padding: 0 1rem;
   }
 }
 .MuiBox-root {

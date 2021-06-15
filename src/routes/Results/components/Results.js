@@ -78,7 +78,7 @@ export default function Results (props) {
                 className="btn-sort"
                 onClick={displaySortBy}
               >
-                <i class="fas fa-sort-amount-down"></i>
+                <i className="fas fa-sort-amount-down"></i>
                 Sort by
                 {showSortBy ? (
                 <div className="sortby-change">
