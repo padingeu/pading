@@ -67,7 +67,7 @@ export default function FlightInfo(props) {
   try {
     image_path = require(`../../../img/logos_airlines/${props.route.airline}.png`);
   } catch (err) {
-    image_path = require(`../../../img/simple-logo.png`);
+    image_path = require(`../../../img/simple-logo-pading.png`);
   }
 
   const getDuration = (departure_time, arrival_time) => {
