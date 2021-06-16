@@ -1,6 +1,5 @@
 import React from 'react';
 import './_DetailsResults.scss';
-import { CopyToClipboard } from 'react-copy-to-clipboard';
 import FlightInfo from './FlightInfo.js';
 
 export default function DetailsResults(props) {
@@ -65,46 +64,25 @@ export default function DetailsResults(props) {
           </div>
         )}
       </div>
-
-      <div className="details-results-share-book">
-        <div className="details-results-share">
-          <a
-            href={
-              'https://www.kiwi.com/fr/booking?&affilid=padingpadingapp&booking_token=' +
-              props.trip.token
-            }
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <i className="fab fa-facebook-messenger fa-2x"></i>
-          </a>
-          <CopyToClipboard
-            text={
-              'https://www.kiwi.com/fr/booking?&affilid=padingpadingapp&booking_token=' +
-              props.trip.token
-            }
-            className="clipboard-btn"
-          >
-            <button>
-              <i className="fas fa-link fa-2x"></i>
-            </button>
-          </CopyToClipboard>
+      <div className="details-results-book">
+        <div className="carbonfootprint">
+          <div className="carbonfootprint-amount">
+            <i className="fas fa-smog fa-lg"></i>
+            <span>1.399 t</span>
+          </div>
         </div>
-        <div className="details-results-price-book">
-          <span className="ticket-price">{props.trip.price}€</span>
-
-          <a
-            href={
-              'https://www.kiwi.com/fr/booking?&affilid=padingpadingapp&booking_token=' +
-              props.trip.token
-            }
-            target="_blank"
-            rel="noopener noreferrer"
-            className="details-results-book"
-          >
-            <span>Book from {props.cityFrom}</span>
-          </a>
-        </div>
+        <a
+          href={
+            'https://www.kiwi.com/fr/booking?&affilid=padingpadingapp&booking_token=' +
+            props.trip.token
+          }
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn-book"
+        >
+          <span>Book this trip</span>
+          <span className="trip-pricing-amount">{props.trip.price} EUR</span>
+        </a>
       </div>
     </div>
   );

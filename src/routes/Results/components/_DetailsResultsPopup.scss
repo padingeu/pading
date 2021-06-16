@@ -2,6 +2,7 @@
   border-radius: 1rem;
   max-height: 80vh;
   overflow-y: scroll;
+  padding: 0.5rem 0.5rem 0 0.5rem !important;
 }
 
 .MuiTab-wrapper {
@@ -18,7 +19,7 @@
 
 .MuiTabs-indicator {
   background-color: white !important;
-  height: 0.4rem !important;
+  height: 0.5rem !important;
   border-radius: 0.5rem;
 }
 
