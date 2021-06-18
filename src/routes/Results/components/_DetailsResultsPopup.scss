@@ -1,6 +1,5 @@
 .popup-content {
   border-radius: 1rem;
-  max-height: 80vh;
   overflow-y: scroll;
   padding: 0.5rem 0.5rem 0 0.5rem !important;
 }
@@ -40,4 +39,22 @@
   height: 50rem;
   margin: 0rem !important;
   padding: 0.5rem !important;
+}
+
+.MuiTabs-scrollButtons {
+  color: white !important;
+}
+
+@media (max-width: 500px) {
+  .popup-content {
+    min-width: 90vw;
+  }
+}
+
+@media (min-width: 501px) {
+  .popup-content {
+   
+  }
+  .btn-book {
+}
 }

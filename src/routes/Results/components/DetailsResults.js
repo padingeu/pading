@@ -80,7 +80,7 @@ export default function DetailsResults(props) {
           rel="noopener noreferrer"
           className="btn-book"
         >
-          <span>Book this trip</span>
+          <span>Book</span>
           <span className="trip-pricing-amount">{props.trip.price} EUR</span>
         </a>
       </div>
