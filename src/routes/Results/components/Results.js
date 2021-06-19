@@ -7,10 +7,12 @@ import FilterDepartureTime from './FilterDepartureTime';
 import TripCardSkeleton from './TripCardSkeleton';
 import Popup from 'reactjs-popup';
 import DetailsResultsPopup from './DetailsResultsPopup';
+import iconCircle from '../../../img/icon-circle.svg';
 
 export default function Results (props) {
   const [showFilter, setShowFilter] = React.useState(false);
   const [showSortBy, setShowsortBy] = React.useState(false);
+  const [sortByChoice, setSortByChoice] = React.useState('lowest price');
 
 
   const displayFilter = () => {
@@ -19,6 +21,21 @@ export default function Results (props) {
 
   const displaySortBy = () => {
     setShowsortBy(!showSortBy);
+  };
+
+  const sortByPrice = (event) => {
+    event.preventDefault();
+    setSortByChoice('lowest price');
+  };
+
+  const sortByCarbFootprint = (event) => {
+    event.preventDefault();
+    setSortByChoice('carb. footprint');
+  };
+
+  const sortBySchedule = (event) => {
+    event.preventDefault();
+    setSortByChoice('same schedule');
   };
 
   const getPriceForDestination = (trips, destination, city) => {
@@ -66,7 +83,7 @@ export default function Results (props) {
                 </div>
               )}
             </div>
-              <div className="filter-sort">
+            <div className="filter-sort">
               <button
                 className="btn-filter"
                 onClick={displayFilter}
@@ -82,9 +99,46 @@ export default function Results (props) {
                 Sort by
                 {showSortBy ? (
                 <div className="sortby-change">
-                  <span>lowest price</span>
-                  <span>carb. footprint</span>
-                  <span>same schedule</span>
+                  <button
+                    onClick={(event) => {
+                      sortByPrice(event);
+                      displaySortBy();
+                    }}
+                  >
+                    <div className="check-box">
+                      {sortByChoice === 'lowest price' ? (
+                        <img alt="choice selector" src={iconCircle} className="icon-circle-select" />
+                      ) : null}
+                    </div>
+                      <span>lowest price</span>
+                  </button>
+                  <button
+                    onClick={(event) => {
+                      sortByCarbFootprint(event);
+                      displaySortBy();
+                    }}
+                  >
+                     <div className="check-box">
+                      {sortByChoice === 'carb. footprint' ? (
+                        <img alt="choice selector" src={iconCircle} className="icon-circle-select" />
+                      ) : null}
+                    </div>
+                    <span>carb. footprint</span>
+                  </button>
+
+                  <button
+                    onClick={(event) => {
+                      sortBySchedule(event);
+                      displaySortBy();
+                    }}
+                  >
+                     <div className="check-box">
+                      {sortByChoice === 'same schedule' ? (
+                        <img alt="choice selector" src={iconCircle} className="icon-circle-select" />
+                      ) : null}
+                    </div>
+                      <span>same schedule</span>
+                  </button>
                 </div>
               ) : (
                 ''

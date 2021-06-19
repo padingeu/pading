@@ -124,7 +124,7 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip, travelType) => {
     const dateFromStr = dateFrom.toLocaleDateString();
     const dateToStr = dateTo.toLocaleDateString();
     let maxStopover = '2';
-    if (stopTrip === 'Direct') {
+    if (stopTrip === 'Only direct') {
       maxStopover = '0';
     }
     let config = {

@@ -1,6 +1,8 @@
 import React from 'react';
 import happyCatsGif from '../img/happy-cats.gif';
 import happyCatsVideo from '../img/happy-cats.mp4';
+import greenShape from '../../../img/green-shape.svg';
+import yellowShape from '../../../img/yellow-travel-shape.svg';
 import './_Why.scss';
 
 export default function Why() {
@@ -8,6 +10,8 @@ export default function Why() {
 
   return (
     <div className="wrapper">
+      <img src={greenShape} alt="green shape" className="green-shape"/>
+      <img src={yellowShape} alt="yellow travel shape" className="yellow-shape"/>
       <div className="why-to-use-it">
         <div className="why-to-use-it-gif">
           {isIOS ? (

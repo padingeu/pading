@@ -4,6 +4,7 @@ import LocationSearchInput from './LocationSearchInput';
 import SelectedCities from './SelectedCities';
 import './_FormSearch.scss';
 import onClickOutside from 'react-onclickoutside';
+import iconCircle from '../img/icon-circle.svg';
 
 class FormSearch extends React.Component {
   state = {
@@ -121,8 +122,7 @@ class FormSearch extends React.Component {
             <div className="travel-type">
               {this.state.showTravelTypeBtn ? (
                 <div className="travel-type-change">
-                  <a
-                    href="/"
+                  <button
                     onClick={(event) => {
                       this.switchToOneWay(event);
                       this.showTravelTypeBtn();
@@ -130,16 +130,12 @@ class FormSearch extends React.Component {
                   >
                     <div className="check-box">
                       {this.state.travelType === 'One-way' ? (
-                        <i className="fas fa-check fa-xs"></i>
+                        <img alt="choice selector" src={iconCircle} className="icon-circle-select" />
                       ) : null}
                     </div>
-                    <div className="one-way-return-div">
-                      <span>One-way</span>
-                    </div>
-                  </a>
-
-                  <a
-                    href="/"
+                    <span>One-way</span>
+                  </button>
+                  <button
                     onClick={(event) => {
                       this.switchToReturn(event);
                       this.showTravelTypeBtn();
@@ -147,13 +143,11 @@ class FormSearch extends React.Component {
                   >
                     <div className="check-box">
                       {this.state.travelType === 'Return' ? (
-                        <i className="fas fa-check fa-xs"></i>
+                        <img alt="choice selector" src={iconCircle} className="icon-circle-select" />
                       ) : null}
                     </div>
-                    <div className="one-way-return-div">
-                      <span>Return</span>
-                    </div>
-                  </a>
+                    <span>Return</span>
+                  </button>
                 </div>
               ) : null}
               <button className="travel-type-btn" onClick={this.switchTravelTypeBtn}>
@@ -168,8 +162,7 @@ class FormSearch extends React.Component {
             <div className="stop-trip">
               {this.state.showStopTripBtn ? (
                 <div className="stop-trip-change">
-                  <a
-                    href="/"
+                  <button
                     onClick={(event) => {
                       this.switchToIndirect(event);
                       this.showStopTripBtn();
@@ -177,16 +170,12 @@ class FormSearch extends React.Component {
                   >
                     <div className="check-box">
                       {this.state.stopTrip === 'All routes' ? (
-                        <i className="fas fa-check fa-xs"></i>
+                        <img alt="choice selector" src={iconCircle} className="icon-circle-select" />
                       ) : null}
                     </div>
-                    <div className="stop-div">
-                      <span>All routes</span>
-                    </div>
-                  </a>
-
-                  <a
-                    href="/"
+                    <span>All routes</span>
+                  </button>
+                  <button
                     onClick={(event) => {
                       this.switchToDirect(event);
                       this.showStopTripBtn();
@@ -194,13 +183,11 @@ class FormSearch extends React.Component {
                   >
                     <div className="check-box">
                       {this.state.stopTrip === 'Only direct' ? (
-                        <i className="fas fa-check fa-xs"></i>
+                        <img alt="choice selector" src={iconCircle} className="icon-circle-select" />
                       ) : null}
                     </div>
-                    <div className="stop-div">
-                      <span>Only direct</span>
-                    </div>
-                  </a>
+                    <span>Only direct</span>
+                  </button>
                 </div>
               ) : null}
               <button className="stop-trip-btn" onClick={this.switchStopTripBtn}>
@@ -236,7 +223,7 @@ class FormSearch extends React.Component {
             <button
               className="btn btn-explore"
               name="button"
-              //disabled={!(this.state.dateFrom && this.props.citiesFrom.length > 0)}
+              disabled={!(this.state.dateFrom && this.props.citiesFrom.length > 0)}
               type="submit"
               onClick={() => this.search()}
             >

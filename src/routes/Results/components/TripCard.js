@@ -33,7 +33,7 @@ const TripCard = ({ destination, prices, travelers }) => {
               {prices.totalPrice}
             </span>
             <span className="trip-pricing-currency">
-              EUR / group
+              EUR / global
             </span>
           </div>
         </div>

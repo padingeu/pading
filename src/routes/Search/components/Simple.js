@@ -1,12 +1,14 @@
 import React from 'react';
 import friendsMeeting from '../img/friends-meeting.svg';
 import yellowMarker from '../img/yellow-marker.svg';
+import blueLightShape from '../../../img/blue-light-travel-shape.svg';
 import './_Simple.scss';
 
 export default function Simple() {
 
   return (
     <div className="wrapper">
+      <img src={blueLightShape} alt="blue light travel shape" className="blue-light-shape"/>
       <div className="simple-solution">
         
         <div className="simple-solution-content">

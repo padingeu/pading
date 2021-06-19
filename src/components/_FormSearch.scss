@@ -23,7 +23,7 @@
         outline: none;
         cursor: pointer;
         background-color: transparent;
-        color: #19a6ee;
+        color: #4ea5e9;
       }
       .travel-type-change {
         position: absolute;
@@ -42,7 +42,7 @@
           font-size: 1.4rem;
           font-weight: bold;
         }
-        a {
+        button {
           background-color: white;
           display: flex;
           justify-content: left;
@@ -50,10 +50,11 @@
           cursor: pointer;
           color: #4c4c4c;
           text-decoration: none;
+          padding: 0;
           .check-box {
             min-width: 3rem;
-            .fa-check {
-              color: #19a6ee;
+            img.icon-circle-select {
+              width: 1.2rem;
             }
           }
         }
@@ -73,7 +74,7 @@
       outline: none;
       cursor: pointer;
       background-color: transparent;
-      color: #19a6ee;
+      color: #4ea5e9;
     }
     .stop-trip-change {
       position: absolute;
@@ -92,7 +93,7 @@
         font-size: 1.4rem;
         font-weight: bold;
       }
-      a {
+      button {
         background-color: white;
         display: flex;
         justify-content: left;
@@ -100,10 +101,11 @@
         cursor: pointer;
         color: #4c4c4c;
         text-decoration: none;
+        padding: 0;
         .check-box {
           min-width: 3rem;
-          .fa-check {
-            color: #19a6ee;
+          img.icon-circle-select {
+            width: 1.2rem;
           }
         }
       }

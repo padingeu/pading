@@ -67,143 +67,119 @@
 
 // landscape
 @media (orientation: landscape) {
-  .wrapper {
-    .how-to-use-it {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
+  .how-to-use-it {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }
 
 // small mobile screens landscape
 @media (min-width: 300px) and (orientation: landscape) {
-  .wrapper {
-    .how-to-use-it {
+  .how-to-use-it {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    .how-to-use-it-text {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      text-align: center;
-      .how-to-use-it-text {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-      }
     }
   }
 }
 
 // portrait
 @media (orientation: portrait) {
-  .wrapper {
-    .valueprop {
-      .how-to-use-it {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-      }
-    }
+  .how-to-use-it {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }
 
 // small mobile screens portrait
 @media (max-width: 320px) and (orientation: portrait) {
-  .wrapper {
-    .how-to-use-it {
+  .how-to-use-it {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    .how-to-use-it-text {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      text-align: center;
-      .how-to-use-it-text {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-      }
     }
   }
 }
 
 // mobile screens portrait
 @media (min-width: 321px) and (orientation: portrait) {
-  .wrapper {
-    .how-to-use-it {
+  .how-to-use-it {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    .how-to-use-it-text {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      text-align: center;
-      .how-to-use-it-text {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-      }
     }
   }
 }
 
 // tablet screens portrait
 @media (min-width: 901px) and (orientation: portrait) {
-  .wrapper {
-    .how-to-use-it {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      .how-to-use-it-text {
-        width: 60%;
-      }
+  .how-to-use-it {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    .how-to-use-it-text {
+      width: 60%;
     }
   }
 }
 
 // laptop and computer screens
 @media (min-width: 1201px) {
-  .wrapper {
-    .how-to-use-it {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
-      .how-to-use-it-text {
-        width: 60%;
-      }
-      .how-to-use-it-gif {
-        width: 40%;
-        text-align: center;
-      }
+  .how-to-use-it {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    .how-to-use-it-text {
+      width: 60%;
+    }
+    .how-to-use-it-gif {
+      width: 40%;
+      text-align: center;
     }
   }
 }
 
 
 @media (max-width: 501px) {
-  .how-to-use-it {
-    .how-to-use-it-title {
-      .focus-text {
-        .underline {
-          border: 1.5rem solid white;
-        }
-      }
+  .focus-text {
+    .underline {
+      border: 1.5rem solid white;
     }
   }
 }
 
 
 @media (min-width: 501px) {
-  .how-to-use-it {
-    .how-to-use-it-title {
-      .focus-text {
-        .underline {
-          border: 2rem solid white;
-        }
-      }
+  .focus-text {
+    .underline {
+      border: 2rem solid white;
     }
   }
 }
