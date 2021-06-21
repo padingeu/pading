@@ -123,6 +123,7 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip, travelType) => {
     const differenceInDays = Math.trunc(differenceInTime / (1000 * 3600 * 24));
     const dateFromStr = dateFrom.toLocaleDateString();
     const dateToStr = dateTo.toLocaleDateString();
+    console.log(stopTrip);
     let maxStopover = '2';
     if (stopTrip === 'Only direct') {
       maxStopover = '0';
