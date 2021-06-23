@@ -109,6 +109,21 @@
       grid-gap: 1.5rem;
       padding: 1rem 1rem 0rem 1rem;
     }
+    .cards-results-div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .no-results-alert {
+        width: 27rem;
+        max-width: 95vw;
+        margin: 5rem 2rem;
+        text-align: center;
+        span {
+          font-size: 1.4rem;
+        }
+      }
+    }
   }
 }
 

@@ -8,6 +8,7 @@ import TripCardSkeleton from './TripCardSkeleton';
 import Popup from 'reactjs-popup';
 import DetailsResultsPopup from './DetailsResultsPopup';
 import iconCircle from '../../../img/icon-circle.svg';
+import noResults from '../img/cat-with-map.svg';
 
 export default function Results (props) {
   const [showFilter, setShowFilter] = React.useState(false);
@@ -171,34 +172,46 @@ export default function Results (props) {
                 <TripCardSkeleton />
               </div>
             ) : (
-              <div className="cards-results">
-                {props.search.commonDestinations.map((destination, index) => {
-                  return (
-                    <div className={index} key={index}>
-                      <Popup
-                        modal
-                        trigger={
-                          <div>
-                            <TripCard
+              <div className="cards-results-div">
+                {props.search.commonDestinations.length > 0 ?
+                <div className="cards-results">
+                  
+                    {props.search.commonDestinations.map((destination, index) => {
+                      return (
+                        <div className={index} key={index}>
+                          <Popup
+                            modal
+                            trigger={
+                              <div>
+                                <TripCard
+                                  destination={destination}
+                                  prices={getTotalPrice(props.search.trips, destination)}
+                                  travelers={props.search.travelers}
+                                  key={index}
+                                />
+                              </div>
+                            }
+                            key={index}
+                          >
+                            <DetailsResultsPopup
                               destination={destination}
-                              prices={getTotalPrice(props.search.trips, destination)}
-                              travelers={props.search.travelers}
+                              trips={props.search.trips}
                               key={index}
+                              travelType={props.search.travelType}
                             />
-                          </div>
-                        }
-                        key={index}
-                      >
-                        <DetailsResultsPopup
-                          destination={destination}
-                          trips={props.search.trips}
-                          key={index}
-                          travelType={props.search.travelType}
-                        />
-                      </Popup>
-                    </div>
-                  );
-                })}
+                          </Popup>
+                        </div>
+                      );
+                    })}
+                </div>
+                :
+                  <div className="no-results-alert">
+                    <img src={noResults}  alt="cat with map finding his way" />
+                    <span>No commmon destination have been found</span>
+                    <br/>
+                    <span>Try to review your search criteria</span>
+                  </div>
+                }
               </div>
             )}
           </div>
