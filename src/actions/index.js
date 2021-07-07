@@ -4,9 +4,12 @@ import { history } from '../index';
 import moment from 'moment';
 
 const getPriceForDestination = (trips, destination, city) => {
-  let tripsForDestination = trips[city].filter((trip) => {
-    return trip.cityTo === destination;
-  });
+  let tripsForDestination = [];
+  for (let i = 0; i < trips[city].length; i++) {
+    if (trips[city][i].cityTo === destination) {
+      tripsForDestination.push(trips[city][i]);
+    }
+  }
   let prices = tripsForDestination.map((trip) => {
     return trip.price;
   });
