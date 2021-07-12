@@ -13,12 +13,7 @@ const getPriceForDestination = (trips, destination, city) => {
   let prices = tripsForDestination.map((trip) => {
     return trip.price;
   });
-  const price = Math.min.apply(null, prices);
-  if (typeof price == 'number') {
-    return price;
-  }
-  console.log(prices);
-  return -1;
+  return Math.min.apply(null, prices);
 };
 
 const getTotalPrice = (trips, destination) => {
