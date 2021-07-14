@@ -25,11 +25,33 @@ export default function Results(props) {
   const sortByPrice = (event) => {
     event.preventDefault();
     setSortByChoice('Lowest Price');
+    props.search.commonDestinations.sort(comparePrice);
   };
 
   const sortByCarbFootprint = (event) => {
     event.preventDefault();
     setSortByChoice('carb. footprint');
+    props.search.commonDestinations.sort(compareFootprint);
+  };
+
+  const compareFootprint = (a, b) => {
+    if (a.carbonFootprint < b.carbonFootprint) {
+      return -1;
+    }
+    if (a.carbonFootprint > b.carbonFootprint) {
+      return 1;
+    }
+    return 0;
+  };
+
+  const comparePrice = (a, b) => {
+    if (a.totalPrice < b.totalPrice) {
+      return -1;
+    }
+    if (a.totalPrice > b.totalPrice) {
+      return 1;
+    }
+    return 0;
   };
 
   const sortBySchedule = (event) => {
@@ -164,6 +186,7 @@ export default function Results(props) {
                               pricesPerDepartureCity={destination.pricesPerDepartureCity}
                               travelers={props.search.travelers}
                               key={index}
+                              carbonFootprint={destination.carbonFootprint}
                             />
                           </div>
                         }

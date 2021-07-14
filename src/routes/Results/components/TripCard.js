@@ -2,7 +2,13 @@ import React from 'react';
 import './_TripCard.scss';
 import Img from 'react-cool-img';
 
-const TripCard = ({ destination, totalPrice, pricesPerDepartureCity, travelers }) => {
+const TripCard = ({
+  destination,
+  totalPrice,
+  pricesPerDepartureCity,
+  travelers,
+  carbonFootprint,
+}) => {
   let image_path = '';
 
   try {
@@ -20,7 +26,7 @@ const TripCard = ({ destination, totalPrice, pricesPerDepartureCity, travelers }
             <span className="trip-city-name">{destination}</span>
             <div className="trip-city-carbonfootprint">
               <i className="fas fa-smog fa-xs"></i>
-              <span className="trip-city-carbonfootprint-amount">1.399 t</span>
+              <span className="trip-city-carbonfootprint-amount">{carbonFootprint} t</span>
             </div>
           </div>
           <div className="trip-pricing">

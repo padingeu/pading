@@ -29,10 +29,10 @@ const getTotalPrice = (trips, destination) => {
 };
 
 const compare = (a, b) => {
-  if (a.prices.totalPrice < b.prices.totalPrice) {
+  if (a.totalPrice < b.totalPrice) {
     return -1;
   }
-  if (a.prices.totalPrice > b.prices.totalPrice) {
+  if (a.totalPrice > b.totalPrice) {
     return 1;
   }
   return 0;
@@ -105,9 +105,10 @@ const getCommonDestinations = (trips, cities) => {
     destinations.push({
       name: commonDestinations[i],
       ...prices,
+      carbonFootprint: i,
     });
   }
-
+  destinations.sort(compare);
   return destinations;
 };
 
@@ -213,6 +214,8 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip, travelType) => {
 };
 
 export const doFilter = (fullFilter, trips, cities, city) => {
+  console.log(fullFilter);
+  //TODO update full filter to 
   return (dispatch) => {
     let trips_by_city = trips[city];
     const filterTypes = Object.keys(fullFilter);
