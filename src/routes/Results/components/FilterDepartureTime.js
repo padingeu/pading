@@ -28,18 +28,11 @@ export default function FilterDepartureTime(props) {
       fullFilter['return'] = returnFilter;
     }
 
-    props.doFilter(
-      fullFilter,
-      trips,
-      props.search.cities,
-      city,
-      props.search.initialDestinationsWithPrice
-    );
+    props.doFilter(fullFilter, trips, props.search.cities, city);
   };
 
   return (
     <div className="filter-div">
-      {console.log(props)}
       <div className="filter-table">
         <div className="filter-table-way">
           <div className="filter-table-header">

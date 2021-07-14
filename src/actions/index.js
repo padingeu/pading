@@ -4,12 +4,9 @@ import { history } from '../index';
 import moment from 'moment';
 
 const getPriceForDestination = (trips, destination, city) => {
-  let tripsForDestination = [];
-  for (let i = 0; i < trips[city].length; i++) {
-    if (trips[city][i].cityTo === destination) {
-      tripsForDestination.push(trips[city][i]);
-    }
-  }
+  let tripsForDestination = trips[city].filter((trip) => {
+    return trip.cityTo === destination;
+  });
   let prices = tripsForDestination.map((trip) => {
     return trip.price;
   });
@@ -26,7 +23,7 @@ const getTotalPrice = (trips, destination) => {
   });
 
   return {
-    pricesPerDestination: pricesList,
+    pricesPerDepartureCity: pricesList,
     totalPrice: totalPrice,
   };
 };
@@ -87,14 +84,12 @@ const getCommonDestinations = (trips, cities) => {
       }
     }
   }
-
   let commonDestinations = [];
   for (let i = 0; i < commonTrips.length; i++) {
     if (!commonDestinations.includes(commonTrips[i].cityTo)) {
       commonDestinations.push(commonTrips[i].cityTo);
     }
   }
-
   //Retirer les voyages qui ne font pas parti des destinations communes
   for (let i = 0; i < cities.length; i++) {
     let city = cities[i].name;
@@ -104,7 +99,16 @@ const getCommonDestinations = (trips, cities) => {
       });
     }
   }
-  return commonDestinations;
+  const destinations = [];
+  for (let i = 0; i < commonDestinations.length; i++) {
+    const prices = getTotalPrice(trips, commonDestinations[i]);
+    destinations.push({
+      name: commonDestinations[i],
+      ...prices,
+    });
+  }
+
+  return destinations;
 };
 
 export const searchTrips = (cities, dateFrom, dateTo, stopTrip, travelType) => {
@@ -126,7 +130,7 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip, travelType) => {
     const differenceInDays = Math.trunc(differenceInTime / (1000 * 3600 * 24));
     const dateFromStr = dateFrom.toLocaleDateString();
     const dateToStr = dateTo.toLocaleDateString();
-    console.log(stopTrip);
+
     let maxStopover = '2';
     if (stopTrip === 'Only direct') {
       maxStopover = '0';
@@ -191,22 +195,12 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip, travelType) => {
         }
         //TODO
         const commonDestinations = getCommonDestinations(trips, cities);
-        const destinationsWithPrice = [];
-        for (let i = 0; i < commonDestinations; i++) {
-          destinationsWithPrice.push({
-            name: commonDestinations[i],
-            prices: getTotalPrice(trips, commonDestinations[i]),
-          });
-        }
 
-        destinationsWithPrice.sort(compare);
         const data = {
-          commonDestinations,
+          commonDestinations: commonDestinations,
           initialTrips: trips,
           trips,
           travelers,
-          initialDestinationsWithPrice: destinationsWithPrice,
-          destinationsWithPrice,
           travelType,
         };
         dispatch({ type: 'SEARCH', data });
@@ -218,7 +212,7 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip, travelType) => {
   };
 };
 
-export const doFilter = (fullFilter, trips, cities, city, destinationsWithPrice) => {
+export const doFilter = (fullFilter, trips, cities, city) => {
   return (dispatch) => {
     let trips_by_city = trips[city];
     const filterTypes = Object.keys(fullFilter);
@@ -253,22 +247,10 @@ export const doFilter = (fullFilter, trips, cities, city, destinationsWithPrice)
 
     trips[city] = trips_by_city;
     const commonDestinations = getCommonDestinations(trips, cities);
-    destinationsWithPrice = destinationsWithPrice.filter((destinationWithPrice) => {
-      return commonDestinations.includes(destinationWithPrice.name);
-    });
-    destinationsWithPrice = destinationsWithPrice.map((destinationWithPrice) => {
-      return {
-        name: destinationWithPrice.name,
-        lat: destinationWithPrice.lat,
-        lng: destinationWithPrice.lng,
-        prices: getTotalPrice(trips, destinationWithPrice.name),
-      };
-    });
 
     const data = {
       commonDestinations,
       trips,
-      destinationsWithPrice,
     };
     dispatch({ type: 'FILTER', data });
   };

@@ -10,9 +10,8 @@ const mapStateToProps = ({ search, app }, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => ({
   searchTrips: (cities, dateFrom, dateTo, stopTrip, travelType) =>
-  dispatch(searchTrips(cities, dateFrom, dateTo, stopTrip, travelType)),
-  doFilter: (filter, trips, cities, city, destinationsWithPrice) =>
-  dispatch(doFilter(filter, trips, cities, city, destinationsWithPrice)),
+    dispatch(searchTrips(cities, dateFrom, dateTo, stopTrip, travelType)),
+  doFilter: (filter, trips, cities, city) => dispatch(doFilter(filter, trips, cities, city)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Results);

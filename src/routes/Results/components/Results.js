@@ -12,7 +12,7 @@ import iconCircle from '../../../img/icon-circle.svg';
 export default function Results(props) {
   const [showFilter, setShowFilter] = React.useState(false);
   const [showSortBy, setShowsortBy] = React.useState(false);
-  const [sortByChoice, setSortByChoice] = React.useState('lowest price');
+  const [sortByChoice, setSortByChoice] = React.useState('Lowest Price');
 
   const displayFilter = () => {
     setShowFilter(!showFilter);
@@ -24,7 +24,7 @@ export default function Results(props) {
 
   const sortByPrice = (event) => {
     event.preventDefault();
-    setSortByChoice('lowest price');
+    setSortByChoice('Lowest Price');
   };
 
   const sortByCarbFootprint = (event) => {
@@ -35,31 +35,6 @@ export default function Results(props) {
   const sortBySchedule = (event) => {
     event.preventDefault();
     setSortByChoice('same schedule');
-  };
-
-  const getPriceForDestination = (trips, destination, city) => {
-    let tripsForDestination = trips[city].filter((trip) => {
-      return trip.cityTo === destination;
-    });
-    let prices = tripsForDestination.map((trip) => {
-      return trip.price;
-    });
-    return Math.min.apply(null, prices);
-  };
-
-  const getTotalPrice = (trips, destination) => {
-    const pricesList = [];
-    let totalPrice = 0;
-    Object.keys(trips).forEach((city) => {
-      const price = getPriceForDestination(trips, destination, city);
-      totalPrice += price;
-      pricesList.push({ city: city, price: price });
-    });
-
-    return {
-      pricesPerDestination: pricesList,
-      totalPrice: totalPrice,
-    };
   };
 
   return (
@@ -149,7 +124,6 @@ export default function Results(props) {
               </button>
             </div>
           </div>
-          {console.log(props)}
           {showFilter ? (
             <FilterDepartureTime
               search={props.search}
@@ -185,8 +159,9 @@ export default function Results(props) {
                         trigger={
                           <div>
                             <TripCard
-                              destination={destination}
-                              prices={getTotalPrice(props.search.trips, destination)}
+                              destination={destination.name}
+                              totalPrice={destination.totalPrice}
+                              pricesPerDepartureCity={destination.pricesPerDepartureCity}
                               travelers={props.search.travelers}
                               key={index}
                             />
@@ -195,7 +170,7 @@ export default function Results(props) {
                         key={index}
                       >
                         <DetailsResultsPopup
-                          destination={destination}
+                          destination={destination.name}
                           trips={props.search.trips}
                           key={index}
                           travelType={props.search.travelType}

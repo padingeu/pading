@@ -1,24 +1,19 @@
 import React from 'react';
 import './_TripCard.scss';
-import Img from "react-cool-img";
+import Img from 'react-cool-img';
 
-
-const TripCard = ({ destination, prices, travelers }) => {
-
+const TripCard = ({ destination, totalPrice, pricesPerDepartureCity, travelers }) => {
   let image_path = '';
 
-  try {  
-    image_path = require(`../../../img/cities/${destination.toLowerCase()}.jpg`); 
-  } catch(err){  
-      image_path = require(`../../../img/cities/defaultcityimage.jpg`)
+  try {
+    image_path = require(`../../../img/cities/${destination.toLowerCase()}.jpg`);
+  } catch (err) {
+    image_path = require(`../../../img/cities/defaultcityimage.jpg`);
   }
 
   return (
     <div className="trip-card">
-      <Img
-        src={image_path}
-        alt={destination}
-      />
+      <Img src={image_path} alt={destination} />
       <div className="trip-infos">
         <div className="trip-city-pricing">
           <div className="trip-city">
@@ -29,16 +24,12 @@ const TripCard = ({ destination, prices, travelers }) => {
             </div>
           </div>
           <div className="trip-pricing">
-            <span className="trip-pricing-amount">
-              {prices.totalPrice}
-            </span>
-            <span className="trip-pricing-currency">
-              EUR / global
-            </span>
+            <span className="trip-pricing-amount">{totalPrice}</span>
+            <span className="trip-pricing-currency">EUR / global</span>
           </div>
         </div>
         <div className="citytrips">
-          {prices.pricesPerDestination.map((object) => {
+          {pricesPerDepartureCity.map((object) => {
             return (
               <div key={object.city} className="citytrip-card">
                 {Math.round(object.price / travelers[object.city])}€ {''}{' '}

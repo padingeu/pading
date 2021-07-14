@@ -2,7 +2,6 @@ const initialState = {
   commonDestinations: [],
   trips: {},
   travelers: {},
-  destinationsWithPrice: [],
   travelType: '',
   cities: [],
 };
