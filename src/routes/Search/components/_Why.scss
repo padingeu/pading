@@ -117,6 +117,7 @@
         width: 100%;
       }
     }
+    
   }
 }
 
@@ -128,6 +129,13 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    .why-to-use-it-title {
+      .focus-text {
+        .underline {
+          border: 1.5rem solid #19a6ee;
+        }
+      }
+    }
     .why-to-use-it-text {
       display: flex;
       flex-direction: column;

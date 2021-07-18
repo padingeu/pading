@@ -65,7 +65,7 @@ export default function Results(props) {
         isLoading={props.search.isLoading}
         searchTrips={props.searchTrips}
         searchData={props.search}
-        isResultsPage={true}
+        //isResultsPage={true}
       />
       <div className="travel-results">
         <div className="travel-results-cards">

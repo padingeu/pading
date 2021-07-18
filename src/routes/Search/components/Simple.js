@@ -31,11 +31,11 @@ export default function Simple() {
             </div>
             <div className="testimonial-card">
               <p>"Like many students, opportunities lead us to move to other places. My girlfriend and I continue to see each other regularly and use Pading to catch up in halfway cities. Our long-distance relationship is now an opportunity to discover the world together"</p>
-              <span className="user-name">Filippo, traveler in love</span>
+              <span className="user-name">Filippo, in love</span>
               <img className="yellow-marker-image" alt="yellow marker" src={yellowMarker}/>
             </div>
             <div className="testimonial-card">
-              <p>"I am from Le Havre in France and I live in Manchester for 3 years now. I have some family in France and Senegal and several friends in different cities (Lille, Brussels, Wroclaw, Barcelona, ..). Pading help us to find the best destinations to catch up"</p>
+              <p>"I am from France and I live in Manchester for three years now. I have some family in Senegal and friends living in many places (Lille, Brussels, Wroclaw, Barcelona, ..). Pading help us to find the best destinations to catch up"</p>
               <span className="user-name">Mamad, living abroad</span>
               <img className="yellow-marker-image" alt="yellow marker" src={yellowMarker}/>
             </div>

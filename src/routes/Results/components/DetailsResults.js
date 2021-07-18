@@ -27,7 +27,7 @@ export default function DetailsResults(props) {
 
           <div className="destination-div-2">
             <div className="line"></div>
-            <i class="fas fa-map-marker-alt fa-lg"></i>
+            <i className="fas fa-map-marker-alt fa-lg"></i>
             <span className="arrive-at">Arrive at {props.destination}</span>
             <span className="number-of-nights">{props.trip.nightsInDest} nights at the destination</span>
           </div>
@@ -57,7 +57,7 @@ export default function DetailsResults(props) {
             <div className="destination-div-1"></div>
             <div className="destination-div-2">
               <div className="line"></div>
-              <i class="fas fa-map-marker-alt fa-lg"></i>
+              <i className="fas fa-map-marker-alt fa-lg"></i>
               <span className="arrive-at">Arrive at {props.cityFrom}</span>
               <span className="welcome-back">Welcome back!</span>
             </div>

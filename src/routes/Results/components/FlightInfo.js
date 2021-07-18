@@ -91,12 +91,12 @@ export default function FlightInfo(props) {
         {props.isFirstFlight ?
           <div className="date-div-2">
             <div className="date-from"></div>
-            <i class="fas fa-calendar-day fa-lg"></i>
+            <i className="fas fa-calendar-day fa-lg"></i>
             <span className="travel-date">{moment.utc(props.route.local_departure).format('MMM Do YYYY')}</span>
           </div>
         :
           <div className="stopover-div">
-            <i class="fas fa-exchange-alt"></i>
+            <i className="fas fa-exchange-alt"></i>
             <span className="stopover">stopover</span>
           </div>
        }
@@ -124,7 +124,7 @@ export default function FlightInfo(props) {
           <div className="line-top"></div>
           <div className="line-bottom"></div>
           <div className="travel-company-time">
-            <i class="fas fa-plane fa-lg"></i>
+            <i className="fas fa-plane fa-lg"></i>
             <div className="travel-company">
               <span className="airline-name">{getAirlineName(props.route.airline)}</span>
             </div>
@@ -132,8 +132,8 @@ export default function FlightInfo(props) {
               <span className="travel-duration-hours">{getDuration(props.route.local_departure, props.route.local_arrival)}</span>
             </div>
             <div className="show-more-details" onClick={() => setDetailsWay(!showDetailsWay)}>
-              <i class="fas fa-angle-up fa-lg"></i>
-              <i class="fas fa-angle-down fa-lg"></i>
+              <i className="fas fa-angle-up fa-lg"></i>
+              <i className="fas fa-angle-down fa-lg"></i>
             </div>
           </div>
 
@@ -154,7 +154,7 @@ export default function FlightInfo(props) {
                 </div>
                 <div className="flight-number">
                   <div className="flight-number-logo">
-                    <i class="fas fa-info-circle fa-lg"></i>
+                    <i className="fas fa-info-circle fa-lg"></i>
                     <span className="flight-no">Flight no</span>
                   </div>
                   <span className="flight-number-response">

@@ -32,10 +32,7 @@ class FormSearch extends React.Component {
   };
 
   scrollDown() {
-    document.scrollingElement.scrollTo({
-      top: 800,
-      behavior: 'smooth',
-    });
+    setTimeout(() => document.querySelector(".travel-results").scrollIntoView({behavior: "smooth"}), 150)
   }
 
   onInputDateChange = (date) => {
