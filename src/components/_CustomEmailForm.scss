@@ -63,42 +63,43 @@
   border-radius: 1rem;
   padding: 2rem 5rem;
   .swal2-title {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
   }
   .swal2-content {
     font-size: 1.4rem;
+    font-weight: bold;
   }
   .swal2-icon.swal2-success {
-    border-color: #3e936f;
-    color: #3e936f;
+    border-color: #85bf82;
+    color: #85bf82;
     border-width: 0.3rem;
     .swal2-success-line-tip {
-      background-color: #3e936f;
+      background-color: #85bf82;
     }
     .swal2-success-line-long {
-      background-color: #3e936f;
+      background-color: #85bf82;
     }
     .swal2-success-ring {
-      border-color: #3e936f;
-      color: #3e936f;
+      border-color: #85bf82;
+      color: #85bf82;
       border-width: 0.3rem;
     }
   }
   .swal2-icon.swal2-info {
-    border-color: #29b3c1;
-    color: #29b3c1;
+    border-color: #6dd3fd;
+    color: #6dd3fd;
     border-width: 0.3rem;
   }
   .swal2-icon.swal2-error {
-    border-color: #f49d11;
-    color: #f49d11;
+    border-color: #ffdb5b;
+    color: #ffdb5b;
     border-width: 0.3rem;
 
     .swal2-x-mark-line-left {
-      background-color: #f49d11;
+      background-color: #ffdb5b;
     }
     .swal2-x-mark-line-right {
-      background-color: #f49d11;
+      background-color: #ffdb5b;
     }
   }
 }
@@ -107,13 +108,19 @@
   .register-form {
     flex-direction: column;
   }
+  .swal2-popup {
+    min-width: 90vw;
+  }
 }
 
 @media (min-width: 601px) {
   .register-form {
     flex-direction: column;
     .input-newsletter {
-    min-width: 30rem;
+    min-width: 50rem;
     }
+  }
+  .swal2-popup {
+    min-width: 50vw;
   }
 }

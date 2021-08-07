@@ -20,8 +20,8 @@ const CustomEmailForm = ({ status, message, onValidated }) => {
         <SweetAlert>
           {swal.fire({
             icon: 'error',
-            title: 'This email address is not valid. Can you check it please?',
-            text: 'Probably a typo :)',
+            title: 'NO CORRECT EMAIL ADRESS HAS BEEN ENTERED',
+            text: 'Probably a typo. Please try again',
             showConfirmButton: false,
             allowEnterKey: 'true',
             allowOutsideClick: 'true',
@@ -39,8 +39,8 @@ const CustomEmailForm = ({ status, message, onValidated }) => {
         <SweetAlert>
           {swal.fire({
             icon: 'info',
-            title: `You are already part of our community but you can still follow us on Facebook and Instagram!`,
-            text: "To be noticed of Pading's upcoming launch, check your emails sometimes",
+            title: `YOU ARE ALREADY REGISTERED. YOU CAN ALSO FOLLOW US ON FACEBOOK AND INSTAGRAM !`,
+            text: 'To be noticed of Pading\'s coming features, check your emails sometimes',
             showConfirmButton: false,
             allowEnterKey: 'true',
             allowOutsideClick: 'true',
@@ -53,9 +53,9 @@ const CustomEmailForm = ({ status, message, onValidated }) => {
           {swal.fire({
             icon: 'success',
             title:
-              'Thanks a lot for registrating! You can also follow us on Facebook and Instagram',
+              'THANKS A LOT FOR SIGNING UP ! WE WILL KEEP YOU INFORMED ABOUT THE LATEST NEWS !',
             text:
-              "We will inform you soon about Pading's launch so you can be among the first to use the app",
+              'In the meantime you can also follow us on Instagram and Facebook',
             showConfirmButton: false,
             allowEnterKey: 'true',
             allowOutsideClick: 'true',

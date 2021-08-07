@@ -106,7 +106,7 @@ export default function Faq() {
           id="panel5a-header"
         >
           <Typography className={`${classes.heading} faq-title`}>
-            <h4>WHAT MEANS OF TRANSPORT CAN BE BOOKED ?</h4>
+            <h4>WHAT TRANSPORT CAN BE BOOKED ?</h4>
           </Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
@@ -160,7 +160,7 @@ export default function Faq() {
           id="panel8a-header"
         >
           <Typography className={`${classes.heading} faq-title`}>
-            <h4>WHO IS KIWI THE PARTNER YOU ARE WORKING WITH ?</h4>
+            <h4>WHO IS YOUR PARTNER KIWI ?</h4>
           </Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
