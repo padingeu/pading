@@ -102,7 +102,7 @@ export default function Results(props) {
                           />
                         ) : null}
                       </div>
-                      <span>lowest price</span>
+                      <span>Lowest price</span>
                     </button>
                     <button
                       onClick={(event) => {
@@ -119,7 +119,7 @@ export default function Results(props) {
                           />
                         ) : null}
                       </div>
-                      <span>carb. footprint</span>
+                      <span>Carb. footprint</span>
                     </button>
 
                     <button
