@@ -15,7 +15,7 @@
             z-index: -1;
             left: -0.5rem;
             right: -0.5rem;
-            bottom: 0rem;
+            bottom: -0.2rem;
             height: 0;
             border-radius: 0.5rem;
           }
@@ -52,7 +52,6 @@
   }
 }
 
-// landscape
 @media (orientation: landscape) {
   .why-to-use-it {
     display: flex;
@@ -62,7 +61,6 @@
   }
 }
 
-// small mobile screens landscape
 @media (min-width: 300px) and (orientation: landscape) {
   .why-to-use-it {
     display: flex;
@@ -86,7 +84,6 @@
   }
 }
 
-// portrait
 @media (orientation: portrait) {
   .why-to-use-it {
     display: flex;
@@ -96,7 +93,6 @@
   }
 }
 
-// small mobile screens portrait
 @media (max-width: 320px) and (orientation: portrait) {
   .why-to-use-it {
     display: flex;
@@ -116,12 +112,19 @@
       .happy-cats {
         width: 100%;
       }
+    } 
+  }
+  .why-to-use-it-text {
+    .why-to-use-it-title {
+      .focus-text {
+        .underline {
+          border: 1.5rem solid #19a6ee;
+        }
+      }
     }
-    
   }
 }
 
-// mobile screens portrait
 @media (min-width: 321px) and (orientation: portrait) {
   .why-to-use-it {
     display: flex;
@@ -152,41 +155,6 @@
   }
 }
 
-// tablet screens portrait
-@media (min-width: 901px) and (orientation: portrait) {
-  .why-to-use-it {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    margin: 10rem 5rem 10rem 5rem;
-    .why-to-use-it-text {
-      width: 60%;
-    }
-    .why-to-use-it-gif {
-      width: 40%;
-    }
-  }
-}
-
-// laptop and computer screens
-@media (min-width: 1201px) {
-  .why-to-use-it {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 5rem 7rem 12rem 7rem;
-    .why-to-use-it-text {
-      width: 60%;
-    }
-    .why-to-use-it-gif {
-      width: 40%;
-      text-align: center;
-    }
-  }
-}
-
 @media (max-width: 500px) {
   .green-shape {
     display: none;
@@ -194,9 +162,13 @@
   .yellow-shape {
   display: none;
   }
-  .focus-text {
-    .underline {
-      border: 1.5rem solid #19a6ee;
+  .why-to-use-it-text {
+    .why-to-use-it-title {
+      .focus-text {
+        .underline {
+          border: 1.5rem solid #19a6ee;
+        }
+      }
     }
   }
 }
@@ -219,9 +191,46 @@
     width: 15rem;
     transform: rotate(-80deg);
   }
-  .focus-text {
-    .underline {
-      border: 2rem solid #19a6ee;
+  .why-to-use-it-text {
+    .why-to-use-it-title {
+      .focus-text {
+        .underline {
+          border: 2rem solid #19a6ee;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 901px) and (orientation: portrait) {
+  .why-to-use-it {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 10rem 5rem 10rem 5rem;
+    .why-to-use-it-text {
+      width: 60%;
+    }
+    .why-to-use-it-gif {
+      width: 40%;
+    }
+  }
+}
+
+@media (min-width: 1201px) {
+  .why-to-use-it {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 5rem 7rem 12rem 7rem;
+    .why-to-use-it-text {
+      width: 60%;
+    }
+    .why-to-use-it-gif {
+      width: 40%;
+      text-align: center;
     }
   }
 }

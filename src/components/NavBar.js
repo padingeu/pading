@@ -1,7 +1,7 @@
 import React from 'react';
 import './_NavBar.scss';
 import { Link } from "react-router-dom";
-import logoPading from '../img/logo-pading.jpeg';
+import logoPading from '../img/logo-pading.png';
 
 export default class Navbar extends React.Component {
   

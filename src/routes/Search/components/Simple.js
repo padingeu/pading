@@ -25,18 +25,18 @@ export default function Simple() {
         </div>
         <div className="testimonials">
             <div className="testimonial-card">
-              <p>"Since our year abroad, we organise an annual Erasmus reunion. It's always so amazing to get together! Organising the trip and choosing the right destination for everyone is now 1000 times easier. We hope to plan even more reunions and continue to discover Europe together"</p>
+              <p>« Since our year abroad, we organise an annual Erasmus reunion. It's always so amazing to get together! Organising the trip and choosing the right destination for everyone is now much easier. We hope to plan even more reunions and continue to discover places together »</p>
               <span className="user-name">Eilidh, Erasmus family</span>
               <img className="yellow-marker-image" alt="yellow marker" src={yellowMarker}/>
             </div>
             <div className="testimonial-card">
-              <p>"Like many students, opportunities lead us to move to other places. My girlfriend and I continue to see each other regularly and use Pading to catch up in halfway cities. Our long-distance relationship is now an opportunity to discover the world together"</p>
-              <span className="user-name">Filippo, in love</span>
+              <p>« Like many students, opportunities lead us to move to other places. My girlfriend and I continue to see each other regularly and use Pading to catch up in halfway cities. Our long-distance relationship is now an opportunity to discover the world together »</p>
+              <span className="user-name">Fillipo, long-distance relationship</span>
               <img className="yellow-marker-image" alt="yellow marker" src={yellowMarker}/>
             </div>
             <div className="testimonial-card">
-              <p>"I am from France and I live in Manchester for three years now. I have some family in Senegal and friends living in many places (Lille, Brussels, Wroclaw, Barcelona, ..). Pading help us to find the best destinations to catch up"</p>
-              <span className="user-name">Mamad, living abroad</span>
+              <p>« I live in Manchester for three years now. I have some family in Senegal and friends living in many places (Lille, Brussels, Wroclaw, Barcelona, ..). Pading help us to find the best destinations where to meet »</p>
+              <span className="user-name">Mamadou, living abroad</span>
               <img className="yellow-marker-image" alt="yellow marker" src={yellowMarker}/>
             </div>
           </div>
