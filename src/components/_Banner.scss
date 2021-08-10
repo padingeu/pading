@@ -17,6 +17,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        max-width: 42rem;
         .valueprop-title {
           text-align: center;
         }
@@ -48,13 +49,15 @@
   
   @media only (max-width: 600px) {
     .valueprop {
-      top: 2rem;
-      .valueprop-details {
-        display: none;
+      top: 0rem;
+      .valueprop-title-details {
+        .valueprop-details {
+          padding: 0 1rem;
+        }
       }
     }
     .formsearch-banner {
-      top: 12rem;
+      top: 15rem;
     }
     .banner-background {
       .banner-1 {
@@ -68,7 +71,7 @@
   
   @media only (min-width: 601px) {
     .valueprop {
-      top: 2rem;
+      top: 0rem;
     }
     .formsearch-banner {
       top: 14rem;

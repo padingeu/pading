@@ -3,7 +3,7 @@ import Banner from '../../../components/Banner';
 import './_Results.scss';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import TripCard from './TripCard';
-import FilterDepartureTime from './FilterDepartureTime';
+import FilterTime from './FilterTime';
 import TripCardSkeleton from './TripCardSkeleton';
 import Popup from 'reactjs-popup';
 import DetailsResultsPopup from './DetailsResultsPopup';
@@ -147,7 +147,7 @@ export default function Results(props) {
             </div>
           </div>
           {showFilter ? (
-            <FilterDepartureTime
+            <FilterTime
               search={props.search}
               showFilter={showFilter}
               doFilter={props.doFilter}

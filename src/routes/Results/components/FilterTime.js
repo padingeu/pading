@@ -1,8 +1,9 @@
 import React from 'react';
-import Filter from './Filter';
+import FilterBar from './FilterBar';
 import './_FilterDepartureTime.scss';
 
-export default function FilterDepartureTime(props) {
+
+export default function FilterTime(props) {
   const [departureFilter, setDepartureFilter] = React.useState({});
   const [returnFilter, setReturnFilter] = React.useState({});
 
@@ -46,7 +47,7 @@ export default function FilterDepartureTime(props) {
               return (
                 <div className="filter-table-body">
                   <p>from {city.name}</p>
-                  <Filter filter={doF} city={city.name} type="departure" />
+                  <FilterBar filter={doF} city={city.name} type="departure" />
                 </div>
               );
             })}
@@ -62,7 +63,7 @@ export default function FilterDepartureTime(props) {
                 return (
                   <div className="filter-table-body">
                     <p>to {city.name}</p>
-                    <Filter filter={doF} city={city.name} type="return" />
+                    <FilterBar filter={doF} city={city.name} type="return" />
                   </div>
                 );
               })}
