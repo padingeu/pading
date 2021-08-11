@@ -23,6 +23,8 @@
         }
         .valueprop-details {
           text-align: center;
+          font-weight: bold;
+          color: #ff9e00;
         }
       }
      
@@ -57,14 +59,15 @@
       }
     }
     .formsearch-banner {
-      top: 15rem;
+      top: 12rem;
     }
     .banner-background {
       .banner-1 {
-        padding-bottom: 60rem;
+       display: none;
       }
       .banner-2 {
-        display: none;
+        padding-top: 45rem;
+       height: 100vh;
       }
     }
   }

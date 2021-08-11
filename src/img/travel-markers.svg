@@ -1,1 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1523.17 239.88"><defs><style>.cls-1{isolation:isolate;}.cls-2{fill:#dd7305;}.cls-3{fill:#4fa5e9;mix-blend-mode:multiply;}.cls-4{fill:#86d0ed;}</style></defs><g class="cls-1"><g id="Capa_2" data-name="Capa 2"><g id="Capa_1-2" data-name="Capa 1"><path class="cls-2" d="M1484,10.48a57.28,57.28,0,0,1-81.67,80.35,11.64,11.64,0,1,1,16.59-16.32A34,34,0,0,0,1467.4,26.8a34.65,34.65,0,0,0-6.58-5.22,11.64,11.64,0,1,1,12.1-19.88A57.33,57.33,0,0,1,1484,10.48Z"/><path class="cls-3" d="M1523.17,165.42a73.87,73.87,0,1,0-73.27,74.46A73.87,73.87,0,0,0,1523.17,165.42Zm-40.61.33a33.26,33.26,0,1,1-33.52-33A33.26,33.26,0,0,1,1482.56,165.75Z"/><path class="cls-4" d="M57,38.19a56.59,56.59,0,1,0,56.13,57.05A56.59,56.59,0,0,0,57,38.19Zm-.66,82.06A25.48,25.48,0,1,1,82.06,95,25.48,25.48,0,0,1,56.38,120.25Z"/></g></g></g></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="2400" height="520" viewBox="0 0 2400 520" xml:space="preserve">
+<desc>Created with Fabric.js 3.6.3</desc>
+<defs>
+</defs>
+<g transform="matrix(1 0 0 1 2279.61 83.89)" id="Capa_1-2"  >
+<path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(133,191,130); fill-rule: nonzero; opacity: 1;"  transform=" translate(-1449.61, -53.89)" d="M 1484 10.48 a 57.28 57.28 0 0 1 -81.67 80.35 a 11.64 11.64 0 1 1 16.59 -16.32 A 34 34 0 0 0 1467.4 26.8 a 34.65 34.65 0 0 0 -6.58 -5.22 a 11.64 11.64 0 1 1 12.1 -19.88 A 57.33 57.33 0 0 1 1484 10.48 Z" stroke-linecap="round" />
+</g>
+<g transform="matrix(1 0 0 1 2279.3 199.01)" id="Capa_1-2"  >
+<path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(255,158,0); fill-rule: nonzero; opacity: 1;"  transform=" translate(-1449.3, -166.01)" d="M 1523.17 165.42 a 73.87 73.87 0 1 0 -73.27 74.46 A 73.87 73.87 0 0 0 1523.17 165.42 Z m -40.61 0.33 a 33.26 33.26 0 1 1 -33.52 -33 A 33.26 33.26 0 0 1 1482.56 165.75 Z" stroke-linecap="round" />
+</g>
+<g transform="matrix(1 0 0 1 77.54 173.78)" id="Capa_1-2"  >
+<path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(66,113,3); fill-rule: nonzero; opacity: 1;"  transform=" translate(-56.54, -94.78)" d="M 57 38.19 a 56.59 56.59 0 1 0 56.13 57.05 A 56.59 56.59 0 0 0 57 38.19 Z m -0.66 82.06 A 25.48 25.48 0 1 1 82.06 95 A 25.48 25.48 0 0 1 56.38 120.25 Z" stroke-linecap="round" />
+</g>
+</svg>
