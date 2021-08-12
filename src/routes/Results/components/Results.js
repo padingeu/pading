@@ -8,11 +8,12 @@ import TripCardSkeleton from './TripCardSkeleton';
 import Popup from 'reactjs-popup';
 import DetailsResultsPopup from './DetailsResultsPopup';
 import iconCircle from '../../../img/icon-circle.svg';
+import catLost from '..//img/cat-lost.svg';
 
 export default function Results(props) {
   const [showFilter, setShowFilter] = React.useState(false);
   const [showSortBy, setShowsortBy] = React.useState(false);
-  const [sortByChoice, setSortByChoice] = React.useState('Lowest Price');
+  const [sortByChoice, setSortByChoice] = React.useState('lowest price');
 
   const displayFilter = () => {
     setShowFilter(!showFilter);
@@ -24,7 +25,7 @@ export default function Results(props) {
 
   const sortByPrice = (event) => {
     event.preventDefault();
-    setSortByChoice('Lowest Price');
+    setSortByChoice('lowest price');
     props.search.commonDestinations.sort(comparePrice);
   };
 
@@ -65,7 +66,6 @@ export default function Results(props) {
         isLoading={props.search.isLoading}
         searchTrips={props.searchTrips}
         searchData={props.search}
-        //isResultsPage={true}
       />
       <div className="travel-results">
         <div className="travel-results-cards">
@@ -94,7 +94,7 @@ export default function Results(props) {
                       }}
                     >
                       <div className="check-box">
-                        {sortByChoice === 'lowest price' ? (
+                      {sortByChoice === 'lowest price' ? (
                           <img
                             alt="choice selector"
                             src={iconCircle}
@@ -137,7 +137,7 @@ export default function Results(props) {
                           />
                         ) : null}
                       </div>
-                      <span>same schedule</span>
+                      <span>Same schedule</span>
                     </button>
                   </div>
                 ) : (
@@ -172,38 +172,49 @@ export default function Results(props) {
                 <TripCardSkeleton />
               </div>
             ) : (
-              <div className="cards-results">
-                {props.search.commonDestinations.map((destination, index) => {
-                  return (
-                    <div className={index} key={index}>
-                      <Popup
-                        modal
-                        trigger={
-                          <div>
-                            <TripCard
+              <div>
+                {props.search.commonDestinations.length > 0 ?
+                <div className="cards-results">
+                
+                    {props.search.commonDestinations.map((destination, index) => {
+                      return (
+                        <div className={index} key={index}>
+                          <Popup
+                            modal
+                            trigger={
+                              <div>
+                                <TripCard
+                                  destination={destination.name}
+                                  totalPrice={destination.totalPrice}
+                                  pricesPerDepartureCity={destination.pricesPerDepartureCity}
+                                  travelers={props.search.travelers}
+                                  key={index}
+                                  carbonFootprint={destination.carbonFootprint}
+                                />
+                              </div>
+                            }
+                            key={index}
+                          >
+                            <DetailsResultsPopup
                               destination={destination.name}
-                              totalPrice={destination.totalPrice}
-                              pricesPerDepartureCity={destination.pricesPerDepartureCity}
-                              travelers={props.search.travelers}
+                              trips={props.search.trips}
                               key={index}
-                              carbonFootprint={destination.carbonFootprint}
+                              travelType={props.search.travelType}
                             />
-                          </div>
-                        }
-                        key={index}
-                      >
-                        <DetailsResultsPopup
-                          destination={destination.name}
-                          trips={props.search.trips}
-                          key={index}
-                          travelType={props.search.travelType}
-                        />
-                      </Popup>
-                    </div>
-                  );
-                })}
-              </div>
-            )}
+                          </Popup>
+                        </div>
+                      );
+                    })}
+                  
+                </div>
+                :
+                  <div className="alert-nodestination">
+                    <img src={catLost} alt="no destination was found" width="200px"/>
+                    <p>No destination was found.<br/>Try again by changing the dates or replacing the departure cities</p>
+                  </div>
+                }
+                </div>
+              )}
           </div>
         </div>
       </div>

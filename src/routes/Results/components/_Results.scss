@@ -111,6 +111,18 @@
       grid-gap: 1.5rem;
       padding: 1rem 1rem 0rem 1rem;
     }
+    .alert-nodestination {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      p {
+        font-weight: bold;
+        font-size: 1.2rem;
+        text-align: center;
+      }
+    }
   }
 }
 
