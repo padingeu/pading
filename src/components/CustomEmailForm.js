@@ -39,8 +39,8 @@ const CustomEmailForm = ({ status, message, onValidated }) => {
         <SweetAlert>
           {swal.fire({
             icon: 'info',
-            title: `YOU ARE ALREADY REGISTERED. YOU CAN ALSO FOLLOW US ON FACEBOOK AND INSTAGRAM !`,
-            text: 'To be noticed of Pading\'s coming features, check your emails sometimes',
+            title: `YOU ARE ALREADY REGISTERED`,
+            text: 'You can also follow us on Facebook and instagram !',
             showConfirmButton: false,
             allowEnterKey: 'true',
             allowOutsideClick: 'true',
@@ -53,9 +53,9 @@ const CustomEmailForm = ({ status, message, onValidated }) => {
           {swal.fire({
             icon: 'success',
             title:
-              'THANKS A LOT FOR SIGNING UP ! WE WILL KEEP YOU INFORMED ABOUT THE LATEST NEWS !',
+              'THANKS A LOT FOR SIGNING UP !',
             text:
-              'In the meantime you can also follow us on Instagram and Facebook',
+              'We will keep you informed about the latest news. Do you already follow us on social media ?',
             showConfirmButton: false,
             allowEnterKey: 'true',
             allowOutsideClick: 'true',
