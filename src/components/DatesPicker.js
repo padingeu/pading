@@ -37,6 +37,7 @@ class DatesPicker extends React.Component {
                 ? this.props.dateFrom.toLocaleDateString()
                 : ''
             }
+            readOnly
           />
           {this.props.travelType === 'Return' ? (
             <input
@@ -50,6 +51,7 @@ class DatesPicker extends React.Component {
                   ? this.props.dateTo.toLocaleDateString()
                   : ''
               }
+              readOnly
             />
           ) : (
             <input
@@ -61,6 +63,7 @@ class DatesPicker extends React.Component {
               }}
               placeholder="no-return"
               value="no-return"
+              readOnly
             />
           )}
         </div>
