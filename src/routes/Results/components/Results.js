@@ -10,13 +10,19 @@ import DetailsResultsPopup from './DetailsResultsPopup';
 import iconCircle from '../../../img/icon-circle.svg';
 import catLost from '..//img/cat-lost.svg';
 
+import { useSelector } from 'react-redux';
+
 export default function Results(props) {
-  const [showFilter, setShowFilter] = React.useState(false);
+  // const [showFilter, setShowFilter] = React.useState(false);
   const [showSortBy, setShowsortBy] = React.useState(false);
   const [sortByChoice, setSortByChoice] = React.useState('lowest price');
 
+  const showFilter = useSelector((state) => state.search.showFilter);
+
+  //
+
   const displayFilter = () => {
-    setShowFilter(!showFilter);
+    props.clickOnFilter(props.search.showFilter);
   };
 
   const displaySortBy = () => {
@@ -67,6 +73,7 @@ export default function Results(props) {
         searchTrips={props.searchTrips}
         searchData={props.search}
       />
+
       <div className="travel-results">
         <div className="travel-results-cards">
           <div className="linear-progress-filter">
@@ -77,7 +84,8 @@ export default function Results(props) {
                 </div>
               )}
             </div>
-            <div className="filter-sort">
+            {props.search.commonDestinations.length > 0 ?
+            (<div className="filter-sort">
               <button className="btn-filter" onClick={displayFilter}>
                 <i className="fas fa-filter"></i>
                 Filter
@@ -94,7 +102,7 @@ export default function Results(props) {
                       }}
                     >
                       <div className="check-box">
-                      {sortByChoice === 'lowest price' ? (
+                        {sortByChoice === 'lowest price' ? (
                           <img
                             alt="choice selector"
                             src={iconCircle}
@@ -144,19 +152,16 @@ export default function Results(props) {
                   ''
                 )}
               </button>
-            </div>
+            </div>): ""
+}
           </div>
-          {showFilter ? (
-            <FilterTime
-              search={props.search}
-              showFilter={showFilter}
-              doFilter={props.doFilter}
-            />
+          {showFilter && props.search.commonDestinations.length > 0? (
+            <FilterTime search={props.search} showFilter={showFilter} doFilter={props.doFilter} />
           ) : (
             ''
           )}
           <div id="cards-results-wrapper">
-            {props.search.isLoading ? (
+            {props.search.isLoading? (
               <div className="cards-results">
                 <TripCardSkeleton />
                 <TripCardSkeleton />
@@ -173,9 +178,8 @@ export default function Results(props) {
               </div>
             ) : (
               <div>
-                {props.search.commonDestinations.length > 0 ?
-                <div className="cards-results">
-                
+                {props.search.commonDestinations.length > 0 ? (
+                  <div className="cards-results">
                     {props.search.commonDestinations.map((destination, index) => {
                       return (
                         <div className={index} key={index}>
@@ -205,16 +209,24 @@ export default function Results(props) {
                         </div>
                       );
                     })}
-                  
-                </div>
-                :
+                  </div>
+                ) : (
                   <div className="alert-nodestination">
+<<<<<<< HEAD
                     <img src={catLost} alt="no destination was found" width="200px"/>
                     <p>No destination was found<br/>Try other dates or departure cities</p>
+=======
+                    <img src={catLost} alt="no destination was found" width="200px" />
+                    <p>
+                      No destination was found.
+                      <br />
+                      Try again by changing the dates or replacing the departure cities
+                    </p>
+>>>>>>> 6e093ab0b4de9692c41fd42395f736315c2e66c3
                   </div>
-                }
-                </div>
-              )}
+                )}
+              </div>
+            )}
           </div>
         </div>
       </div>

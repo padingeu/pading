@@ -136,6 +136,8 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip, travelType) => {
     // dispatch({ type: 'CLEAR_SEARCH' });
     dispatch({ type: 'FORM_DATA', formData });
     dispatch({ type: 'LOADING' });
+    const showFilter = false;
+    dispatch({ type: 'CLICK_FILTER', showFilter });
     history.push('/results');
 
     // To calculate the time difference of two dates
@@ -223,6 +225,15 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip, travelType) => {
       .catch((error) => {
         dispatch({ type: 'FAILURE' });
       });
+  };
+};
+
+export const clickOnFilter = (showFilter) => {
+  return (dispatch) => {
+    showFilter = !showFilter;
+    console.log('dispTCH');
+
+    dispatch({ type: 'CLICK_FILTER', showFilter });
   };
 };
 
