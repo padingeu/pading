@@ -4,6 +4,7 @@ const initialState = {
   travelers: {},
   travelType: '',
   cities: [],
+  showFilter: false,
 };
 
 const search = (state = initialState, action) => {
@@ -12,6 +13,8 @@ const search = (state = initialState, action) => {
       return Object.assign({}, state, action.data);
     case 'FILTER':
       return Object.assign({}, state, action.data);
+    case 'CLICK_FILTER':
+      return Object.assign({}, state, action);
     case 'FORM_DATA':
       return Object.assign({}, state, action.formData);
     case 'LOADING':
