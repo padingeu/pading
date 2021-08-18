@@ -156,7 +156,7 @@ export default function Results(props) {
 }
           </div>
           {showFilter && props.search.commonDestinations.length > 0? (
-            <FilterTime se`arch={props.search} showFilter={showFilter} doFilter={props.doFilter} />
+            <FilterTime search={props.search} showFilter={showFilter} doFilter={props.doFilter} />
           ) : (
             ''
           )}
