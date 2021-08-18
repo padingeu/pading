@@ -102,7 +102,7 @@ export default class Banner extends React.Component {
           <div className="valueprop">
             <div className="valueprop-title-details">
             <h1 className="valueprop-title">TRAVEL TO GATHER</h1>
-             <p className="valueprop-details">Travel to the best destination and meet your friends</p>
+             <p className="valueprop-details">Meet your friends somewhere</p>
             </div>
            
           </div>

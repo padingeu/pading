@@ -210,7 +210,7 @@ export default function Results(props) {
                 :
                   <div className="alert-nodestination">
                     <img src={catLost} alt="no destination was found" width="200px"/>
-                    <p>No destination was found.<br/>Try again by changing the dates or replacing the departure cities</p>
+                    <p>No destination was found<br/>Try other dates or departure cities</p>
                   </div>
                 }
                 </div>
