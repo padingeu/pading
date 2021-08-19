@@ -231,8 +231,6 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip, travelType) => {
 export const clickOnFilter = (showFilter) => {
   return (dispatch) => {
     showFilter = !showFilter;
-    console.log('dispTCH');
-
     dispatch({ type: 'CLICK_FILTER', showFilter });
   };
 };

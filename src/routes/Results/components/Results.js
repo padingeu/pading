@@ -84,7 +84,6 @@ export default function Results(props) {
                 </div>
               )}
             </div>
-
             <div className="filter-sort">
               <button className="btn-filter" onClick={displayFilter}>
                 <i className="fas fa-filter"></i>
@@ -154,9 +153,11 @@ export default function Results(props) {
               </button>
             </div>
           </div>
-
-          <FilterTime search={props.search} showFilter={showFilter} doFilter={props.doFilter} />
-
+          {showFilter ? (
+            <FilterTime search={props.search} showFilter={showFilter} doFilter={props.doFilter} />
+          ) : (
+            ''
+          )}
           <div id="cards-results-wrapper">
             {props.search.isLoading ? (
               <div className="cards-results">
