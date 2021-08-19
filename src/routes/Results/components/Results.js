@@ -84,8 +84,8 @@ export default function Results(props) {
                 </div>
               )}
             </div>
-            {props.search.commonDestinations.length > 0 ?
-            (<div className="filter-sort">
+
+            <div className="filter-sort">
               <button className="btn-filter" onClick={displayFilter}>
                 <i className="fas fa-filter"></i>
                 Filter
@@ -152,16 +152,13 @@ export default function Results(props) {
                   ''
                 )}
               </button>
-            </div>): ""
-}
+            </div>
           </div>
-          {showFilter && props.search.commonDestinations.length > 0? (
-            <FilterTime search={props.search} showFilter={showFilter} doFilter={props.doFilter} />
-          ) : (
-            ''
-          )}
+
+          <FilterTime search={props.search} showFilter={showFilter} doFilter={props.doFilter} />
+
           <div id="cards-results-wrapper">
-            {props.search.isLoading? (
+            {props.search.isLoading ? (
               <div className="cards-results">
                 <TripCardSkeleton />
                 <TripCardSkeleton />
@@ -212,8 +209,12 @@ export default function Results(props) {
                   </div>
                 ) : (
                   <div className="alert-nodestination">
-                    <img src={catLost} alt="no destination was found" width="200px"/>
-                    <p>No destination was found<br/>Try other dates or departure cities</p>
+                    <img src={catLost} alt="no destination was found" width="200px" />
+                    <p>
+                      No destination was found
+                      <br />
+                      Try other dates or departure cities
+                    </p>
                   </div>
                 )}
               </div>
