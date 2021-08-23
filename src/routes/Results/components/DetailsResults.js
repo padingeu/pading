@@ -1,8 +1,19 @@
 import React from 'react';
+import {CopyToClipboard} from 'react-copy-to-clipboard';
 import './_DetailsResults.scss';
 import FlightInfo from './FlightInfo.js';
 
 export default function DetailsResults(props) {
+
+  const [showTooltipText, setShowToolTipText] = React.useState(false);
+
+  const displayTooltipText = () => {
+    setShowToolTipText(!showTooltipText);
+    setTimeout(() => {
+      setShowToolTipText(false);;
+    }, 1000);
+  };
+
   return (
     <div>
       <div className="details-results-travel">
@@ -73,18 +84,33 @@ export default function DetailsResults(props) {
             <span>1.399 t</span>
           </div>
         </div>
-        <a
-          href={
-            'https://www.kiwi.com/fr/booking?&affilid=padingpadingapp&booking_token=' +
-            props.trip.token
-          }
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn-book"
-        >
-          <span>Book</span>
-          <span className="trip-pricing-amount">{props.trip.price} EUR</span>
-        </a>
+        <div className="booking-zone">
+          <div className="clipboard-btn">
+            {showTooltipText ? <span className="tooltip-text">Booking link is copied !</span> : ''}
+            <CopyToClipboard
+              text={
+                'https://www.kiwi.com/fr/booking?&affilid=padingpadingapp&booking_token=' +
+                props.trip.token
+                }
+            >
+              <button onClick={displayTooltipText}>
+                <i class="far fa-copy fa-lg"></i>
+              </button>
+            </CopyToClipboard>
+          </div>
+          <a
+            href={
+              'https://www.kiwi.com/fr/booking?&affilid=padingpadingapp&booking_token=' +
+              props.trip.token
+            }
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-book"
+          >
+            <span>Book</span>
+            <span className="trip-pricing-amount">{props.trip.price} EUR</span>
+          </a>
+        </div>
       </div>
     </div>
   );
