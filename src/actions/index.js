@@ -78,6 +78,9 @@ const allDepartureHaveTrips = (trips, cities) => {
 };
 
 const getCommonDestinations = (trips, cities) => {
+  console.log('common destinations');
+  console.log(cities);
+  console.log(trips);
   //Recuperer une liste des destinations communes
   let commonTrips = [];
   let commonDestinations = [];
@@ -126,6 +129,7 @@ const getCommonDestinations = (trips, cities) => {
 };
 
 export const searchTrips = (cities, dateFrom, dateTo, stopTrip, travelType) => {
+  console.log(cities);
   const promises = [];
   return (dispatch) => {
     const formData = {
@@ -183,7 +187,9 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip, travelType) => {
         //Construction d'un objet avec une liste de voyage
         for (let i = 0; i < results.length; i++) {
           if (typeof results[i].data.data[0] !== 'undefined') {
-            const city = results[i].data.data[0].cityFrom;
+            const city = cities[i].name;
+            console.log(city);
+            console.log();
             const trips_by_city = results[i].data.data.map((trip) => {
               const padingTrip = {
                 cityFrom: trip.cityFrom,
