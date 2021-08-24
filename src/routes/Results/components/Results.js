@@ -84,74 +84,77 @@ export default function Results(props) {
                 </div>
               )}
             </div>
-            <div className="filter-sort">
-              <button className="btn-filter" onClick={displayFilter}>
-                <i className="fas fa-filter"></i>
-                Filter
-              </button>
-              <button className="btn-sort" onClick={displaySortBy}>
-                <i className="fas fa-sort-amount-down"></i>
-                Sort by
-                {showSortBy ? (
-                  <div className="sortby-change">
-                    <button
-                      onClick={(event) => {
-                        sortByPrice(event);
-                        displaySortBy();
-                      }}
-                    >
-                      <div className="check-box">
-                        {sortByChoice === 'lowest price' ? (
-                          <img
-                            alt="choice selector"
-                            src={iconCircle}
-                            className="icon-circle-select"
-                          />
-                        ) : null}
-                      </div>
-                      <span>Lowest price</span>
-                    </button>
-                    <button
-                      onClick={(event) => {
-                        sortByCarbFootprint(event);
-                        displaySortBy();
-                      }}
-                    >
-                      <div className="check-box">
-                        {sortByChoice === 'carb. footprint' ? (
-                          <img
-                            alt="choice selector"
-                            src={iconCircle}
-                            className="icon-circle-select"
-                          />
-                        ) : null}
-                      </div>
-                      <span>Carb. footprint</span>
-                    </button>
+            {props.search.commonDestinations.length > 0 && (
+              <div className="filter-sort">
+                <button className="btn-filter" onClick={displayFilter}>
+                  <i className="fas fa-filter"></i>
+                  Filter
+                </button>
+                <button className="btn-sort" onClick={displaySortBy}>
+                  <i className="fas fa-sort-amount-down"></i>
+                  Sort by
+                  {showSortBy ? (
+                    <div className="sortby-change">
+                      <button
+                        onClick={(event) => {
+                          sortByPrice(event);
+                          displaySortBy();
+                        }}
+                      >
+                        <div className="check-box">
+                          {sortByChoice === 'lowest price' ? (
+                            <img
+                              alt="choice selector"
+                              src={iconCircle}
+                              className="icon-circle-select"
+                            />
+                          ) : null}
+                        </div>
+                        <span>Lowest price</span>
+                      </button>
+                      <button
+                        onClick={(event) => {
+                          sortByCarbFootprint(event);
+                          displaySortBy();
+                        }}
+                      >
+                        <div className="check-box">
+                          {sortByChoice === 'carb. footprint' ? (
+                            <img
+                              alt="choice selector"
+                              src={iconCircle}
+                              className="icon-circle-select"
+                            />
+                          ) : null}
+                        </div>
+                        <span>Carb. footprint</span>
+                      </button>
+  
+                      <button
+                        onClick={(event) => {
+                          sortBySchedule(event);
+                          displaySortBy();
+                        }}
+                      >
+                        <div className="check-box">
+                          {sortByChoice === 'same schedule' ? (
+                            <img
+                              alt="choice selector"
+                              src={iconCircle}
+                              className="icon-circle-select"
+                            />
+                          ) : null}
+                        </div>
+                        <span>Same schedule</span>
+                      </button>
+                    </div>
+                  ) : (
+                    ''
+                  )}
+                </button>
+              </div>
+            )}
 
-                    <button
-                      onClick={(event) => {
-                        sortBySchedule(event);
-                        displaySortBy();
-                      }}
-                    >
-                      <div className="check-box">
-                        {sortByChoice === 'same schedule' ? (
-                          <img
-                            alt="choice selector"
-                            src={iconCircle}
-                            className="icon-circle-select"
-                          />
-                        ) : null}
-                      </div>
-                      <span>Same schedule</span>
-                    </button>
-                  </div>
-                ) : (
-                  ''
-                )}
-              </button>
-            </div>
           </div>
           {showFilter ? (
             <FilterTime search={props.search} showFilter={showFilter} doFilter={props.doFilter} />
