@@ -56,6 +56,7 @@ export default class Banner extends React.Component {
   };
 
   addCity = async (address) => {
+    console.log(address);
     const position = await geocodeByAddress(address);
     const coordinates = await getLatLng(position[0]);
     const coordinatesFormatted = this.getFormattedCoordinate(coordinates);
@@ -77,6 +78,7 @@ export default class Banner extends React.Component {
       //Add traveler
       cities[cityIndex].numberOfPeople++;
     }
+    console.log(cities);
     this.setState({
       citiesFrom: cities,
       address: '',
@@ -96,15 +98,26 @@ export default class Banner extends React.Component {
         <NavBar />
         <div className="banner">
           <div className="banner-background">
-            <img className="banner-1" alt="coloured shapes of the logo Pading" src={bannerDesktop1}/>
-            {this.props.isResultsPage ? '' : <img className="banner-2" alt="cats friends gathering in a same place" src={bannerDesktop2}/>}
+            <img
+              className="banner-1"
+              alt="coloured shapes of the logo Pading"
+              src={bannerDesktop1}
+            />
+            {this.props.isResultsPage ? (
+              ''
+            ) : (
+              <img
+                className="banner-2"
+                alt="cats friends gathering in a same place"
+                src={bannerDesktop2}
+              />
+            )}
           </div>
           <div className="valueprop">
             <div className="valueprop-title-details">
-            <h1 className="valueprop-title">TRAVEL TO GATHER</h1>
-             <p className="valueprop-details">Meet your friends somewhere</p>
+              <h1 className="valueprop-title">TRAVEL TO GATHER</h1>
+              <p className="valueprop-details">Meet your friends somewhere</p>
             </div>
-           
           </div>
           <div className="formsearch-banner">
             <FormSearch
@@ -120,7 +133,7 @@ export default class Banner extends React.Component {
               address={this.state.address}
             />
           </div>
-        </div>          
+        </div>
       </div>
     );
   }
