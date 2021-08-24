@@ -82,8 +82,7 @@ class DatesPicker extends React.Component {
             
             />
             <button className="btn btn-date" onClick={this.showOffCalendar}>
-            {this.props.travelType === 'Return' && !this.props.dateTo ? 'Select departure and return dates' : 'Ok'}
-            {console.log(this.props.dateTo)}
+              {this.props.travelType === 'Return' && !this.props.dateTo ? 'Select departure and return dates' : 'Ok'}
             </button>
           </div>
         )}

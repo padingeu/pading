@@ -140,6 +140,10 @@
       &:focus {
         outline: none;
       }
+      &:disabled {
+        opacity: 1;
+        cursor: not-allowed;
+      }
     }
     .MuiCircularProgress-colorPrimary {
       color: white !important;

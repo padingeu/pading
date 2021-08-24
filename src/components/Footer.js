@@ -67,7 +67,7 @@ export default class Footer extends React.Component {
                       <i className="fab fa-facebook"></i>
                   </a>
                   <a
-                    href="https://www.instagram.com/padingapp/?hl=fr"
+                    href="https://www.instagram.com/pading.eu/"
                     rel="noopener noreferrer"
                     target="_blank"
                   >
