@@ -2,6 +2,7 @@ import React from 'react';
 import Calendar from 'react-calendar';
 import './_DatesPicker.scss';
 import onClickOutside from 'react-onclickoutside';
+import { format } from 'date-fns';
 
 class DatesPicker extends React.Component {
   state = {
@@ -25,6 +26,7 @@ class DatesPicker extends React.Component {
   render() {
     return (
       <div className="datespicker">
+        {}
         <div className="inputdate">
           <input
             className="inputdatefrom"
@@ -34,7 +36,7 @@ class DatesPicker extends React.Component {
             placeholder="Departure date"
             value={
               this.props.showDateFrom && this.props.dateFrom
-                ? this.props.dateFrom.toLocaleDateString()
+                ? format(this.props.dateFrom, 'dd/MM/yyyy')
                 : ''
             }
             readOnly
@@ -48,7 +50,7 @@ class DatesPicker extends React.Component {
               placeholder="Return date"
               value={
                 this.props.showDateTo && this.props.dateTo
-                  ? this.props.dateTo.toLocaleDateString()
+                  ? format(this.props.dateTo, 'dd/MM/yyyy')
                   : ''
               }
               readOnly
@@ -79,10 +81,11 @@ class DatesPicker extends React.Component {
               returnValue={'range'}
               showFixedNumberOfWeeks={false}
               activeStartDate={this.props.dateFrom ? this.props.dateFrom : new Date()}
-            
             />
             <button className="btn btn-date" onClick={this.showOffCalendar}>
-              {this.props.travelType === 'Return' && !this.props.dateTo ? 'Select departure and return dates' : 'Ok'}
+              {this.props.travelType === 'Return' && !this.props.dateTo
+                ? 'Select departure and return dates'
+                : 'Ok'}
             </button>
           </div>
         )}

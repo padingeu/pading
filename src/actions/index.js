@@ -2,6 +2,7 @@ import axios from 'axios';
 import lodash from 'lodash';
 import { history } from '../index';
 import moment from 'moment';
+import { format } from 'date-fns';
 
 const getPriceForDestination = (trips, destination, city) => {
   let tripsForDestination = trips[city].filter((trip) => {
@@ -148,8 +149,9 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip, travelType) => {
     const differenceInTime = dateTo.getTime() - dateFrom.getTime();
     // To calculate the no. of days between two dates
     const differenceInDays = Math.trunc(differenceInTime / (1000 * 3600 * 24));
-    const dateFromStr = dateFrom.toLocaleDateString();
-    const dateToStr = dateTo.toLocaleDateString();
+
+    const dateFromStr = format(dateFrom, 'dd/MM/yyyy');
+    const dateToStr = format(dateTo, 'dd/MM/yyyy');
 
     let maxStopover = '2';
     if (stopTrip === 'Only direct') {
