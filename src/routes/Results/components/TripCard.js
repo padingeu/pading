@@ -24,10 +24,10 @@ const TripCard = ({
         <div className="trip-city-pricing">
           <div className="trip-city">
             <span className="trip-city-name">{destination}</span>
-            <div className="trip-city-carbonfootprint">
+            {/* <div className="trip-city-carbonfootprint">
               <i className="fas fa-smog fa-xs"></i>
               <span className="trip-city-carbonfootprint-amount">{carbonFootprint} t</span>
-            </div>
+            </div> */}
           </div>
           <div className="trip-pricing">
             <span className="trip-pricing-amount">{totalPrice}</span>

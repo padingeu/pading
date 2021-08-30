@@ -1,16 +1,15 @@
 import React from 'react';
-import {CopyToClipboard} from 'react-copy-to-clipboard';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 import './_DetailsResults.scss';
 import FlightInfo from './FlightInfo.js';
 
 export default function DetailsResults(props) {
-
   const [showTooltipText, setShowToolTipText] = React.useState(false);
 
   const displayTooltipText = () => {
     setShowToolTipText(!showTooltipText);
     setTimeout(() => {
-      setShowToolTipText(false);;
+      setShowToolTipText(false);
     }, 1000);
   };
 
@@ -80,8 +79,8 @@ export default function DetailsResults(props) {
       <div className="details-results-book">
         <div className="carbonfootprint">
           <div className="carbonfootprint-amount">
-            <i className="fas fa-smog fa-lg"></i>
-            <span>1.399 t</span>
+            {/* <i className="fas fa-smog fa-lg"></i>
+            <span>1.399 t</span> */}
           </div>
         </div>
         <div className="booking-zone">
@@ -90,8 +89,11 @@ export default function DetailsResults(props) {
             <CopyToClipboard
               text={
                 'https://www.kiwi.com/fr/booking?&affilid=padingpadingapp&booking_token=' +
-                props.trip.token
-                }
+                props.trip.token +
+                '&currency=eur' +
+                '&passengers=' +
+                props.trip.travelers
+              }
             >
               <button onClick={displayTooltipText}>
                 <i class="far fa-copy fa-lg"></i>
@@ -100,8 +102,11 @@ export default function DetailsResults(props) {
           </div>
           <a
             href={
-              'https://www.kiwi.com/fr/booking?&affilid=padingpadingapp&booking_token=' +
-              props.trip.token
+              'https://www.kiwi.com/booking?&affilid=padingpadingapp&booking_token=' +
+              props.trip.token +
+              '&currency=eur' +
+              '&passengers=' +
+              props.trip.travelers
             }
             target="_blank"
             rel="noopener noreferrer"

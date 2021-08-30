@@ -19,7 +19,7 @@ render(
     <Router history={history}>
       <Route component={App} />
       <Route exact path="/" component={Home} />
-      <Route path="/results" component={Results} />
+      <Route path="/destinations" component={Results} />
     </Router>
   </Provider>,
   document.getElementById('root')

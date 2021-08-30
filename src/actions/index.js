@@ -142,7 +142,7 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip, travelType) => {
     dispatch({ type: 'LOADING' });
     const showFilter = false;
     dispatch({ type: 'CLICK_FILTER', showFilter });
-    history.push('/results');
+    history.push('/destinations');
 
     // To calculate the time difference of two dates
     const differenceInTime = dateTo.getTime() - dateFrom.getTime();
