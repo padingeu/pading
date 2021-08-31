@@ -35,7 +35,17 @@ export default function Results(props) {
     props.search.commonDestinations.sort(comparePrice);
   };
 
-  const sortByCarbFootprint = (event) => {
+  const comparePrice = (a, b) => {
+    if (a.totalPrice < b.totalPrice) {
+      return -1;
+    }
+    if (a.totalPrice > b.totalPrice) {
+      return 1;
+    }
+    return 0;
+  };
+
+  {/*const sortByCarbFootprint = (event) => {
     event.preventDefault();
     setSortByChoice('carb. footprint');
     props.search.commonDestinations.sort(compareFootprint);
@@ -51,20 +61,10 @@ export default function Results(props) {
     return 0;
   };
 
-  const comparePrice = (a, b) => {
-    if (a.totalPrice < b.totalPrice) {
-      return -1;
-    }
-    if (a.totalPrice > b.totalPrice) {
-      return 1;
-    }
-    return 0;
-  };
-
-  const sortBySchedule = (event) => {
+  {/*const sortBySchedule = (event) => {
     event.preventDefault();
     setSortByChoice('same schedule');
-  };
+  };*/}
 
   return (
     <div>
@@ -114,7 +114,7 @@ export default function Results(props) {
                       </button>
                       <button
                         onClick={(event) => {
-                          sortByCarbFootprint(event);
+                          //sortByCarbFootprint(event);
                           displaySortBy();
                         }}
                       >
@@ -127,12 +127,12 @@ export default function Results(props) {
                             />
                           ) : null}
                         </div>
-                        <span>Carb. footprint</span>
+                        <span>Carb. footprint (soon)</span>
                       </button>
   
                       <button
                         onClick={(event) => {
-                          sortBySchedule(event);
+                          //sortBySchedule(event);
                           displaySortBy();
                         }}
                       >
@@ -145,7 +145,7 @@ export default function Results(props) {
                             />
                           ) : null}
                         </div>
-                        <span>Same schedule</span>
+                        <span>Same schedule (soon)</span>
                       </button>
                     </div>
                   ) : (
