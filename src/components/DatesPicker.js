@@ -82,7 +82,10 @@ class DatesPicker extends React.Component {
               showFixedNumberOfWeeks={false}
               activeStartDate={this.props.dateFrom ? this.props.dateFrom : new Date()}
             />
-            <button className="btn btn-date" onClick={this.showOffCalendar}>
+            <button className="btn btn-date"
+              disabled={this.props.travelType === 'Return' && !this.props.dateTo || 'One-way' && !this.props.dateFrom}
+              onClick={this.showOffCalendar}
+            >
               {this.props.travelType === 'Return' && !this.props.dateTo
                 ? 'Select departure and return dates'
                 : 'Ok'}
