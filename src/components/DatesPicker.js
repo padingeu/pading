@@ -13,6 +13,16 @@ class DatesPicker extends React.Component {
     this.setState({ showCalendar: false });
   };
 
+  messageValidationDates = () => {
+    if (this.props.travelType === 'Return' && !this.props.dateTo) {
+      return 'Select departure and return dates';
+    } else if (this.props.travelType === 'One-way' && !this.props.dateFrom) {
+      return 'Select a departure date';
+    } else {
+      return 'Ok';
+    }
+  }
+
   showOffCalendar = (props) => {
     this.setState({ showCalendar: false });
   };
@@ -86,9 +96,7 @@ class DatesPicker extends React.Component {
               disabled={this.props.travelType === 'Return' && !this.props.dateTo || 'One-way' && !this.props.dateFrom}
               onClick={this.showOffCalendar}
             >
-              {this.props.travelType === 'Return' && !this.props.dateTo
-                ? 'Select departure and return dates'
-                : 'Ok'}
+              {this.messageValidationDates()}
             </button>
           </div>
         )}
