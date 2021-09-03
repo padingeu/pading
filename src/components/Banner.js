@@ -8,7 +8,6 @@ import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 
 export default class Banner extends React.Component {
   state = {
-    isHomePage: true,
     citiesFrom: this.props.searchData ? this.props.searchData.cities : [],
     address: '',
   };
@@ -103,7 +102,7 @@ export default class Banner extends React.Component {
               alt="coloured shapes of the logo Pading"
               src={bannerDesktop1}
             />
-            {this.props.isResultsPage ? (
+            {this.props.isHomePage ? (
               ''
             ) : (
               <img
@@ -116,7 +115,7 @@ export default class Banner extends React.Component {
           <div className="valueprop">
             <div className="valueprop-title-details">
               <h1 className="valueprop-title">TRAVEL TO GATHER</h1>
-              <p className="valueprop-details">Meet your friends somewhere</p>
+              <span className="valueprop-details">You have friends everywhere ?<br/>From multiple origins, travel to common destinations and meet !</span>
             </div>
           </div>
           <div className="formsearch-banner">
@@ -125,7 +124,7 @@ export default class Banner extends React.Component {
               dateTo={this.props.searchData ? this.props.searchData.dateTo : ''}
               searchTrips={this.props.searchTrips}
               isLoading={this.props.isLoading}
-              isHomePage={this.state.isHomePage}
+              //isHomePage={this.state.isHomePage}
               addCity={this.addCity}
               removeCity={this.removeCity}
               citiesFrom={this.state.citiesFrom}

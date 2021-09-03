@@ -17,14 +17,15 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        max-width: 42rem;
+        max-width: 44rem;
         .valueprop-title {
           text-align: center;
         }
         .valueprop-details {
-          text-align: center;
-          font-weight: bold;
-          color: #ff9e00;
+            font-weight: 'PT Sans', sans-serif;
+            text-align: center;
+            font-weight: bold;
+            color: #333333;
         }
       }
      
@@ -55,6 +56,7 @@
       .valueprop-title-details {
         .valueprop-details {
           padding: 0 1rem;
+          font-size: 1.4rem;
         }
       }
     }

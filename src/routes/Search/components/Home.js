@@ -8,6 +8,7 @@ import Planet from './Planet';
 import Footer from '../../../components/Footer';
 
 export default class Home extends React.Component {
+
   scrollUp() {
     document.scrollingElement.scrollTo({
       top: 0,
@@ -18,7 +19,7 @@ export default class Home extends React.Component {
   render() {
     return (
       <div>
-        <Banner searchTrips={this.props.searchTrips} />
+        <Banner earchTrips={this.props.searchTrips} />
         <Why />
         <How />
         <Simple />
