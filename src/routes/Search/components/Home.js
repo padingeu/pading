@@ -8,7 +8,7 @@ import Planet from './Planet';
 import Footer from '../../../components/Footer';
 
 export default class Home extends React.Component {
-
+  state = { isHomePage: true }
   scrollUp() {
     document.scrollingElement.scrollTo({
       top: 0,
@@ -19,7 +19,7 @@ export default class Home extends React.Component {
   render() {
     return (
       <div>
-        <Banner earchTrips={this.props.searchTrips} />
+        <Banner searchTrips={this.props.searchTrips} isHomePage={this.state.isHomePage} />
         <Why />
         <How />
         <Simple />

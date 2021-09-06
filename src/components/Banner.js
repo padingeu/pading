@@ -97,25 +97,25 @@ export default class Banner extends React.Component {
         <NavBar />
         <div className="banner">
           <div className="banner-background">
-            <img
+          <img
               className="banner-1"
               alt="coloured shapes of the logo Pading"
               src={bannerDesktop1}
             />
-            {this.props.isHomePage ? (
-              ''
-            ) : (
-              <img
-                className="banner-2"
-                alt="cats friends gathering in a same place"
-                src={bannerDesktop2}
-              />
-            )}
+            {this.props.isHomePage ?
+             <img
+              className="banner-2"
+              alt="cats friends gathering in a same place"
+              src={bannerDesktop2}
+            />
+            : ''
+            }
+          
           </div>
           <div className="valueprop">
             <div className="valueprop-title-details">
               <h1 className="valueprop-title">TRAVEL TO GATHER</h1>
-              <span className="valueprop-details">You have friends everywhere ?<br/>From multiple origins, travel to common destinations and meet !</span>
+              <span className="valueprop-details">From multiple departure cities<br />travel to common destinations and meet !</span>
             </div>
           </div>
           <div className="formsearch-banner">
@@ -124,7 +124,7 @@ export default class Banner extends React.Component {
               dateTo={this.props.searchData ? this.props.searchData.dateTo : ''}
               searchTrips={this.props.searchTrips}
               isLoading={this.props.isLoading}
-              //isHomePage={this.state.isHomePage}
+              isHomePage={this.state.isHomePage}
               addCity={this.addCity}
               removeCity={this.removeCity}
               citiesFrom={this.state.citiesFrom}

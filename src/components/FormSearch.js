@@ -30,6 +30,7 @@ class FormSearch extends React.Component {
     );
     this.scrollDown();
   };
+  
 
   scrollDown() {
     setTimeout(

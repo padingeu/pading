@@ -4,7 +4,6 @@
     align-items: center;
     position: relative;
     margin-top: 7rem;
-    min-height: calc(100vh - 7rem);
     .valueprop {
       position: absolute;
       display: flex;
@@ -17,7 +16,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        max-width: 44rem;
+        max-width: 40rem;
         .valueprop-title {
           text-align: center;
         }
@@ -25,7 +24,7 @@
             font-weight: 'PT Sans', sans-serif;
             text-align: center;
             font-weight: bold;
-            color: #333333;
+            color: #4c4c4c;
         }
       }
      
@@ -51,25 +50,28 @@
   }
   
   @media only (max-width: 600px) {
-    .valueprop {
-      top: 0rem;
-      .valueprop-title-details {
-        .valueprop-details {
-          padding: 0 1rem;
-          font-size: 1.4rem;
+    .banner {
+      min-height: calc(100vh - 7rem);
+      .valueprop {
+        top: 0rem;
+        .valueprop-title-details {
+          .valueprop-details {
+            padding: 0 1rem;
+            font-size: 1.4rem;
+          }
         }
       }
-    }
-    .formsearch-banner {
-      top: 12rem;
-    }
-    .banner-background {
-      .banner-1 {
-       display: none;
+      .formsearch-banner {
+        top: 12rem;
       }
-      .banner-2 {
-        padding-top: 45rem;
-       height: 100vh;
+      .banner-background {
+        .banner-1 {
+         display: none;
+        }
+        .banner-2 {
+          padding-top: 45rem;
+         height: 100vh;
+        }
       }
     }
   }
@@ -77,6 +79,11 @@
   @media only (min-width: 601px) {
     .valueprop {
       top: 0rem;
+      .valueprop-title-details {
+        .valueprop-details {
+          font-size: 1.6rem;
+        }
+      }
     }
     .formsearch-banner {
       top: 14rem;
