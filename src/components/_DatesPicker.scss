@@ -7,6 +7,14 @@
     justify-content: flex-start;
     flex-wrap: wrap;
     width: 100%;
+      &:hover {
+      .inputdatefrom {
+        background-color: #f9f9f9;
+      }
+      .inputdateto {
+        background-color: #f9f9f9;
+      }
+    }
     .inputdatefrom {
       height: 5rem;
       flex-grow: 2;

@@ -15,7 +15,7 @@ class DatesPicker extends React.Component {
 
   messageValidationDates = () => {
     if (this.props.travelType === 'Return' && !this.props.dateTo) {
-      return 'Select departure and return dates';
+      return 'Select departure & return dates';
     } else if (this.props.travelType === 'One-way' && !this.props.dateFrom) {
       return 'Select a departure date';
     } else {
