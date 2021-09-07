@@ -20,38 +20,41 @@
       align-items: center;
       justify-content: flex-end;
       width: 100%;
-      .navbar-social {
+      .navbar-menu-items {
         text-align: center;
         display: flex;
         align-items: center;
         justify-content: center;
         margin-right: 1rem;
-        a {
+        button {
           cursor: pointer;
           background: transparent;
-          width: 4.5rem;
           text-decoration: none;
-          font-family: 'PT sans', sans-serif;
+          font-family: 'Paytone One', sans-serif;
           font-weight: bold;
-          color: #19a6ee;
+          font-size: 1.2rem;
+          padding: 0.3rem;
+          margin: 0.5rem;
+          color: #427103;
           transition: background 0.3s ease;
         }
-        :hover {
-          color: #41B6F1;
+        .active-mode {
+          color: white;
+          background-color: #427103;
+          border-radius: 0.5rem;
         }
-        i {
-          font-size: 3.5rem;
+        .screenshot-app {
+          width: 20rem;
+          margin: 1rem;
         }
       }
     }
   }
 
   @media only (max-width: 600px) {
-    .navbar {
-      .navbar-menu {
-        .navbar-social{
-          display: none;
-        }
+    .navbar-menu-itmes {
+      .button {
+        font-size: 0.8rem;
       }
     }
   }

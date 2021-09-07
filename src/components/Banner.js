@@ -1,6 +1,6 @@
 import React from 'react';
 import './_Banner.scss';
-import NavBar from './NavBar';
+
 import FormSearch from './FormSearch';
 import bannerDesktop1 from '../img/travel-markers.svg';
 import bannerDesktop2 from '../img/cats-traveling.svg';
@@ -94,7 +94,6 @@ export default class Banner extends React.Component {
   render() {
     return (
       <div>
-        <NavBar />
         <div className="banner">
           <div className="banner-background">
           <img
@@ -114,8 +113,8 @@ export default class Banner extends React.Component {
           </div>
           <div className="valueprop">
             <div className="valueprop-title-details">
-              <h1 className="valueprop-title">TRAVEL TO GATHER</h1>
-              <span className="valueprop-details">From multiple departure cities<br />travel to common destinations and meet !</span>
+              <h1 className="valueprop-title">TRAVEL FROM MULTIPLE ORIGINS TO COMMON DESTINATIONS AND MEET</h1>
+              {/*<span className="valueprop-details">From multiple departure cities<br />travel to common destinations and meet !</span>*/}
             </div>
           </div>
           <div className="formsearch-banner">

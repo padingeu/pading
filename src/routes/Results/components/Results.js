@@ -1,4 +1,5 @@
 import React from 'react';
+import NavBar from '../../../components/NavBar';
 import Banner from '../../../components/Banner';
 import './_Results.scss';
 import LinearProgress from '@material-ui/core/LinearProgress';
@@ -20,6 +21,13 @@ export default function Results(props) {
   const showFilter = useSelector((state) => state.search.showFilter);
 
   //
+
+  const scrollUp = () => {
+    document.scrollingElement.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }
 
   const displayFilter = () => {
     props.clickOnFilter(props.search.showFilter);
@@ -68,6 +76,7 @@ export default function Results(props) {
 
   return (
     <div>
+      <NavBar scrollUp={scrollUp}/>
       <Banner
         isLoading={props.search.isLoading}
         searchTrips={props.searchTrips}
