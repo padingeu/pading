@@ -113,8 +113,9 @@ export default class Banner extends React.Component {
           </div>
           <div className="valueprop">
             <div className="valueprop-title-details">
-              <h1 className="valueprop-title">TRAVEL FROM MULTIPLE ORIGINS TO COMMON DESTINATIONS AND MEET</h1>
-              {/*<span className="valueprop-details">From multiple departure cities<br />travel to common destinations and meet !</span>*/}
+              <h1 className="valueprop-title">TRAVEL TO GATHER !</h1>
+              <span className="valueprop-details">Fill in multiple departure cities - Travel to common destinations - Meet your friends halfway</span>
+              <span className="valueprop-details-mobile">Fill in multiple departure cities<br/>Travel to common destinations<br/>Meet your friends halfway</span>
             </div>
           </div>
           <div className="formsearch-banner">

@@ -22,11 +22,11 @@
         .valueprop-title {
           text-align: center;
         }
-        .valueprop-details {
-            font-weight: 'PT Sans', sans-serif;
-            text-align: center;
-            font-weight: bold;
-            color: #4c4c4c;
+        span {
+          font-weight: 'PT Sans', sans-serif;
+          text-align: center;
+          font-weight: bold;
+          color: #4c4c4c;
         }
       }
      
@@ -51,20 +51,23 @@
     }
   }
   
-  @media only (max-width: 600px) {
+  @media only (max-width: 640px) {
     .banner {
       min-height: calc(100vh - 7rem);
       .valueprop {
         top: 0rem;
         .valueprop-title-details {
           .valueprop-details {
+            display: none;
+          }
+          .valueprop-details-mobile {
             padding: 0 1rem;
             font-size: 1.4rem;
           }
         }
       }
       .formsearch-banner {
-        top: 12rem;
+        top: 14rem;
       }
       .banner-background {
         .banner-1 {
@@ -78,12 +81,15 @@
     }
   }
   
-  @media only (min-width: 601px) {
+  @media only (min-width: 641px) {
     .valueprop {
       top: 0rem;
       .valueprop-title-details {
         .valueprop-details {
           font-size: 1.6rem;
+        }
+        .valueprop-details-mobile {
+          display: none;
         }
       }
     }
