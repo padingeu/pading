@@ -93,7 +93,7 @@ class DatesPicker extends React.Component {
               activeStartDate={this.props.dateFrom ? this.props.dateFrom : new Date()}
             />
             <button className="btn btn-date"
-              disabled={this.props.travelType === 'Return' && !this.props.dateTo || 'One-way' && !this.props.dateFrom}
+              disabled={(this.props.travelType === 'Return' && !this.props.dateTo) || ('One-way' && !this.props.dateFrom)}
               onClick={this.showOffCalendar}
             >
               {this.messageValidationDates()}
