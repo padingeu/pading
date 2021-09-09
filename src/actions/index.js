@@ -79,9 +79,6 @@ const allDepartureHaveTrips = (trips, cities) => {
 };
 
 const getCommonDestinations = (trips, cities) => {
-  console.log('common destinations');
-  console.log(cities);
-  console.log(trips);
   //Recuperer une liste des destinations communes
   let commonTrips = [];
   let commonDestinations = [];
@@ -92,10 +89,13 @@ const getCommonDestinations = (trips, cities) => {
       for (let i = 1; i < cities.length; i++) {
         let city1 = cities[i - 1].name;
         let city2 = cities[i].name;
-        if (commonTrips.length > 0) {
-          commonTrips = lodash.intersectionBy(commonTrips, trips[city2], 'cityTo');
-        } else {
+        if (i === 1) {
           commonTrips = lodash.intersectionBy(trips[city1], trips[city2], 'cityTo');
+        } else {
+          commonTrips = lodash.intersectionBy(commonTrips, trips[city2], 'cityTo');
+        }
+        if (commonTrips.length === 0) {
+          return [];
         }
       }
     }
@@ -130,7 +130,6 @@ const getCommonDestinations = (trips, cities) => {
 };
 
 export const searchTrips = (cities, dateFrom, dateTo, stopTrip, travelType) => {
-  console.log(cities);
   const promises = [];
   return (dispatch) => {
     const formData = {
@@ -190,8 +189,6 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip, travelType) => {
         for (let i = 0; i < results.length; i++) {
           if (typeof results[i].data.data[0] !== 'undefined') {
             const city = cities[i].name;
-            console.log(city);
-            console.log();
             const trips_by_city = results[i].data.data.map((trip) => {
               const padingTrip = {
                 cityFrom: trip.cityFrom,

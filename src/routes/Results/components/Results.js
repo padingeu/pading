@@ -25,9 +25,9 @@ export default function Results(props) {
   const scrollUp = () => {
     document.scrollingElement.scrollTo({
       top: 0,
-      behavior: 'smooth'
-    })
-  }
+      behavior: 'smooth',
+    });
+  };
 
   const displayFilter = () => {
     props.clickOnFilter(props.search.showFilter);
@@ -53,7 +53,7 @@ export default function Results(props) {
     return 0;
   };
 
-  {/*const sortByCarbFootprint = (event) => {
+  /*const sortByCarbFootprint = (event) => {
     event.preventDefault();
     setSortByChoice('carb. footprint');
     props.search.commonDestinations.sort(compareFootprint);
@@ -72,11 +72,11 @@ export default function Results(props) {
   {/*const sortBySchedule = (event) => {
     event.preventDefault();
     setSortByChoice('same schedule');
-  };*/}
+  };*/
 
   return (
     <div>
-      <NavBar scrollUp={scrollUp}/>
+      <NavBar scrollUp={scrollUp} />
       <Banner
         isLoading={props.search.isLoading}
         searchTrips={props.searchTrips}
@@ -138,7 +138,7 @@ export default function Results(props) {
                         </div>
                         <span>Carb. footprint (soon)</span>
                       </button>
-  
+
                       <button
                         onClick={(event) => {
                           //sortBySchedule(event);
@@ -163,7 +163,6 @@ export default function Results(props) {
                 </button>
               </div>
             )}
-
           </div>
           {showFilter ? (
             <FilterTime search={props.search} showFilter={showFilter} doFilter={props.doFilter} />

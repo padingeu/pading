@@ -55,7 +55,6 @@ export default class Banner extends React.Component {
   };
 
   addCity = async (address) => {
-    console.log(address);
     const position = await geocodeByAddress(address);
     const coordinates = await getLatLng(position[0]);
     const coordinatesFormatted = this.getFormattedCoordinate(coordinates);
@@ -77,7 +76,6 @@ export default class Banner extends React.Component {
       //Add traveler
       cities[cityIndex].numberOfPeople++;
     }
-    console.log(cities);
     this.setState({
       citiesFrom: cities,
       address: '',
@@ -96,26 +94,35 @@ export default class Banner extends React.Component {
       <div>
         <div className="banner">
           <div className="banner-background">
-          <img
+            <img
               className="banner-1"
               alt="coloured shapes of the logo Pading"
               src={bannerDesktop1}
             />
-            {this.props.isHomePage ?
-             <img
-              className="banner-2"
-              alt="cats friends gathering in a same place"
-              src={bannerDesktop2}
-            />
-            : ''
-            }
-          
+            {this.props.isHomePage ? (
+              <img
+                className="banner-2"
+                alt="cats friends gathering in a same place"
+                src={bannerDesktop2}
+              />
+            ) : (
+              ''
+            )}
           </div>
           <div className="valueprop">
             <div className="valueprop-title-details">
               <h1 className="valueprop-title">TRAVEL TO GATHER !</h1>
-              <span className="valueprop-details">Fill in multiple departure cities - Travel to common destinations - Meet your friends halfway</span>
-              <span className="valueprop-details-mobile">Fill in multiple departure cities<br/>Travel to common destinations<br/>Meet your friends halfway</span>
+              <span className="valueprop-details">
+                Fill in multiple departure cities - Travel to common destinations - Meet your
+                friends halfway
+              </span>
+              <span className="valueprop-details-mobile">
+                Fill in multiple departure cities
+                <br />
+                Travel to common destinations
+                <br />
+                Meet your friends halfway
+              </span>
             </div>
           </div>
           <div className="formsearch-banner">
