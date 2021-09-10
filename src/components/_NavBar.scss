@@ -37,11 +37,18 @@
           margin: 0.5rem;
           color: #427103;
           transition: background 0.3s ease;
+          &:hover {
+            color: #85bf82;
+          }
         }
         .active-mode {
           color: white;
           background-color: #427103;
           border-radius: 0.5rem;
+          &:hover {
+            background-color: #85bf82;
+            color: white;
+          }
         }
         .screenshot-app {
           width: 20rem;

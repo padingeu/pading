@@ -24,6 +24,9 @@
         cursor: pointer;
         background-color: transparent;
         color: #4ea5e9;
+        &:hover {
+          color: #41B6F1;
+        }
       }
       .travel-type-change {
         position: absolute;
@@ -75,6 +78,9 @@
       cursor: pointer;
       background-color: transparent;
       color: #4ea5e9;
+      &:hover {
+        color: #41B6F1;
+      }
     }
     .stop-trip-change {
       position: absolute;
