@@ -99,12 +99,13 @@ const getCommonDestinations = (trips, cities) => {
         }
       }
     }
-
     for (let i = 0; i < commonTrips.length; i++) {
       if (!commonDestinations.includes(commonTrips[i].cityTo)) {
         commonDestinations.push(commonTrips[i].cityTo);
       }
     }
+  } else {
+    return [];
   }
 
   //Retirer les voyages qui ne font pas parti des destinations communes
@@ -187,9 +188,10 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip, travelType) => {
         const trips = {};
         //Construction d'un objet avec une liste de voyage
         for (let i = 0; i < results.length; i++) {
+          const city = cities[i].name;
+          let trips_by_city = [];
           if (typeof results[i].data.data[0] !== 'undefined') {
-            const city = cities[i].name;
-            const trips_by_city = results[i].data.data.map((trip) => {
+            trips_by_city = results[i].data.data.map((trip) => {
               const padingTrip = {
                 cityFrom: trip.cityFrom,
                 cityTo: trip.cityTo,
@@ -211,12 +213,10 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip, travelType) => {
               }
               return padingTrip;
             });
-            trips[city] = trips_by_city;
           }
+          trips[city] = trips_by_city;
         }
-        //TODO
         const commonDestinations = getCommonDestinations(trips, cities);
-
         const data = {
           commonDestinations: commonDestinations,
           initialTrips: trips,
