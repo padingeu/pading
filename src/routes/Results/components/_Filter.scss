@@ -1,5 +1,5 @@
 .MuiSlider-root {
-  color: #19a6ee !important;
+  color: #427103 !important;
   padding: none !important;
   .MuiSlider-rail {
     margin-top: 0.5rem;
@@ -21,13 +21,16 @@
       box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.3);
     }
   }
+  .MuiSlider-active {
+    box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.3) !important;
+  }
 }
 .timerange {
   display: flex;
   justify-content: center;
   margin-bottom: -1rem;
   p {
-    color: #19a6ee !important;
+    color: #427103 !important;
     font-size: 1.2rem !important;
     font-weight: bold;
   }

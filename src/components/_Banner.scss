@@ -1,7 +1,7 @@
   .banner {
-   position: relative;
-   display: flex;
-   justify-content: center;
+    position: relative;
+    display: flex;
+    justify-content: center;
     align-items: center;
     margin-top: 7rem;
     .valueprop {
@@ -56,10 +56,10 @@
         width: 100%;
       }
       .valueprop {
-        top: 0rem;
+        top: -2rem;
         left: 0rem;
         margin-left: 1rem;
-        padding: 1rem;
+        padding: 1rem 0.5rem;
         .valueprop-title-details {
           .valueprop-details-desktop {
             display: none;
@@ -70,7 +70,7 @@
         }
       }
       .formsearch-banner {
-        top: 13rem;
+        top: 11rem;
       }
     }
   }
@@ -137,7 +137,7 @@
       }
       .valueprop {
         bottom: 10rem;
-        left: 3rem;
+        left: 2rem;
         margin-left: 1rem;
         padding: 1rem;
       }
@@ -174,8 +174,8 @@
         display: none;
       }
       .valueprop {
-        bottom: 6rem;
-        left: 2rem;
+        bottom: 15rem;
+        left: 5rem;
         margin-left: 1rem;
         padding: 1rem;
         .valueprop-img {
@@ -213,7 +213,7 @@
         display: none;
       }
       .valueprop {
-        bottom: 12rem;
+        bottom: 20rem;
         left: 5rem;
       }
     }

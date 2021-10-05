@@ -1,0 +1,16 @@
+.airlines-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5rem;
+    img {
+        margin: 0 1rem;
+    }
+    span {
+        font-family: 'Paytone One', sans-serif;;
+        font-size: 1.6rem;
+        color: #7c7c7c;
+        margin-left: 2rem;
+    }
+}
