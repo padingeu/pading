@@ -18,7 +18,7 @@ const SelectedCities = ({
               <div className="number-of-people-edit">
                 <div className="number-of-people">
                   <i className="fas fa-user-friends fa-xs"></i>
-                  <h5>{city.numberOfPeople}</h5>
+                  <span>{city.numberOfPeople}</span>
                 </div>
 
                 <div className="people-number-change">
