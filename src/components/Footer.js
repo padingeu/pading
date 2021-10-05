@@ -59,12 +59,12 @@ export default class Footer extends React.Component {
                   <p>Contact us</p>
                 </a>
                 <div className="footer-social">
-                <a
-                      href="https://www.facebook.com/Pading-103563007939325/?view_public_for=103563007939325"
-                      rel="noopener noreferrer"
-                      target="_blank"
+                  <a
+                    href="https://www.facebook.com/Pading-103563007939325/?view_public_for=103563007939325"
+                    rel="noopener noreferrer"
+                    target="_blank"
                   >
-                      <i className="fab fa-facebook"></i>
+                    <i className="fab fa-facebook"></i>
                   </a>
                   <a
                     href="https://www.instagram.com/pading.eu/"
