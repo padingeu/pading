@@ -36,9 +36,11 @@ class Navbar extends React.Component {
                                 <button className="button-navbar">SIMPLE TRIP</button>
                             }
                         >
-                            <h3>COMING SOON</h3>
-                            <p><b>Book flights and trains to any destination of your choice</b></p>
-                            <img src={padingClassic} alt="screenshot of Pading classic travel search" className="screenshot-app" />
+                            <div className="simple-trip-popup">
+                                <h3>COMING SOON</h3>
+                                <p><b>Book flights and trains to any destination of your choice</b></p>
+                                <img src={padingClassic} alt="screenshot of Pading classic travel search" className="screenshot-app" />
+                            </div>
                         </Popup>
                         <Link to="/" onClick={this.props.scrollUp}>
                             <button className="button-navbar">HALFWAY TRIP</button>
@@ -77,10 +79,13 @@ class Navbar extends React.Component {
                                 trigger={
                                     <button className="button-navbar">SIMPLE TRIP</button>
                                 }
+                                className="simple-trip-popup"
                             >
+                                <div className="simple-trip-popup">
                                 <h3>COMING SOON</h3>
                                 <p><b>Book flights and trains to any destination of your choice</b></p>
                                 <img src={padingClassic} alt="screenshot of Pading classic travel search" className="screenshot-app" />
+                            </div>
                             </Popup>
                         </li>
                         <li>

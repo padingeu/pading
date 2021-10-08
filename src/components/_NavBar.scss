@@ -36,10 +36,6 @@
       a {
         text-decoration: none;
       }
-      .screenshot-app {
-        width: 20rem;
-        margin: 0.5rem;
-      }
       .navbar-social {
         display: flex;
         justify-content: center;
@@ -60,8 +56,17 @@
       }
     }
   }
+  .simple-trip-popup {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .screenshot-app {
+      max-width: 20rem;
+      margin: 0.5rem;
+    }
+  }
 }
-
 
 @media only (min-width: 601px) {
   .navbar {
@@ -120,15 +125,18 @@
             font-family: 'Paytone One', sans-serif;
             font-weight: bold;
             color: #4c4c4c;
+            &:hover {
+              color: #7c7c7c;
+            }
           }
           a {
             text-decoration: none;
             width: 4rem;
             color: #4c4c4c;
             transition: background 0.3s ease;
-          }
-          :hover {
-            color: #7c7c7c;
+            &:hover {
+              color: #7c7c7c;
+            }
           }
           i {
             font-size: 3.5rem;
