@@ -13,14 +13,6 @@ export default function DetailsResults(props) {
     }, 1000);
   };
 
-  const bookingTag = () => {
-    window.gtag('event', 'booking', {
-      'event_category': `${props.cityFrom} - ${props.destination}`,
-      'event_label': `${props.trip.travelers} traveler`,
-      'value': ''
-    });
-  }
-
   return (
     <div>
       <div className="details-results-travel">
@@ -119,7 +111,6 @@ export default function DetailsResults(props) {
             target="_blank"
             rel="noopener noreferrer"
             className="btn-book"
-            onClick={bookingTag}
           >
             <span>Book</span>
             <span className="trip-pricing-amount">{props.trip.price} EUR</span>

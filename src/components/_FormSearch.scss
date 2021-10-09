@@ -10,7 +10,6 @@
   .travel-options{
     display: flex;
     align-items: center;
-    justify-content: center;
     .travel-type {
       button.travel-type-btn {
         position: relative;
@@ -19,13 +18,14 @@
         justify-content: space-around;
         height: 4rem;
         width: 11rem;
+        border-width: 0.2rem;
         font-size: 1.6rem;
         outline: none;
         cursor: pointer;
         background-color: transparent;
-        color: #4c4c4C;
+        color: #4ea5e9;
         &:hover {
-          color: #7c7c7c;
+          color: #41B6F1;
         }
       }
       .travel-type-change {
@@ -69,7 +69,7 @@
       align-items: center;
       justify-content: space-around;
       height: 4rem;
-      width: 12rem;
+      width: 11rem;
       padding: 1rem;
       margin-left: 1rem;
       border-width: 0.2rem;
@@ -77,9 +77,9 @@
       outline: none;
       cursor: pointer;
       background-color: transparent;
-      color: #4c4c4C;
+      color: #4ea5e9;
       &:hover {
-        color: #7c7c7c;
+        color: #41B6F1;
       }
     }
     .stop-trip-change {
@@ -87,7 +87,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-around;
-      width: 12rem;
+      width: 11rem;
       height: 7rem;
       border-radius: 1rem;
       padding: 0.5rem;
@@ -252,7 +252,7 @@
 @media (min-width: 1201px) {
   .formsearch {
     padding: 0 3rem;
-    border-radius: 5rem;
+    border-radius: 7rem;
   }
 }
 
