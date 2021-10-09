@@ -11,15 +11,17 @@ import norwegian from '../img/norwegian.png';
 
 export default function Airlines() {
     return (
-        <div className="airlines-list">
-            <img src={easyjet} alt="logo easyjet" width="150px"/>
-            <img src={vueling} alt="logo vueling" width="150px"/>
-            <img src={airfrance} alt="logo airfrance" width="150px"/>
-            <img src={ryanair} alt="logo ryanair" width="150px"/>
-            <img src={transavia} alt="logo transavia" width="150px"/>
-            <img src={airitalia} alt="logo airitalia" width="150px"/>
-            <img src={norwegian} alt="logo norwegian" width="150px"/>
-            <span>+450</span>
+        <div className="wrapper">
+             <div className="airlines-list">
+                <img src={easyjet} alt="logo easyjet"/>
+                <img src={vueling} alt="logo vueling"/>
+                <img src={airfrance} alt="logo airfrance"/>
+                <img src={ryanair} alt="logo ryanair"/>
+                <img src={transavia} alt="logo transavia"/>
+                <img src={airitalia} alt="logo airitalia"/>
+                <img src={norwegian} alt="logo norwegian"/>
+                <span>+450</span>
+            </div>
         </div>
     )
 }

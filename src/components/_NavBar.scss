@@ -65,6 +65,12 @@
       max-width: 20rem;
       margin: 0.5rem;
     }
+    h3 {
+      text-align: center;
+    }
+    p {
+      text-align: center;
+    }
   }
 }
 
@@ -94,6 +100,7 @@
     .navbar-dropdown-menu {
       position: absolute;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       top: 7rem;
@@ -102,46 +109,32 @@
       z-index: 1;
       background-color: white;
       border-radius: 0.5rem;
-      ul {
-        display: flex;
-        flex-direction: column;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        li {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          list-style: none;
-          white-space: nowrap;
-          width: 100%;
-          margin: 0.8rem;
-          .button-navbar {
-            width: 100%;
-            font-size: 2rem;
-            cursor: pointer;
-            background: transparent;
-            text-decoration: none;
-            font-family: 'Paytone One', sans-serif;
-            font-weight: bold;
-            color: #4c4c4c;
-            &:hover {
-              color: #7c7c7c;
-            }
-          }
-          a {
-            text-decoration: none;
-            width: 4rem;
-            color: #4c4c4c;
-            transition: background 0.3s ease;
-            &:hover {
-              color: #7c7c7c;
-            }
-          }
-          i {
-            font-size: 3.5rem;
-            margin: 2rem 0.5rem;
-          }
+      .button-navbar {
+        width: 100%;
+        margin: 0.7rem;
+        text-align: center;
+        font-size: 2rem;
+        cursor: pointer;
+        background: transparent;
+        text-decoration: none;
+        font-family: 'Paytone One', sans-serif;
+        font-weight: bold;
+        color: #4c4c4c;
+        &:hover {
+          color: #7c7c7c;
+        }
+      }
+      a {
+        text-decoration: none;
+        width: 4rem;
+        color: #4c4c4c;
+        transition: background 0.3s ease;
+        &:hover {
+          color: #7c7c7c;
+        }
+        i {
+          font-size: 3.5rem;
+          margin: 2rem 0.5rem;
         }
       }
     }

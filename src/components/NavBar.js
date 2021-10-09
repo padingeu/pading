@@ -3,6 +3,7 @@ import './_NavBar.scss';
 import { Link } from "react-router-dom";
 import onClickOutside from 'react-onclickoutside';
 import Popup from 'reactjs-popup';
+import Faq from './Faq';
 import logoPading from '../img/logo-pading.png';
 import padingClassic from '../img/pading_classic_screenshot.png';
 
@@ -72,38 +73,40 @@ class Navbar extends React.Component {
                 </div>
                 {this.state.dropDownMenuOpen &&
                 <div className="navbar-dropdown-menu">
-                    <ul>
-                        <li>
+                  
+              
                             <Popup
                                 modal
                                 trigger={
                                     <button className="button-navbar">SIMPLE TRIP</button>
                                 }
-                                className="simple-trip-popup"
                             >
                                 <div className="simple-trip-popup">
-                                <h3>COMING SOON</h3>
-                                <p><b>Book flights and trains to any destination of your choice</b></p>
-                                <img src={padingClassic} alt="screenshot of Pading classic travel search" className="screenshot-app" />
-                            </div>
+                                    <h3>COMING SOON</h3>
+                                    <p><b>Book flights and trains to any destination of your choice</b></p>
+                                    <img src={padingClassic} alt="screenshot of Pading classic travel search" className="screenshot-app" />
+                                </div>
                             </Popup>
-                        </li>
-                        <li>
-                            <Link to="/" onClick={this.props.scrollUp}>
-                                <button className="button-navbar">HALFWAY TRIP</button>
+                       
+                            <Link to="/" onClick={this.props.scrollUp} className="button-navbar">
+                                HALFWAY TRIP
                             </Link>
-                        </li>
-                        <li>
-                            <Link to="/" onClick={this.props.scrollUp}>
-                                <button className="button-navbar">BLOG</button>
+                     
+                            <Link to="/" onClick={this.props.scrollUp} className="button-navbar">
+                                BLOG
                             </Link>
-                        </li>
-                        <li>
-                            <Link to="/" onClick={this.props.scrollUp}>
-                                <button className="button-navbar">QUESTIONS</button>
-                            </Link>
-                        </li>
-                        <li>
+                     
+                            <Popup
+                                modal
+                                trigger={
+                                    <button to="/" onClick={this.props.scrollUp} className="button-navbar">QUESTIONS</button>
+                                }
+                                className="simple-trip-popup"
+                            >
+                                <Faq />
+                            </Popup>
+                      
+                    
                             <div className="navbar-social">
                                 <a
                                     href="https://www.facebook.com/Pading-103563007939325/?view_public_for=103563007939325"
@@ -120,8 +123,8 @@ class Navbar extends React.Component {
                                     <i className="fab fa-instagram"></i>
                                 </a>
                             </div>
-                        </li>
-                    </ul>
+                     
+                 
                 </div>}
             </div>
         )
