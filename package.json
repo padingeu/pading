@@ -48,8 +48,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "react-scripts": "react-scripts build",
+    "build": "npm i react-scripts",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "audit": "npm audit --production"
