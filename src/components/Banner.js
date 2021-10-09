@@ -1,19 +1,15 @@
 import React from 'react';
 import './_Banner.scss';
+
 import FormSearch from './FormSearch';
-import friendsTogether from '../img/friends-together.png';
-import bannerDesktopLarge from '../img/banner-desktop-large.svg';
-import bannerDesktop from '../img/banner-desktop.svg';
-import bannerTabletLarge from '../img/banner-tablet-large.svg';
-import bannerTablet from '../img/banner-tablet.svg';
-import bannerMobileLarge from '../img/banner-mobile-large.svg';
-import bannerMobile from '../img/banner-mobile.svg';
+import bannerDesktop1 from '../img/travel-markers.svg';
+import bannerDesktop2 from '../img/cats-traveling.svg';
 import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 
 export default class Banner extends React.Component {
   state = {
     citiesFrom: this.props.searchData ? this.props.searchData.cities : [],
-    address: ''
+    address: '',
   };
 
   getFormattedCoordinate = (coordinates) => {
@@ -97,51 +93,37 @@ export default class Banner extends React.Component {
     return (
       <div>
         <div className="banner">
-          <img
-            className='banner-desktop-large'
-            alt="coloured shapes of the logo Pading"
-            src={bannerDesktopLarge}
-          />
-          <img
-            className='banner-desktop'
-            alt="coloured shapes of the logo Pading"
-            src={bannerDesktop}
-          />
-          <img
-            className='banner-tablet-large'
-            alt="coloured shapes of the logo Pading"
-            src={bannerTabletLarge}
-          />
-           <img
-            className='banner-tablet'
-            alt="coloured shapes of the logo Pading"
-            src={bannerTablet}
-          />
-          <img
-            className='banner-mobile-large'
-            alt="coloured shapes of the logo Pading"
-            src={bannerMobileLarge}
-          />
-           <img
-            className='banner-mobile'
-            alt="coloured shapes of the logo Pading"
-            src={bannerMobile}
-          />
+          <div className="banner-background">
+            <img
+              className="banner-1"
+              alt="coloured shapes of the logo Pading"
+              src={bannerDesktop1}
+            />
+            {this.props.isHomePage ? (
+              <img
+                className="banner-2"
+                alt="cats friends gathering in a same place"
+                src={bannerDesktop2}
+              />
+            ) : (
+              ''
+            )}
+          </div>
           <div className="valueprop">
             <div className="valueprop-title-details">
-              <h1 className="valueprop-title">TRAVEL TO GATHER</h1>
-              <span className="valueprop-details-desktop">Fill in your friends' departure cities and your own,
-              <br />
-              travel to common destinations and meet halfway !
+              <h1 className="valueprop-title">TRAVEL TO GATHER !</h1>
+              <span className="valueprop-details">
+                Fill in multiple departure cities - Travel to common destinations - Meet your
+                friends halfway
               </span>
-              <span className="valueprop-details-mobile">Fill in your friends' departure cities and your own, travel to common destinations and meet halfway
+              <span className="valueprop-details-mobile">
+                Fill in multiple departure cities
+                <br />
+                Travel to common destinations
+                <br />
+                Meet your friends halfway
               </span>
             </div>
-            <img
-              className='valueprop-img'
-              alt="friends meeting "
-              src={friendsTogether}
-            />
           </div>
           <div className="formsearch-banner">
             <FormSearch

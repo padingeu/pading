@@ -36,24 +36,28 @@ export default function Simple() {
         <div className="testimonials">
           <div className="testimonial-card">
             <p>
-              « Since our year abroad, we organise an Erasmus reunion every year. We now choose the best destination for everyone and organise the trip
-               so easily with Pading »
+              « Since our year abroad, we organise an annual Erasmus reunion. It's always so amazing
+              to get together! Organising the trip and choosing the right destination for everyone
+              is now much easier. We hope to plan even more reunions and continue to discover places
+              together »
             </p>
             <span className="user-name">Eilidh, Erasmus family</span>
             <img className="yellow-marker-image" alt="yellow marker" src={yellowMarker} />
           </div>
           <div className="testimonial-card">
             <p>
-              « My long-distance girlfriend and I use Pading to catch up in halfway cities.
-               The distance has turned into an opportunity to discover the world together »
+              « Like many students, opportunities lead us to move to other places. My girlfriend and
+              I continue to see each other regularly and use Pading to catch up in halfway cities.
+              Our long-distance relationship is now an opportunity to discover the world together »
             </p>
             <span className="user-name">Fillipo, long-distance relationship</span>
             <img className="yellow-marker-image" alt="yellow marker" src={yellowMarker} />
           </div>
           <div className="testimonial-card">
             <p>
-              « Living abroad for a while now and having friends and family everywhere, Pading really helps
-              us to catch up much more regularly »
+              « I have lived in Manchester for four years now. I have some family in Senegal and
+              friends living in many places (Lille, Brussels, Wroclaw, Barcelona, ..). Pading helps
+              us to find the best destinations to meet »
             </p>
             <span className="user-name">Mamadou, living abroad</span>
             <img className="yellow-marker-image" alt="yellow marker" src={yellowMarker} />

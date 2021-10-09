@@ -1,5 +1,4 @@
 import React from 'react';
-import { format } from 'date-fns';
 import DatesPicker from './DatesPicker';
 import LocationSearchInput from './LocationSearchInput';
 import SelectedCities from './SelectedCities';
@@ -30,11 +29,6 @@ class FormSearch extends React.Component {
       this.state.travelType
     );
     this.scrollDown();
-    window.gtag('event', 'search trip', {
-      'event_category': format(this.state.dateFrom, 'dd/MM/yyyy'),
-      'event_label': this.props.citiesFrom.map(function(city) { return city['name']}).toString(),
-      'value': ''
-    });
   };
   
 
