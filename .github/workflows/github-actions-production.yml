@@ -21,3 +21,4 @@ jobs:
           AWS_REGION: eu-west-1
           SOURCE_DIR: build
           CLOUDFRONT_DISTRIBUTION_ID: E1WMAFPJJ21TIH
+          REACT_APP_GOOGLE_MAPS_KEY: ${{ secrets.REACT_APP_GOOGLE_MAPS_KEY }}
