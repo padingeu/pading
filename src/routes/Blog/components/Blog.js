@@ -24,39 +24,40 @@ function Blog() {
       <NavBar scrollUp={scrollUp} />
           <Router>
               <Route path="/blog">
-                  <div className="blog">
-                    
-                    <div className="container">
-                      <div className="search-article">
-                        <form classname="search-form-blog">
-                          <input className="search-bar-blog" type="text" placeholder="Search for an article" onChange={event => {setSearchArticle(event.target.value)}}/>
-                        </form>
-                        <i className="fas fa-search fa-2x"></i>
-                      </div>
-                      <div className="search-tags">
-                        <button className="ecology">#Ecology</button>
-                        {console.log(filterTags)}
-                        <button className="inspiration">#Inspiration</button>
-                        <button className="traveltips">#Traveltips</button>
-                        <button className="destinations">#Destinations</button>
-                        <button className="pading">#Pading</button>
-                        <button className="culture">#Culture</button>
-                      </div>
-                      {dataBlog.cardData.filter((val) => {
-                        if (searchArticle === '') {
-                          return val
-                        } else if (val.title.toLowerCase().includes(searchArticle.toLowerCase())) {
-                          return val
-                        } else if (val.tags && val.tags.join().toLowerCase().includes(searchArticle.toLowerCase())) {
-                          return val
-                        }
-                      }).map((item, index) => {
-                          return (
-                              <BlogArticle key={index} title={item.title} img={item.img} description={item.description} tags={item.tags} date={item.date} link={`/blogarticle/${item.id}`} />
-                          )
-                      })}
+                <div className="blog">
+                  <h1>PADING TRAVEL BLOG</h1>
+                  <span>We talk about travel, putting people and the planet at the heart</span>
+                  <div className="container">
+                    <div className="search-article">
+                      <form classname="search-form-blog">
+                        <input className="search-bar-blog" type="text" placeholder="Search for an article" onChange={event => {setSearchArticle(event.target.value)}}/>
+                      </form>
+                      <i className="fas fa-search fa-xl"></i>
                     </div>
+                    <div className="search-tags">
+                      <button className="ecology">#Ecology</button>
+                      {console.log(filterTags)}
+                      <button className="inspiration">#Inspiration</button>
+                      <button className="traveltips">#Traveltips</button>
+                      <button className="destinations">#Destinations</button>
+                      <button className="pading">#Pading</button>
+                      <button className="culture">#Culture</button>
+                    </div>
+                    {dataBlog.cardData.filter((val) => {
+                      if (searchArticle === '') {
+                        return val
+                      } else if (val.title.toLowerCase().includes(searchArticle.toLowerCase())) {
+                        return val
+                      } else if (val.tags && val.tags.join().toLowerCase().includes(searchArticle.toLowerCase())) {
+                        return val
+                      }
+                    }).map((item, index) => {
+                        return (
+                            <BlogArticle key={index} title={item.title} img={item.img} description={item.description} tags={item.tags} date={item.date} link={`/blogarticle/${item.id}`} />
+                        )
+                    })}
                   </div>
+                </div>
               </Route>
               <Route path="/blogarticle/:id" render={props => (
                     <BlogDetails {...props} />

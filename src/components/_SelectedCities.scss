@@ -18,7 +18,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: -0.8rem;
+    margin-bottom: -0.3rem;
     .number-of-people {
       display: flex;
       justify-content: center;
@@ -27,8 +27,12 @@
       .fa-user-friends {
         color: #ff9e00;
       }
-      h5 {
+      span {
+        font-family: 'roboto' sans-serif;
+        font-weight: bold;
+        font-size: 1.4rem;
         color: #ff9e00;
+        font-weight: bold;
       }
     }
     .people-number-change {
@@ -37,14 +41,14 @@
         color: #e7e7e7;
         margin-right: 0.2rem;
         &:hover {
-          color: #ff9e00;
+          color: #4c4c4c;
         }
       }
       .fa-plus-circle {
         cursor: pointer;
         color: #e7e7e7;
         &:hover {
-          color: #ff9e00;
+          color: #4c4c4c;
         }
       }
     }
@@ -53,15 +57,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 3rem;
-    border-radius: 2.5rem;
+    height: 3.7rem;
+    border-radius: 1.6rem;
     padding: 0 1rem 0 1rem;
     background-color: #ff9e00;
     .city-departure-name {
       color: white;
       font-family: 'roboto' sans-serif;
       font-weight: bold;
-      font-size: 1.4rem;
+      font-size: 1.6rem;
       margin-right: 1rem;
     }
     .fa-times-circle {
@@ -75,16 +79,16 @@
   }
 }
 
-@media (max-width: 1050px) {
+@media (max-width: 700px) {
   .cities-departure {
-    bottom: -8em;
-    height: 12rem;
+    bottom: -13rem;
+    height: 11.5rem;
   }
 }
 
-@media (min-width: 1051px) {
+@media (min-width: 701px) {
   .cities-departure {
-    bottom: -7rem;
+    bottom: -8rem;
     height: 6rem;
   }
 }
