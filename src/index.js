@@ -22,11 +22,8 @@ render(
       <Route component={App} />
       <Route exact path="/" component={Home} />
       <Route path="/destinations" component={Results} />
-        <Route path="/blog" component={Blog} />
-        <Route path="/blogpost/id:id" render={props => (
-          <BlogPost {...props} />
-        )}>
-        </Route>
+      <Route path="/blog" component={Blog} />
+      <Route path="/blogpost/:id" render={(props) => <BlogPost {...props} />}></Route>
     </Router>
   </Provider>,
   document.getElementById('root')
