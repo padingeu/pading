@@ -46,7 +46,7 @@ class Navbar extends React.Component {
               <Link to="/" onClick={this.props.scrollUp}>
                 <button className="button-navbar">HALFWAY TRIP</button>
               </Link>
-              <Link to="/" onClick={this.props.scrollUp}>
+              <Link to="/blog" onClick={this.props.scrollUp}>
                 <button className="button-navbar">BLOG</button>
               </Link>
               <div className="navbar-social">

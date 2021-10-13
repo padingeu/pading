@@ -1,11 +1,11 @@
-.blog-article {
+.blog-post {
     margin-top: 7rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: #f9f9f9;
-    .blog-article-content {
+    .blog-post-content {
         position: relative;
         display: flex;
         flex-direction: column;
@@ -29,7 +29,7 @@
             margin-bottom: 1rem;
             width: 75%;
         }
-        .blog-article-date {
+        .blog-post-date {
             width: 75%;
             text-align: left;
             color: #4c4c4c;
@@ -37,7 +37,7 @@
             font-size: 1.4rem;
             margin-bottom: 1rem;
         }
-        .blog-article-tags {
+        .blog-post-tags {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
@@ -87,13 +87,13 @@
 }
 
 @media (max-width: 840px) {
-    .blog-article-content {
+    .blog-post-content {
         width: 100%;
     }
   }
   
   @media (min-width: 841px) {
-   .blog-article-content{
+   .blog-post-content{
        width: 70%;
    }
   }

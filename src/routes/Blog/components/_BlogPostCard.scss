@@ -1,5 +1,5 @@
 
-.article-card {
+.blog-post-card {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -14,14 +14,15 @@
         border-radius: 0.5rem;
         object-fit: cover;
     }
-    .article-card-body {
+    .blog-post-card-body {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
         text-align: left;
         padding: 1rem;
-        .article-tags {
+        width: 100%;
+        .blog-post-card-tags {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
@@ -37,24 +38,30 @@
             }
             .Ecology {
                 background-color: #427103;
+                width: 7rem;
             }
             .Inspiration {
                 background-color: #ff9e00;
+                width: 8.5rem;
             }
             .Destinations {
                 background-color: #85bf82;
+                width: 9rem;
             }
             .Traveltips {
                 background-color: #19a6ee;
+                width: 7.5rem;
             }
             .Pading {
                 background-color: #FFB133;
+                width: 6rem;
             }
             .Culture {
                 background-color: #41B6F1;
+                width: 6.5rem;
             }
         }
-        .article-date {
+        .blog-post-card-date {
             width: 100%;
             text-align: left;
             padding: 0.5rem 1rem;
@@ -70,13 +77,13 @@
 }
 
 @media (max-width: 840px) {
-  .article-card {
+  .blog-post-card {
       width: 100%;
   }
 }
 
 @media (min-width: 841px) {
- .article-card {
+ .blog-post-card {
      width: 30%;
  }
 }

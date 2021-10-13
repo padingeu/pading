@@ -3,8 +3,8 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 import { useState } from 'react';
 import './_Blog.scss';
 import dataBlog from './dataBlog';
-import BlogArticle from './BlogArticle';
-import BlogDetails from './BlogDetails';
+import BlogPostCard from './BlogPostCard';
+import BlogPost from './BlogPost';
 import NavBar from '../../../components/NavBar';
 import Footer from '../../../components/Footer';
 
@@ -22,8 +22,6 @@ function Blog() {
   return (
     <div>
       <NavBar scrollUp={scrollUp} />
-          <Router>
-              <Route path="/blog">
                 <div className="blog">
                   <h1>PADING TRAVEL BLOG</h1>
                   <span>We talk about travel, putting people and the planet at the heart</span>
@@ -53,17 +51,13 @@ function Blog() {
                       }
                     }).map((item, index) => {
                         return (
-                            <BlogArticle key={index} title={item.title} img={item.img} description={item.description} tags={item.tags} date={item.date} link={`/blogarticle/${item.id}`} />
+                            <BlogPostCard key={index} title={item.title} img={item.img} description={item.description} tags={item.tags} date={item.date} link={`/blogpost/id${item.id}`} />
                         )
                     })}
                   </div>
                 </div>
-              </Route>
-              <Route path="/blogarticle/:id" render={props => (
-                    <BlogDetails {...props} />
-              )}>
-              </Route>      
-          </Router>
+       
+               
       <Footer scrollUp={scrollUp} />
     </div>
   )
