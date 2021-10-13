@@ -9,7 +9,7 @@ import NavBar from '../../../components/NavBar';
 import Footer from '../../../components/Footer';
 
 function Blog() {
-  const [searchArticle, setSearchArticle] = useState('');
+  const [searchPost, setSearchPost] = useState('');
   const [filterTags, setFilterTags] = useState([]);
 
   const scrollUp = () => {
@@ -17,6 +17,11 @@ function Blog() {
       top: 0,
       behavior: 'smooth',
     });
+  };
+
+  const filterPosts = (value) => {
+    setSearchPost(value);
+    document.querySelector('.search-bar-blog').value = value;
   };
 
   return (
@@ -33,30 +38,30 @@ function Blog() {
                 type="text"
                 placeholder="Search for an article"
                 onChange={(event) => {
-                  setSearchArticle(event.target.value);
+                  filterPosts(event.target.value);
                 }}
               />
             </form>
             <i className="fas fa-search fa-xl"></i>
           </div>
           <div className="search-tags">
-            <button className="ecology">#Ecology</button>
-            {console.log(filterTags)}
-            <button className="inspiration">#Inspiration</button>
-            <button className="traveltips">#Traveltips</button>
-            <button className="destinations">#Destinations</button>
-            <button className="pading">#Pading</button>
-            <button className="culture">#Culture</button>
+            <button className="ecology" onClick={() => filterPosts('Ecology')}>#Ecology</button>
+            <button className="inspiration" onClick={() => filterPosts('Inspiration')}>#Inspiration</button>
+            <button className="traveltips" onClick={() => filterPosts('TravelTips')}>#Traveltips</button>
+            <button className="destinations" onClick={() => filterPosts('Destinations')}>#Destinations</button>
+            <button className="pading" onClick={() => filterPosts('Pading')}>#Pading</button>
+            <button className="culture" onClick={() => filterPosts('Culture')}>#Culture</button>
+            <button className="all" onClick={() => filterPosts('')}>All #</button>
           </div>
           {dataBlog.cardData
             .filter((val) => {
-              if (searchArticle === '') {
+              if (searchPost === '') {
                 return val;
-              } else if (val.title.toLowerCase().includes(searchArticle.toLowerCase())) {
+              } else if (val.title.toLowerCase().includes(searchPost.toLowerCase())) {
                 return val;
               } else if (
                 val.tags &&
-                val.tags.join().toLowerCase().includes(searchArticle.toLowerCase())
+                val.tags.join().toLowerCase().includes(searchPost.toLowerCase())
               ) {
                 return val;
               }

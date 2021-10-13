@@ -100,6 +100,12 @@
                     background-color: rgba(65, 182, 241, 0.9);
                 }
             }
+            .all {
+                background-color: #4c4c4c;
+                &:hover {
+                    background-color: #7c7c7C;
+                }
+            }
         }
     }
 }
