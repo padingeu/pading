@@ -185,6 +185,7 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip, travelType) => {
 
     Promise.all(promises)
       .then((results) => {
+        console.log('before');
         const trips = {};
         //Construction d'un objet avec une liste de voyage
         for (let i = 0; i < results.length; i++) {
@@ -199,6 +200,7 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip, travelType) => {
                 way: { local_departure: trip.local_departure, local_arrival: trip.local_arrival },
                 return: {},
                 wayRoutes: getWayRoutes(trip.route, trip.cityTo),
+                route: trip.route,
                 returnRoutes: [],
                 nightsInDest: trip.nightsInDest,
                 duration: trip.duration,
@@ -217,6 +219,21 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip, travelType) => {
           trips[city] = trips_by_city;
         }
         const commonDestinations = getCommonDestinations(trips, cities);
+        const carb = {};
+        for (let index in cities) {
+          let city = cities[index].name;
+          for (let i = 0; i < trips[city].length; i++) {
+            // console.log(city.name);
+            // console.log(trips);
+
+            let route = trips[city][i].route;
+
+            for (let i = 0; i < route.length; i++) {
+              console.log(route[i]);
+              console.log(route[i].flyFrom + '-' + route[i].flyTo);
+            }
+          }
+        }
         const data = {
           commonDestinations: commonDestinations,
           initialTrips: trips,
@@ -224,6 +241,7 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip, travelType) => {
           travelers,
           travelType,
         };
+        console.log('after');
         dispatch({ type: 'SEARCH', data });
         dispatch({ type: 'SUCCESS' });
       })
