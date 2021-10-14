@@ -40,10 +40,19 @@ export default class BlogPost extends React.Component {
                   );
                 })}
             </div>
-            <img src={getData.img} alt={getData.img2Alt} />
-            <p>{getData.description}</p>
-            {getData.img2 && <img src={getData.img2} alt={getData.img2Alt} />}
+            {getData.subTitle && <span className="subtitle-blogpost">{getData.subTitle}</span>}
+            {getData.description && <p>{getData.description}</p>}
+            <img src={getData.img} alt={getData.imgAlt} />
+            {getData.video && <iframe width="560" height="315" className="video-blogpost" src={getData.video} type="video/mp4"></iframe>}
+            {getData.subTitle2 && <span className="subtitle-blogpost">{getData.subTitle2}</span>}
             {getData.description2 && <p>{getData.description2}</p>}
+            {getData.img2 && <img src={getData.img2} alt={getData.img2Alt} />}
+            {getData.video2 && <iframe width="560" height="315" className="video-blogpost" src={getData.video2} type="video/mp4"></iframe>}
+            {getData.subTitle3 && <span className="subtitle-blogpost">{getData.subTitle3}</span>}
+            {getData.description3 && <p>{getData.description3}</p>}
+            {getData.img3 && <img src={getData.img3} alt={getData.img3Alt} />}
+            {getData.video3 && <iframe width="560" height="315" className="video-blogpost" src={getData.video3} type="video/mp4"></iframe>}
+            {getData.conclusion && <p>{getData.conclusion}</p>}
           </div>
         </div>
         <Footer scrollUp={this.scrollUp} />

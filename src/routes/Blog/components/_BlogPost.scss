@@ -43,7 +43,7 @@
             align-items: center;
             justify-content: flex-start;
             width: 75%;
-            margin-bottom: 2rem;
+            margin-bottom: 5rem;
             span {
                 border-radius: 1.2rem;
                 padding: 0.5rem 1rem;
@@ -71,16 +71,26 @@
                 background-color: #41B6F1;
             }
         }
+        .subtitle-blogpost {
+            width: 75%;
+            color: #4c4c4c;
+            font-weight: bold;
+            margin-bottom: 2rem;
+        }
+        p {
+            width: 75%;
+            color: #4c4c4c;
+        }
         img {
-            height: 20rem;
+            height: 40rem;
             width: 75%;
             border-radius: 0.5rem;
             object-fit: cover;
             margin-bottom: 3rem;
         }
-        p {
+        .video-blogpost {
             width: 75%;
-            color: #4c4c4c;
+            margin-bottom: 3rem;
         }
     }
 
