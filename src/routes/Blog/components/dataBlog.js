@@ -17,9 +17,11 @@ const dataBlog = {
     {
       id: 'test-2',
       img: 'https://picsum.photos/200/300',
-      title: 'Test 2',
+      title: 'hello',
       description:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. .',
+      tags: ['Ecology', 'Traveltips'],
+      date: '10th October 2021',
     },
     {
       id: 'test-3',

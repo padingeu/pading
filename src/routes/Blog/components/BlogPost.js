@@ -15,9 +15,10 @@ export default class BlogPost extends React.Component {
   };
 
   render() {
-    const id = this.props.match.params.id;
+    console.log(this.props)
+    const getId = this.props.match.params.id;
     const getData = dataBlog.cardData.filter((item) => {
-      return (item.id = id);
+      return (item.id = getId);
     })[0];
     return (
       <div>
@@ -28,13 +29,12 @@ export default class BlogPost extends React.Component {
               <i className="fas fa-arrow-circle-left fa-2x"></i>
             </Link>
             <h1>{getData.title}</h1>
-            {console.log(getData)}
             <span className="blog-post-date">{getData.date}</span>
             <div className="blog-post-tags">
               {getData.tags &&
                 getData.tags.map((tag, index) => {
                   return (
-                    <span index className={tag}>
+                    <span key={index} className={tag}>
                       #{tag}
                     </span>
                   );

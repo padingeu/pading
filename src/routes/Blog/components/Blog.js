@@ -1,16 +1,13 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { useState } from 'react';
 import './_Blog.scss';
 import dataBlog from './dataBlog';
 import BlogPostCard from './BlogPostCard';
-import BlogPost from './BlogPost';
 import NavBar from '../../../components/NavBar';
 import Footer from '../../../components/Footer';
 
 function Blog() {
   const [searchPost, setSearchPost] = useState('');
-  const [filterTags, setFilterTags] = useState([]);
 
   const scrollUp = () => {
     document.scrollingElement.scrollTo({
@@ -32,7 +29,7 @@ function Blog() {
         <span>We talk about travel, putting people and the planet at the heart</span>
         <div className="container">
           <div className="search-article">
-            <form classname="search-form-blog">
+            <form className="search-form-blog">
               <input
                 className="search-bar-blog"
                 type="text"
@@ -62,9 +59,8 @@ function Blog() {
               } else if (
                 val.tags &&
                 val.tags.join().toLowerCase().includes(searchPost.toLowerCase())
-              ) {
-                return val;
-              }
+              )
+              return val;
             })
             .map((item, index) => {
               return (

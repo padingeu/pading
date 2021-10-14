@@ -67,7 +67,7 @@ class Navbar extends React.Component {
               </div>
             </div>
             <button className="dropdown-navbar" onClick={() => this.dropDownMenu()}>
-                {this.state.dropDownMenuOpen ? <i class="fas fa-times fa-lg"></i> : <i class="fas fa-bars fa-lg"></i>}
+                {this.state.dropDownMenuOpen ? <i className="fas fa-times fa-lg"></i> : <i className="fas fa-bars fa-lg"></i>}
             </button>
           </div>
           {this.state.dropDownMenuOpen &&
