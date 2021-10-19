@@ -23,7 +23,7 @@ render(
       <Route exact path="/" component={Home} />
       <Route path="/destinations" component={Results} />
       <Route path="/blog" component={Blog} />
-      <Route path="/blogpost/:id" render={(props) => <BlogPost {...props} />}></Route>
+      <Route path="/blogpost/:id" component={BlogPost} />
     </Router>
   </Provider>,
   document.getElementById('root')

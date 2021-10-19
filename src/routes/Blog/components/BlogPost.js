@@ -6,7 +6,6 @@ import dataBlog from './dataBlog';
 import './_BlogPost.scss';
 
 export default class BlogPost extends React.Component {
-
   scrollUp = () => {
     document.scrollingElement.scrollTo({
       top: 0,
@@ -15,11 +14,9 @@ export default class BlogPost extends React.Component {
   };
 
   render() {
-    console.log(this.props)
     const getId = this.props.match.params.id;
-    const getData = dataBlog.cardData.filter((item) => {
-      return (item.id = getId);
-    })[0];
+    const getData = dataBlog.cardData.find((item) => item.id === getId);
+
     return (
       <div>
         <NavBar scrollUp={this.scrollUp} />
@@ -43,17 +40,49 @@ export default class BlogPost extends React.Component {
             <img src={getData.img} alt={getData.imgAlt} />
             {getData.subTitle && <span className="subtitle-blogpost">{getData.subTitle}</span>}
             {getData.description && <p>{getData.description}</p>}
-            {getData.video && <iframe width="560" height="315" className="video-blogpost" src={getData.video} type="video/mp4"></iframe>}
+            {getData.video && (
+              <iframe
+                width="560"
+                height="315"
+                className="video-blogpost"
+                src={getData.video}
+                type="video/mp4"
+              ></iframe>
+            )}
             {getData.subTitle2 && <span className="subtitle-blogpost">{getData.subTitle2}</span>}
             {getData.description2 && <p>{getData.description2}</p>}
             {getData.img2 && <img src={getData.img2} alt={getData.img2Alt} />}
-            {getData.video2 && <video controls width="480" className="video-blogpost" src={getData.video2} type="video/mp4"></video>}
+            {getData.video2 && (
+              <video
+                controls
+                width="480"
+                className="video-blogpost"
+                src={getData.video2}
+                type="video/mp4"
+              ></video>
+            )}
             {getData.subTitle3 && <span className="subtitle-blogpost">{getData.subTitle3}</span>}
             {getData.description3 && <p>{getData.description3}</p>}
             {getData.img3 && <img src={getData.img3} alt={getData.img3Alt} />}
-            {getData.video3 && <iframe width="560" height="315" className="video-blogpost" src={getData.video3} type="video/mp4"></iframe>}
+            {getData.video3 && (
+              <iframe
+                width="560"
+                height="315"
+                className="video-blogpost"
+                src={getData.video3}
+                type="video/mp4"
+              ></iframe>
+            )}
             {getData.subTitle4 && <span className="subtitle-blogpost">{getData.subTitle4}</span>}
-            {getData.video4 && <video controls width="480" className="video-blogpost" src={getData.video4} type="video/mp4"></video>}
+            {getData.video4 && (
+              <video
+                controls
+                width="480"
+                className="video-blogpost"
+                src={getData.video4}
+                type="video/mp4"
+              ></video>
+            )}
             {getData.description4 && <p>{getData.description4}</p>}
             {getData.img4 && <img src={getData.img4} alt={getData.img4Alt} />}
             {getData.conclusion && <p className="conclusion">{getData.conclusion}</p>}

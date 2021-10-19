@@ -42,13 +42,27 @@ function Blog() {
             <i className="fas fa-search fa-xl"></i>
           </div>
           <div className="search-tags">
-            <button className="ecology" onClick={() => filterPosts('Ecology')}>#Ecology</button>
-            <button className="inspiration" onClick={() => filterPosts('Inspiration')}>#Inspiration</button>
-            <button className="traveltips" onClick={() => filterPosts('TravelTips')}>#Traveltips</button>
-            <button className="destinations" onClick={() => filterPosts('Destinations')}>#Destinations</button>
-            <button className="pading" onClick={() => filterPosts('Pading')}>#Pading</button>
-            <button className="culture" onClick={() => filterPosts('Culture')}>#Culture</button>
-            <button className="all" onClick={() => filterPosts('')}>All #</button>
+            <button className="ecology" onClick={() => filterPosts('Ecology')}>
+              #Ecology
+            </button>
+            <button className="inspiration" onClick={() => filterPosts('Inspiration')}>
+              #Inspiration
+            </button>
+            <button className="traveltips" onClick={() => filterPosts('TravelTips')}>
+              #Traveltips
+            </button>
+            <button className="destinations" onClick={() => filterPosts('Destinations')}>
+              #Destinations
+            </button>
+            <button className="pading" onClick={() => filterPosts('Pading')}>
+              #Pading
+            </button>
+            <button className="culture" onClick={() => filterPosts('Culture')}>
+              #Culture
+            </button>
+            <button className="all" onClick={() => filterPosts('')}>
+              All #
+            </button>
           </div>
           {dataBlog.cardData
             .filter((val) => {
@@ -60,7 +74,7 @@ function Blog() {
                 val.tags &&
                 val.tags.join().toLowerCase().includes(searchPost.toLowerCase())
               )
-              return val;
+                return val;
             })
             .map((item, index) => {
               return (
