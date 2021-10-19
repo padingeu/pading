@@ -77,7 +77,6 @@ function Blog() {
             })}
         </div>
       </div>
-
       <Footer scrollUp={scrollUp} />
     </div>
   );

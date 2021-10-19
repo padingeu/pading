@@ -75,22 +75,30 @@
             width: 75%;
             color: #4c4c4c;
             font-weight: bold;
-            margin-bottom: 2rem;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
         }
         p {
             width: 75%;
             color: #4c4c4c;
+        }
+        .conclusion {
+            font-weight: bold;
+            margin-top: 1rem;
         }
         img {
             height: 40rem;
             width: 75%;
             border-radius: 0.5rem;
             object-fit: cover;
-            margin-bottom: 3rem;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
         }
         .video-blogpost {
-            width: 75%;
-            margin-bottom: 3rem;
+            max-width: 75%;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+            margin-bottom: 2rem;
         }
     }
 
