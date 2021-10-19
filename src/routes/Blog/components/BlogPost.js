@@ -16,7 +16,6 @@ export default class BlogPost extends React.Component {
   render() {
     const getId = this.props.match.params.id;
     const getData = dataBlog.cardData.find((item) => item.id === getId);
-
     return (
       <div>
         <NavBar scrollUp={this.scrollUp} />

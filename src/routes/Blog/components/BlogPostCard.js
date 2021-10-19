@@ -6,7 +6,6 @@ export default class BlogPostCard extends React.Component {
   render() {
     return (
       <Link to={this.props.link} className="blog-post-card">
-        {this.props.link}
         <img src={this.props.img} alt={this.props.imgAlt} />
         <div className="blog-post-card-body">
           <h5>{this.props.title}</h5>
