@@ -9,24 +9,24 @@
   font-family: 'PT Sans', sans-serif;
   text-transform: capitalize;
   font-weight: bold;
-  color: white;
+  color: #ff9e00;
 }
 
 .MuiTab-textColorPrimary.Mui-selected {
-  color: white !important;
+  color: #FFB133 !important;
 }
 
 .MuiTabs-indicator {
-  background-color: white !important;
+  background-color: #ff9e00 !important;
   height: 0.5rem !important;
   border-radius: 0.5rem;
 }
 
 .MuiAppBar-root {
   border-radius: 0.5rem 0.5rem 0 0;
-  background-color: #19a6ee;
+  background-color: white;
   .MuiTabs-root {
-    background-color: #19a6ee;
+    background-color: white;
     border-radius: 1rem 1rem 0 0;
     padding: 0 1rem;
   }
@@ -43,6 +43,11 @@
 
 .MuiTabs-scrollButtons {
   color: white !important;
+}
+
+.MuiSvgIcon-fontSizeSmall {
+  color: #ff9e00;
+  font-size: 1.6rem !important;
 }
 
 @media (max-width: 500px) {

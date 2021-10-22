@@ -46,6 +46,14 @@ class Navbar extends React.Component {
               <Link to="/" onClick={this.props.scrollUp}>
                 <button className="button-navbar">HALFWAY TRIP</button>
               </Link>
+              <a
+                className="button-navbar"
+                href="https://trello.com/b/NoQieqmu/pading-public-roadmap"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                ROADMAP
+              </a>
               <Link to="/blog" onClick={this.props.scrollUp}>
                 <button className="button-navbar">BLOG</button>
               </Link>
@@ -87,7 +95,14 @@ class Navbar extends React.Component {
               <Link to="/" onClick={this.props.scrollUp} className="button-navbar">
                 HALFWAY TRIP
               </Link>
-        
+              <a
+              className="button-navbar"
+                href="https://trello.com/b/NoQieqmu/pading-public-roadmap"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                ROADMAP
+              </a>
               <Link to="/" onClick={this.props.scrollUp} className="button-navbar">
                 BLOG
               </Link>

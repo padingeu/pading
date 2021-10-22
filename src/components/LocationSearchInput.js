@@ -38,7 +38,7 @@ class LocationSearchInput extends React.Component {
                     {...getInputProps({ className: 'city-departure-input' })}
                   />
                   <div className="arrow-and-label">
-                  <i class="fas fa-plane-departure"></i>
+                  <i className="fas fa-plane-departure"></i>
 
                     {this.props.cities.length === 0 ? (
                       <span className="label">Add a first departure city</span>

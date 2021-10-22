@@ -41,10 +41,11 @@ export default class BlogPost extends React.Component {
             {getData.description && <p>{getData.description}</p>}
             {getData.video && (
               <iframe
-                width="560"
-                height="315"
+                width="100%"
+                height="400px"
                 className="video-blogpost"
-                src={getData.video}
+                src={getData.iframe}
+                title={getData.iframeTitle}
                 type="video/mp4"
               ></iframe>
             )}
@@ -57,6 +58,7 @@ export default class BlogPost extends React.Component {
                 width="480"
                 className="video-blogpost"
                 src={getData.video2}
+                title={getData.iframeTitle2}
                 type="video/mp4"
               ></video>
             )}
@@ -65,10 +67,11 @@ export default class BlogPost extends React.Component {
             {getData.img3 && <img src={getData.img3} alt={getData.img3Alt} />}
             {getData.video3 && (
               <iframe
-                width="560"
-                height="315"
+                width="100%"
+                height="400px"
                 className="video-blogpost"
                 src={getData.video3}
+                title={getData.iframeTitle3}
                 type="video/mp4"
               ></iframe>
             )}
@@ -84,6 +87,20 @@ export default class BlogPost extends React.Component {
             )}
             {getData.description4 && <p>{getData.description4}</p>}
             {getData.img4 && <img src={getData.img4} alt={getData.img4Alt} />}
+            {getData.subTitle5 && <span className="subtitle-blogpost">{getData.subTitle5}</span>}
+            {getData.description5 && <p>{getData.description5}</p>}
+            {getData.img5 && <img src={getData.img5} alt={getData.img5Alt} />}
+            {getData.video5 && (
+              <video
+                controls
+                width="480"
+                className="video-blogpost"
+                src={getData.video5}
+                type="video/mp4"
+              ></video>
+            )}
+            {getData.subTitle6 && <span className="subtitle-blogpost">{getData.subTitle6}</span>}
+            {getData.description6 && <p>{getData.description6}</p>}
             {getData.conclusion && <p className="conclusion">{getData.conclusion}</p>}
           </div>
         </div>

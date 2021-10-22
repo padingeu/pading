@@ -36,22 +36,27 @@ export default class Footer extends React.Component {
             <div className="footer-menu-app-contact">
               <div className="footer-menu-app">
                 <h4>PADING</h4>
-                <button className="btn-product" onClick={this.props.scrollToTop} href="">
-                  <p>Blog</p>
-                </button>
+                <Link to="/blog" onClick={this.props.scrollUp}>
+                  <button className="btn-footer">Blog</button>
+                </Link>
                 <Popup
                   modal
                   trigger={
-                    <button className="btn-faq">
-                      <p>Questions</p>
+                    <button className="btn-footer">
+                      Questions
                     </button>
                   }
                 >
                   <Faq />
                 </Popup>
-                <Link to="/privacypolicy" onClick={this.props.scrollUp}>
-                  <p>Privacy policy</p>
-                </Link>
+                <a
+                className="btn-footer"
+                href="https://trello.com/b/NoQieqmu/pading-public-roadmap"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Roadmap
+              </a>
               </div>
               <div className="footer-menu-contact">
                 <h4>CONTACT</h4>
