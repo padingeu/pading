@@ -229,11 +229,50 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip, travelType) => {
             let route = trips[city][i].route;
 
             for (let i = 0; i < route.length; i++) {
-              console.log(route[i]);
-              console.log(route[i].flyFrom + '-' + route[i].flyTo);
+              carb[route[i].flyFrom + '-' + route[i].flyTo] = 0;
             }
           }
         }
+        console.log(Object.keys(carb).length);
+        const sandboxPromises = [];
+        for (var code in carb) {
+          let codes = code.split('-');
+          let body = {
+            IataCodes: codes,
+            Passengers: 1,
+          };
+
+          axios
+            .post(`https://sandbox-api.c-level.earth/v1/calculate/flight`, body, {
+              headers: {
+                apikey: '6b02f35c-1e9d-4cff-adb1-d238000c247c',
+                'Content-Type': 'application/json',
+              },
+            })
+            .then((result) => {
+              let key = body.IataCodes[0] + '-' + body.IataCodes[1];
+              carb[key] = result.data.Co2PerPerson_k;
+              console.log(result.data.Co2PerPerson_kg);
+            })
+            .catch((error) => {
+              console.log('failure');
+              dispatch({ type: 'FAILURE' });
+            });
+        }
+
+        // Promise.all(sandboxPromises)
+        //   .then((results) => {
+        //     console.log('results');
+        //     for (let i = 0; i < results.length; i++) {
+        //       console.log(results[i]);
+        //     }
+        //   })
+        //   .catch((error) => {
+        //     console.log('failure');
+        //     dispatch({ type: 'FAILURE' });
+        //   });
+
+        console.log(carb);
         const data = {
           commonDestinations: commonDestinations,
           initialTrips: trips,
