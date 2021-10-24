@@ -36,22 +36,27 @@ export default class Footer extends React.Component {
             <div className="footer-menu-app-contact">
               <div className="footer-menu-app">
                 <h4>PADING</h4>
-                <button className="btn-product" onClick={this.props.scrollToTop} href="">
-                  <p>Blog</p>
-                </button>
+                <Link to="/blog" onClick={this.props.scrollUp}>
+                  <button className="btn-footer">Blog</button>
+                </Link>
                 <Popup
                   modal
                   trigger={
-                    <button className="btn-faq">
-                      <p>Questions</p>
+                    <button className="btn-footer">
+                      Questions
                     </button>
                   }
                 >
                   <Faq />
                 </Popup>
-                <Link to="/privacypolicy" onClick={this.props.scrollUp}>
-                  <p>Privacy policy</p>
-                </Link>
+                <a
+                className="btn-footer"
+                href="https://trello.com/b/NoQieqmu/pading-public-roadmap"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                Roadmap
+              </a>
               </div>
               <div className="footer-menu-contact">
                 <h4>CONTACT</h4>
@@ -59,12 +64,12 @@ export default class Footer extends React.Component {
                   <p>Contact us</p>
                 </a>
                 <div className="footer-social">
-                  <a
-                    href="https://www.facebook.com/Pading-103563007939325/?view_public_for=103563007939325"
-                    rel="noopener noreferrer"
-                    target="_blank"
+                <a
+                      href="https://www.facebook.com/Pading-103563007939325/?view_public_for=103563007939325"
+                      rel="noopener noreferrer"
+                      target="_blank"
                   >
-                    <i className="fab fa-facebook"></i>
+                      <i className="fab fa-facebook"></i>
                   </a>
                   <a
                     href="https://www.instagram.com/pading.eu/"

@@ -43,8 +43,9 @@
         flex-direction: column;
         align-items: flex-start;
         justify-content: center;
-        button {
+        .btn-footer {
           background-color: transparent;
+          color: white;
           font-weight: normal;
           padding: 0;
         }

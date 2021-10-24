@@ -1,0 +1,89 @@
+
+.blog-post-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+    border-radius: 0.7rem;
+    margin: 1rem;
+    img {
+        height: 20rem;
+        width: 100%;
+        border-radius: 0.5rem;
+        object-fit: cover;
+    }
+    .blog-post-card-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        text-align: left;
+        padding: 1rem;
+        width: 100%;
+        .blog-post-card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: flex-start;
+            width: 100%;
+            span {
+                border-radius: 1.2rem;
+                padding: 0.5rem 1rem;
+                margin: 0.3rem;
+                color: white;
+                font-weight: bold;
+                font-size: 1.2rem;
+            }
+            .Ecology {
+                background-color: #427103;
+                width: 7rem;
+            }
+            .Inspiration {
+                background-color: #ff9e00;
+                width: 8.5rem;
+            }
+            .Destinations {
+                background-color: #85bf82;
+                width: 9rem;
+            }
+            .Traveltips {
+                background-color: #19a6ee;
+                width: 7.5rem;
+            }
+            .Pading {
+                background-color: #FFB133;
+                width: 6rem;
+            }
+            .Culture {
+                background-color: #41B6F1;
+                width: 6.5rem;
+            }
+        }
+        .blog-post-card-date {
+            width: 100%;
+            text-align: left;
+            padding: 0.5rem 1rem;
+            color: #4c4c4c;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+    }
+    &:hover {
+        text-decoration: none;
+        transform: scale(1.01);
+    }
+}
+
+@media (max-width: 840px) {
+  .blog-post-card {
+      width: 100%;
+  }
+}
+
+@media (min-width: 841px) {
+ .blog-post-card {
+     width: 30%;
+ }
+}
