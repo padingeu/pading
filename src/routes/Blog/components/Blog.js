@@ -66,15 +66,11 @@ function Blog() {
           </div>
           {dataBlog.cardData
             .filter((val) => {
-              if (searchPost === '') {
-                return val;
-              } else if (val.title.toLowerCase().includes(searchPost.toLowerCase())) {
-                return val;
-              } else if (
-                val.tags &&
-                val.tags.join().toLowerCase().includes(searchPost.toLowerCase())
-              )
-                return val;
+              return (
+                searchPost === '' ||
+                val.title.toLowerCase().includes(searchPost.toLowerCase()) ||
+                (val.tags && val.tags.join().toLowerCase().includes(searchPost.toLowerCase()))
+              );
             })
             .map((item, index) => {
               return (
