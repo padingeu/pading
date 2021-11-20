@@ -13,6 +13,7 @@
       justify-content: space-around;
       align-items: center;
       background-color: transparent;
+      width: 100%;
       p {
         color: white;
         text-align: center;
@@ -26,7 +27,8 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin: 5rem 1rem;
+        margin: 3rem 2rem;
+        width: 100%;
         p {
           text-align: center;
           font-weight: bold;
@@ -36,13 +38,14 @@
     .footer-menu-app-contact {
       display: flex;
       align-items: flex-start;
-      justify-content: space-between;
-      width: 25rem;
+      justify-content: center;
+      width: 100%;
       .footer-menu-app {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         justify-content: center;
+        margin-right: 2rem;
         .btn-footer {
           background-color: transparent;
           color: white;
@@ -55,6 +58,7 @@
         flex-direction: column;;
         align-items: flex-start;
         justify-content: center;
+        margin-left: 2rem;
       }
     }
   }

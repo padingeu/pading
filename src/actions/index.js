@@ -130,13 +130,13 @@ const getCommonDestinations = (trips, cities) => {
   return destinations;
 };
 
-export const searchTrips = (cities, dateFrom, dateTo, stopTrip, travelType) => {
+export const searchTrips = (cities, dateFrom, dateTo, directTrip, returnTrip) => {
   const promises = [];
   return (dispatch) => {
     const formData = {
       dateFrom: dateFrom,
       dateTo: dateTo,
-      cities: cities,
+      cities: cities
     };
     // dispatch({ type: 'CLEAR_SEARCH' });
     dispatch({ type: 'FORM_DATA', formData });
@@ -154,7 +154,7 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip, travelType) => {
     const dateToStr = format(dateTo, 'dd/MM/yyyy');
 
     let maxStopover = '2';
-    if (stopTrip === 'Only direct') {
+    if (directTrip === true) {
       maxStopover = '0';
     }
     let config = {
@@ -168,7 +168,7 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip, travelType) => {
     for (let i = 0; i < cities.length; i++) {
       travelers[cities[i].name] = cities[i].numberOfPeople;
       let promise;
-      if (travelType === 'Return') {
+      if (returnTrip === true) {
         promise = axios.get(
           `https://tequila-api.kiwi.com/v2/search?fly_from=${cities[i].coordinates}&date_from=${dateFromStr}&date_to=${dateFromStr}&return_from=${dateToStr}&return_to=${dateToStr}&max_stopovers=${maxStopover}&flight_type=round&nights_in_dst_from=${differenceInDays}&nights_in_dst_to=${differenceInDays}&adults=${cities[i].numberOfPeople}&vehicle_type=aircraft&ret_to_diff_airport=0&ret_from_diff_airport=0`,
           config
@@ -205,7 +205,7 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip, travelType) => {
                 travelers: travelers[trip.cityFrom],
                 token: trip.booking_token,
               };
-              if (travelType === 'Return') {
+              if (returnTrip === true) {
                 const returnRoutes = getReturnRoutes(trip.route, trip.cityTo);
                 padingTrip['returnRoutes'] = returnRoutes;
                 padingTrip['return']['local_departure'] = getLocalDepartureDate(returnRoutes);
@@ -217,12 +217,13 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip, travelType) => {
           trips[city] = trips_by_city;
         }
         const commonDestinations = getCommonDestinations(trips, cities);
+        console.log(returnTrip)
         const data = {
           commonDestinations: commonDestinations,
           initialTrips: trips,
           trips,
           travelers,
-          travelType,
+          returnTrip,
         };
         dispatch({ type: 'SEARCH', data });
         dispatch({ type: 'SUCCESS' });

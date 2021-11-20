@@ -4,7 +4,7 @@ $headers-font: 'Paytone One', sans-serif;
 $body-font: 'PT Sans', sans-serif;
 
 $yellow: #ff9e00;
-$yellow-light: #FFB133;
+$yellow-light: #ffb133;
 $blue: #19a6ee;
 $blue-light: #41B6F1;
 $green: #427103;
@@ -63,19 +63,19 @@ button {
 
 @media (max-width: 300px) {
   h1 {
-    font-size: 2rem !important;
+    font-size: 2.4rem;
   }
   h2 {
-    font-size: 2rem !important;
+    font-size: 2rem;
   }
 }
 
 @media (max-width: 640px) {
   h1 {
-    font-size: 2.4rem;
+    font-size: 3.3rem;
   }
   h2 {
-    font-size: 2.2rem;
+    font-size: 2.8rem;
   }
   h3 {
     font-size: 1.8rem;
@@ -89,16 +89,16 @@ button {
 }
 
 @media (min-width: 641px) {
-    h1 {
-      font-size: 3.7rem;
-    }
-    h2 {
-      font-size: 3.5rem;
-    }
-    h3 {
-      font-size: 2.5rem;
-    }
-    h5 {
-      font-size: 1.6rem;
-    }
+  h1 {
+    font-size: 4rem;
+  }
+  h2 {
+    font-size: 3.5rem;
+  }
+  h3 {
+    font-size: 2.5rem;
+  }
+  h5 {
+    font-size: 1.6rem;
+  }
 }

@@ -83,7 +83,7 @@ export default function DetailsResultsPopup(props) {
               destination={props.destination}
               cityFrom={city}
               trip={props.trips[city].filter((trip) => trip.cityTo === props.destination)[0]}
-              travelType={props.travelType}
+              returnTrip={props.returnTrip}
             />
           </TabPanel>
         );

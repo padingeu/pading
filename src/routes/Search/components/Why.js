@@ -26,7 +26,7 @@ export default function Why() {
         </div>
         <div className="why-to-use-it-text" id="why">
           <div className="why-to-use-it-title">
-            <h2><span className="focus-text"><span className="underline"></span>WHY USE PADING ?</span></h2>
+            <h2 className="focus-text"><span className="underline"></span>WHY USE PADING ?</h2>
           </div>
           <div className="why-to-use-it-content">
             <div className="why-to-use-it-content-card">

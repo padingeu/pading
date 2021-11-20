@@ -14,9 +14,9 @@ class DatesPicker extends React.Component {
   };
 
   messageValidationDates = () => {
-    if (this.props.travelType === 'Return' && !this.props.dateTo) {
-      return 'Select departure & return dates';
-    } else if (this.props.travelType === 'One-way' && !this.props.dateFrom) {
+    if (this.props.returnTrip && !this.props.dateTo) {
+      return 'Select departure and return dates';
+    } else if (!this.props.returnTrip && !this.props.dateFrom) {
       return 'Select a departure date';
     } else {
       return 'Ok';
@@ -39,45 +39,23 @@ class DatesPicker extends React.Component {
         {}
         <div className="inputdate">
           <input
-            className="inputdatefrom"
+            className="inputdate-bar"
             type="text"
             onChange={this.props.onChange}
             onClick={this.showOnCalendar}
-            placeholder="Departure date"
+            placeholder="When do you travel ?"
             value={
-              this.props.showDateFrom && this.props.dateFrom
-                ? format(this.props.dateFrom, 'dd/MM/yyyy')
-                : ''
-            }
-            readOnly
-          />
-          {this.props.travelType === 'Return' ? (
-            <input
-              className="inputdateto"
-              type="text"
-              onChange={this.props.onChange}
-              onClick={this.showOnCalendar}
-              placeholder="Return date"
-              value={
-                this.props.showDateTo && this.props.dateTo
-                  ? format(this.props.dateTo, 'dd/MM/yyyy')
+              this.props.returnTrip ?
+                this.props.dateFrom && this.props.dateTo ?
+                  `${format(this.props.dateFrom, 'dd/MM/yyyy')} - ${format(this.props.dateTo, 'dd/MM/yyyy')}`
+                  : ''
+              :
+                this.props.dateFrom ?
+                  `${format(this.props.dateFrom, 'dd/MM/yyyy')} - no return`
                   : ''
               }
-              readOnly
-            />
-          ) : (
-            <input
-              className="inputdateto"
-              onChange={this.props.onChange}
-              onClick={(event) => {
-                this.props.switchToReturn(event);
-                this.showOnCalendar();
-              }}
-              placeholder="no-return"
-              value="no-return"
-              readOnly
-            />
-          )}
+            readOnly
+          />
         </div>
 
         {this.state.showCalendar && (
@@ -87,13 +65,13 @@ class DatesPicker extends React.Component {
               minDate={new Date()}
               onClickOutside={this.handleClickOutside}
               onChange={this.props.onChange}
-              selectRange={this.props.travelType === 'Return' ? true : false}
+              selectRange={this.props.returnTrip ? true : false}
               returnValue={'range'}
               showFixedNumberOfWeeks={false}
               activeStartDate={this.props.dateFrom ? this.props.dateFrom : new Date()}
             />
             <button className="btn btn-date"
-              disabled={(this.props.travelType === 'Return' && !this.props.dateTo) || ('One-way' && !this.props.dateFrom)}
+              disabled={(this.props.returnTrip && !this.props.dateTo) || ('One-way' && !this.props.dateFrom)}
               onClick={this.showOffCalendar}
             >
               {this.messageValidationDates()}

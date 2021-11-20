@@ -29,6 +29,7 @@ export default class Home extends React.Component {
         <Simple />
         <Planet />
         <Footer scrollUp={this.scrollUp} />
+       
       </div>
     );
   }

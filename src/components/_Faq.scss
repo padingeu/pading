@@ -1,22 +1,26 @@
 .popup-content {
-  border-radius: 5px;
-  padding: 10px !important;
-  position: relative;
   .MuiPaper-elevation1 {
     box-shadow: none !important;
   }
-  .MuiExpansionPanel-root:before {
-    background-color: #f2f2f2;
+  .MuiPaper-root {
+    width: 100%;
+    .MuiExpansionPanel-root:before {
+      background-color: #f2f2f2;
+    }
   }
 }
+
 .faq-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
   h4 {
     color: #19a6ee !important;
     font-size: 1.6rem !important;
     text-align: left;
   }
 }
-
 .faq-answers {
   p {
     color: #333333 !important;
@@ -43,12 +47,5 @@
     p {
       font-size: 1.2rem !important;
     }
-  }
-}
-
-// small screens
-@media (max-width: 1200px) {
-  .popup-content {
-    width: 80% !important;
   }
 }

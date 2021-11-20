@@ -7,7 +7,8 @@
   justify-content: center;
   align-items: center;
   max-width: 100%;
-  padding-top: 7rem;
+  margin-top: 7rem;
+  padding-top: 3rem;
   padding-bottom: 7rem;
   .travel-results-cards {
     display: flex;
@@ -45,15 +46,13 @@
           display: flex;
           justify-content: center;
           align-items: center;
-          color: #4c4c4c;
+          color: #808080;
           background-color: white;
           cursor: pointer;
           margin-left: 0.5rem;
-          &:hover {
-            color: #808080;
-          }
+          font-size: 1.4rem;
           i {
-            margin-right: 1rem;
+            margin-right: 0.5rem;
           }
         }
         .btn-sort {
@@ -61,12 +60,13 @@
           display: flex;
           justify-content: center;
           align-items: center;
-          color: #4c4c4c;
+          color: #808080;
           background-color: white;
           cursor: pointer;
-          margin-left: 0.5rem;
-          &:hover {
-            color: #808080;
+          margin-left: 1rem;
+          font-size: 1.4rem;
+          i {
+            margin-right: 0.5rem;
           }
         }
         .sortby-change {
@@ -113,7 +113,7 @@
       display: grid;
       height: 100%;
       grid-gap: 1.5rem;
-      padding: 1rem 1rem 0rem 1rem;
+      padding: 1rem;
     }
     .alert-nodestination {
       display: flex;
@@ -137,14 +137,24 @@
       font-size: 1rem;
     }
   }
+  .close-popup {
+    position: absolute;
+    top: 1rem;
+    right: 0.5rem;
+    background-color: transparent;
+    color: #ff9e00;
+  }
 }
 
-@media (min-width: 500px) {
+@media (min-width: 501px) {
   .sortby-change {
     width: 20rem;
     span {
       font-size: 1.4rem;
     }
+  }
+  .close-popup {
+    display: none;
   }
 }
 
@@ -165,7 +175,7 @@
 
 @media (min-width: 1001px) {
   .travel-results-cards {
-    margin: 0 15rem 0rem 15rem;
+    margin: 0 10rem 0rem 10rem;
     .linear-progress-filter {
       .linear-progress-div {
         width: 80%;
@@ -269,4 +279,11 @@
       }
     }
   }
+}
+
+.formsearch-resultspage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10rem;
 }

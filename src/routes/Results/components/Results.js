@@ -1,6 +1,6 @@
 import React from 'react';
 import NavBar from '../../../components/NavBar';
-import Banner from '../../../components/Banner';
+import FormSearch from '../../../components/FormSearch';
 import './_Results.scss';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import TripCard from './TripCard';
@@ -75,14 +75,15 @@ export default function Results(props) {
   };*/
 
   return (
-    <div>
-      <NavBar scrollUp={scrollUp} />
-      <Banner
-        isLoading={props.search.isLoading}
-        searchTrips={props.searchTrips}
-        searchData={props.search}
-      />
-
+    <div id="">
+      <NavBar scrollUp={scrollUp}/>
+      <div className="formsearch-resultspage">
+        <FormSearch
+          searchTrips={props.searchTrips}
+          searchData={props.search}
+          displayFormSearchResults={props.displayFormSearchResults}
+        />
+      </div>
       <div className="travel-results">
         <div className="travel-results-cards">
           <div className="linear-progress-filter">
@@ -96,7 +97,7 @@ export default function Results(props) {
             {props.search.commonDestinations.length > 0 && (
               <div className="filter-sort">
                 <button className="btn-filter" onClick={displayFilter}>
-                  <i className="fas fa-filter"></i>
+                  <i className="fa fa-filter"></i>
                   Filter
                 </button>
                 <button className="btn-sort" onClick={displaySortBy}>
@@ -208,13 +209,18 @@ export default function Results(props) {
                             }
                             key={index}
                           >
-                            <DetailsResultsPopup
-                              destination={destination.name}
-                              trips={props.search.trips}
-                              key={index}
-                              travelType={props.search.travelType}
-                            />
-                          </Popup>
+                          {closePopup => (
+                            <div className="popup-details-trip">
+                              <button className="close-popup" onClick={closePopup}><i class="far fa-times-circle fa-2x"></i></button>
+                              <DetailsResultsPopup
+                                destination={destination.name}
+                                trips={props.search.trips}
+                                key={index}
+                                returnTrip={props.search.returnTrip}
+                              />
+                            </div>
+                          )}
+                        </Popup>
                         </div>
                       );
                     })}

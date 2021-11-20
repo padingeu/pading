@@ -46,8 +46,13 @@ export default class Footer extends React.Component {
                       Questions
                     </button>
                   }
-                >
-                  <Faq />
+                > 
+                  {closePopup => (
+                    <div className="popup">
+                      <button className="close-popup" onClick={closePopup}><i class="far fa-times-circle fa-2x"></i></button>
+                      <Faq />
+                    </div>
+                  )}
                 </Popup>
                 <a
                 className="btn-footer"

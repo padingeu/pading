@@ -7,6 +7,7 @@
   max-width: 97vw;
   border-radius: 1rem;
   font-size: 1.6rem;
+  max-width: 100vw;
   &:focus {
     transition-duration: 0.5s;
     outline: 0;
@@ -14,6 +15,7 @@
   .input-newsletter {
     height: 5rem;
     width: 100%;
+    margin: 2rem 0;
     flex-grow: 2;
     border: solid white;
     border-width: 0.1rem;
@@ -39,7 +41,6 @@
   .btn-newsletter {
     height: 5rem;
     width: 100%;
-    padding: 0 2rem;
     border-radius: 1rem;
     margin: 0.2rem;
     border: none;
@@ -104,20 +105,23 @@
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 400px) {
   .register-form {
     flex-direction: column;
+    .input-newsletter {
+      min-width: 25rem;
+    }
   }
   .swal2-popup {
     min-width: 90vw;
   }
 }
 
-@media (min-width: 601px) {
+@media (min-width: 401px) {
   .register-form {
     flex-direction: column;
     .input-newsletter {
-    min-width: 50rem;
+    min-width: 45rem;
     }
   }
   .swal2-popup {
