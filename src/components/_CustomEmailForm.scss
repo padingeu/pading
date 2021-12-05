@@ -12,47 +12,47 @@
     transition-duration: 0.5s;
     outline: 0;
   }
-  .input-newsletter {
-    height: 5rem;
-    width: 100%;
-    margin: 2rem 0;
-    flex-grow: 2;
-    border: solid white;
-    border-width: 0.1rem;
-    border-radius: 1rem;
-    margin: 0.2rem;
-    padding: 0 2.5rem;
-    text-align: left;
-    font-size: 1.6rem;
-    color: #4c4c4c;
-    font-weight: 700;
-    &::placeholder {
-      text-align: center;
-      color: #4c4c4c;
-      font-weight: 700;
+  .subscribe-newsletter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-width: 100%;
+    background-color: white;
+    border: solid 1px #e7e7e7;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.1rem 0.3rem rgba(76, 76, 76, 0.05), 0 0.2rem 0.4rem rgba(76, 76, 76, 0.05);
+    padding: 0 1rem;
+    height: 6rem;
+    .input-newsletter {
+      width: 80%;
+      height: 4rem;
+      background-color: white;
+      font-weight: bold;
+      overflow-y: scroll;
+      text-align: left;
+      color: #ff9e00;
+      width: 100%;
+      border: 0;
+      &:hover {
+        outline: none;
+      }
+      &:focus {
+        outline: none;
+      } &::placeholder {
+        color: #ff9e00;
+      }
     }
-    &:hover {
-      background-color: #f9f9f9;
-    }
-    &:focus {
-      outline: none;
-    }
-  }
-  .btn-newsletter {
-    height: 5rem;
-    width: 100%;
-    border-radius: 1rem;
-    margin: 0.2rem;
-    border: none;
-    background-color: #19a6ee;
-    color: white;
-    font-weight: 700;
-    &:hover {
-      transition: background-color 0.5s;
-      background-color: #41B6F1;
-    }
-    &:focus {
-      outline: none;
+    .btn-newsletter {
+      min-width: 10rem;
+      height: 4rem;
+      border-radius: 0.5rem;
+      background-color: #6dd3fd;
+      color: white;
+      font-weight: bold;
+      &:hover {
+        background-color: #41B6F1;
+        transition: ease 0.2s;
+      }
     }
   }
 }
@@ -108,7 +108,7 @@
 @media (max-width: 400px) {
   .register-form {
     flex-direction: column;
-    .input-newsletter {
+    .subscribe-newsletter {
       min-width: 25rem;
     }
   }
@@ -120,7 +120,7 @@
 @media (min-width: 401px) {
   .register-form {
     flex-direction: column;
-    .input-newsletter {
+    .subscribe-newsletter {
     min-width: 45rem;
     }
   }

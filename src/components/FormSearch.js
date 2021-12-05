@@ -4,11 +4,10 @@ import DatesPicker from './DatesPicker';
 import LocationSearchInput from './LocationSearchInput';
 import SelectedCities from './SelectedCities';
 import './_FormSearch.scss';
-import onClickOutside from 'react-onclickoutside';
 import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 var lodash = require('lodash');
 
-class FormSearch extends React.Component {
+export default class FormSearch extends React.Component {
   state = {
     citiesFrom: this.props.searchData ? this.props.searchData.cities : [],
     address: '',
@@ -229,13 +228,13 @@ class FormSearch extends React.Component {
     }
   };
 
+
   render() {
     return (
       <div className="formsearch">
-        {this.props.searchData && console.log(this.props.searchData)}
 
-        {this.props.isHomePage ?
-          <div className="formsearch-bar">
+{this.props.isHomePage ?
+          <div className="formsearch-bar-home">
             <button
               className="fromwhere-btn"
               onClick={(event) => this.startPlanningTrip(event)}
@@ -251,7 +250,7 @@ class FormSearch extends React.Component {
               {this.state.returnTrip ? 'Return' : 'One-way'}
             </button>
           </div> :
-          <div className="formsearch-bar">
+          <div className="formsearch-bar-results">
             <button
               className="fromwhere-btn"
               onClick={lodash.sum(Object.values(this.props.searchData.travelers)) > 1 ? (event) => this.openfullFormSearchResults(event) : (event) => this.startPlanningTrip(event)}
@@ -270,7 +269,7 @@ class FormSearch extends React.Component {
         }
         {this.state.displayfullFormSearchResults ?
           <div className="formsearch-results">
-            <div className="formsearch-bar">
+            <div className="formsearch-bar-results">
               <button
                 className="fromwhere-btn"
                 onClick={(event) => this.startPlanningTrip(event)}
@@ -468,132 +467,6 @@ class FormSearch extends React.Component {
         : ''}
         
       </div>
-      /*<div className="formsearch">
-        <div className="travel-options">
-          <div className="travel-type">
-            {this.state.showTravelTypeBtn ? (
-              <div className="travel-type-change">
-                <button
-                  onClick={(event) => {
-                    this.switchToOneWay(event);
-                    this.showTravelTypeBtn();
-                  }}
-                >
-                  <div className="check-box">
-                    {this.state.travelType === 'One-way' ? (
-                      <img alt="choice selector" src={iconCircle} className="icon-circle-select" />
-                    ) : null}
-                  </div>
-                  <span>One-way</span>
-                </button>
-                <button
-                  onClick={(event) => {
-                    this.switchToReturn(event);
-                    this.showTravelTypeBtn();
-                  }}
-                >
-                  <div className="check-box">
-                    {this.state.travelType === 'Return' ? (
-                      <img alt="choice selector" src={iconCircle} className="icon-circle-select" />
-                    ) : null}
-                  </div>
-                  <span>Return</span>
-                </button>
-              </div>
-            ) : null}
-            <button className="travel-type-btn" onClick={this.switchTravelTypeBtn}>
-              {this.state.travelType}
-
-              <div className="chevron-up-down">
-                <i className="fas fa-angle-down fa-lg"></i>
-              </div>
-            </button>
-          </div>
-
-          <div className="stop-trip">
-            {this.state.showStopTripBtn ? (
-              <div className="stop-trip-change">
-                <button
-                  onClick={(event) => {
-                    this.switchToIndirect(event);
-                    this.showStopTripBtn();
-                  }}
-                >
-                  <div className="check-box">
-                    {this.state.stopTrip === 'All routes' ? (
-                      <img alt="choice selector" src={iconCircle} className="icon-circle-select" />
-                    ) : null}
-                  </div>
-                  <span>All routes</span>
-                </button>
-                <button
-                  onClick={(event) => {
-                    this.switchToDirect(event);
-                    this.showStopTripBtn();
-                  }}
-                >
-                  <div className="check-box">
-                    {this.state.stopTrip === 'Only direct' ? (
-                      <img alt="choice selector" src={iconCircle} className="icon-circle-select" />
-                    ) : null}
-                  </div>
-                  <span>Only direct</span>
-                </button>
-              </div>
-            ) : null}
-            <button className="stop-trip-btn" onClick={this.switchStopTripBtn}>
-              {this.state.stopTrip}
-
-              <div className="chevron-up-down">
-                <i className="fas fa-angle-down fa-lg"></i>
-              </div>
-            </button>
-          </div>
-        </div>
-        <div className="travel-form">
-          <DatesPicker
-            dateFrom={this.state.dateFrom}
-            dateTo={this.state.dateTo}
-            showDateFrom={true}
-            showDateTo={true}
-            onChange={this.onInputDateChange}
-            switchToOneWay={this.switchToOneWay}
-            switchToReturn={this.switchToReturn}
-            switchToIndirect={this.switchToIndirect}
-            switchToDirect={this.switchToDirect}
-            travelType={this.state.travelType}
-            stopTrip={this.state.stopTrip}
-          />
-          <LocationSearchInput
-            address={this.props.address}
-            cities={this.props.citiesFrom}
-            addCity={this.props.addCity}
-            removeCity={this.props.removeCity}
-            handleAddressChange={this.props.handleAddressChange}
-          />
-          <button
-            className="btn btn-explore"
-            name="button"
-            disabled={!(this.state.dateFrom && this.props.citiesFrom.length > 0)}
-            type="submit"
-            onClick={() => this.search()}
-          >
-            {this.props.dis}
-            {this.props.isLoading ? <div className="loader"></div> : <div>Explore</div>}
-          </button>
-          <SelectedCities
-            cities={this.props.citiesFrom}
-            addCity={this.props.addCity}
-            removeCity={this.props.removeCity}
-            handleCityClick={this.showButtons}
-            addTraveler={this.addTraveler}
-            removeTraveler={this.removeTraveler}
-            address={this.props.address}
-          />
-        </div>
-      </div>*/
     );
   }
 }
-
-export default onClickOutside(FormSearch);

@@ -70,6 +70,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
+        width: 100%;
         padding: 0.5rem 0 0.5rem 2.2rem;
         background-color: #f9f9f9;
         .line-top {
@@ -111,13 +112,14 @@
       }
       .traveler-div-2 {
         position: relative;
-        grid-column: 2/6;
+        grid-column: 2/6 !important;
         grid-row: 3;
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        padding: 0.5rem 0 0.5rem 2.2rem;
         height: 2rem;
+        width: 100%;
+        padding: 0.5rem 0 0.5rem 2.2rem;
         background-color: #f9f9f9;
         .travelers {
           position: absolute;
@@ -150,7 +152,7 @@
       }
       .carrier-div-2 {
         position: relative;
-        grid-column: 2/6;
+        grid-column: 2/6 !important;
         grid-row: 4;
         display: flex;
         flex-direction: column;
@@ -190,11 +192,11 @@
             border-radius: 3rem;
             padding: 0.2rem 1.5rem;
             margin-right: 0.5rem;
-            background-color: #f49d11;
+            background-color: white;
             span.airline-name {
               font-size: 1.2rem;
               font-weight: bold;
-              color: white;
+              color: #f49d11;
             }
           }
           .travel-duration {

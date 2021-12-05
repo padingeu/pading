@@ -1,17 +1,10 @@
 import React from 'react';
-import './_Banner.scss';
 import FormSearch from './FormSearch';
-import catsTraveling from '../img/cats-traveling-and-gathering.png';
+import './_Banner.scss';
 import padingClassic from '../img/pading_classic_screenshot.png';
+import banner from '../img/10.jpg';
 import Popup from 'reactjs-popup';
-import friendsTogether from '../img/friends-together.png';
-import bannerDesktopLarge from '../img/banner-desktop-large.svg';
-import bannerDesktop from '../img/banner-desktop.svg';
-import bannerTabletLarge from '../img/banner-tablet-large.svg';
-import bannerTablet from '../img/banner-tablet.svg';
-import bannerMobileLarge from '../img/banner-mobile-large.svg';
-import bannerMobile from '../img/banner-mobile.svg';
-import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
+
 
 export default class Banner extends React.Component {
 
@@ -20,11 +13,9 @@ export default class Banner extends React.Component {
       <div>
         <div className="banner">
           <div className="banner-content-formsearch">
+            <img src={banner} alt="cats traveling and gathering" />
             {this.props.isHomePage ?
               <div className="banner-content">
-                <div className="banner-img">
-                  <img src={catsTraveling} alt="cats traveling and gathering" />
-                </div>
                 <h1>TRAVEL TO GATHER</h1>
                 <div className="pading-mode">
                   <button className="pading-mode-btn-active">Halfway</button>
@@ -45,13 +36,12 @@ export default class Banner extends React.Component {
                   </Popup>
                 </div>
                 <p>Fill in your friends' departure cities and your own, travel to common destinations and meet halfway !</p>
+                <FormSearch
+                  searchTrips={this.props.searchTrips}
+                  isHomePage={this.props.isHomePage}
+                />
               </div>
             : ''}
-            <FormSearch
-              searchTrips={this.props.searchTrips}
-              isHomePage={this.props.isHomePage}
-            />
-
           </div>
         </div>
       </div>
