@@ -242,47 +242,42 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip, travelType) => {
             Passengers: 1,
           };
 
-          axios
-            .post(`https://sandbox-api.c-level.earth/v1/calculate/flight`, body, {
+          sandboxPromises.push(
+            axios.post(`https://sandbox-api.c-level.earth/v1/calculate/flight`, body, {
               headers: {
                 apikey: '6b02f35c-1e9d-4cff-adb1-d238000c247c',
                 'Content-Type': 'application/json',
               },
             })
-            .then((result) => {
-              let key = body.IataCodes[0] + '-' + body.IataCodes[1];
-              carb[key] = result.data.Co2PerPerson_k;
-              console.log(result.data.Co2PerPerson_kg);
-            })
-            .catch((error) => {
-              console.log('failure');
-              dispatch({ type: 'FAILURE' });
-            });
+          );
         }
 
-        // Promise.all(sandboxPromises)
-        //   .then((results) => {
-        //     console.log('results');
-        //     for (let i = 0; i < results.length; i++) {
-        //       console.log(results[i]);
-        //     }
-        //   })
-        //   .catch((error) => {
-        //     console.log('failure');
-        //     dispatch({ type: 'FAILURE' });
-        //   });
-
-        console.log(carb);
-        const data = {
-          commonDestinations: commonDestinations,
-          initialTrips: trips,
-          trips,
-          travelers,
-          travelType,
-        };
-        console.log('after');
-        dispatch({ type: 'SEARCH', data });
-        dispatch({ type: 'SUCCESS' });
+        Promise.all(sandboxPromises)
+          .then((results) => {
+            console.log('results');
+            for (let i = 0; i < results.length; i++) {
+              const codes = JSON.parse(results[i].config.data).IataCodes;
+              const key = codes[0] + '-' + codes[1];
+              carb[key] = results[i].data.Co2PerPerson_kg;
+              // results[i].Co2PerPerson_kg
+            }
+            console.log(carb);
+            const data = {
+              commonDestinations: commonDestinations,
+              initialTrips: trips,
+              trips,
+              travelers,
+              travelType,
+              carb,
+            };
+            console.log('after');
+            dispatch({ type: 'SEARCH', data });
+            dispatch({ type: 'SUCCESS' });
+          })
+          .catch((error) => {
+            console.log('failure');
+            dispatch({ type: 'FAILURE' });
+          });
       })
       .catch((error) => {
         dispatch({ type: 'FAILURE' });

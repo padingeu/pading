@@ -53,7 +53,30 @@ export default function Results(props) {
     return 0;
   };
 
-  /*const sortByCarbFootprint = (event) => {
+  const getCarbonFootprint = (destination) => {
+    let carbonFootprint = 0;
+    const cities = props.search.cities;
+
+    for (let index in cities) {
+      let city = cities[index].name;
+
+      const tripsByCity = props.search.trips[city];
+
+      const trips = tripsByCity.filter((trip) => {
+        return trip.cityTo === destination;
+      });
+      const trip = trips[0];
+      let route = trip.route;
+      for (let i = 0; i < route.length; i++) {
+        console.log(route[i].flyFrom + '-' + route[i].flyTo);
+        carbonFootprint += props.search.carb[route[i].flyFrom + '-' + route[i].flyTo];
+      }
+    }
+    console.log(carbonFootprint);
+    return carbonFootprint;
+  };
+
+  const sortByCarbFootprint = (event) => {
     event.preventDefault();
     setSortByChoice('carb. footprint');
     props.search.commonDestinations.sort(compareFootprint);
@@ -69,10 +92,10 @@ export default function Results(props) {
     return 0;
   };
 
-  {/*const sortBySchedule = (event) => {
+  const sortBySchedule = (event) => {
     event.preventDefault();
     setSortByChoice('same schedule');
-  };*/
+  };
 
   return (
     <div>
@@ -123,7 +146,7 @@ export default function Results(props) {
                       </button>
                       <button
                         onClick={(event) => {
-                          //sortByCarbFootprint(event);
+                          sortByCarbFootprint(event);
                           displaySortBy();
                         }}
                       >
@@ -202,7 +225,7 @@ export default function Results(props) {
                                   pricesPerDepartureCity={destination.pricesPerDepartureCity}
                                   travelers={props.search.travelers}
                                   key={index}
-                                  carbonFootprint={destination.carbonFootprint}
+                                  carbonFootprint={getCarbonFootprint(destination.name)}
                                 />
                               </div>
                             }
