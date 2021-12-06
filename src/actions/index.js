@@ -123,7 +123,6 @@ const getCommonDestinations = (trips, cities) => {
     destinations.push({
       name: commonDestinations[i],
       ...prices,
-      carbonFootprint: i,
     });
   }
   destinations.sort(compare);
@@ -223,11 +222,7 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip, travelType) => {
         for (let index in cities) {
           let city = cities[index].name;
           for (let i = 0; i < trips[city].length; i++) {
-            // console.log(city.name);
-            // console.log(trips);
-
             let route = trips[city][i].route;
-
             for (let i = 0; i < route.length; i++) {
               carb[route[i].flyFrom + '-' + route[i].flyTo] = 0;
             }
@@ -259,16 +254,59 @@ export const searchTrips = (cities, dateFrom, dateTo, stopTrip, travelType) => {
               const codes = JSON.parse(results[i].config.data).IataCodes;
               const key = codes[0] + '-' + codes[1];
               carb[key] = results[i].data.Co2PerPerson_kg;
-              // results[i].Co2PerPerson_kg
             }
-            console.log(carb);
+            for (let destination of commonDestinations) {
+              console.log('destination is ' + destination);
+              const carbonFootprint = {};
+              console.log('reinit total');
+              let carbonFootprintTotal = 0;
+
+              for (let index in cities) {
+                let city = cities[index].name;
+                console.log('depart is ' + city);
+                const tripsByCity = trips[city];
+                console.log(destination);
+                let trip = tripsByCity.filter((trip) => {
+                  return trip.cityTo === destination.name;
+                })[0];
+
+                let route = trip.route;
+                carbonFootprint[city] = 0;
+                for (let i = 0; i < route.length; i++) {
+                  let carbonFootprintForFlight =
+                    carb[route[i].flyFrom + '-' + route[i].flyTo] *
+                    0.001102 *
+                    cities[index].numberOfPeople;
+                  carbonFootprint[city] += carbonFootprintForFlight;
+                  console.log(
+                    'add  ' +
+                      carbonFootprintForFlight +
+                      ' to total (' +
+                      route[i].flyFrom +
+                      '-' +
+                      route[i].flyTo +
+                      ')'
+                  );
+
+                  console.log('a');
+                  carbonFootprintTotal += carbonFootprintForFlight;
+                  console.log('b');
+                }
+                carbonFootprint[city] = carbonFootprint[city].toFixed(3);
+              }
+              console.log('c');
+              destination['carbonFootprint'] = carbonFootprint;
+              console.log('d');
+              destination['carbonFootprintTotal'] = carbonFootprintTotal.toFixed(3);
+              console.log('e');
+              console.log(carbonFootprint);
+            }
             const data = {
               commonDestinations: commonDestinations,
               initialTrips: trips,
               trips,
               travelers,
               travelType,
-              carb,
             };
             console.log('after');
             dispatch({ type: 'SEARCH', data });

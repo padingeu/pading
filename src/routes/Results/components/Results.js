@@ -53,28 +53,30 @@ export default function Results(props) {
     return 0;
   };
 
-  const getCarbonFootprint = (destination) => {
-    let carbonFootprint = 0;
-    const cities = props.search.cities;
+  // const getCarbonFootprint = (destination) => {
+  //   let carbonFootprint = 0;
+  //   const cities = props.search.cities;
 
-    for (let index in cities) {
-      let city = cities[index].name;
+  //   for (let index in cities) {
+  //     let city = cities[index].name;
 
-      const tripsByCity = props.search.trips[city];
+  //     const tripsByCity = props.search.trips[city];
 
-      const trips = tripsByCity.filter((trip) => {
-        return trip.cityTo === destination;
-      });
-      const trip = trips[0];
-      let route = trip.route;
-      for (let i = 0; i < route.length; i++) {
-        console.log(route[i].flyFrom + '-' + route[i].flyTo);
-        carbonFootprint += props.search.carb[route[i].flyFrom + '-' + route[i].flyTo];
-      }
-    }
-    console.log(carbonFootprint);
-    return carbonFootprint;
-  };
+  //     const trips = tripsByCity.filter((trip) => {
+  //       return trip.cityTo === destination;
+  //     });
+  //     const trip = trips[0];
+  //     let route = trip.route;
+  //     for (let i = 0; i < route.length; i++) {
+  //       carbonFootprint +=
+  //         props.search.carb[route[i].flyFrom + '-' + route[i].flyTo] *
+  //         0.001102 *
+  //         cities[index].numberOfPeople;
+  //     }
+  //   }
+
+  //   return carbonFootprint.toFixed(3);
+  // };
 
   const sortByCarbFootprint = (event) => {
     event.preventDefault();
@@ -99,6 +101,7 @@ export default function Results(props) {
 
   return (
     <div>
+      {console.log(props.search)}
       <NavBar scrollUp={scrollUp} />
       <Banner
         isLoading={props.search.isLoading}
@@ -159,7 +162,7 @@ export default function Results(props) {
                             />
                           ) : null}
                         </div>
-                        <span>Carb. footprint (soon)</span>
+                        <span>Carb. footprint</span>
                       </button>
 
                       <button
@@ -225,7 +228,7 @@ export default function Results(props) {
                                   pricesPerDepartureCity={destination.pricesPerDepartureCity}
                                   travelers={props.search.travelers}
                                   key={index}
-                                  carbonFootprint={getCarbonFootprint(destination.name)}
+                                  carbonFootprint={destination.carbonFootprintTotal}
                                 />
                               </div>
                             }
@@ -236,6 +239,7 @@ export default function Results(props) {
                               trips={props.search.trips}
                               key={index}
                               travelType={props.search.travelType}
+                              carbonFootprint={destination.carbonFootprint}
                             />
                           </Popup>
                         </div>

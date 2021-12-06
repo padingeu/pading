@@ -18,7 +18,10 @@ export default function DetailsResults(props) {
       <div className="details-results-travel">
         <div className="details-results-travel">
           <div className="details-results-travel-city">
-            <span className="to-city">To {props.destination}</span>
+            <span className="to-city">
+              {console.log(props)}
+              To {props.destination} {props.carbonFootprint}
+            </span>
           </div>
           {props.trip.wayRoutes.map((route, index) => {
             return (
