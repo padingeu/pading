@@ -51,7 +51,7 @@
     }
   }
   
-  @media only (max-width: 640px) {
+  @media (max-width: 640px) {
     .banner {
       min-height: calc(100vh - 7rem);
       .valueprop {
@@ -81,7 +81,7 @@
     }
   }
   
-  @media only (min-width: 641px) {
+  @media (min-width: 641px) {
     .valueprop {
       top: 0rem;
       .valueprop-title-details {
