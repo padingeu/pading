@@ -63,7 +63,7 @@ class DatesPicker extends React.Component {
             <Calendar
               locale={'en'}
               minDate={new Date()}
-              onClickOutside={this.handleClickOutside}
+              //onClickOutside={this.handleClickOutside}
               onChange={this.props.onChange}
               selectRange={this.props.returnTrip ? true : false}
               returnValue={'range'}

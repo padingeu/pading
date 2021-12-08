@@ -79,8 +79,6 @@ export default function DetailsResults(props) {
       <div className="details-results-book">
         <div className="carbonfootprint">
           <div className="carbonfootprint-amount">
-            {/* <i className="fas fa-smog fa-lg"></i>
-            <span>1.399 t</span> */}
           </div>
         </div>
         <div className="booking-zone">

@@ -52,7 +52,7 @@ export default function FilterTime(props) {
               );
             })}
         </div>
-        {props.search.travelType === 'Return' ? (
+        {props.search.returnTrip ? (
           <div className="filter-table-return">
             <div className="filter-table-header">
               <p>Return times</p>

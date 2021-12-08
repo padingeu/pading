@@ -3,12 +3,13 @@ import NavBar from '../../../components/NavBar';
 import FormSearch from '../../../components/FormSearch';
 import './_Results.scss';
 import LinearProgress from '@material-ui/core/LinearProgress';
+import SortBy from './SortBy';
 import TripCard from './TripCard';
 import FilterTime from './FilterTime';
 import TripCardSkeleton from './TripCardSkeleton';
 import Popup from 'reactjs-popup';
 import DetailsResultsPopup from './DetailsResultsPopup';
-import iconCircle from '../../../img/icon-circle.svg';
+import Footer from '../../../components/Footer';
 import catLost from '..//img/cat-lost.svg';
 
 import { useSelector } from 'react-redux';
@@ -25,6 +26,10 @@ export default function Results(props) {
       top: 0,
       behavior: 'smooth',
     });
+  };
+
+  const handleClickOutside = (event) => {
+    setShowsortBy(false);
   };
 
   const displayFilter = () => {
@@ -51,27 +56,6 @@ export default function Results(props) {
     return 0;
   };
 
-  /*const sortByCarbFootprint = (event) => {
-    event.preventDefault();
-    setSortByChoice('carb. footprint');
-    props.search.commonDestinations.sort(compareFootprint);
-  };
-
-  const compareFootprint = (a, b) => {
-    if (a.carbonFootprint < b.carbonFootprint) {
-      return -1;
-    }
-    if (a.carbonFootprint > b.carbonFootprint) {
-      return 1;
-    }
-    return 0;
-  };
-
-  {/*const sortBySchedule = (event) => {
-    event.preventDefault();
-    setSortByChoice('same schedule');
-  };*/
-
   return (
     <div>
       <NavBar scrollUp={scrollUp}/>
@@ -95,80 +79,23 @@ export default function Results(props) {
               </div>
               {props.search.commonDestinations.length > 0 && (
                 <div className="filter-sort">
-                  <button className="btn-filter" onClick={displayFilter}>
+                  <div className="btn-filter" onClick={displayFilter}>
                     <i className="fa fa-filter"></i>
                     Filter
-                  </button>
-                  <button className="btn-sort" onClick={displaySortBy}>
+                  </div>
+                  <div className="btn-sort" onClick={displaySortBy}>
                     <i className="fas fa-sort-amount-down"></i>
                     Sort by
                     {showSortBy ? (
-                      <div className="sortby-change">
-                        <button
-                          onClick={(event) => {
-                            sortByPrice(event);
-                            displaySortBy();
-                          }}
-                        >
-                          <div className="check-box">
-                            {sortByChoice === 'lowest price' ? (
-                              <img
-                                alt="choice selector"
-                                src={iconCircle}
-                                className="icon-circle-select"
-                              />
-                            ) : null}
-                          </div>
-                          <span>Lowest price</span>
-                        </button>
-                        <button
-                          onClick={(event) => {
-                            //sortByCarbFootprint(event);
-                            displaySortBy();
-                          }}
-                        >
-                          <div className="check-box">
-                            {sortByChoice === 'carb. footprint' ? (
-                              <img
-                                alt="choice selector"
-                                src={iconCircle}
-                                className="icon-circle-select"
-                              />
-                            ) : null}
-                          </div>
-                          <span>Carb. footprint (soon)</span>
-                        </button>
-
-                        <button
-                          onClick={(event) => {
-                            //sortBySchedule(event);
-                            displaySortBy();
-                          }}
-                        >
-                          <div className="check-box">
-                            {sortByChoice === 'same schedule' ? (
-                              <img
-                                alt="choice selector"
-                                src={iconCircle}
-                                className="icon-circle-select"
-                              />
-                            ) : null}
-                          </div>
-                          <span>Same schedule (soon)</span>
-                        </button>
-                      </div>
-                    ) : (
-                      ''
-                    )}
-                  </button>
+                      <SortBy sortByPrice={sortByPrice} displaySortBy={displaySortBy} sortByChoice={sortByChoice} handleClickOutside={handleClickOutside}/>
+                    ) : ''}
+                  </div>
                 </div>
               )}
             </div>
             {showFilter ? (
               <FilterTime search={props.search} showFilter={showFilter} doFilter={props.doFilter} />
-            ) : (
-              ''
-            )}
+            ) : ''}
             <div id="cards-results-wrapper">
               {props.search.isLoading ? (
                 <div className="cards-results">
@@ -210,7 +137,7 @@ export default function Results(props) {
                             >
                             {closePopup => (
                               <div className="popup">
-                                <button className="close-popup" onClick={closePopup}><i class="far fa-times-circle fa-2x"></i></button>
+                                <button className="close-popup" onClick={closePopup}><i class="fas fa-times fa-lg"></i></button>
                                 <DetailsResultsPopup
                                   destination={destination.name}
                                   trips={props.search.trips}
@@ -240,6 +167,7 @@ export default function Results(props) {
           </div>
         </div>
       </div>
+      <Footer scrollUp={scrollUp} />
     </div>
   );
 }

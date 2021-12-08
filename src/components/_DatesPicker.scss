@@ -140,6 +140,18 @@
   }
 }
 
+@media (max-width: 500px) {
+  .inputdate-bar {
+    font-size: 1.4rem;
+  }
+}
+
+@media (min-width: 501px) {
+  .inputdate-bar {
+    font-size: 1.6rem;
+  }
+}
+
 @media (max-width: 900px) {
   .calendar {
     height: 100vh;

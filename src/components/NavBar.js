@@ -41,7 +41,7 @@ class Navbar extends React.Component {
               >
                 Roadmap
               </a>
-              <Link to="/blog" onClick={this.props.scrollUp}>
+              <Link to="/blog" target="_blank" onClick={this.props.scrollUp}>
                 <button className="button-navbar">Blog</button>
               </Link>
               <div className="navbar-social">

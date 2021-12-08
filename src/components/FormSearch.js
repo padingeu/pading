@@ -1,8 +1,6 @@
 import React from 'react';
 import { format } from 'date-fns';
-import DatesPicker from './DatesPicker';
-import LocationSearchInput from './LocationSearchInput';
-import SelectedCities from './SelectedCities';
+import FormSearchScreen from './FormSearchScreen';
 import './_FormSearch.scss';
 import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 var lodash = require('lodash');
@@ -23,7 +21,8 @@ export default class FormSearch extends React.Component {
     showDateTo: false,
     directTrip: false,
     flexibleTrip: false,
-    displayFullFormSearchResults: false
+    displayFullFormSearchResults: false,
+    FormSearchisOpen: true
   };
 
 
@@ -42,7 +41,6 @@ export default class FormSearch extends React.Component {
       this.state.directTrip,
       this.state.returnTrip,
       this.state.flexibleTrip,
-      
     );
     this.scrollDown();
     window.gtag('event', 'search trip', {
@@ -93,6 +91,13 @@ export default class FormSearch extends React.Component {
       },
       true
     );
+  };
+
+  handleClickOutside = (event) => {
+    this.setState({ displayFromWhereScreen: false });
+    this.setState({ displayTravelersScreen: false });
+    this.setState({ displayDatesPicker: false });
+    this.setState({ displayDetailsScreen: false });
   };
 
   addCity = async (address) => {
@@ -228,12 +233,11 @@ export default class FormSearch extends React.Component {
     }
   };
 
-
   render() {
     return (
       <div className="formsearch">
-
-{this.props.isHomePage ?
+        
+        {this.props.isHomePage ?
           <div className="formsearch-bar-home">
             <button
               className="fromwhere-btn"
@@ -267,6 +271,7 @@ export default class FormSearch extends React.Component {
             </button>
           </div>
         }
+
         {this.state.displayfullFormSearchResults ?
           <div className="formsearch-results">
             <div className="formsearch-bar-results">
@@ -286,9 +291,9 @@ export default class FormSearch extends React.Component {
                 {this.state.returnTrip ? 'Return' : 'One-way'}
               </button>
             </div>
-            <div className="formsearch-bar-2">
+            <div className="formsearch-bar-results-2">
               <button
-                className="formsearch-bar-2-btn dates-btn"
+                className="formsearch-bar-results-2-btn dates-btn"
                 onClick={(event) => {this.goToDatesPicker(event)}}
               >
                 <i class="far fa-calendar-alt"></i>
@@ -300,7 +305,7 @@ export default class FormSearch extends React.Component {
               </button>
               <button
                 onClick={(event) => {this.goToTravelersPage(event)}}
-                className="formsearch-bar-2-btn travelers-btn"
+                className="formsearch-bar-results-2-btn travelers-btn"
               >
                 <i class="far fa-user"></i>
                 {this.props.searchData && lodash.sum(Object.values(this.props.searchData.travelers))} travelers
@@ -309,163 +314,36 @@ export default class FormSearch extends React.Component {
           </div>
         : ''}
 
-        {this.state.displayFromWhereScreen ?
-          <div className="search-screen">
-            <div className="searchbar">
-              <button
-                className="btn-back"
-                onClick={this.props.isHomePage ? (event) => {this.goToHomePage(event)} : (event) => {this.goToResultsPage(event)}}
-              >
-                <i className="fas fa-chevron-left"></i>
-              </button>
-              <LocationSearchInput
-                address={this.state.address}
-                cities={this.state.citiesFrom}
-                addCity={this.addCity}
-                removeCity={this.removeCity}
-                handleAddressChange={this.handleAddressChange}
-              />
-            </div>
-            <SelectedCities
-              address={this.state.address}
-              cities={this.state.citiesFrom}
-              addCity={this.addCity}
-              removeCity={this.removeCity}
-              handleCityClick={this.showButtons}
-              addTraveler={this.addTraveler}
-              removeTraveler={this.removeTraveler}
-            />
-            <div className="search-criteria-confirm">
-              <button
-                className="search-criteria-confirma-btn"
-                name="button"
-                disabled={!(this.state.citiesFrom.length > 1)}
-                onClick={(event) => {this.goToTravelersPage(event)}}
-              >
-                {this.state.citiesFrom.length < 2 ? 'Select two or more departure cities' : 'Select these cities'}
-              </button>
-            </div>
-          
-          </div>
-        :''}
-
-        {this.state.displayTravelersScreen ?
-          <div className="search-screen">
-            <div className="searchbar">
-              <button
-                className="btn-back"
-                onClick={this.props.isHomePage ? (event) => {this.goToFromWherePage(event)} : (event) => {this.goToResultsPage(event)}}
-              >
-                <i className="fas fa-chevron-left"></i>
-              </button>
-              <span className="searchbar-question">How many travelers are you ?</span>
-            </div>
-            <div className="cities-and-travelers">
-              {this.state.citiesFrom.map((city) => {
-                return (
-                <div className="travelers-departure-city">
-                  <span className="departure-city-name">{city.name}</span>
-                  <div className="people-number-change">
-                    <i
-                      className="edit-travelers far fa-minus-square fa-lg"
-                      onClick={(event) => this.removeTraveler(event, city)}
-                    ></i>
-                    <span className="number-of-travelers">{city.numberOfPeople}</span>
-                    <i
-                      className="edit-travelers far fa-plus-square fa-lg"
-                      onClick={(event) => this.addTraveler(event, city)}
-                    ></i>
-                    </div>
-                </div>
-                )
-              })}
-            </div>
-            <div className="search-criteria-confirm">
-              <button
-                className="search-criteria-confirma-btn"
-                name="button"
-                disabled={!(this.state.citiesFrom.length > 0)}
-                onClick={(event) => {this.goToDatesPicker(event)}}
-              >
-                Continue
-              </button>
-            </div>
-          </div>
-        : ''}
-
-        {this.state.displayDatesPicker ?
-          <div className="search-screen">
-            <div className="searchbar">
-              <button
-                className="btn-back"
-                onClick={this.props.isHomePage ? (event) => {this.goToTravelersPage(event)} : (event) => {this.goToResultsPage(event)}}
-              >
-                <i className="fas fa-chevron-left"></i>
-              </button>
-              <DatesPicker
-                  returnTrip={this.state.returnTrip}
-                  dateFrom={this.state.dateFrom}
-                  dateTo={this.state.dateTo}
-                  showDateFrom={true}
-                  showDateTo={true}
-                  onChange={this.onInputDateChange}
-               />
-            </div>
-          
-            
-            <div className="search-criteria-confirm">
-              <button
-                className="search-criteria-confirma-btn"
-                name="button"
-                disabled={!(this.state.dateFrom)}
-                onClick={(event) => {this.goToDetailsPage(event)}}
-              >
-                Continue
-              </button>
-            </div>
-          </div>
-        : ''}
-
-        {this.state.displayDetailsScreen ?
-          <div className="search-screen">
-            <div className="searchbar">
-               <button
-                  className="btn-back"
-                  onClick={this.props.isHomePage ? (event) => {this.goToDatesPicker(event)} : (event) => {this.goToResultsPage(event)}}
-                >
-                  <i className="fas fa-chevron-left"></i>
-                </button>
-                <span className="searchbar-question">Some specific criteria ?</span>
-              </div>
-              <div className="criteria">
-                <div className="criteria-buttons">
-                  <button
-                    onClick={(event) => {this.switchToDirect(event)}}
-                    className={this.state.directTrip ? 'criteria-btn criteria-btn-active' : 'criteria-btn'}
-                  >
-                    Only direct
-                  </button>
-                  <button
-                  onClick={(event) => {this.switchToFlexibleTrip(event)}}
-                    className="criteria-btn"
-                  >
-                    Flexible trip +/- 1 day
-                  </button>
-                </div>
-              </div>
-            <div className="search-criteria-confirm">
-              <button
-                className="search-criteria-confirma-btn"
-                name="button"
-                disabled={!(this.state.citiesFrom.length > 0)}
-                onClick={() => this.search()}
-              >
-                Find the best destinations !
-              </button>
-            </div>
-          </div>
-        : ''}
-        
+        <FormSearchScreen
+          displayFromWhereScreen={this.state.displayFromWhereScreen}
+          isHomePage={this.state.isHomePage}
+          goToHome={this.goToHomePage}
+          goToResultsPage={this.goToResultsPage}
+          address={this.state.address}
+          cities={this.state.citiesFrom}
+          addCity={this.addCity}
+          removeCity={this.removeCity}
+          handleAddressChange={this.handleAddressChange}
+          displayTravelersScreen={this.state.displayTravelersScreen}
+          citiesFrom={this.state.citiesFrom}
+          goToTravelersPage={this.goToTravelersPage}
+          addTraveler={this.addTraveler}
+          removeTraveler={this.removeTraveler}
+          goToDatesPicker={this.goToDatesPicker}
+          displayDatesPicker={this.state.displayDatesPicker}
+          returnTrip={this.state.returnTrip}
+          dateFrom={this.state.dateFrom}
+          dateTo={this.state.dateTo}
+          onInputDateChange={this.onInputDateChange}
+          displayDetailsScreen={this.state.displayDetailsScreen}
+          goToDetailsPage={this.goToDetailsPage}
+          switchToDirect={this.switchToDirect}
+          switchToFlexibleTrip={this.props.switchToFlexibleTrip}
+          directTrip={this.state.directTrip}
+          search={this.search}
+          closeFormSearchScreen={this.closeFormSearchScreen}
+          handleClickOutside={this.handleClickOutside}
+        />        
       </div>
     );
   }
