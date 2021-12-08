@@ -7,8 +7,8 @@
     margin-bottom: 2rem;
     padding: 1.5rem;
     background-color: white;
-    box-shadow: 0 2px 7px 0 rgba(0,0,0,0.12);
-    border-radius: 1.5rem;
+    box-shadow: 0 0.1rem 0.2rem rgba(76, 76, 76, 0.03), 0 0.2rem 0.4rem rgba(76, 76, 76, 0.03);
+    border-radius: 0.5rem;
     .filter-table {
       display: flex;
       justify-content: center;
@@ -28,8 +28,9 @@
           width: 100%;
           flex-grow: 2;
           p {
-            color: #4c4c4c;
+            color: #808080;
             font-weight: bold;
+            font-size: 1.4rem;
           }
         }
         .filter-table-body {
@@ -38,7 +39,9 @@
           justify-content: center;
           align-items: center;
           p {
-            color: #bcbcbc;
+            color: #ff9e00;
+            font-weight: bold;
+            font-size: 1.4rem;
             margin-bottom: -0.2rem;
           }
         }
@@ -55,8 +58,9 @@
           align-items: center;
           width: 100%;
           p {
-            color: #4c4c4c;
+            color: #808080;
             font-weight: bold;
+            font-size: 1.4rem;
           }
         }
         .filter-table-body {
@@ -65,7 +69,9 @@
           justify-content: center;
           align-items: center;
           p {
-            color: #bcbcbc;
+            color: #ff9e00;
+            font-weight: bold;
+            font-size: 1.4rem;
             margin-bottom: -0.2rem;
           }
         }

@@ -39,12 +39,12 @@ export default function DetailsResults(props) {
             <div className="line"></div>
             <i className="fas fa-map-marker-alt fa-lg"></i>
             <span className="arrive-at">Arrive in {props.destination}</span>
-            <span className="number-of-nights">
+            <span className="arrive-at-message">
               {props.trip.nightsInDest} nights at the destination
             </span>
           </div>
         </div>
-        {props.travelType === 'Return' && (
+        {props.returnTrip === true && (
           <div className="details-results-travel-return">
             <div className="details-results-travel">
               <div className="details-results-travel-city">
@@ -64,14 +64,14 @@ export default function DetailsResults(props) {
             </div>
           </div>
         )}
-        {props.travelType === 'Return' && (
+        {props.returnTrip === true && (
           <div className="details-results-travel-destination-content-section">
             <div className="destination-div-1"></div>
             <div className="destination-div-2">
               <div className="line"></div>
               <i className="fas fa-map-marker-alt fa-lg"></i>
               <span className="arrive-at">Arrive in {props.cityFrom}</span>
-              <span className="welcome-back">Welcome back!</span>
+              <span className="arrive-at-message">Welcome back!</span>
             </div>
           </div>
         )}
@@ -79,8 +79,6 @@ export default function DetailsResults(props) {
       <div className="details-results-book">
         <div className="carbonfootprint">
           <div className="carbonfootprint-amount">
-            {/* <i className="fas fa-smog fa-lg"></i>
-            <span>1.399 t</span> */}
           </div>
         </div>
         <div className="booking-zone">

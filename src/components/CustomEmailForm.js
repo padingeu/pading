@@ -63,12 +63,16 @@ const CustomEmailForm = ({ status, message, onValidated }) => {
           })}
         </SweetAlert>
       )}
-
-      <input className="input-newsletter" ref={(node) => (email = node)} type="email" placeholder="Register with your email" />
-
-      <button className="btn-newsletter" onClick={submit} disabled={status === 'sending'}>
-        <i className="fas fa-paper-plane fa-lg"></i>
-      </button>
+      
+      <div className="subscribe-newsletter">
+        <input className="input-newsletter" ref={(node) => (email = node)} type="email" placeholder="Register with your email" />
+        <button
+          className="btn-newsletter"
+          onClick={submit} disabled={status === 'sending'}
+        >
+          <i className="fas fa-paper-plane fa-lg"></i>
+        </button>
+      </div>
     </div>
   );
 };

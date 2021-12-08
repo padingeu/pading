@@ -3,13 +3,13 @@
   overflow: hidden;
   background: white;
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
-  border-radius: 0.7rem;
+  border-radius: 0.5rem;
   cursor: pointer;
   transition: 0.3s;
   img {
-    height: 20rem;
+    height: 27rem;
     width: 100%;
-    border-radius: 0.5rem;
+    border-radius: 0.3rem;
     object-fit: cover;
   }
   .trip-infos {

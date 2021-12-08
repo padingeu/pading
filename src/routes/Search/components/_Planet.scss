@@ -1,12 +1,19 @@
 .wrapper {
-  .myclimate {
+  .planet {
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    background-color: white;
-    .myclimate-content {
-      text-align: center;
-      font-weight: bold;
+    flex-direction: column;
+    position: relative;
+    .planet-content {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      position: relative;
+      width: 100%;
+      .planet-title-details {
+        text-align: left;
+        font-weight: bold;
+        padding: 0 1rem;
+      }
       .focus-text {
         color: white;
         position: relative;
@@ -22,8 +29,15 @@
           border-radius: 0.5rem;
         }
       }
+      h2 {
+        width: 100%;
+      }
+      p {
+        width: 100%;
+        text-align: left;
+      }
     }
-    .earth-image {
+    .planet-image {
       text-align: center;
       max-width: 40rem;
       padding: 2rem;
@@ -32,59 +46,86 @@
 }
 
 @media (max-width: 500px) {
-  .earth-image {
-    height: 25rem;
+  .planet-content {
+    flex-direction: column;
+    padding: 2rem 1rem 0rem 1rem;
+    .planet-image {
+      height: 25rem;
+    }
   }
 }
 
 @media (min-width: 501px) {
-  .earth-image {
-    height: 40rem;
+  .planet-content {
+    padding: 2rem 3rem 0rem 3rem;
+    .planet-image {
+      height: 40rem;
+    }
   }
 }
 
 @media (max-width: 900px) {
-  .myclimate {
+  .planet {
     flex-direction: column;
-    padding: 7rem 1rem 7rem 1rem;
-    .earth-image {
+    .planet-image {
       max-width: 100vw;
     }
   }
 }
 
 @media (min-width: 901px) {
-  .myclimate {
-    padding: 10rem 3rem 2rem 3rem;
-    .earth-image {
+  .planet {
+    width: 100%;
+    .planet-image {
       width: 45%;
     }
-    .myclimate-content {
+    .planet-content {
       width: 55%;
     }
   }
 }
 
-@media (min-width: 1201px) {
-  .myclimate {
-    padding: 10rem 15rem 2rem 15rem;
-  }
-}
-
 
 @media (max-width: 500px) {
-  .myclimate-content {
+  .planet-content {
     .underline {
-      border: 1.3rem solid #427103;
+      border: 1.8rem solid #427103;
     }
   }
 }
 
 
 @media (min-width: 501px) {
-  .myclimate-content {
-    .underline {
-      border: 2rem solid #427103;
+  .planet-content {
+    flex-direction: column;
+    padding: 2rem 3rem 0rem 3rem;
+    .simple-solution-title-details {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: -5rem;
     }
+    .underline {
+      border: 2rem solid #85bf82;
+    }
+  }
+}
+
+@media (min-width: 901px) {
+  .planet-content {
+    flex-direction: row;
+    .planet-title-details {
+      width: 55%;
+      margin-bottom: 10rem;
+    }
+    .planet-image {
+      width: 45%;
+    }
+  }
+}
+@media (min-width: 1201px) {
+  .planet-content {
+    padding: 10rem 15rem 0rem 15rem;
   }
 }

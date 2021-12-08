@@ -10,9 +10,6 @@
   .navbar-brand {
     display: flex;
     align-items: center;
-    img {
-      height: 3.4rem;
-    }
   }
   .navbar-menu {
     display: flex;
@@ -24,9 +21,8 @@
         cursor: pointer;
         background: transparent;
         text-decoration: none;
-        font-family: 'Paytone One', sans-serif;
         font-weight: bold;
-        font-size: 1.2rem;
+        font-size: 1.4rem;
         margin: 0.5rem 2rem;
         color: #4c4c4c;
         &:hover {
@@ -84,6 +80,18 @@
 
 @media only (max-width: 900px) {
   .navbar {
+    .navbar-brand {
+      padding-left: 3rem;
+      .logo-mobile {
+        display: block;
+      }
+      .logo-desktop {
+        display: none;
+      }
+      img {
+        height: 5rem;
+      }
+    }
     .navbar-menu-items{
       display: none;
     }
@@ -103,7 +111,7 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      top: 7rem;
+      top: 6.9rem;
       width: 100vw;
       height: calc(100vh - 7rem);
       z-index: 1;
@@ -113,11 +121,10 @@
         width: 100%;
         margin: 0.7rem;
         text-align: center;
-        font-size: 2rem;
+        font-size: 1.8rem;
         cursor: pointer;
         background: transparent;
         text-decoration: none;
-        font-family: 'Paytone One', sans-serif;
         font-weight: bold;
         color: #4c4c4c;
         &:hover {
@@ -144,7 +151,16 @@
 @media only (min-width: 901px) {
   .navbar {
     .navbar-brand {
-      margin-left: 10rem;
+      padding-left: 10rem;
+      .logo-mobile {
+        display: none;
+      }
+      .logo-desktop {
+        display: block;
+      }
+      img {
+        height: 3.5rem;
+      }
     }
   }
   .navbar-menu-items {

@@ -33,75 +33,54 @@ export default class Footer extends React.Component {
                 />
               </div>
             </div>
-            <div className="footer-menu-app-contact">
-              <div className="footer-menu-app">
-                <h4>PADING</h4>
-                <Link to="/blog" onClick={this.props.scrollUp}>
-                  <button className="btn-footer">Blog</button>
-                </Link>
-                <Popup
-                  modal
-                  trigger={
-                    <button className="btn-footer">
-                      Questions
-                    </button>
-                  }
-                >
-                  <Faq />
-                </Popup>
-                <a
+            <div className="footer-menu-app">
+              <Link to="/blog" onClick={this.props.scrollUp}>
+                <button className="btn-footer"><span>Blog</span></button>
+              </Link>
+              <Popup
+                modal
+                trigger={
+                  <button className="btn-footer">
+                    <span>Answers</span>
+                  </button>
+                }
+              > 
+                {closePopup => (
+                  <div className="popup">
+                    <button className="close-popup" onClick={closePopup}><i class="far fa-times-circle fa-2x"></i></button>
+                    <Faq />
+                  </div>
+                )}
+              </Popup>
+              <a
                 className="btn-footer"
                 href="https://trello.com/b/NoQieqmu/pading-public-roadmap"
                 rel="noopener noreferrer"
                 target="_blank"
               >
-                Roadmap
+              <span>Roadmap</span>
               </a>
-              </div>
-              <div className="footer-menu-contact">
-                <h4>CONTACT</h4>
-                <a href="mailto:contact@pading.eu" target="_blank" rel="noopener noreferrer">
-                  <p>Contact us</p>
-                </a>
-                <div className="footer-social">
+              <a href="mailto:contact@pading.eu" target="_blank" rel="noopener noreferrer">
+                <span>Contact us</span>
+              </a>
+              <div className="footer-social">
                 <a
-                      href="https://www.facebook.com/Pading-103563007939325/?view_public_for=103563007939325"
-                      rel="noopener noreferrer"
-                      target="_blank"
-                  >
-                      <i className="fab fa-facebook"></i>
-                  </a>
-                  <a
-                    href="https://www.instagram.com/pading.eu/"
-                    rel="noopener noreferrer"
-                    target="_blank"
-                  >
-                    <i className="fab fa-instagram"></i>
-                  </a>
-                </div>
+                  href="https://www.facebook.com/Pading-103563007939325/?view_public_for=103563007939325"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <i className="fab fa-facebook"></i>
+                </a>
+                <a
+                  href="https://www.instagram.com/pading.eu/"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <i className="fab fa-instagram"></i>
+                </a>
               </div>
             </div>
           </div>
-          {/*<div className="tree-nations">
-            <a
-              href="https://tree-nation.com/profile/impact/pading-1#co2"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                paddingBottom: '2rem',
-                position: 'relative',
-                cursor: 'pointer',
-                display: 'block',
-                zIndex: 1,
-              }}
-            >
-              <img
-                src="https://tree-nation.com/images/tracking/label-co2-website-white-en.png"
-                alt="logo of tree nation, environmental non profit association"
-                style={{ width: 150, height: 'auto' }}
-              />
-            </a>
-          </div>*/}
         </div>
       </div>
     );

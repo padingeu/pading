@@ -25,6 +25,7 @@
         align-items: center;
         background-color: white;
         border-radius: 0 1rem 0 0;
+        font-weight: bold;
         .date-from {
           position: absolute;
           left: 0.6rem;
@@ -34,7 +35,9 @@
         }
         i {
           margin-right: 1rem;
-          color: #ff9e00;
+        }
+        .travel-date {
+          font-size: 1.2rem;
         }
       }
       .stopover-div {
@@ -67,6 +70,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
+        width: 100%;
         padding: 0.5rem 0 0.5rem 2.2rem;
         background-color: #f9f9f9;
         .line-top {
@@ -108,13 +112,14 @@
       }
       .traveler-div-2 {
         position: relative;
-        grid-column: 2/6;
+        grid-column: 2/6 !important;
         grid-row: 3;
         display: flex;
         justify-content: flex-start;
         align-items: center;
-        padding: 0.5rem 0 0.5rem 2.2rem;
         height: 2rem;
+        width: 100%;
+        padding: 0.5rem 0 0.5rem 2.2rem;
         background-color: #f9f9f9;
         .travelers {
           position: absolute;
@@ -122,15 +127,15 @@
           border-left: 0.15rem solid #dce4e9;
           top: 0;
           height: 100%;
-          font-size: 1.2rem;
         }
         .fa-user-friends {
-          color: #19a6ee;
+          color: #4Ac7fc;
           margin-right: 0.5rem;
         }
         span.travelers-number {
-          color: #19a6ee;
+          color: #4Ac7fc;
           font-weight: bold;
+          font-size: 1.2rem;
         }
       }
       .carrier-div-1 {
@@ -147,7 +152,7 @@
       }
       .carrier-div-2 {
         position: relative;
-        grid-column: 2/6;
+        grid-column: 2/6 !important;
         grid-row: 4;
         display: flex;
         flex-direction: column;
@@ -187,21 +192,22 @@
             border-radius: 3rem;
             padding: 0.2rem 1.5rem;
             margin-right: 0.5rem;
-            background-color: #f9f9f9;
+            background-color: white;
             span.airline-name {
               font-size: 1.2rem;
-              line-height: 0rem;
+              font-weight: bold;
+              color: #f49d11;
             }
           }
           .travel-duration {
             border-radius: 5rem;
             padding: 0.2rem 1rem;
-            background-color: #f9f9f9;
+            background-color: #4Ac7fc;
+            height: 100%;
             span.travel-duration-hours {
-              font-size: 1.2rem;
               font-weight: bold;
-              line-height: 0rem;
-              color: #19a6ee;
+              color: white;
+              font-size: 1.2rem;
             }
           }
           .show-more-details {
@@ -216,8 +222,11 @@
             padding: 0.5rem 1rem 0.5rem 1rem;
             border-radius: 0.5rem;
             cursor: pointer;
+            i {
+              color: #4Ac7fc;
+            }
             &:hover {
-              background-color: white;
+              background-color: transparent;
             }
           }
         }
@@ -362,9 +371,6 @@
   }
   .show-more-details {
     right: 0.5rem;
-  }
-  .travel-duration {
-    display: none;
   }
 }
 

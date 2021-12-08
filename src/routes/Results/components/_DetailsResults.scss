@@ -1,13 +1,14 @@
 .details-results {
   position: relative;
+  margin-top: 1rem;
+  height: calc(100vh - 13rem);
   .MuiBox-root {
     padding: 0 !important;
-    height: 80vh !important;
+    height: 100%;
     .MuiTypography-root {
       width: 100%;
       overflow-y: auto;
-      height: 100%;
-      margin-bottom: 7rem;
+      margin-bottom: 9rem;
       background-color: white;
       .details-results-travel-return {
         width: 100%;
@@ -37,8 +38,7 @@
               font-weight: bold;
               font-size: 1.4rem;
               color: #4c4c4c;
-            }
-            
+            }       
           }
         }
         .details-results-travel-destination-content-section {
@@ -81,6 +81,12 @@
             }
             span.arrive-at {
               font-size: 1.2rem;
+              font-weight: bold;
+            }
+            span.arrive-at-message {
+              font-size: 1.2rem;
+              font-weight: bold;
+              color: #427103;
             }
           }
         }
@@ -90,6 +96,9 @@
   .details-results-book {
     position: absolute;
     bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     padding: 0.5rem 0;
     background-color: white;
@@ -101,7 +110,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 5rem;
+      height: 6rem;
       font-weight: bold;
       color: #4c4c4c;
       font-family: 'PT Sans', sans-serif;
@@ -118,10 +127,10 @@
       .clipboard-btn {
         position: relative;
         button {
-          color: #19a6ee;
+          color: #6dd3fd;
           background-color: transparent;
           &:hover {
-            color: #41B6F1;
+            color: #4Ac7fc;
           }
         }
         .tooltip-text {
@@ -138,23 +147,24 @@
         justify-content: space-around;
         align-items: center;
         color: white;
-        height: 5rem;
+        height: 6rem;
         width: 75%;
         border-radius: 1rem;
-        background: #19a6ee;
+        margin-right: 1rem;
+        background: #6dd3fd;
         transition: background 0.3s ease;
         font-family: 'PT sans', sans-serif;
         font-weight: bold;
         cursor: pointer;
         text-decoration: none;
         &:hover {
-          background: #41B6F1;
+          background: #4Ac7fc;
           color: white;
         }
         span.trip-pricing-amount {
           font-family: 'PT Sans', sans-serif;
           font-weight: bold;
-          color: #19a6ee;
+          color: #4Ac7fc;
           text-align: center;
           border-radius: 0.2rem;
           margin-right: 0.5rem;
