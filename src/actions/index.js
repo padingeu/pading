@@ -123,20 +123,19 @@ const getCommonDestinations = (trips, cities) => {
     destinations.push({
       name: commonDestinations[i],
       ...prices,
-      carbonFootprint: i,
     });
   }
   destinations.sort(compare);
   return destinations;
 };
 
-export const searchTrips = (cities, dateFrom, dateTo, directTrip, returnTrip) => {
+export const searchTrips = (cities, dateFrom, dateTo, stopTrip, travelType) => {
   const promises = [];
   return (dispatch) => {
     const formData = {
       dateFrom: dateFrom,
       dateTo: dateTo,
-      cities: cities
+      cities: cities,
     };
     // dispatch({ type: 'CLEAR_SEARCH' });
     dispatch({ type: 'FORM_DATA', formData });
@@ -154,7 +153,7 @@ export const searchTrips = (cities, dateFrom, dateTo, directTrip, returnTrip) =>
     const dateToStr = format(dateTo, 'dd/MM/yyyy');
 
     let maxStopover = '2';
-    if (directTrip === true) {
+    if (stopTrip === 'Only direct') {
       maxStopover = '0';
     }
     let config = {
@@ -168,7 +167,7 @@ export const searchTrips = (cities, dateFrom, dateTo, directTrip, returnTrip) =>
     for (let i = 0; i < cities.length; i++) {
       travelers[cities[i].name] = cities[i].numberOfPeople;
       let promise;
-      if (returnTrip === true) {
+      if (travelType === 'Return') {
         promise = axios.get(
           `https://tequila-api.kiwi.com/v2/search?fly_from=${cities[i].coordinates}&date_from=${dateFromStr}&date_to=${dateFromStr}&return_from=${dateToStr}&return_to=${dateToStr}&max_stopovers=${maxStopover}&flight_type=round&nights_in_dst_from=${differenceInDays}&nights_in_dst_to=${differenceInDays}&adults=${cities[i].numberOfPeople}&vehicle_type=aircraft&ret_to_diff_airport=0&ret_from_diff_airport=0`,
           config
@@ -185,6 +184,7 @@ export const searchTrips = (cities, dateFrom, dateTo, directTrip, returnTrip) =>
 
     Promise.all(promises)
       .then((results) => {
+        console.log('before');
         const trips = {};
         //Construction d'un objet avec une liste de voyage
         for (let i = 0; i < results.length; i++) {
@@ -199,13 +199,14 @@ export const searchTrips = (cities, dateFrom, dateTo, directTrip, returnTrip) =>
                 way: { local_departure: trip.local_departure, local_arrival: trip.local_arrival },
                 return: {},
                 wayRoutes: getWayRoutes(trip.route, trip.cityTo),
+                route: trip.route,
                 returnRoutes: [],
                 nightsInDest: trip.nightsInDest,
                 duration: trip.duration,
                 travelers: travelers[trip.cityFrom],
                 token: trip.booking_token,
               };
-              if (returnTrip === true) {
+              if (travelType === 'Return') {
                 const returnRoutes = getReturnRoutes(trip.route, trip.cityTo);
                 padingTrip['returnRoutes'] = returnRoutes;
                 padingTrip['return']['local_departure'] = getLocalDepartureDate(returnRoutes);
@@ -217,16 +218,104 @@ export const searchTrips = (cities, dateFrom, dateTo, directTrip, returnTrip) =>
           trips[city] = trips_by_city;
         }
         const commonDestinations = getCommonDestinations(trips, cities);
-        console.log(returnTrip)
-        const data = {
-          commonDestinations: commonDestinations,
-          initialTrips: trips,
-          trips,
-          travelers,
-          returnTrip,
-        };
-        dispatch({ type: 'SEARCH', data });
-        dispatch({ type: 'SUCCESS' });
+        const carb = {};
+        for (let index in cities) {
+          let city = cities[index].name;
+          for (let i = 0; i < trips[city].length; i++) {
+            let route = trips[city][i].route;
+            for (let i = 0; i < route.length; i++) {
+              carb[route[i].flyFrom + '-' + route[i].flyTo] = 0;
+            }
+          }
+        }
+        console.log(Object.keys(carb).length);
+        const sandboxPromises = [];
+        for (var code in carb) {
+          let codes = code.split('-');
+          let body = {
+            IataCodes: codes,
+            Passengers: 1,
+          };
+
+          sandboxPromises.push(
+            axios.post(`https://sandbox-api.c-level.earth/v1/calculate/flight`, body, {
+              headers: {
+                apikey: '6b02f35c-1e9d-4cff-adb1-d238000c247c',
+                'Content-Type': 'application/json',
+              },
+            })
+          );
+        }
+
+        Promise.all(sandboxPromises)
+          .then((results) => {
+            console.log('results');
+            for (let i = 0; i < results.length; i++) {
+              const codes = JSON.parse(results[i].config.data).IataCodes;
+              const key = codes[0] + '-' + codes[1];
+              carb[key] = results[i].data.Co2PerPerson_kg;
+            }
+            for (let destination of commonDestinations) {
+              console.log('destination is ' + destination);
+              const carbonFootprint = {};
+              console.log('reinit total');
+              let carbonFootprintTotal = 0;
+
+              for (let index in cities) {
+                let city = cities[index].name;
+                console.log('depart is ' + city);
+                const tripsByCity = trips[city];
+                console.log(destination);
+                let trip = tripsByCity.filter((trip) => {
+                  return trip.cityTo === destination.name;
+                })[0];
+
+                let route = trip.route;
+                carbonFootprint[city] = 0;
+                for (let i = 0; i < route.length; i++) {
+                  let carbonFootprintForFlight =
+                    carb[route[i].flyFrom + '-' + route[i].flyTo] *
+                    0.001102 *
+                    cities[index].numberOfPeople;
+                  carbonFootprint[city] += carbonFootprintForFlight;
+                  console.log(
+                    'add  ' +
+                      carbonFootprintForFlight +
+                      ' to total (' +
+                      route[i].flyFrom +
+                      '-' +
+                      route[i].flyTo +
+                      ')'
+                  );
+
+                  console.log('a');
+                  carbonFootprintTotal += carbonFootprintForFlight;
+                  console.log('b');
+                }
+                carbonFootprint[city] = carbonFootprint[city].toFixed(3);
+              }
+              console.log('c');
+              destination['carbonFootprint'] = carbonFootprint;
+              console.log('d');
+              destination['carbonFootprintTotal'] = carbonFootprintTotal.toFixed(3);
+              console.log('e');
+              console.log(carbonFootprint);
+            }
+            const data = {
+              commonDestinations: commonDestinations,
+              initialTrips: trips,
+              trips,
+              travelers,
+              travelType,
+            };
+            console.log('after');
+            dispatch({ type: 'SEARCH', data });
+            dispatch({ type: 'SUCCESS' });
+          })
+          .catch((error) => {
+            console.log('failure');
+            dispatch({ type: 'FAILURE' });
+          });
       })
       .catch((error) => {
         dispatch({ type: 'FAILURE' });

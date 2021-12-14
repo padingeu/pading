@@ -18,7 +18,9 @@ export default function DetailsResults(props) {
       <div className="details-results-travel">
         <div className="details-results-travel">
           <div className="details-results-travel-city">
-            <span className="to-city">To {props.destination}</span>
+            <span className="to-city">
+              To {props.destination} {props.carbonFootprint}
+            </span>
           </div>
           {props.trip.wayRoutes.map((route, index) => {
             return (
@@ -78,8 +80,7 @@ export default function DetailsResults(props) {
       </div>
       <div className="details-results-book">
         <div className="carbonfootprint">
-          <div className="carbonfootprint-amount">
-          </div>
+          <div className="carbonfootprint-amount"></div>
         </div>
         <div className="booking-zone">
           <div className="clipboard-btn">
