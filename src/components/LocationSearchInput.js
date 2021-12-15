@@ -57,7 +57,7 @@ class LocationSearchInput extends React.Component {
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'flex-start',
-                        backgroundColor: suggestion.active ? '#f5f5f5' : 'white',
+                        backgroundColor: suggestion.active ? '#f7f7f7' : 'white',
                         borderBottom: 'solid #ebebeb',
                         borderWidth: '0.1rem',
                         cursor: 'pointer',

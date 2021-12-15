@@ -10,8 +10,8 @@ class FormSearchScreen extends React.Component {
   render() {
     return (
       <div>
-         {this.props.displayFromWhereScreen ?
-          <div className="search-screen">
+        {this.props.displayFromWhereScreen ?
+          <div className={ this.props.isFromWherePageFirst ? 'first-search-screen' : 'search-screen'}>
             <div className="searchbar">
               <button
                 className="btn-back"
@@ -50,11 +50,11 @@ class FormSearchScreen extends React.Component {
         :''}
 
         {this.props.displayTravelersScreen ?
-          <div className="search-screen">
+          <div className={this.props.isTravelersPageFirstPage ? 'first-search-screen' : 'search-screen'}>
             <div className="searchbar">
               <button
                 className="btn-back"
-                onClick={this.props.isHomePage ? (event) => {this.props.goToFromWherePage(event)} : (event) => {this.props.goToResultsPage(event)}}
+                onClick={(event) => this.props.goToFromWherePage(event)}
               >
                 <i className="fas fa-chevron-left"></i>
               </button>
@@ -94,11 +94,11 @@ class FormSearchScreen extends React.Component {
         : ''}
 
         {this.props.displayDatesPicker ?
-          <div className="search-screen">
+           <div className={this.props.isDatesPickerFirstPage ? 'first-search-screen' : 'search-screen'}>
             <div className="searchbar">
               <button
                 className="btn-back"
-                onClick={this.props.isHomePage ? (event) => {this.props.goToTravelersPage(event)} : (event) => {this.props.goToResultsPage(event)}}
+                onClick={(event) => this.props.goToTravelersPage(event)}
               >
                 <i className="fas fa-chevron-left"></i>
               </button>
@@ -129,7 +129,7 @@ class FormSearchScreen extends React.Component {
             <div className="searchbar">
                <button
                   className="btn-back"
-                  onClick={this.props.isHomePage ? (event) => {this.props.goToDatesPicker(event)} : (event) => {this.props.goToResultsPage(event)}}
+                  onClick={(event) => this.props.goToDatesPicker(event)}
                 >
                   <i className="fas fa-chevron-left"></i>
                 </button>

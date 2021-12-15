@@ -11,8 +11,11 @@ export default class FormSearch extends React.Component {
     address: '',
     returnTrip: true,
     displayFromWhereScreen: false,
+    isFromWherePageFirst: false,
     displayTravelersScreen: false,
+    isTravelersPageFirstPage: false,
     displayDatesPicker: false,
+    isDatesPickerFirstPage: false,
     displayDetailsScreen: false,
     dateFrom: this.props.dateFrom,
     dateTo: this.props.dateTo,
@@ -95,6 +98,8 @@ export default class FormSearch extends React.Component {
 
   handleClickOutside = (event) => {
     this.setState({ displayFromWhereScreen: false });
+    this.setState({ isTravelersPageFirstPage: false });
+    this.setState({ isDatesPickerFirstPage: false });
     this.setState({ displayTravelersScreen: false });
     this.setState({ displayDatesPicker: false });
     this.setState({ displayDetailsScreen: false });
@@ -142,6 +147,7 @@ export default class FormSearch extends React.Component {
 
   startPlanningTrip = (event) => {
     event.preventDefault();
+    this.setState({ isFromWherePageFirst: true })
     this.setState({ displayFromWhereScreen: true });
   }
 
@@ -165,12 +171,28 @@ export default class FormSearch extends React.Component {
 
   goToFromWherePage = (event) => {
     event.preventDefault();
+    this.setState({ isFromWherePageFirst: false });
+    this.setState({ displayTravelersScreen: false });
+    this.setState({ displayFromWhereScreen: true });
+  }
+
+  startFromWherePage = (event) => {
+    event.preventDefault();
     this.setState({ displayTravelersScreen: false });
     this.setState({ displayFromWhereScreen: true });
   }
 
   goToTravelersPage = (event) => {
     event.preventDefault();
+    this.setState({ isTravelersPageFirstPage: false });
+    this.setState({ displayFromWhereScreen: false });
+    this.setState({ displayDatesPicker: false });
+    this.setState({ displayTravelersScreen: true });
+  }
+
+  startFromTravelersPage = (event) => {
+    event.preventDefault();
+    this.setState({ isTravelersPageFirstPage: true });
     this.setState({ displayFromWhereScreen: false });
     this.setState({ displayDatesPicker: false });
     this.setState({ displayTravelersScreen: true });
@@ -178,6 +200,15 @@ export default class FormSearch extends React.Component {
 
   goToDatesPicker = (event) => {
     event.preventDefault();
+    this.setState({ isDatesPickerFirstPage: false });
+    this.setState({ displayTravelersScreen: false });
+    this.setState({ displayDetailsScreen: false });
+    this.setState({ displayDatesPicker: true });
+  }
+
+  startFromDatesPicker = (event) => {
+    event.preventDefault();
+    this.setState({ isDatesPickerFirstPage: true });
     this.setState({ displayTravelersScreen: false });
     this.setState({ displayDetailsScreen: false });
     this.setState({ displayDatesPicker: true });
@@ -285,7 +316,7 @@ export default class FormSearch extends React.Component {
                 className="traveltype-btn"
                 onClick={(event) => {
                   this.switchOneWayReturn(event);
-                  this.goToDatesPicker(event)
+                  this.startFromDatesPicker(event)
                 }}
               >
                 {this.state.returnTrip ? 'Return' : 'One-way'}
@@ -294,7 +325,7 @@ export default class FormSearch extends React.Component {
             <div className="formsearch-bar-results-2">
               <button
                 className="formsearch-bar-results-2-btn dates-btn"
-                onClick={(event) => {this.goToDatesPicker(event)}}
+                onClick={(event) => this.startFromDatesPicker(event)}
               >
                 <i class="far fa-calendar-alt"></i>
                 {this.props.searchData.returnTrip ?
@@ -304,7 +335,7 @@ export default class FormSearch extends React.Component {
                 }
               </button>
               <button
-                onClick={(event) => {this.goToTravelersPage(event)}}
+                onClick={(event) => this.startFromTravelersPage(event)}
                 className="formsearch-bar-results-2-btn travelers-btn"
               >
                 <i class="far fa-user"></i>
@@ -316,6 +347,8 @@ export default class FormSearch extends React.Component {
 
         <FormSearchScreen
           displayFromWhereScreen={this.state.displayFromWhereScreen}
+          goToFromWherePage={this.goToFromWherePage}
+          isFromWherePageFirst={this.state.isFromWherePageFirst}
           isHomePage={this.state.isHomePage}
           goToHome={this.goToHomePage}
           goToResultsPage={this.goToResultsPage}
@@ -325,12 +358,14 @@ export default class FormSearch extends React.Component {
           removeCity={this.removeCity}
           handleAddressChange={this.handleAddressChange}
           displayTravelersScreen={this.state.displayTravelersScreen}
-          citiesFrom={this.state.citiesFrom}
           goToTravelersPage={this.goToTravelersPage}
+          isTravelersPageFirstPage={this.state.isTravelersPageFirstPage}
+          citiesFrom={this.state.citiesFrom}
           addTraveler={this.addTraveler}
           removeTraveler={this.removeTraveler}
-          goToDatesPicker={this.goToDatesPicker}
           displayDatesPicker={this.state.displayDatesPicker}
+          goToDatesPicker={this.goToDatesPicker}
+          isDatesPickerFirstPage={this.state.isDatesPickerFirstPage}
           returnTrip={this.state.returnTrip}
           dateFrom={this.state.dateFrom}
           dateTo={this.state.dateTo}
@@ -341,7 +376,6 @@ export default class FormSearch extends React.Component {
           switchToFlexibleTrip={this.props.switchToFlexibleTrip}
           directTrip={this.state.directTrip}
           search={this.search}
-          closeFormSearchScreen={this.closeFormSearchScreen}
           handleClickOutside={this.handleClickOutside}
         />        
       </div>

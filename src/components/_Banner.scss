@@ -72,6 +72,12 @@
         border-width: 0.1rem;
         background-color: white;
         color: #ff9e00;
+        transition: ease 0.2s;
+        &:hover {
+          border: solid #ffb133;
+          color: #ffb133;
+          border-width: 0.1rem;
+        }
       }
     }
     p {

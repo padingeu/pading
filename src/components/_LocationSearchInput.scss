@@ -9,6 +9,10 @@
       width: 100%;
       max-width: 97vw;
       z-index: 1;
+      color: transparent;
+      .suggestions-form {
+        color: #4c4c4c;
+      }
       .city-departure-input {
         height: 6rem;
         min-width: 26rem;
@@ -20,6 +24,7 @@
         padding-top: 2rem;
         background: transparent;
         transition: all 0.5s ease;
+        background-color: #f7f7f7;
         &:focus {
           outline: none;
           background: rgba(0, 0, 0, 0.02);
