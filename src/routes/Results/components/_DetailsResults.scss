@@ -1,7 +1,7 @@
 .details-results {
   position: relative;
   margin-top: 1rem;
-  height: calc(100vh - 13rem);
+  height: calc(100vh - 11.5rem);
   .MuiBox-root {
     padding: 0 !important;
     height: 100%;
@@ -97,33 +97,18 @@
     position: absolute;
     bottom: 0;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     width: 100%;
     padding: 0.5rem 0;
     background-color: white;
     border-top: solid #dce4e9 1px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    .carbonfootprint {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 6rem;
-      font-weight: bold;
-      color: #4c4c4c;
-      font-family: 'PT Sans', sans-serif;
-      i {
-        color: #ff9e00;
-        margin-right: 0.5rem;
-      }
-    }
     .booking-zone {
       display: flex;
       justify-content: flex-end;
       align-items: center;
-      width: 70%;
+      min-width: 30rem;
+      max-width: 100%;
       .clipboard-btn {
         position: relative;
         button {
@@ -144,12 +129,13 @@
       }
       .btn-book {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
         color: white;
         height: 6rem;
-        width: 75%;
+        width: 100%;
         border-radius: 1rem;
+        padding: 0 2rem;
         margin-right: 1rem;
         background: #6dd3fd;
         transition: background 0.3s ease;
@@ -161,6 +147,11 @@
           background: #4Ac7fc;
           color: white;
         }
+        .book-for-price {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
         span.trip-pricing-amount {
           font-family: 'PT Sans', sans-serif;
           font-weight: bold;
@@ -169,7 +160,15 @@
           border-radius: 0.2rem;
           margin-right: 0.5rem;
           padding: 0 0.5rem;
+          margin-left: 0.4rem;
           background-color: white;
+        }
+        span.trip-carbon-amount {
+          font-family: 'PT Sans', sans-serif;
+          font-weight: bold;
+          font-size: 1.2rem;
+          color: white;
+          text-align: center;
         }
       }
     }

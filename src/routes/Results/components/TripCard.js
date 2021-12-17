@@ -21,19 +21,18 @@ const TripCard = ({
     <div className="trip-card">
       <Img src={image_path} alt={destination} />
       <div className="trip-infos">
-        <div className="trip-city-pricing">
-          <div className="trip-city">
-            <span className="trip-city-name">{destination}</span>
-            <div className="trip-city-carbonfootprint">
-              <i className="fas fa-smog fa-xs"></i>
-              <span className="trip-city-carbonfootprint-amount">{carbonFootprint} t</span>
-            </div>
-          </div>
-          <div className="trip-pricing">
-            <span className="trip-pricing-amount">{totalPrice}</span>
-            <span className="trip-pricing-currency">EUR / global</span>
+        <div className="trip-city">
+          <span className="trip-city-name">{destination}</span>
+          <div className="trip-carbon">
+            <span className="trip-carbon-amount">{carbonFootprint}</span>
+            <span className="trip-carbon-unity">CO2 t</span>
           </div>
         </div>
+        <div className="trip-pricing">
+          <span className="trip-pricing-amount">{totalPrice}</span>
+          <span className="trip-pricing-currency">EUR / pers</span>
+        </div>
+   
         <div className="citytrips">
           {pricesPerDepartureCity.map((object) => {
             return (

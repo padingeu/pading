@@ -19,7 +19,7 @@ export default function DetailsResults(props) {
         <div className="details-results-travel">
           <div className="details-results-travel-city">
             <span className="to-city">
-              To {props.destination} {props.carbonFootprint}
+              To {props.destination}
             </span>
           </div>
           {props.trip.wayRoutes.map((route, index) => {
@@ -79,12 +79,9 @@ export default function DetailsResults(props) {
         )}
       </div>
       <div className="details-results-book">
-        <div className="carbonfootprint">
-          <div className="carbonfootprint-amount"></div>
-        </div>
         <div className="booking-zone">
           <div className="clipboard-btn">
-            {showTooltipText ? <span className="tooltip-text">Booking link is copied !</span> : ''}
+            {showTooltipText ? <span className="tooltip-text">Booking link copied !</span> : ''}
             <CopyToClipboard
               text={
                 'https://www.kiwi.com/fr/booking?&affilid=padingpadingapp&booking_token=' +
@@ -95,7 +92,7 @@ export default function DetailsResults(props) {
               }
             >
               <button onClick={displayTooltipText}>
-                <i class="far fa-copy fa-lg"></i>
+              <i class="fas fa-share-alt fa-lg"></i>
               </button>
             </CopyToClipboard>
           </div>
@@ -111,8 +108,11 @@ export default function DetailsResults(props) {
             rel="noopener noreferrer"
             className="btn-book"
           >
-            <span>Book</span>
-            <span className="trip-pricing-amount">{props.trip.price} EUR</span>
+            <div className="book-for-price">
+              <span>Book for</span>
+              <span className="trip-pricing-amount">{props.trip.price} EUR</span>
+            </div>
+            <span className="trip-carbon-amount">{props.carbonFootprint} t CO2</span>
           </a>
         </div>
       </div>
