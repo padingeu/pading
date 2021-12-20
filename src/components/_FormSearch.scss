@@ -34,8 +34,8 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  background-color: #f7f7f7;
-  border: solid 1px #f7f7f7;
+  background-color: white;
+  border: solid 1px white;
   border-radius: 0.5rem;
   box-shadow: 0 0.1rem 0.2rem rgba(76, 76, 76, 0.03), 0 0.2rem 0.4rem rgba(76, 76, 76, 0.03);
   padding: 0 1rem;
@@ -53,7 +53,7 @@
 .fromwhere-btn {
   width: 80%;
   height: 4rem;
-  background-color: #f7f7f7;
+  background-color: white;
   font-weight: bold;
   overflow-y: scroll;
   span {
@@ -87,13 +87,13 @@
     width: 50%;
     margin-top: 0.7rem;
     padding: 1rem;
-    background-color: #f7f7f7;
-    border: solid 1px #f7f7f7;
+    background-color: white;
+    border: solid 1px white;
     border-radius: 0.5rem;
     box-shadow: 0 0.1rem 0.2rem rgba(76, 76, 76, 0.03), 0 0.2rem 0.4rem rgba(76, 76, 76, 0.03);
-    color: #808080;
+    color: #878787;
     i {
-      margin-right: 0.2rem;
+      margin-right: 0.5rem;
     }
     &:hover {
       transition: ease 0.2s;
@@ -107,10 +107,32 @@
   }
   .dates-btn { 
     margin-right: 0.35rem;
-
   }
   .travelers-btn {
     margin-left: 0.35rem;
+  }
+}
+
+.formsearch-skeleton {
+  margin-left: 1rem;
+  background: linear-gradient(90deg, #f0f0f0, #ffffff, #f0f0f0);
+  animation-name: load;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-direction: forwards;
+  animation-timing-function: linear;
+  background-size: 200% 100%;
+  height: 2rem;
+  width: 25rem;
+  border-radius: 0.3rem;
+}
+
+@keyframes load {
+  from {
+    background-position: 100% 0%;
+  }
+  to {
+    background-position: -100% 0%;
   }
 }
 
@@ -119,6 +141,9 @@
     span {
       font-size: 1.4rem;
     }
+  }
+  .traveltype-btn {
+    font-size: 1.4rem;
   }
   .formsearch-bar-results-2-btn {
     font-size: 1.2rem;
@@ -130,6 +155,9 @@
     span {
       font-size: 1.6rem;
     }
+  }
+  .traveltype-btn {
+    font-size: 1.6rem;
   }
   .formsearch-bar-2-btn {
     font-size: 1.4rem;

@@ -13,7 +13,7 @@
   .MuiTabs-root {
     background-color: white;
     border-radius: 1rem 1rem 0 0;
-    padding: 0 1rem 0 1rem;
+    padding: 0.5rem 1rem;
     .MuiTab-wrapper {
       font-size: 1.6rem;
       font-family: 'PT Sans', sans-serif;
@@ -22,11 +22,11 @@
       color: #ff9e00;
     }
     .MuiTab-textColorPrimary.Mui-selected {
-      color: #FFB133 !important;
+      color: white !important;
     }
     .MuiTabs-indicator {
       background-color: #ff9e00 !important;
-      height: 0.5rem !important;
+      height: 0.4rem !important;
       border-radius: 0.5rem;
     }
   }

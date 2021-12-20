@@ -308,7 +308,7 @@ export default class FormSearch extends React.Component {
           <div className="formsearch-results">
             <div className="formsearch-bar-results">
               <button className="fromwhere-btn" onClick={(event) => this.startPlanningTrip(event)}>
-                <span>From {Object.keys(this.props.searchData.travelers).join(', ')}</span>
+                <span>{this.props.isLoading ? <div className="formsearch-skeleton"></div> : `From ${Object.keys(this.props.searchData.travelers).join(', ')}`}</span>
               </button>
               <button
                 className="traveltype-btn"
@@ -325,22 +325,31 @@ export default class FormSearch extends React.Component {
                 className="formsearch-bar-results-2-btn dates-btn"
                 onClick={(event) => this.startFromDatesPicker(event)}
               >
-                <i class="far fa-calendar-alt"></i>
-                {this.props.searchData.returnTrip
-                  ? `${format(this.props.searchData.dateFrom, 'dd/MM/yyyy')} - ${format(
-                      this.props.searchData.dateTo,
-                      'dd/MM/yyyy'
-                    )}`
-                  : `${format(this.props.searchData.dateFrom, 'dd/MM/yyyy')} - no return`}
+               
+                {this.props.isLoading ? <div className="formsearch-skeleton"></div> :
+                  <div>
+                    <i class="far fa-calendar-alt"></i>
+                    {this.props.searchData.returnTrip ?
+                      `${format(this.props.searchData.dateFrom, 'dd/MM/yyyy')} - ${format(
+                        this.props.searchData.dateTo,
+                        'dd/MM/yyyy'
+                      )}`
+                    : `${format(this.props.searchData.dateFrom, 'dd/MM/yyyy')} - no return`}
+                  </div>
+                }
               </button>
               <button
                 onClick={(event) => this.startFromTravelersPage(event)}
                 className="formsearch-bar-results-2-btn travelers-btn"
               >
-                <i class="far fa-user"></i>
-                {this.props.searchData &&
-                  lodash.sum(Object.values(this.props.searchData.travelers))}{' '}
-                travelers
+                {this.props.isLoading ? <div className="formsearch-skeleton"></div> :
+                  <div>
+                    <i class="far fa-user"></i>
+                    {this.props.searchData &&
+                      `${lodash.sum(Object.values(this.props.searchData.travelers))} 
+                    travelers`}
+                  </div>
+                }
               </button>
             </div>
           </div>

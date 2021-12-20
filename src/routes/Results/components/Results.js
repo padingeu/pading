@@ -65,6 +65,7 @@ export default function Results(props) {
             searchTrips={props.searchTrips}
             searchData={props.search}
             displayFormSearchResults={props.displayFormSearchResults}
+            isLoading={props.search.isLoading}
           />
         </div>
         <div className="travel-results">
