@@ -1,6 +1,7 @@
 import React from 'react';
 import './_TripCard.scss';
 import Img from 'react-cool-img';
+import lodash from 'lodash';
 
 const TripCard = ({
   destination,
@@ -19,18 +20,21 @@ const TripCard = ({
 
   return (
     <div className="trip-card">
+      {console.log(travelers)}
       <Img src={image_path} alt={destination} />
       <div className="trip-infos">
         <div className="trip-city-pricing">
           <div className="trip-city">
             <span className="trip-city-name">{destination}</span>
-            {/* <div className="trip-city-carbonfootprint">
+            <div className="trip-city-carbonfootprint">
               <i className="fas fa-smog fa-xs"></i>
               <span className="trip-city-carbonfootprint-amount">{carbonFootprint} t</span>
-            </div> */}
+            </div>
           </div>
           <div className="trip-pricing">
-            <span className="trip-pricing-amount">{totalPrice}</span>
+            <span className="trip-pricing-amount">
+              {totalPrice / lodash.sum(Object.values(travelers))}
+            </span>
             <span className="trip-pricing-currency">EUR / global</span>
           </div>
         </div>
