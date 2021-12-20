@@ -25,9 +25,8 @@ export default class FormSearch extends React.Component {
     directTrip: false,
     flexibleTrip: false,
     displayFullFormSearchResults: false,
-    FormSearchisOpen: true
+    FormSearchisOpen: true,
   };
-
 
   scrollDown() {
     setTimeout(
@@ -43,15 +42,19 @@ export default class FormSearch extends React.Component {
       this.state.dateTo,
       this.state.directTrip,
       this.state.returnTrip,
-      this.state.flexibleTrip,
+      this.state.flexibleTrip
     );
     this.scrollDown();
     window.gtag('event', 'search trip', {
-      'event_category': format(this.state.dateFrom, 'dd/MM/yyyy'),
-      'event_label': this.state.citiesFrom.map(function(city) { return city['name']}).toString(),
-      'value': ''
+      event_category: format(this.state.dateFrom, 'dd/MM/yyyy'),
+      event_label: this.state.citiesFrom
+        .map(function (city) {
+          return city['name'];
+        })
+        .toString(),
+      value: '',
     });
-    this.setState({ displayDetailsScreen: false })
+    this.setState({ displayDetailsScreen: false });
   };
 
   getFormattedCoordinate = (coordinates) => {
@@ -123,9 +126,6 @@ export default class FormSearch extends React.Component {
         numberOfPeople: 1,
         showButton: false,
       });
-    } else {
-      //Add traveler
-      cities[cityIndex].numberOfPeople++;
     }
     this.setState({
       citiesFrom: cities,
@@ -147,19 +147,19 @@ export default class FormSearch extends React.Component {
 
   startPlanningTrip = (event) => {
     event.preventDefault();
-    this.setState({ isFromWherePageFirst: true })
+    this.setState({ isFromWherePageFirst: true });
     this.setState({ displayFromWhereScreen: true });
-  }
+  };
 
   openfullFormSearchResults = (event) => {
     event.preventDefault();
-    this.setState({displayfullFormSearchResults: !this.state.displayFormSearchResults});
-  }
+    this.setState({ displayfullFormSearchResults: !this.state.displayFormSearchResults });
+  };
 
   goToHomePage = (event) => {
     event.preventDefault();
     this.setState({ displayFromWhereScreen: false });
-  }
+  };
 
   goToResultsPage = (event) => {
     event.preventDefault();
@@ -167,20 +167,20 @@ export default class FormSearch extends React.Component {
     this.setState({ displayTravelersScreen: false });
     this.setState({ displayDatesPicker: false });
     this.setState({ displayDetailsScreen: false });
-  }
+  };
 
   goToFromWherePage = (event) => {
     event.preventDefault();
     this.setState({ isFromWherePageFirst: false });
     this.setState({ displayTravelersScreen: false });
     this.setState({ displayFromWhereScreen: true });
-  }
+  };
 
   startFromWherePage = (event) => {
     event.preventDefault();
     this.setState({ displayTravelersScreen: false });
     this.setState({ displayFromWhereScreen: true });
-  }
+  };
 
   goToTravelersPage = (event) => {
     event.preventDefault();
@@ -188,7 +188,7 @@ export default class FormSearch extends React.Component {
     this.setState({ displayFromWhereScreen: false });
     this.setState({ displayDatesPicker: false });
     this.setState({ displayTravelersScreen: true });
-  }
+  };
 
   startFromTravelersPage = (event) => {
     event.preventDefault();
@@ -196,7 +196,7 @@ export default class FormSearch extends React.Component {
     this.setState({ displayFromWhereScreen: false });
     this.setState({ displayDatesPicker: false });
     this.setState({ displayTravelersScreen: true });
-  }
+  };
 
   goToDatesPicker = (event) => {
     event.preventDefault();
@@ -204,7 +204,7 @@ export default class FormSearch extends React.Component {
     this.setState({ displayTravelersScreen: false });
     this.setState({ displayDetailsScreen: false });
     this.setState({ displayDatesPicker: true });
-  }
+  };
 
   startFromDatesPicker = (event) => {
     event.preventDefault();
@@ -212,18 +212,18 @@ export default class FormSearch extends React.Component {
     this.setState({ displayTravelersScreen: false });
     this.setState({ displayDetailsScreen: false });
     this.setState({ displayDatesPicker: true });
-  }
+  };
 
   goToDetailsPage = (event) => {
     event.preventDefault();
     this.setState({ displayDatesPicker: false });
     this.setState({ displayDetailsScreen: true });
-  }
+  };
 
   displayFilter = (event) => {
     event.preventDefault();
     this.setState({ showFilter: !this.state.showFilter });
-  }
+  };
 
   onInputDateChange = (date) => {
     this.setState({ showDateFrom: true });
@@ -267,12 +267,29 @@ export default class FormSearch extends React.Component {
   render() {
     return (
       <div className="formsearch">
-        
-        {this.props.isHomePage ?
+        {this.props.isHomePage ? (
           <div className="formsearch-bar-home">
+            <button className="fromwhere-btn" onClick={(event) => this.startPlanningTrip(event)}>
+              <span>From where do you travel ?</span>
+            </button>
+            <button
+              className="traveltype-btn"
+              onClick={(event) => {
+                this.switchOneWayReturn(event);
+              }}
+            >
+              {this.state.returnTrip ? 'Return' : 'One-way'}
+            </button>
+          </div>
+        ) : (
+          <div className="formsearch-bar-results">
             <button
               className="fromwhere-btn"
-              onClick={(event) => this.startPlanningTrip(event)}
+              onClick={
+                lodash.sum(Object.values(this.props.searchData.travelers)) > 1
+                  ? (event) => this.openfullFormSearchResults(event)
+                  : (event) => this.startPlanningTrip(event)
+              }
             >
               <span>From where do you travel ?</span>
             </button>
@@ -284,39 +301,20 @@ export default class FormSearch extends React.Component {
             >
               {this.state.returnTrip ? 'Return' : 'One-way'}
             </button>
-          </div> :
-          <div className="formsearch-bar-results">
-            <button
-              className="fromwhere-btn"
-              onClick={lodash.sum(Object.values(this.props.searchData.travelers)) > 1 ? (event) => this.openfullFormSearchResults(event) : (event) => this.startPlanningTrip(event)}
-            >
-              <span>From where do you travel ?</span>
-            </button>
-            <button
-              className="traveltype-btn"
-              onClick={(event) => {
-                this.switchOneWayReturn(event)
-              }}
-            >
-              {this.state.returnTrip ? 'Return' : 'One-way'}
-            </button>
           </div>
-        }
+        )}
 
-        {this.state.displayfullFormSearchResults ?
+        {this.state.displayfullFormSearchResults ? (
           <div className="formsearch-results">
             <div className="formsearch-bar-results">
-              <button
-                className="fromwhere-btn"
-                onClick={(event) => this.startPlanningTrip(event)}
-              >
+              <button className="fromwhere-btn" onClick={(event) => this.startPlanningTrip(event)}>
                 <span>From {Object.keys(this.props.searchData.travelers).join(', ')}</span>
               </button>
               <button
                 className="traveltype-btn"
                 onClick={(event) => {
                   this.switchOneWayReturn(event);
-                  this.startFromDatesPicker(event)
+                  this.startFromDatesPicker(event);
                 }}
               >
                 {this.state.returnTrip ? 'Return' : 'One-way'}
@@ -328,22 +326,27 @@ export default class FormSearch extends React.Component {
                 onClick={(event) => this.startFromDatesPicker(event)}
               >
                 <i class="far fa-calendar-alt"></i>
-                {this.props.searchData.returnTrip ?
-                  `${format(this.props.searchData.dateFrom, 'dd/MM/yyyy')} - ${format(this.props.searchData.dateTo, 'dd/MM/yyyy')}`
-                :
-                  `${format(this.props.searchData.dateFrom, 'dd/MM/yyyy')} - no return`
-                }
+                {this.props.searchData.returnTrip
+                  ? `${format(this.props.searchData.dateFrom, 'dd/MM/yyyy')} - ${format(
+                      this.props.searchData.dateTo,
+                      'dd/MM/yyyy'
+                    )}`
+                  : `${format(this.props.searchData.dateFrom, 'dd/MM/yyyy')} - no return`}
               </button>
               <button
                 onClick={(event) => this.startFromTravelersPage(event)}
                 className="formsearch-bar-results-2-btn travelers-btn"
               >
                 <i class="far fa-user"></i>
-                {this.props.searchData && lodash.sum(Object.values(this.props.searchData.travelers))} travelers
+                {this.props.searchData &&
+                  lodash.sum(Object.values(this.props.searchData.travelers))}{' '}
+                travelers
               </button>
             </div>
           </div>
-        : ''}
+        ) : (
+          ''
+        )}
 
         <FormSearchScreen
           displayFromWhereScreen={this.state.displayFromWhereScreen}
@@ -377,7 +380,7 @@ export default class FormSearch extends React.Component {
           directTrip={this.state.directTrip}
           search={this.search}
           handleClickOutside={this.handleClickOutside}
-        />        
+        />
       </div>
     );
   }
