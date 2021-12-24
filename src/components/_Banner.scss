@@ -5,7 +5,6 @@
   margin-right: auto;
   padding-left: 1rem;
   padding-right: 1rem;
-  margin-top: 7rem;
   width: 100%;
   min-height: 100vh;
   .simple-trip-popup {
@@ -37,7 +36,7 @@
   }
   .banner-content {
     position: absolute;
-    bottom: 40rem;
+    top: 25rem;
     display: flex;
     flex-direction: column;
     justify-content: center;

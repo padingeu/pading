@@ -113,15 +113,16 @@
       color: #4c4c4c;
       background-color: white;
     }
+    .react-calendar__tile {
+      padding: 1.3rem 0;
+    }
     .react-calendar__tile--active {
       color: white;
       background-color: #ff9e00;
       border-radius: 0;
-      padding: 1.7rem 0;
     }
     .react-calendar__tile--hover {
       background-color: #f4f4f4;
-      padding: 1.7rem 0;
     }
     .react-calendar__tile--active:enabled:hover,
     .react-calendar__tile--active:enabled:focus {

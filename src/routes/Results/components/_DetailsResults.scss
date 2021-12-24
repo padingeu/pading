@@ -120,8 +120,10 @@
         }
         .tooltip-text {
           position: absolute;
-          right: 0rem;
-          top: 2rem;
+          left: 2.5rem;
+          bottom: 2rem;
+          font-size: 1rem;
+          width: 9.2rem;
           color: #4c4c4c;
           font-family: 'PT sans', sans-serif;
           font-weight: bold;
@@ -182,10 +184,6 @@
     font-size: 1.2rem;
     margin-left: 0.5rem;
   }
-  .tooltip-text {
-    font-size: 0.8rem;
-    width: 8.5rem;
-  }
   .btn-book {
     font-size: 1.4rem;
     span.trip-pricing-amount {
@@ -198,10 +196,6 @@
   .carbonfootprint {
     font-size: 1.4rem;
     margin-left: 1rem;
-  }
-  .tooltip-text {
-    font-size: 1rem;
-    width: 11rem;
   }
   .btn-book {
     font-size: 1.6rem;
