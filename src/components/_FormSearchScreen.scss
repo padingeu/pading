@@ -191,13 +191,17 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 60vh;
+    height: 65vh;
+    min-height: 45rem;
   }
   .first-search-screen {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
+    height: 65vh;
+    min-height: 45rem;
+    border: solid orange;
     -webkit-animation: slideDown 0.15s linear 0ms 1 normal forwards; /* Chrome 4.3 | Edge | Safari 4.0 - 8.0 */
     -moz-animation: slideDown 0.15s linear 0ms 1 normal forwards; /* Firefox 5.0 | Gecko 16.0 */
     -o-animation: slideDown 0.15s linear 0ms 1 normal forwards; /* Opera 12 */

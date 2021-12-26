@@ -25,7 +25,7 @@ class Navbar extends React.Component {
 
   componentDidMount() {
     document.addEventListener("scroll", () => {
-      window.scrollY < 500 ? this.setState({ navbarColorChange: "transparent" }) : this.setState({ navbarColorChange: "white" });
+      window.scrollY < 50 ? this.setState({ navbarColorChange: "transparent" }) : this.setState({ navbarColorChange: "white" });
       console.log("hello")
     });
   }

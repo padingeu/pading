@@ -178,7 +178,8 @@
 @media (min-width: 901px) {
   .calendar {
     width: 100vw;
-    height: 60vh;
+    height: 65vh;
+    min-height: 45rem;
     left: 0;
     left: -5.5rem;
     .react-calendar {
