@@ -11,7 +11,7 @@ const mapStateToProps = ({ search, app }, ownProps) => {
 const mapDispatchToProps = (dispatch) => ({
   searchTrips: (cities, dateFrom, dateTo, directTrip, returnTrip) =>
     dispatch(searchTrips(cities, dateFrom, dateTo, directTrip, returnTrip)),
-  doFilter: (filter, trips, cities, city) => dispatch(doFilter(filter, trips, cities, city)),
+  doFilter: (filter, trips, cities, carb) => dispatch(doFilter(filter, trips, cities, carb)),
   clickOnFilter: (showFilter) => dispatch(clickOnFilter(showFilter)),
 });
 

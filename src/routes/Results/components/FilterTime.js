@@ -2,7 +2,6 @@ import React from 'react';
 import FilterBar from './FilterBar';
 import './_FilterDepartureTime.scss';
 
-
 export default function FilterTime(props) {
   const [departureFilter, setDepartureFilter] = React.useState({});
   const [returnFilter, setReturnFilter] = React.useState({});
@@ -31,7 +30,7 @@ export default function FilterTime(props) {
       fullFilter['return'] = returnFilter;
     }
 
-    props.doFilter(fullFilter, trips, props.search.cities, city);
+    props.doFilter(fullFilter, trips, props.search.cities, props.search.carb);
   };
 
   return (
