@@ -76,22 +76,4 @@
       }
     }
   }
-
-  .citytrips {
-    position: absolute;
-    bottom: 5rem;
-    left: 0.5rem;
-    color: white;
-    .citytrip-card {
-      visibility: hidden;
-      font-family: 'Roboto', sans-serif;
-      font-weight: bold;
-      font-size: 1.4rem;
-      color: white;
-      margin-bottom: 0.5rem;
-    }
-  }
-  &:hover {
-    transform: scale(1.01);
-  }
 }

@@ -135,7 +135,6 @@
         align-items: center;
         color: white;
         height: 6rem;
-        min-width: 30rem;
         max-width: 100%;
         border-radius: 0.5rem;
         padding: 0 2rem;
@@ -174,6 +173,18 @@
         }
       }
     }
+  }
+}
+
+@media (max-width: 300px) {
+  .btn-book {
+    width: 22.5rem;
+  }
+}
+
+@media (min-width: 301px) {
+  .btn-book {
+    min-width: 30rem;
   }
 }
 

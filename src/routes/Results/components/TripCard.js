@@ -33,17 +33,6 @@ const TripCard = ({
           <span className="trip-pricing-amount">{Math.round(totalPrice / lodash.sum(Object.values(travelers)))}</span>
           <span className="trip-pricing-currency">EUR / pers</span>
         </div>
-        <div className="citytrips">
-          {pricesPerDepartureCity.map((object) => {
-            return (
-              <div key={object.city} className="citytrip-card">
-                {Math.round(object.price / travelers[object.city])}€ {''}{' '}
-                {travelers[object.city] > 1 ? 'x ' + travelers[object.city] + ' ' : ' '} from{' '}
-                {object.city}
-              </div>
-            );
-          })}
-        </div>
       </div>
     </div>
   );
