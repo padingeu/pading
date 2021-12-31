@@ -278,7 +278,7 @@ export default class FormSearch extends React.Component {
                 this.switchOneWayReturn(event);
               }}
             >
-              {this.state.returnTrip ? 'Return' : 'One-way'}
+              {this.state.returnTrip ? 'Return trip' : 'One-way'}
             </button>
           </div>
         ) : (
@@ -299,7 +299,7 @@ export default class FormSearch extends React.Component {
                 this.switchOneWayReturn(event);
               }}
             >
-              {this.state.returnTrip ? 'Return' : 'One-way'}
+              {this.state.returnTrip ? 'Return trip' : 'One-way'}
             </button>
           </div>
         )}

@@ -11,6 +11,7 @@ import Footer from '../../../components/Footer';
 
 export default class Home extends React.Component {
   state = { isHomePage: true }
+
   scrollUp() {
     document.scrollingElement.scrollTo({
       top: 0,
@@ -21,7 +22,7 @@ export default class Home extends React.Component {
   render() {
     return (
       <div>
-        <NavBar scrollUp={this.scrollUp} />
+        <NavBar scrollUp={this.scrollUp} isHomePage={this.state.isHomePage} />
         <Banner searchTrips={this.props.searchTrips} isHomePage={this.state.isHomePage} />
         <Airlines />
         <Why />

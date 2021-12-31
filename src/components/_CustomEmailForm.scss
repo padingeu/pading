@@ -43,7 +43,6 @@
       }
     }
     .btn-newsletter {
-      min-width: 10rem;
       height: 4rem;
       border-radius: 0.5rem;
       background-color: #6dd3fd;
@@ -105,11 +104,24 @@
   }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 300px) {
   .register-form {
-    flex-direction: column;
+    .subscribe-newsletter {
+      min-width: 15rem;
+    }
+    .btn-newsletter {
+      min-width: 7rem;
+    }
+  }
+}
+
+@media (min-width: 301px) {
+  .register-form {
     .subscribe-newsletter {
       min-width: 25rem;
+    }
+    .btn-newsletter {
+      min-width: 10rem;
     }
   }
   .swal2-popup {
@@ -119,9 +131,8 @@
 
 @media (min-width: 401px) {
   .register-form {
-    flex-direction: column;
     .subscribe-newsletter {
-    min-width: 45rem;
+    min-width: 35rem;
     }
   }
   .swal2-popup {

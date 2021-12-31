@@ -1,9 +1,9 @@
 import React from 'react';
 import FormSearch from './FormSearch';
 import './_Banner.scss';
-import padingClassic from '../img/pading_classic_screenshot.png';
-import banner from '../img/travel-in-plane.jpg';
-import Popup from 'reactjs-popup';
+import backgroundDesktop from '../img/banner/cats-traveling-banner-desktop.jpg';
+import backgroundTablet from '../img/banner/cats-traveling-banner-tablet.jpg';
+import backgroundMobile from '../img/banner/cats-traveling-banner-mobile.jpg';
 
 
 export default class Banner extends React.Component {
@@ -12,8 +12,9 @@ export default class Banner extends React.Component {
     return (
       <div>
         <div className="banner">
-          <div className="banner-content-formsearch">
-            <img src={banner} alt="cats traveling and gathering" />
+            <img className="banner-background-desktop" src={backgroundDesktop} alt="cats-traveling" />
+            <img className="banner-background-tablet" src={backgroundTablet} alt="cats-traveling" />
+            <img className="banner-background-mobile" src={backgroundMobile} alt="cats-traveling" />
             {this.props.isHomePage ?
               <div className="banner-content">
                 <h1>TRAVEL TO GATHER</h1>
@@ -24,7 +25,7 @@ export default class Banner extends React.Component {
                 />
               </div>
             : ''}
-          </div>
+ 
         </div>
       </div>
     );

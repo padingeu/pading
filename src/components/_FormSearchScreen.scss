@@ -35,10 +35,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 2rem;
-  padding-right: 2rem;
   width: 100%;
   .btn-back {
     background-color: transparent;
@@ -156,9 +152,20 @@
   }
 }
 
+@media (max-width: 300px) {
+  .searchbar-question {
+      font-size: 1.4rem;
+  }
+}
+
 @media (max-width: 500px) {
   .searchbar-question {
       font-size: 1.4rem;
+  }
+  .searchbar {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    margin-top: 1rem;
   }
 }
   
@@ -182,6 +189,10 @@
   .search-criteria-confirma-btn {
     width: 100%;
   }
+  .searchbar {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }
   
   
@@ -199,9 +210,6 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 65vh;
-    min-height: 45rem;
-    border: solid orange;
     -webkit-animation: slideDown 0.15s linear 0ms 1 normal forwards; /* Chrome 4.3 | Edge | Safari 4.0 - 8.0 */
     -moz-animation: slideDown 0.15s linear 0ms 1 normal forwards; /* Firefox 5.0 | Gecko 16.0 */
     -o-animation: slideDown 0.15s linear 0ms 1 normal forwards; /* Opera 12 */
@@ -209,6 +217,10 @@
   }
   .search-criteria-confirma-btn {
     width: 33%;
+  }
+  .searchbar {
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 }
 
@@ -218,6 +230,7 @@
       height: 0;
   }
   to {
-      height: 60vh;
+      height: 65vh;
+      min-height: 45rem;
   }
 }

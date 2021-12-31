@@ -13,9 +13,9 @@ const TripCard = ({
   let image_path = '';
 
   try {
-    image_path = require(`../../../img/cities/${destination.toLowerCase()}.jpg`);
+    image_path = require(`../img/cities/${destination.toLowerCase()}.jpg`);
   } catch (err) {
-    image_path = require(`../../../img/cities/defaultcityimage.jpg`);
+    image_path = require(`../img/cities/defaultcityimage.jpg`);
   }
 
   return (

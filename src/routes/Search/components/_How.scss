@@ -65,79 +65,55 @@
   }
 }
 
-// landscape
-@media (orientation: landscape) {
-  .how-to-use-it {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-}
-
-// small mobile screens landscape
-@media (min-width: 300px) and (orientation: landscape) {
+@media (max-width: 300px) {
   .how-to-use-it {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    .how-to-use-it-text {
+    .how-to-use-it-title {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      .focus-text {
+        .underline {
+          border: 1.3rem solid white;
+        }
+      }
     }
   }
 }
 
-// portrait
-@media (orientation: portrait) {
-  .how-to-use-it {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-}
-
-// small mobile screens portrait
-@media (max-width: 320px) and (orientation: portrait) {
+@media (min-width: 301px) {
   .how-to-use-it {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
-    .how-to-use-it-text {
+    .how-to-use-it-title {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      .underline {
+        border: 1.8rem solid white;
+      }
     }
   }
 }
 
-// mobile screens portrait
-@media (min-width: 321px) and (orientation: portrait) {
-  .how-to-use-it {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    .how-to-use-it-text {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+@media (min-width: 501px) {
+  .focus-text {
+    .underline {
+      border: 2rem solid white;
     }
   }
 }
 
-// tablet screens portrait
-@media (min-width: 901px) and (orientation: portrait) {
+@media (min-width: 901px) {
   .how-to-use-it {
     display: flex;
     flex-direction: row;
@@ -149,7 +125,6 @@
   }
 }
 
-// laptop and computer screens
 @media (min-width: 1201px) {
   .how-to-use-it {
     display: flex;
@@ -162,24 +137,6 @@
     .how-to-use-it-gif {
       width: 40%;
       text-align: center;
-    }
-  }
-}
-
-
-@media (max-width: 501px) {
-  .focus-text {
-    .underline {
-      border: 1.8rem solid white;
-    }
-  }
-}
-
-
-@media (min-width: 501px) {
-  .focus-text {
-    .underline {
-      border: 2rem solid white;
     }
   }
 }

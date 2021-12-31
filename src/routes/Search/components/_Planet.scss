@@ -45,7 +45,23 @@
   }
 }
 
-@media (max-width: 500px) {
+
+@media (max-width: 300px) {
+  .planet-content {
+    flex-direction: column;
+    padding: 2rem 1rem 0rem 1rem;
+    .planet-image {
+      height: 25rem;
+    }
+    .planet-content {
+      .underline {
+        border: 1.3rem solid #85bf82;
+      }
+    }
+  }
+}
+
+@media (max-width: 301px) {
   .planet-content {
     flex-direction: column;
     padding: 2rem 1rem 0rem 1rem;
@@ -53,13 +69,34 @@
       height: 25rem;
     }
   }
+  .planet-content {
+    .underline {
+      border: 1.3rem solid #85bf82;
+    }
+  }
+}
+
+@media (min-width: 301px) {
+  .planet-content {
+    flex-direction: column;
+    padding: 2rem 1rem 0rem 1rem;
+    .simple-solution-title-details {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: -5rem;
+    }
+    .underline {
+      border: 1.8rem solid #85bf82;
+    }
+  }
 }
 
 @media (min-width: 501px) {
   .planet-content {
-    padding: 2rem 3rem 0rem 3rem;
-    .planet-image {
-      height: 40rem;
+    .underline {
+      border: 2rem solid #85bf82;
     }
   }
 }
@@ -74,53 +111,20 @@
 }
 
 @media (min-width: 901px) {
-  .planet {
-    width: 100%;
-    .planet-image {
-      width: 45%;
-    }
-    .planet-content {
-      width: 55%;
-    }
-  }
-}
-
-
-@media (max-width: 500px) {
-  .planet-content {
-    .underline {
-      border: 1.8rem solid #427103;
-    }
-  }
-}
-
-
-@media (min-width: 501px) {
-  .planet-content {
-    flex-direction: column;
-    padding: 2rem 3rem 0rem 3rem;
-    .simple-solution-title-details {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      margin-top: -5rem;
-    }
-    .underline {
-      border: 2rem solid #85bf82;
-    }
-  }
-}
-
-@media (min-width: 901px) {
   .planet-content {
     flex-direction: row;
     .planet-title-details {
       width: 55%;
       margin-bottom: 10rem;
     }
-    .planet-image {
-      width: 45%;
+    .planet {
+      width: 100%;
+      .planet-image {
+        width: 45%;
+      }
+      .planet-content {
+        width: 55%;
+      }
     }
   }
 }
