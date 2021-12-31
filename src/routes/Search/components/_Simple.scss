@@ -80,7 +80,12 @@
 
 @media (max-width: 300px) {
   .blue-light-shape {
-    display: none;
+  position: absolute;
+  top: 3rem;
+  right: 2rem;
+  z-index: -1;
+  width: 3rem;
+  transform: rotate(-90deg);
   }
   .simple-solution-content {
     flex-direction: column;
@@ -115,7 +120,12 @@
 
 @media (min-width: 301px) {
   .blue-light-shape {
-    display: none;
+    position: absolute;
+    top: 3rem;
+    right: 2rem;
+    z-index: -1;
+    width: 5rem;
+    transform: rotate(-90deg);
   }
   .simple-solution-content {
     flex-direction: column;
