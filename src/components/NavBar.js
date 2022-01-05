@@ -2,11 +2,8 @@ import React from 'react';
 import './_NavBar.scss';
 import { Link } from "react-router-dom";
 import onClickOutside from 'react-onclickoutside';
-import Popup from 'reactjs-popup';
 import logoPading from '../img/logo-pading.png';
 import simpleLogoPading from '../img/simple-logo-pading.png';
-import padingClassic from '../img/pading_classic_screenshot.png';
-
 
 class Navbar extends React.Component {
   state = {
@@ -42,25 +39,6 @@ class Navbar extends React.Component {
           </Link>
         </div>
         <div className="navbar-menu">
-          <div className="navbar-menu-items">
-            <button className="pading-mode-active">
-              Halfway
-            </button>
-            <Popup
-              modal
-              trigger={<button className="pading-mode">Classic</button>}
-            >
-            {closePopup => (
-              <div className="popup">
-                <button className="close-popup" onClick={closePopup}><i className="far fa-times-circle fa-2x"></i></button>
-                <div className="simple-trip-popup">
-                  <h3>BOOK ANY TRIP EASILY AND CALMLY<br/>- COMING SOON -</h3>
-                  <p><b>Flights and trains to any destination of your choice</b></p>
-                  <img src={padingClassic} alt="screenshot of Pading classic travel search" className="screenshot-app" />
-                </div>
-              </div>)}
-            </Popup>
-          </div>
         </div>
       </div>
     )

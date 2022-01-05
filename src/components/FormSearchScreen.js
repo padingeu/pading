@@ -167,12 +167,6 @@ class FormSearchScreen extends React.Component {
                 >
                   Only direct
                 </button>
-                <button
-                    onClick={(event) => {this.props.switchToFlexibleTrip(event)}}
-                    className="criteria-btn"
-                  >
-                    Flexible trip +/- 1 day
-                  </button>
               </div>
             </div>
             <div className="search-criteria-confirm">

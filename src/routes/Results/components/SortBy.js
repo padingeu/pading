@@ -26,7 +26,7 @@ class SortBy extends React.Component {
           }}
         >
           <div className="check-box">
-            {this.props.sortByChoice === 'carb. footprint' ? (
+            {this.props.sortByChoice === 'carbon' ? (
               <i className="fas fa-angle-right"></i>
             ) : null}
           </div>

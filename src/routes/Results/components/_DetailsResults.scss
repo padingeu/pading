@@ -112,10 +112,10 @@
       .clipboard-btn {
         position: relative;
         button {
-          color: #6dd3fd;
+          color: #4ac7fc;
           background-color: transparent;
           &:hover {
-            color: #4Ac7fc;
+            color: #6dd3fd;
           }
         }
         .tooltip-text {
@@ -138,14 +138,14 @@
         max-width: 100%;
         border-radius: 0.5rem;
         padding: 0 2rem;
-        background: #6dd3fd;
+        background: #4ac7fc;
         transition: background 0.3s ease;
         font-family: 'PT sans', sans-serif;
         font-weight: bold;
         cursor: pointer;
         text-decoration: none;
         &:hover {
-          background: #4Ac7fc;
+          background: #6dd3fd;
           color: white;
         }
         .book-for-price {
@@ -156,7 +156,7 @@
         span.trip-pricing-amount {
           font-family: 'PT Sans', sans-serif;
           font-weight: bold;
-          color: #4Ac7fc;
+          color: #4ac7fc;
           text-align: center;
           border-radius: 0.2rem;
           margin-right: 0.5rem;

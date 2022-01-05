@@ -10,18 +10,68 @@
     justify-content: center;
     align-items: flex-start;
     width: 100%;
+    
     .banner-img{
       width: 100%;
+    }
+    h1 {
+      margin-left: -0.5rem;
     }
     p {
       font-weight: bold;
       color: #4c4c4c;
+      white-space: nowrap;
+    }
+  }
+  .pading-mode {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    .pading-mode-active {
+      cursor: auto;
+      background: transparent;
+      font-family: 'Paytone One', sans-serif;
+      font-weight: bold;
+      font-size: 1.4rem;
+      margin-right: 0.5rem;
+      color: #41b6F1;
+      border-bottom: solid 0.3rem #41B6F1;
+    }
+    .pading-mode-disable {
+      cursor: pointer;
+      background: transparent;
+      font-weight: bold;
+      font-size: 1.4rem;
+      margin-left: 0.5rem;
+      color: #606060;
+      &:hover {
+        color: #757575;
+      }
+    }
+  }
+  .simple-trip-popup {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .screenshot-app {
+      max-width: 20rem;
+      margin: 0.5rem;
+    }
+    h3 {
+      text-align: center;
+    }
+    p {
+      text-align: center;
     }
   }
 }
 
 @media (max-width: 300px) {
   .banner-content {
+    bottom: 10rem;
+    padding: 0 1rem;
     p {
       font-size: 1.2rem;
     }
@@ -30,6 +80,19 @@
 
 @media (min-width: 301px) {
   .banner-content {
+    bottom: 10rem;
+    padding: 0 1rem;
+    p {
+      font-size: 1.6rem;
+
+    }
+  }
+}
+
+@media (min-width: 401px) {
+  .banner-content {
+    bottom: 10rem;
+    padding: 0 2rem;
     p {
       font-size: 1.6rem;
 
@@ -63,15 +126,17 @@
   }
 }
 
-@media (max-width: 900px) {
+@media (min-width: 600px) {
   .banner-content {
     bottom: 10rem;
-    padding: 0 1rem;
+    padding: 0 11rem;
   }
 }
 
-@media (min-width: 901px) {
+@media (min-width: 1201px) {
   .banner-content {
+    top: 6.5rem;
+    padding: 0 11rem;
     p {
       margin-bottom: 2rem;
     }
@@ -85,9 +150,5 @@
   .banner-background-desktop {
     display: block;
     width: 100%;
-  }
-  .banner-content {
-    top: 27rem;
-    padding-left: 10rem;
   }
 }

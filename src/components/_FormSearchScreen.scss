@@ -79,7 +79,7 @@
     .edit-travelers {
       padding: 1rem;
       font-weight: bold;
-      color: #4Ac7fc;
+      color: #4ac7fc;
       cursor: pointer;
       &:hover {
         color: #6dd3fd;
@@ -87,7 +87,7 @@
     }
     .number-of-travelers {
       font-weight: bold;
-      color: #4Ac7fc;
+      color: #4ac7fc;
     }
   }
 }
@@ -112,7 +112,7 @@
       padding: 0 1rem;
       margin: 1rem;
       font-size: 1.4rem;
-      background-color: #6dd3fd;
+      background-color: #4ac7fc;
       color: white;
       font-weight: bold;
     }
@@ -133,20 +133,20 @@
   .search-criteria-confirma-btn {
     height: 6rem;
     border-radius: 0.5rem;
-    background-color:#6dd3fd;
+    background-color:#4ac7fc;
     color: white;
     font-size: 1.8rem;
     transition: ease 0.2s;
     &:disabled {
       opacity: 1;
-      background-color:#6dd3fd;
+      background-color:#4ac7fc;
       cursor: not-allowed;
       &:hover {
         background-color:#dce4e9;
       }
     }
     &:hover {
-      background-color:#4Ac7fc;
+      background-color:#6dd3fd;
       transition: ease 0.2s;
     }
   }
@@ -169,7 +169,7 @@
   }
 }
   
-@media (max-width: 900px) {
+@media (max-width: 1200px) {
   .search-screen {
     position: fixed;
     top: 0;
@@ -185,6 +185,10 @@
     right: 0;
     bottom: 0;
     height: 100vh;
+    -webkit-animation: slideDownMobileTablet 0.15s linear 0ms 1 normal forwards; /* Chrome 4.3 | Edge | Safari 4.0 - 8.0 */
+    -moz-animation: slideDownMobileTablet 0.15s linear 0ms 1 normal forwards; /* Firefox 5.0 | Gecko 16.0 */
+    -o-animation: slideDownMobileTablet 0.15s linear 0ms 1 normal forwards; /* Opera 12 */
+    animation: slideDownMobileTablet 0.15s linear 0s 1 normal forwards; /* Modern browsers */
   }
   .search-criteria-confirma-btn {
     width: 100%;
@@ -196,7 +200,7 @@
 }
   
   
-@media (min-width: 901px) {
+@media (min-width: 1201px) {
   .search-screen {
     position: fixed;
     top: 0;
@@ -210,10 +214,10 @@
     top: 0;
     left: 0;
     right: 0;
-    -webkit-animation: slideDown 0.15s linear 0ms 1 normal forwards; /* Chrome 4.3 | Edge | Safari 4.0 - 8.0 */
-    -moz-animation: slideDown 0.15s linear 0ms 1 normal forwards; /* Firefox 5.0 | Gecko 16.0 */
-    -o-animation: slideDown 0.15s linear 0ms 1 normal forwards; /* Opera 12 */
-    animation: slideDown 0.15s linear 0s 1 normal forwards; /* Modern browsers */
+    -webkit-animation: slideDownDesktop 0.15s linear 0ms 1 normal forwards; /* Chrome 4.3 | Edge | Safari 4.0 - 8.0 */
+    -moz-animation: slideDownDesktop 0.15s linear 0ms 1 normal forwards; /* Firefox 5.0 | Gecko 16.0 */
+    -o-animation: slideDownDesktop 0.15s linear 0ms 1 normal forwards; /* Opera 12 */
+    animation: slideDownDesktop 0.15s linear 0s 1 normal forwards; /* Modern browsers */
   }
   .search-criteria-confirma-btn {
     width: 33%;
@@ -224,8 +228,16 @@
   }
 }
 
+@keyframes slideDownMobileTablet {
+  from {
+      height: 0;
+  }
+  to {
+      height: 100vh;
+  }
+}
 
-@keyframes slideDown{
+@keyframes slideDownDesktop {
   from {
       height: 0;
   }
