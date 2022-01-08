@@ -71,7 +71,7 @@ export default function DetailsResultsPopup(props) {
           aria-label="scrollable auto tabs example"
         >
           {Object.keys(props.trips).map((city) => {
-            return <Tab key={city} label={'from ' + city} {...a11yProps(city)} />;
+            return <Tab key={city} label={'from ' + city} {...a11yProps(city)} className="tab-active"/>;
           })}
         </Tabs>
       </AppBar>

@@ -3,12 +3,15 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 85%;
     .details-results-travel-content-section {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
       width: 100%;
       background-color: white;
+      box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+      border-radius: 0.5rem;
+      padding: 1rem 0.5rem;
+      margin: 1rem 0;
       .date-div-1 {
         grid-column: 1/2;
         grid-row: 1;
@@ -26,6 +29,7 @@
         background-color: white;
         border-radius: 0 1rem 0 0;
         font-weight: bold;
+        margin-bottom: 1rem;
         .date-from {
           position: absolute;
           left: 0.6rem;
@@ -36,18 +40,35 @@
         i {
           margin-right: 1rem;
         }
-        .travel-date {
-          font-size: 1.2rem;
+        .travel-date-div {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-weight: bold;
+          font-size: 1rem;
+          .travel-type {
+            font-size: 1rem;
+          }
+          .travel-date {
+            font-size: 1rem;
+            margin-left: 0.3rem;
+          }
         }
       }
       .stopover-div {
+        position: relative;
+        grid-column: 2/6;
+        grid-row: 1;
         display: flex;
+        justify-content: flex-start;
         align-items: center;
         background-color: white;
-        color: #f49d11;
-        padding: 1rem 0;
+        border-radius: 0 1rem 0 0;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        color: #ff9e00;
         i {
-          margin-right: 1rem;
+          margin-right: 0.5rem;
         }
       }
       .departure-div-1 {
@@ -56,9 +77,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: #f9f9f9;
+        background-color: white;
         span.date-from-time {
-          font-size: 1.2rem;
           font-weight: bold;
         }
       }
@@ -72,70 +92,36 @@
         align-items: flex-start;
         width: 100%;
         padding: 0.5rem 0 0.5rem 2.2rem;
-        background-color: #f9f9f9;
-        .line-top {
-          position: absolute;
-          left: 0.6rem;
-          border-left: 0.15rem dotted #dce4e9;
-          top: 0.1rem;
-          height: 30%;
-        }
+        background-color: white;
         .line-round {
           position: absolute;
-          background-color: #dce4e9;
-          top: 1.8rem;
-          left: 0.13rem;
-          width: 1.1rem;
-          height: 1.1rem;
+          background-color: white;
+          border: solid 2px #606060;
+          top: 1rem;
+          left: 0.12rem;
+          width: 1.2rem;
+          height: 1.2rem;
           border-radius: 50%;
         }
         .line-bottom {
           position: absolute;
           left: 0.6rem;
-          border-left: 0.15rem solid #dce4e9;
+          border-left: 0.2rem solid #606060;
           bottom: 0rem;
-          height: 40%;
+          height: 25%;
         }
-        span.city-from {
-          font-size: 1.2rem;
+        .city-from {
+          display: flex;
+          justify-content: center;
+          align-items: center;
           font-weight: bold;
-        }
-        span.city-from-code {
-          font-size: 1rem;
-        }
-      }
-      .traveler-div-1 {
-        grid-column: 1/2;
-        grid-row: 3;
-        height: 2rem;
-        background-color: #f9f9f9;
-      }
-      .traveler-div-2 {
-        position: relative;
-        grid-column: 2/6 !important;
-        grid-row: 3;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        height: 2rem;
-        width: 100%;
-        padding: 0.5rem 0 0.5rem 2.2rem;
-        background-color: #f9f9f9;
-        .travelers {
-          position: absolute;
-          left: 0.6rem;
-          border-left: 0.15rem solid #dce4e9;
-          top: 0;
-          height: 100%;
-        }
-        .fa-user-friends {
-          color: #4Ac7fc;
-          margin-right: 0.5rem;
-        }
-        span.travelers-number {
-          color: #4Ac7fc;
-          font-weight: bold;
-          font-size: 1.2rem;
+          span.city-from-name {
+            font-size: 1.4rem;
+          }
+          span.city-from-code {
+            font-size: 1.2rem;
+            margin-left: 0.3rem;
+          }
         }
       }
       .carrier-div-1 {
@@ -145,9 +131,8 @@
         justify-content: center;
         align-items: center;
         background-color: white;
-        padding: 1.2rem 0;
         img {
-          height: 3rem;
+          height: 3.5rem;
         }
       }
       .carrier-div-2 {
@@ -160,17 +145,11 @@
         align-items: center;
         padding: 0.5rem 0 0.5rem 2.2rem;
         background-color: white;
-        .line-top {
-          position: absolute;
-          left: 0.6rem;
-          border-left: 0.15rem solid #dce4e9;
-          top: 0;
-          height: 30%;
-        }
+    
         .line-bottom {
           position: absolute;
           left: 0.6rem;
-          border-left: 0.15rem solid #dce4e9;
+          border-left: 0.2rem solid #606060;
           bottom: 0rem;
           height: 100%;
         }
@@ -182,31 +161,47 @@
           padding: 0.7rem 0;
           .fa-plane {
             position: absolute;
-            top: 1.5rem;
+            top: 1.4rem;
             left: 0rem;
-            color: #f49d11;
+            color: #ff9e00;
             background-color: white;
             padding: 0.5rem 0;
           }
           .travel-company {
-            border-radius: 3rem;
-            padding: 0.2rem 1.5rem;
+            padding: 0.2rem 0.5rem;
             margin-right: 0.5rem;
             background-color: white;
             span.airline-name {
               font-size: 1.2rem;
               font-weight: bold;
-              color: #f49d11;
+              color: #ff9e00;
             }
           }
           .travel-duration {
-            border-radius: 5rem;
-            padding: 0.2rem 1rem;
-            background-color: #6dd3fd;
+            border-radius: 0.5rem;
+            padding: 0.2rem 0.5rem;
+            margin-right: 0.5rem;
+            background-color: #4ac7fc;
             height: 100%;
             span.travel-duration-hours {
               font-weight: bold;
               color: white;
+              font-size: 1.2rem;
+            }
+          }
+          .travelers {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0.2rem 0.5rem;
+            height: 100%;
+            .fa-user-friends {
+              color: #4ac7fc;
+              margin-right: 0.2rem;
+            }
+            span.travelers-number {
+              color: #4ac7fc;
+              font-weight: bold;
               font-size: 1.2rem;
             }
           }
@@ -223,7 +218,7 @@
             border-radius: 0.5rem;
             cursor: pointer;
             i {
-              color: #6dd3fd;
+              color: #606060;
             }
             &:hover {
               background-color: transparent;
@@ -233,12 +228,6 @@
         .route-details {
           width: 100%;
           padding: 1rem 0 1.5rem 0;
-          .route-details-connection-info {
-            span.connection-info {
-              font-size: 1.2rem;
-              line-height: 0rem;
-            }
-          }
           .route-details-connection-info-content {
             display: flex;
             flex-direction: column;
@@ -250,26 +239,17 @@
               justify-content: space-between;
               align-items: center;
               width: 100%;
-              .airline-logo {
-                img {
-                  text-align: center;
-                  width: 2.5rem;
-                }
-                span.airline {
-                  font-size: 1.2rem;
-                  font-weight: lighter;
-                  margin-left: 0.5rem;
-                }
+              span.airline-name {
+                font-size: 1.2rem;
+                margin-right: 1rem;
+                padding-left: 1.5rem;
+                width: 15rem;
               }
-              .airline-response {
-                display: flex;
-                align-items: center;
-                width: 70%;
-                span.airline-name {
-                  font-size: 1.2rem;
-                  font-weight: lighter;
-                  margin-right: 0.5rem;
-                }
+              span.airline-response {
+                width: 100%;
+                font-size: 1.2rem;
+                font-weight: bold;
+                margin-right: 0.5rem;
               }
             }
             .flight-number {
@@ -277,23 +257,16 @@
               justify-content: space-between;
               align-items: center;
               width: 100%;
-              .flight-number-logo {
-                i {
-                  text-align: center;
-                  width: 2.5rem;
-                }
-                span.flight-no {
-                  font-size: 1.2rem;
-                  font-weight: lighter;
-                  margin-left: 0.5rem;
-                }
+              span.flight-no {
+                font-size: 1.2rem;
+                margin-right: 1rem;
+                padding-left: 1.5rem;
+                width: 15rem;
               }
               span.flight-number-response {
-                display: flex;
-                align-items: center;
-                width: 70%;
+                width: 100%;
                 font-size: 1.2rem;
-                font-weight: lighter;
+                font-weight: bold;
                 margin-right: 0.5rem;
               }
             }
@@ -306,67 +279,75 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background-color: #f9f9f9;
+        background-color: white;
         span.arrival-time {
-          font-size: 1.2rem;
+          font-size: 1.4rem;
           font-weight: bold;
         }
       }
       .arrival-div-2 {
         position: relative;
-        grid-column: 2/6;
+        grid-column: 2/6 !important;
         grid-row: 5;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
-        background-color: #f9f9f9;
+        width: 100%;
         padding: 0.5rem 0 0.5rem 2.2rem;
+        background-color: white;
         .line-top {
           position: absolute;
           left: 0.6rem;
-          border-left: 0.15rem solid #dce4e9;
+          border-left: 0.2rem solid #606060;
           top: 0;
-          height: 30%;
+          height: 20%;
         }
         .line-round {
           position: absolute;
-          background-color: #dce4e9;
-          top: 1.8rem;
-          left: 0.13rem;
-          width: 1.1rem;
-          height: 1.1rem;
+          background-color: white;
+          border: solid 2px #606060;
+          top: 1rem;
+          left: 0.12rem;
+          width: 1.2rem;
+          height: 1.2rem;
           border-radius: 50%;
         }
-        .line-bottom {
-          position: absolute;
-          left: 0.6rem;
-          border-left: 0.15rem dotted #dce4e9;
-          bottom: 0rem;
-          height: 40%;
-        }
-        span.city-to {
-          font-size: 1.2rem;
+        .city-to {
+          display: flex;
+          justify-content: center;
+          align-items: center;
           font-weight: bold;
-        }
-        span.city-to-code {
-          font-size: 1rem;
+          span.city-to-name {
+            font-size: 1.4rem;
+          }
+          span.city-to-code {
+            font-size: 1.2rem;
+            margin-left: 0.3rem;
+          }
         }
       }
     }
 }
 
-@media (max-width: 500px) {
-  .airline-logo {
+@media (max-width: 300px) {
+  .travel-duration {
     display: none;
-    .airline-response {
-      justify-content: flex-start;
+  }
+  .departure-div-1 {
+    span.date-from-time {
+      font-size: 1.2rem;
     }
   }
-  .flight-number-logo {
-    display: none;
-    span.flight-number-response {
-      justify-content: flex-start;
+  .show-more-details {
+    right: 0;
+  }
+}
+
+@media (min-width: 301px) {
+  .departure-div-1 {
+    span.date-from-time {
+      font-size: 1.4rem;
     }
   }
   .show-more-details {
@@ -374,25 +355,22 @@
   }
 }
 
-@media (min-width: 501px) {
-  .airline-logo {
-    display: flex;
+
+@media (max-width: 500px) {
+  .airline-response {
     justify-content: flex-start;
-    align-items: center;
-    width: 30%;
-    .airline-response {
-      justify-content: flex-end;
-    }
   }
-  .flight-number-logo {
-    display: flex;
+  span.flight-number-response {
     justify-content: flex-start;
-    align-items: center;
-    width: 30%;
-    height: 2rem;
-    span.flight-number-response {
-      justify-content: flex-end;
-    }
+  }
+}
+
+@media (min-width: 501px) {
+  .airline-response {
+    justify-content: flex-end;
+  }
+  span.flight-number-response {
+    justify-content: flex-end;
   }
   .show-more-details {
     right: 3rem;
@@ -402,3 +380,20 @@
   }
 }
 
+@media (max-width: 500px) {
+  .details-results-travel-content {
+    width: 95%;
+  }
+}
+
+@media (min-width: 501px) and (max-width: 700px) {
+  .details-results-travel-content {
+    width: 90%;
+  }
+}
+
+@media (min-width: 700px) {
+  .details-results-travel-content {
+    width: 80%;
+  }
+}

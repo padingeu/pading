@@ -1,8 +1,6 @@
 .popup-content {
   border-radius: 1rem;
   overflow-y: auto;
-  width: 75vw !important;
-  padding: 0 !important;
 }
 
 .MuiAppBar-root {
@@ -19,15 +17,23 @@
       font-family: 'PT Sans', sans-serif;
       text-transform: capitalize;
       font-weight: bold;
-      color: #ff9e00;
     }
     .MuiTab-textColorPrimary.Mui-selected {
-      color: white !important;
+      color: white;
+      background-color: #ff9e00;
+      border-radius: 0.5rem;
+      &:hover {
+        color: white;
+      }
+    }
+    .MuiTab-textColorPrimary {
+      color: #606060;
+      &:hover {
+        color: #757575;
+      }
     }
     .MuiTabs-indicator {
-      background-color: #ff9e00 !important;
-      height: 0.4rem !important;
-      border-radius: 0.5rem;
+      display: none !important;
     }
   }
 }
@@ -41,10 +47,54 @@
   padding: 0.5rem !important;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 700px) {
   .popup-content {
     min-width: 100vw;
     min-height: 100vh;
     padding: 5.5rem 0 0 0 !important;
+  }
+  .close-popup {
+    position: absolute;
+    top: 2.7rem;
+    right: 1.2rem;
+    background-color: transparent;
+    color: #4c4c4c;
+    &:hover {
+      color: #7c7c7c;
+    }
+  }
+}
+
+@media (min-width: 701px) {
+  .close-popup {
+    display: none;
+  }
+}
+
+@media (min-width: 701px) and (max-width: 901px) {
+  .popup-content {
+    width: 80vw !important;
+    padding: none !important;
+  }
+}
+
+
+@media (min-width: 901px) and (max-width: 1001px) {
+  .popup-content {
+    width: 80vw !important;
+    padding: none !important;
+  }
+}
+
+@media (min-width: 1001px) and (max-width: 1101px) {
+  .popup-content {
+    width: 70vw !important;
+    padding: none !important;
+  }
+}
+
+@media (min-width: 1101px) {
+  .popup-content {
+    width: 50vw !important;
   }
 }

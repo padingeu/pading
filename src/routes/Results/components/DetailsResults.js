@@ -19,7 +19,7 @@ export default function DetailsResults(props) {
         <div className="details-results-travel">
           <div className="details-results-travel-city">
             <span className="to-city">
-              To {props.destination}
+              Way to {props.destination}
             </span>
           </div>
           {props.trip.wayRoutes.map((route, index) => {
@@ -34,7 +34,7 @@ export default function DetailsResults(props) {
             );
           })}
         </div>
-        <div className="details-results-travel-destination-content-section">
+        {/*<div className="details-results-travel-destination-content-section">
           <div className="destination-div-1"></div>
 
           <div className="destination-div-2">
@@ -45,12 +45,12 @@ export default function DetailsResults(props) {
               {props.returnTrip ? `${props.trip.nightsInDest} nights at the destination` : 'Have a great time !'}
             </span>
           </div>
-        </div>
+        </div>*/}
         {props.returnTrip === true && (
           <div className="details-results-travel-return">
             <div className="details-results-travel">
               <div className="details-results-travel-city">
-                <span className="to-city">To {props.cityFrom}</span>
+                <span className="to-city">Return to {props.cityFrom}</span>
               </div>
               {props.trip.returnRoutes.map((route, index) => {
                 return (
@@ -66,7 +66,7 @@ export default function DetailsResults(props) {
             </div>
           </div>
         )}
-        {props.returnTrip === true && (
+        {/*{props.returnTrip === true && (
           <div className="details-results-travel-destination-content-section">
             <div className="destination-div-1"></div>
             <div className="destination-div-2">
@@ -76,7 +76,7 @@ export default function DetailsResults(props) {
               <span className="arrive-at-message">Welcome back !</span>
             </div>
           </div>
-        )}
+        )}*/}
       </div>
       <div className="details-results-book">
         <div className="booking-zone">

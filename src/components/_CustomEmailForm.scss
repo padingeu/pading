@@ -45,11 +45,11 @@
     .btn-newsletter {
       height: 4rem;
       border-radius: 0.5rem;
-      background-color: #6dd3fd;
+      background-color: #41B6F1;
       color: white;
       font-weight: bold;
       &:hover {
-        background-color: #41B6F1;
+        background-color: #6dd3fd;
         transition: ease 0.2s;
       }
     }
@@ -86,20 +86,20 @@
     }
   }
   .swal2-icon.swal2-info {
-    border-color: #6dd3fd;
-    color: #6dd3fd;
+    border-color: #4ac7fc;
+    color: #4ac7fc;
     border-width: 0.3rem;
   }
   .swal2-icon.swal2-error {
-    border-color: #ffdb5b;
-    color: #ffdb5b;
+    border-color: #ffb133;
+    color: #ffb133;
     border-width: 0.3rem;
 
     .swal2-x-mark-line-left {
-      background-color: #ffdb5b;
+      background-color: #ffb133;
     }
     .swal2-x-mark-line-right {
-      background-color: #ffdb5b;
+      background-color: #ffb133;
     }
   }
 }
