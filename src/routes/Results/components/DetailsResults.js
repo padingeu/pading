@@ -16,7 +16,7 @@ export default function DetailsResults(props) {
   return (
     <div>
       <div className="details-results-travel">
-        <div className="details-results-travel">
+        
           <div className="details-results-travel-city">
             <span className="to-city">
               Way to {props.destination}
@@ -33,7 +33,7 @@ export default function DetailsResults(props) {
               />
             );
           })}
-        </div>
+  
         {props.returnTrip === true && (
           <div className="details-results-travel-return">
             <div className="details-results-travel">
@@ -63,7 +63,7 @@ export default function DetailsResults(props) {
             rel="noopener noreferrer"
             className="btn-co2"
           >
-            <span>Compensate your CO2</span>
+            <span>Offset your CO2</span>
             <span className="trip-carbon-amount">{props.carbonFootprint} t</span>
           </a>
           <div className="clipboard-btn">

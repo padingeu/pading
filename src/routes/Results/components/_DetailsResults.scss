@@ -7,6 +7,7 @@
     height: 100%;
     .MuiTypography-root {
       width: 100%;
+      height: 100%;
       overflow-y: auto;
       margin-bottom: 9rem;
       background-color: white;
@@ -16,6 +17,15 @@
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
+        height: 100%;
+        .details-results-travel-city {
+          text-align: left;
+          span.to-city {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #4c4c4c;
+          }       
+        }
       }
       .details-results-travel {
         display: flex;
@@ -23,21 +33,14 @@
         justify-content: flex-start;
         align-items: center;
         width: 100%;
-        .details-results-travel {
-          display: flex;
-          flex-direction: column;
-          justify-content: flex-start;
-          align-items: center;
-          background-color: white;
-          width: 100%;
-          .details-results-travel-city {
-            text-align: left;
-            span.to-city {
-              font-size: 1.4rem;
-              font-weight: bold;
-              color: #4c4c4c;
-            }       
-          }
+        height: 100%;
+        .details-results-travel-city {
+          text-align: left;
+          span.to-city {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #4c4c4c;
+          }       
         }
       }
     }
@@ -64,18 +67,18 @@
         align-items: center;
         height: 5rem;
         border-radius: 0.5rem;
-        padding: 0 2rem;
         background: white;
         border: solid 2px #85bf82;
         color: #85bf82;
         transition: background 0.3s ease;
         font-family: 'PT sans', sans-serif;
         font-weight: bold;
-        font-size: 1.2rem;
         cursor: pointer;
         text-decoration: none;
-        margin-left: 0.5rem;
-        width: 30%;
+        width: 24%;
+        span {
+          text-align: center;
+        }
         &:hover {
           border-color: #8ec98b;
           color: #85bf82;
@@ -94,7 +97,7 @@
       }
       .clipboard-btn {
         position: relative;
-        width: 30%;
+        width: 24%;
         margin-left: 1rem;
         margin-right: 1rem;
         button {
@@ -117,15 +120,14 @@
         align-items: center;
         height: 5rem;
         border-radius: 0.5rem;
-        padding: 0 2rem;
         background-color: white;
         border: solid 2px #4ac7fc;
         color: #4ac7fc;
         transition: background 0.3s ease;
         font-family: 'PT sans', sans-serif;
         font-weight: bold;
-        margin-right: 0.5rem;
         width: 100%;
+        margin-left: 0.2rem;
         &:hover {
           border: solid 2px #6dd3fd;
           color: #6dd3fd;
@@ -137,7 +139,6 @@
         align-items: center;
         height: 5rem;
         border-radius: 0.5rem;
-        padding: 0 2rem;
         background: #4ac7fc;
         color: white;
         transition: background 0.3s ease;
@@ -145,8 +146,8 @@
         font-weight: bold;
         cursor: pointer;
         text-decoration: none;
-        margin-left: 0.5rem;
-        width: 40%;
+        width: 46%;
+        margin-left: 0.2rem;
         &:hover {
           background: #6dd3fd;
           color: white;
@@ -172,29 +173,52 @@
   }
 }
 
-
-@media (max-width: 500px) {
-  .carbonfootprint {
+@media (max-width: 300px) {
+  .btn-co2 {
     font-size: 1.2rem;
-    margin-left: 0.5rem;
-  }
-  .btn-book {
-    font-size: 1.4rem;
-    span.trip-pricing-amount {
-      font-size: 1.4rem;
+    .trip-carbon-amount {
+      display: none;
     }
   }
+  .btn-book {
+    font-size: 1.2rem;
+    margin-left: 0.2rem;
+  }
   .tooltip-text {
-    bottom: 6rem;
+    bottom: 5rem;
+    font-size: 1rem;
+    white-space: nowrap;
+  }
+  .btn-share {
+    font-size: 1.2rem;
+    margin-right: 0.2rem;
+    i {
+      display: none;
+    }
+  }
+}
+
+
+@media (min-width: 301px) {
+  .btn-co2 {
+    font-size: 1.2rem;
+  }
+  .btn-book {
+    font-size: 1.2rem;
+  }
+  .tooltip-text {
+    bottom: 5rem;
     font-size: 1.4rem;
-    width: 14rem;
+    white-space: nowrap;
+  }
+  .btn-share {
+    font-size: 1.4rem;
   }
 }
 
 @media (min-width: 501px) {
-  .carbonfootprint {
-    font-size: 1.4rem;
-    margin-left: 1rem;
+  .btn-co2 {
+    font-size: 1.2rem;
   }
   .btn-book {
     font-size: 1.6rem;
@@ -204,8 +228,11 @@
   }
   .tooltip-text {
     bottom: 6rem;
-    font-size: 1.2rem;
-    width: 12rem;
+    font-size: 1.4rem;
+    white-space: nowrap;
+  }
+  .btn-share {
+    font-size: 1.6rem;
   }
 }
 
