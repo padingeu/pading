@@ -11,7 +11,7 @@
       box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
       border-radius: 0.5rem;
       padding: 1rem 0.5rem;
-      margin: 1rem 0;
+      margin: 0.5rem 0 1rem 0;
       .date-div-1 {
         grid-column: 1/2;
         grid-row: 1;
@@ -28,7 +28,7 @@
         align-items: center;
         background-color: white;
         border-radius: 0 1rem 0 0;
-        font-weight: bold;
+        font-weight: normal;
         margin-bottom: 1rem;
         .date-from {
           position: absolute;
@@ -39,20 +39,6 @@
         }
         i {
           margin-right: 1rem;
-        }
-        .travel-date-div {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          font-weight: bold;
-          font-size: 1rem;
-          .travel-type {
-            font-size: 1rem;
-          }
-          .travel-date {
-            font-size: 1rem;
-            margin-left: 0.3rem;
-          }
         }
       }
       .stopover-div {
@@ -114,12 +100,13 @@
           display: flex;
           justify-content: center;
           align-items: center;
-          font-weight: bold;
           span.city-from-name {
             font-size: 1.4rem;
+            font-weight: bold;
           }
           span.city-from-code {
             font-size: 1.2rem;
+            font-weight: normal;
             margin-left: 0.3rem;
           }
         }
@@ -173,7 +160,7 @@
             background-color: white;
             span.airline-name {
               font-size: 1.2rem;
-              font-weight: bold;
+              font-weight: normal;
               color: #ff9e00;
             }
           }
@@ -201,7 +188,7 @@
             }
             span.travelers-number {
               color: #4ac7fc;
-              font-weight: bold;
+              font-weight: normal;
               font-size: 1.2rem;
             }
           }
@@ -317,12 +304,13 @@
           display: flex;
           justify-content: center;
           align-items: center;
-          font-weight: bold;
           span.city-to-name {
             font-size: 1.4rem;
+            font-weight: bold;
           }
           span.city-to-code {
             font-size: 1.2rem;
+            font-weight: normal;
             margin-left: 0.3rem;
           }
         }

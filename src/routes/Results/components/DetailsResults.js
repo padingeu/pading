@@ -34,18 +34,6 @@ export default function DetailsResults(props) {
             );
           })}
         </div>
-        {/*<div className="details-results-travel-destination-content-section">
-          <div className="destination-div-1"></div>
-
-          <div className="destination-div-2">
-            <div className="line"></div>
-            <i className="fas fa-map-marker-alt fa-lg"></i>
-            <span className="arrive-at">Arrive in {props.destination}</span>
-            <span className="arrive-at-message">
-              {props.returnTrip ? `${props.trip.nightsInDest} nights at the destination` : 'Have a great time !'}
-            </span>
-          </div>
-        </div>*/}
         {props.returnTrip === true && (
           <div className="details-results-travel-return">
             <div className="details-results-travel">
@@ -66,20 +54,18 @@ export default function DetailsResults(props) {
             </div>
           </div>
         )}
-        {/*{props.returnTrip === true && (
-          <div className="details-results-travel-destination-content-section">
-            <div className="destination-div-1"></div>
-            <div className="destination-div-2">
-              <div className="line"></div>
-              <i className="fas fa-map-marker-alt fa-lg"></i>
-              <span className="arrive-at">Arrive in {props.cityFrom}</span>
-              <span className="arrive-at-message">Welcome back !</span>
-            </div>
-          </div>
-        )}*/}
       </div>
       <div className="details-results-book">
         <div className="booking-zone">
+          <a
+            href="/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-co2"
+          >
+            <span>Compensate your CO2</span>
+            <span className="trip-carbon-amount">{props.carbonFootprint} t</span>
+          </a>
           <div className="clipboard-btn">
             {showTooltipText ? <span className="tooltip-text">Booking link copied !</span> : ''}
             <CopyToClipboard
@@ -91,8 +77,9 @@ export default function DetailsResults(props) {
                 props.trip.travelers
               }
             >
-              <button onClick={displayTooltipText}>
-              <i class="fas fa-share-alt fa-lg"></i>
+              <button className="btn-share" onClick={displayTooltipText}>
+                <span>Share ticket</span>
+                <i class="fas fa-share-alt fa-lg"></i>
               </button>
             </CopyToClipboard>
           </div>
@@ -112,8 +99,8 @@ export default function DetailsResults(props) {
               <span>Book for</span>
               <span className="trip-pricing-amount">{props.trip.price} EUR</span>
             </div>
-            <span className="trip-carbon-amount">{props.carbonFootprint} t CO2</span>
           </a>
+
         </div>
       </div>
     </div>

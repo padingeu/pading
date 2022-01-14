@@ -16,6 +16,7 @@ export default function FlightInfo(props) {
     TO: 'Transavia',
     LH: 'Lufhansa',
     IB: 'Iberia',
+    I2: 'Iberia Express',
     W6: 'Wizz Air',
     V7: 'Volotea',
     AZ: 'Alitalia',

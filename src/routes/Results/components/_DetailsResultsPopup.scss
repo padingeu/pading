@@ -1,17 +1,23 @@
 .popup-content {
   border-radius: 1rem;
   overflow-y: auto;
+  max-height: 100vh !important;
+}
+
+.MuiAppBar-colorDefault {
+  background-color: white !important;
 }
 
 .MuiAppBar-root {
-  border-radius: 0.5rem 0.5rem 0 0;
+  border-radius: 1rem;
   background-color: white;
   border: 0 !important;
   box-shadow: none !important;
   .MuiTabs-root {
-    background-color: white;
-    border-radius: 1rem 1rem 0 0;
-    padding: 0.5rem 1rem;
+    background-color: #f4f4f4;
+    border-radius: 1rem;
+    padding: 0.7rem;
+    margin: 0.5rem 1rem;
     .MuiTab-wrapper {
       font-size: 1.6rem;
       font-family: 'PT Sans', sans-serif;
@@ -19,17 +25,18 @@
       font-weight: bold;
     }
     .MuiTab-textColorPrimary.Mui-selected {
-      color: white;
-      background-color: #ff9e00;
-      border-radius: 0.5rem;
+      color: #606060;
+      background-color: white;
+      border-radius: 1rem;
       &:hover {
-        color: white;
+        color: #606060;
       }
     }
     .MuiTab-textColorPrimary {
       color: #606060;
+      //border-bottom: solid 4px #ff9e00 !important;
       &:hover {
-        color: #757575;
+        color: #606060;
       }
     }
     .MuiTabs-indicator {
@@ -55,7 +62,7 @@
   }
   .close-popup {
     position: absolute;
-    top: 2.7rem;
+    top: 2.5rem;
     right: 1.2rem;
     background-color: transparent;
     color: #4c4c4c;

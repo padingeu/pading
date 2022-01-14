@@ -47,7 +47,7 @@
           display: flex;
           justify-content: center;
           align-items: center;
-          color: #878787;
+          color: #606060;
           font-weight: bold;
           background-color: white;
           cursor: pointer;
@@ -56,13 +56,16 @@
           i {
             margin-right: 0.5rem;
           }
+          &:hover {
+            color: #757575;
+          }
         }
         .btn-sort {
           position: relative;
           display: flex;
           justify-content: center;
           align-items: center;
-          color: #878787;
+          color: #606060;
           font-weight: bold;
           background-color: white;
           cursor: pointer;
@@ -70,6 +73,9 @@
           font-size: 1.4rem;
           i {
             margin-right: 0.5rem;
+          }
+          &:hover {
+            color: #757575;
           }
         }
       }

@@ -44,6 +44,7 @@ export default class Banner extends React.Component {
                   searchTrips={this.props.searchTrips}
                   isHomePage={this.props.isHomePage}
                 />
+                {console.log(this.props.dispplayFromWhereScreen)}
               </div>
             : ''}
  

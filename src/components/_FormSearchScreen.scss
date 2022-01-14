@@ -109,15 +109,24 @@
     .criteria-btn {
       height: 3.7rem;
       border-radius: 0.5rem;
-      padding: 0 1rem;
-      margin: 1rem;
+      padding: 0.5rem 1rem;
+      margin: 0.5rem;
       font-size: 1.4rem;
-      background-color: #4ac7fc;
-      color: white;
+      background-color: white;
+      border: solid 2px #4ac7fc;
+      color: #4ac7fc;
       font-weight: bold;
+      &:hover {
+        border: solid 2px #6dd3fd;
+        color: #6dd3fd;
+      }
     }
     .criteria-btn-active {
-      background-color: #19a6ee;
+      background-color: #4ac7fc;
+      color: white;
+      &:hover {
+        color: white;
+      }
     }
   }
 }

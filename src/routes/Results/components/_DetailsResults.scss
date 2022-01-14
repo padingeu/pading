@@ -1,7 +1,7 @@
 .details-results {
   position: relative;
   margin-top: 1rem;
-  height: calc(100vh - 12.5rem);
+  height: calc(100vh - 14rem);
   .MuiBox-root {
     padding: 0 !important;
     height: 100%;
@@ -33,58 +33,10 @@
           .details-results-travel-city {
             text-align: left;
             span.to-city {
+              font-size: 1.4rem;
               font-weight: bold;
               color: #4c4c4c;
             }       
-          }
-        }
-        .details-results-travel-destination-content-section {
-          display: grid;
-          grid-template-columns: repeat(5, 1fr);
-          width: 85%;
-          .destination-div-1 {
-            grid-column: 1/2;
-            grid-row: 6;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: white;
-            border-radius: 0 0 0 1rem;
-          }
-          .destination-div-2 {
-            position: relative;
-            grid-column: 2/6;
-            grid-row: 6;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
-            padding: 5rem 0 0.5rem 2.2rem;
-            background-color: white;
-            border-radius: 0 0 1rem 0;
-            .line {
-              position: absolute;
-              left: 0.6rem;
-              border-left: 0.15rem dotted #d6d6d6;
-              top: 0;
-              height: 60%;
-            }
-            .fa-map-marker-alt {
-              position: absolute;
-              left: 0.2rem;
-              bottom: 2rem;
-              color: #427103;
-            }
-            span.arrive-at {
-              font-size: 1.2rem;
-              font-weight: bold;
-            }
-            span.arrive-at-message {
-              font-size: 1.2rem;
-              font-weight: bold;
-              color: #427103;
-            }
           }
         }
       }
@@ -105,8 +57,46 @@
       align-items: center;
       width: 100%;
       margin: 0 1rem;
+      .btn-co2 {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        height: 5rem;
+        border-radius: 0.5rem;
+        padding: 0 2rem;
+        background: white;
+        border: solid 2px #85bf82;
+        color: #85bf82;
+        transition: background 0.3s ease;
+        font-family: 'PT sans', sans-serif;
+        font-weight: bold;
+        font-size: 1.2rem;
+        cursor: pointer;
+        text-decoration: none;
+        margin-left: 0.5rem;
+        width: 30%;
+        &:hover {
+          border-color: #8ec98b;
+          color: #85bf82;
+        }
+        span.trip-carbon-amount {
+          font-family: 'PT Sans', sans-serif;
+          font-weight: bold;
+          color: white;
+          text-align: center;
+          border-radius: 0.2rem;
+          margin-right: 0.5rem;
+          padding: 0 0.5rem;
+          margin-top: 0.4rem;
+          background-color: #85bf82;
+        }
+      }
       .clipboard-btn {
         position: relative;
+        width: 30%;
+        margin-left: 1rem;
+        margin-right: 1rem;
         button {
           color: #4ac7fc;
           background-color: transparent;
@@ -121,21 +111,42 @@
           font-weight: bold;
         }
       }
+      .btn-share {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 5rem;
+        border-radius: 0.5rem;
+        padding: 0 2rem;
+        background-color: white;
+        border: solid 2px #4ac7fc;
+        color: #4ac7fc;
+        transition: background 0.3s ease;
+        font-family: 'PT sans', sans-serif;
+        font-weight: bold;
+        margin-right: 0.5rem;
+        width: 100%;
+        &:hover {
+          border: solid 2px #6dd3fd;
+          color: #6dd3fd;
+        }
+      }
       .btn-book {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         align-items: center;
-        color: white;
-        height: 6rem;
-        max-width: 100%;
+        height: 5rem;
         border-radius: 0.5rem;
         padding: 0 2rem;
         background: #4ac7fc;
+        color: white;
         transition: background 0.3s ease;
         font-family: 'PT sans', sans-serif;
         font-weight: bold;
         cursor: pointer;
         text-decoration: none;
+        margin-left: 0.5rem;
+        width: 40%;
         &:hover {
           background: #6dd3fd;
           color: white;
@@ -156,30 +167,10 @@
           margin-left: 0.4rem;
           background-color: white;
         }
-        span.trip-carbon-amount {
-          font-family: 'PT Sans', sans-serif;
-          font-weight: bold;
-          font-size: 1.2rem;
-          color: white;
-          text-align: center;
-        }
       }
     }
   }
 }
-
-@media (max-width: 300px) {
-  .btn-book {
-    width: 22.5rem;
-  }
-}
-
-@media (min-width: 301px) {
-  .btn-book {
-    min-width: 30rem;
-  }
-}
-
 
 
 @media (max-width: 500px) {
@@ -194,8 +185,7 @@
     }
   }
   .tooltip-text {
-    left: 1rem;
-    bottom: 5rem;
+    bottom: 6rem;
     font-size: 1.4rem;
     width: 14rem;
   }
@@ -213,8 +203,7 @@
     }
   }
   .tooltip-text {
-    left: 2.5rem;
-    bottom: 2rem;
+    bottom: 6rem;
     font-size: 1.2rem;
     width: 12rem;
   }
