@@ -16,32 +16,33 @@
   align-items: center;
   width: 100%;
   h4 {
-    color: #41B6F1 !important;
+    color: #333333 !important;
     font-size: 1.6rem !important;
+    font-weight: bold;
     text-align: left;
   }
 }
 .faq-answers {
   p {
-    color: #333333 !important;
+    color: #606060 !important;
     font-weight: bold !important;
-    font-size: 1.4rem !important;
     text-align: justify !important;
+    font-size: 1.4rem;
   }
   li {
     color: #41B6F1 !important;
   }
 }
 
-@media (max-width: 900px) {
-  .faq-title {
-    .h4 {
-      font-size: 1.4rem !important;
-    }
-  }
-  .faq-answers {
-    p {
-      font-size: 1.2rem !important;
-    }
+@media (max-width: 700px) {
+  .popup-content {
+    border-radius: none;
   }
 }
+
+@media (min-width: 701px) {
+  .popup-content {
+    border-radius: 1rem;
+  }
+}
+

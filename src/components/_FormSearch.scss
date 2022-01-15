@@ -48,10 +48,10 @@
   }
 }
 .fromwhere-btn {
-  width: 80%;
   height: 4rem;
   background-color: white;
   overflow-y: scroll;
+  width: 100%;
   span {
     text-align: left;
     color: #606060;
@@ -61,12 +61,15 @@
 .traveltype-btn {
   height: 4rem;
   border-radius: 0.5rem;
-  background-color: #4ac7fc;
-  color: white;
+  background-color: white;
+  border: solid 2px #4ac7fc;
+  color: #4ac7fc;
   font-weight: bold;
   &:hover {
-    background-color: #6dd3fd;
+    background-color: white;
     transition: ease 0.2s;
+    border: solid 2px #6dd3fd;
+    color: #6dd3fd;
   }
 }
 .formsearch-bar-results-2 {
@@ -173,9 +176,11 @@
   .formsearch-bar-home {
     max-width: 40rem;
     width: 95%;
+    .fromwhere-btn {
+      width: 70rem;
+    }
   }
   .fromwhere-btn {
-    width: 70rem;
     span {
       font-size: 1.6rem;
     }

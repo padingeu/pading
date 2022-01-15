@@ -96,7 +96,7 @@ export default function FlightInfo(props) {
             <span className="travel-date">{moment.utc(props.route.local_departure).format('MMM Do YYYY')}</span>
           </div>
         :
-          <div className="stopover-div">d
+          <div className="stopover-div">
             <i className="fas fa-exchange-alt"></i>
             <span className="stopover">Connection with another flight</span>
           </div>

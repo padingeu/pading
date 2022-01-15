@@ -314,7 +314,7 @@ export default class FormSearch extends React.Component {
                 className="traveltype-btn"
                 onClick={(event) => {
                   this.switchOneWayReturn(event);
-                  this.startFromDatesPicker(event);
+                  setTimeout(() => this.startFromDatesPicker(event), 300);
                 }}
               >
                 {this.state.returnTrip ? 'Return' : 'One-way'}

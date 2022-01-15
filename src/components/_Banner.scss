@@ -32,7 +32,6 @@
       cursor: auto;
       background: transparent;
       font-family: 'Paytone One', sans-serif;
-      font-weight: bold;
       font-size: 1.4rem;
       margin-right: 0.5rem;
       color: #41b6F1;
@@ -41,10 +40,11 @@
     .pading-mode-disable {
       cursor: pointer;
       background: transparent;
-      font-weight: bold;
+      font-family: 'Paytone One', sans-serif;
       font-size: 1.4rem;
       margin-left: 0.5rem;
       color: #606060;
+      border-bottom: solid 0.3rem transparent;
       &:hover {
         color: #757575;
       }
@@ -81,7 +81,7 @@
 @media (min-width: 301px) {
   .banner-content {
     bottom: 10rem;
-    padding: 0 1rem;
+    padding: 0 2rem;
     p {
       font-size: 1.6rem;
 

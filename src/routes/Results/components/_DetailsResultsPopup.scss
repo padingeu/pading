@@ -1,5 +1,4 @@
 .popup-content {
-  border-radius: 1rem;
   overflow-y: auto;
   max-height: 100vh !important;
 }
@@ -58,6 +57,7 @@
   .popup-content {
     min-width: 100vw;
     min-height: 100vh;
+    border-radius: none;
     padding: 5.5rem 0 0 0 !important;
   }
   .close-popup {
@@ -73,6 +73,9 @@
 }
 
 @media (min-width: 701px) {
+  .popup-content {
+    border-radius: 1rem;
+  }
   .close-popup {
     display: none;
   }
