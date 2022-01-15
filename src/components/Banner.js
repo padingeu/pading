@@ -31,10 +31,10 @@ export default class Banner extends React.Component {
                   >
                   {closePopup => (
                     <div className="popup">
-                      <button className="close-popup" onClick={closePopup}><i className="far fa-times-circle fa-2x"></i></button>
+                      <button className="close-popup" onClick={closePopup}><i class="fas fa-times fa-lg"></i></button>
                       <div className="simple-trip-popup">
-                        <h3>BOOK ANY TRIP EASILY AND CALMLY<br/>- COMING SOON -</h3>
-                        <p><b>Flights and trains to any destination of your choice</b></p>
+                        <h3>- COMING SOON -</h3>
+                        <p>Book any trip easily and calmly to the destination of your choice</p>
                         <img src={padingClassic} alt="screenshot of Pading classic travel search" className="screenshot-app" />
                       </div>
                     </div>)}

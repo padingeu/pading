@@ -54,22 +54,19 @@
   width: 100%;
   span {
     text-align: left;
-    color: #606060;
+    color: #ff9e00;
     width: 100%;
   }
 }
 .traveltype-btn {
   height: 4rem;
   border-radius: 0.5rem;
-  background-color: white;
-  border: solid 2px #4ac7fc;
-  color: #4ac7fc;
+  background-color: #f4f4f4;
+  color: #606060;
   font-weight: bold;
   &:hover {
-    background-color: white;
+    background-color: #e7e7e7;
     transition: ease 0.2s;
-    border: solid 2px #6dd3fd;
-    color: #6dd3fd;
   }
 }
 .formsearch-bar-results-2 {
