@@ -12,17 +12,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 70rem;
-  background-color: #f7f7f7;
-  border: solid 1px #f7f7f7;
+  background-color: white;
   border-radius: 0.5rem;
-  box-shadow: 0 0.1rem 0.2rem rgba(76, 76, 76, 0.03), 0 0.2rem 0.4rem rgba(76, 76, 76, 0.03);
+  box-shadow: 0 0.1rem 0.2rem rgba(0,0,0,0.2), 0 0.2rem 0.4rem rgba(82,131,173,0.2);
   padding: 0 1rem;
   height: 6rem;
   &:hover {
     transition: ease 0.2s;
     background-color: white;
-    border: solid 1px #e7e7e7;
     .fromwhere-btn {
       transition: ease 0.2s;
       background-color: white;
@@ -34,8 +31,8 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  background-color: #f7f7f7;
-  border: solid 1px #f7f7f7;
+  background-color: white;
+  border: solid 1px white;
   border-radius: 0.5rem;
   box-shadow: 0 0.1rem 0.2rem rgba(76, 76, 76, 0.03), 0 0.2rem 0.4rem rgba(76, 76, 76, 0.03);
   padding: 0 1rem;
@@ -51,11 +48,10 @@
   }
 }
 .fromwhere-btn {
-  width: 80%;
   height: 4rem;
-  background-color: #f7f7f7;
-  font-weight: bold;
+  background-color: white;
   overflow-y: scroll;
+  width: 100%;
   span {
     text-align: left;
     color: #ff9e00;
@@ -63,14 +59,13 @@
   }
 }
 .traveltype-btn {
-  min-width: 10rem;
   height: 4rem;
   border-radius: 0.5rem;
-  background-color: #6dd3fd;
-  color: white;
+  background-color: #f4f4f4;
+  color: #606060;
   font-weight: bold;
   &:hover {
-    background-color: #4Ac7fc;
+    background-color: #e7e7e7;
     transition: ease 0.2s;
   }
 }
@@ -87,13 +82,13 @@
     width: 50%;
     margin-top: 0.7rem;
     padding: 1rem;
-    background-color: #f7f7f7;
-    border: solid 1px #f7f7f7;
+    background-color: white;
+    border: solid 1px white;
     border-radius: 0.5rem;
     box-shadow: 0 0.1rem 0.2rem rgba(76, 76, 76, 0.03), 0 0.2rem 0.4rem rgba(76, 76, 76, 0.03);
-    color: #808080;
+    color: #606060;
     i {
-      margin-right: 0.2rem;
+      margin-right: 0.5rem;
     }
     &:hover {
       transition: ease 0.2s;
@@ -107,32 +102,97 @@
   }
   .dates-btn { 
     margin-right: 0.35rem;
-
   }
   .travelers-btn {
     margin-left: 0.35rem;
   }
 }
 
-@media (max-width: 500px) {
+.formsearch-skeleton {
+  margin-left: 1rem;
+  background: linear-gradient(90deg, #f0f0f0, #ffffff, #f0f0f0);
+  animation-name: load;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-direction: forwards;
+  animation-timing-function: linear;
+  background-size: 200% 100%;
+  height: 2rem;
+  border-radius: 0.3rem;
+}
+
+@keyframes load {
+  from {
+    background-position: 100% 0%;
+  }
+  to {
+    background-position: -100% 0%;
+  }
+}
+
+@media (max-width: 300px) {
   .fromwhere-btn {
     span {
-      font-size: 1.4rem;
+      font-size: 1.2rem;
     }
   }
   .formsearch-bar-results-2-btn {
     font-size: 1.2rem;
   }
+  .traveltype-btn {
+    min-width: 7rem;
+    font-size: 1.2rem;
+  }
+  .formsearch-skeleton {
+    width: 10rem;
+  }
 }
 
-@media (min-width: 501px) {
+@media (min-width: 301px) {
+  .formsearch-bar-home {
+    width: 100%;
+  }
+  .formsearch-bar-results-2-btn {
+    font-size: 1.2rem;
+  }
   .fromwhere-btn {
     span {
       font-size: 1.6rem;
     }
   }
+  .traveltype-btn {
+    min-width: 10rem;
+    font-size: 1.6rem;
+  }
+  .formsearch-skeleton {
+    width: 15rem;
+  }
+}
+
+@media (min-width: 501px) {
+  .formsearch-bar-home {
+    max-width: 40rem;
+    width: 95%;
+    .fromwhere-btn {
+      width: 70rem;
+    }
+  }
+  .fromwhere-btn {
+    span {
+      font-size: 1.6rem;
+    }
+  }
+  .formsearch-bar-results-2-btn {
+    font-size: 1.6rem;
+  }
+  .traveltype-btn {
+    font-size: 1.6rem;
+  }
   .formsearch-bar-2-btn {
     font-size: 1.4rem;
+  }
+  .formsearch-skeleton {
+    width: 25rem;
   }
 }
 
@@ -144,5 +204,11 @@
     right: 0;
     bottom: 0;
     height: 100vh;
+  }
+}
+
+@media (min-width: 901px) {
+  .formsearch-bar-home {
+    width: 40rem;
   }
 }

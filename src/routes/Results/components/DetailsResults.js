@@ -16,39 +16,26 @@ export default function DetailsResults(props) {
   return (
     <div>
       <div className="details-results-travel">
-        <div className="details-results-travel">
-          <div className="details-results-travel-city">
-            <span className="to-city">To {props.destination}</span>
-          </div>
-          {props.trip.wayRoutes.map((route, index) => {
-            return (
-              <FlightInfo
-                route={route}
-                duration={props.trip.duration}
-                travelers={props.trip.travelers}
-                isFirstFlight={index === 0}
-                key={index}
-              />
-            );
-          })}
+        <div className="details-results-travel-city">
+          <span className="to-city">Way to {props.destination}</span>
         </div>
-        <div className="details-results-travel-destination-content-section">
-          <div className="destination-div-1"></div>
+        {props.trip.wayRoutes.map((route, index) => {
+          return (
+            <FlightInfo
+              route={route}
+              duration={props.trip.duration}
+              travelers={props.trip.travelers}
+              isFirstFlight={index === 0}
+              key={index}
+            />
+          );
+        })}
 
-          <div className="destination-div-2">
-            <div className="line"></div>
-            <i className="fas fa-map-marker-alt fa-lg"></i>
-            <span className="arrive-at">Arrive in {props.destination}</span>
-            <span className="arrive-at-message">
-              {props.trip.nightsInDest} nights at the destination
-            </span>
-          </div>
-        </div>
         {props.returnTrip === true && (
           <div className="details-results-travel-return">
             <div className="details-results-travel">
               <div className="details-results-travel-city">
-                <span className="to-city">To {props.cityFrom}</span>
+                <span className="to-city">Return to {props.cityFrom}</span>
               </div>
               {props.trip.returnRoutes.map((route, index) => {
                 return (
@@ -64,26 +51,20 @@ export default function DetailsResults(props) {
             </div>
           </div>
         )}
-        {props.returnTrip === true && (
-          <div className="details-results-travel-destination-content-section">
-            <div className="destination-div-1"></div>
-            <div className="destination-div-2">
-              <div className="line"></div>
-              <i className="fas fa-map-marker-alt fa-lg"></i>
-              <span className="arrive-at">Arrive in {props.cityFrom}</span>
-              <span className="arrive-at-message">Welcome back!</span>
-            </div>
-          </div>
-        )}
       </div>
       <div className="details-results-book">
-        <div className="carbonfootprint">
-          <div className="carbonfootprint-amount">
-          </div>
-        </div>
         <div className="booking-zone">
+          <a
+            href="https://www.clevel.co.uk/offset-carbon/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-co2"
+          >
+            <span>Offset your CO2</span>
+            <span className="trip-carbon-amount">{props.carbonFootprint} t</span>
+          </a>
           <div className="clipboard-btn">
-            {showTooltipText ? <span className="tooltip-text">Booking link is copied !</span> : ''}
+            {showTooltipText ? <span className="tooltip-text">Booking link copied !</span> : ''}
             <CopyToClipboard
               text={
                 'https://www.kiwi.com/fr/booking?&affilid=padingpadingapp&booking_token=' +
@@ -93,8 +74,9 @@ export default function DetailsResults(props) {
                 props.trip.travelers
               }
             >
-              <button onClick={displayTooltipText}>
-                <i class="far fa-copy fa-lg"></i>
+              <button className="btn-share" onClick={displayTooltipText}>
+                <span>Share ticket</span>
+                <i class="fas fa-share-alt fa-lg"></i>
               </button>
             </CopyToClipboard>
           </div>
@@ -110,8 +92,10 @@ export default function DetailsResults(props) {
             rel="noopener noreferrer"
             className="btn-book"
           >
-            <span>Book</span>
-            <span className="trip-pricing-amount">{props.trip.price} EUR</span>
+            <div className="book-for-price">
+              <span>Book for</span>
+              <span className="trip-pricing-amount">{props.trip.price} EUR</span>
+            </div>
           </a>
         </div>
       </div>

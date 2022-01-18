@@ -71,7 +71,7 @@ export default function DetailsResultsPopup(props) {
           aria-label="scrollable auto tabs example"
         >
           {Object.keys(props.trips).map((city) => {
-            return <Tab key={city} label={'from ' + city} {...a11yProps(city)} />;
+            return <Tab key={city} label={'from ' + city} {...a11yProps(city)} className="tab-active"/>;
           })}
         </Tabs>
       </AppBar>
@@ -84,6 +84,7 @@ export default function DetailsResultsPopup(props) {
               cityFrom={city}
               trip={props.trips[city].filter((trip) => trip.cityTo === props.destination)[0]}
               returnTrip={props.returnTrip}
+              carbonFootprint={props.carbonFootprint[city]}
             />
           </TabPanel>
         );

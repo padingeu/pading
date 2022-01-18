@@ -131,7 +131,6 @@ const getCommonDestinations = (trips, cities) => {
     destinations.push({
       name: commonDestinations[i],
       ...prices,
-      carbonFootprint: i,
     });
   }
   destinations.sort(compare);
@@ -162,7 +161,7 @@ export const searchTrips = (cities, dateFrom, dateTo, directTrip, returnTrip) =>
     const dateToStr = format(dateTo, 'dd/MM/yyyy');
 
     let maxStopover = '2';
-    if (directTrip === true) {
+    if (directTrip === 'Only direct') {
       maxStopover = '0';
     }
     let config = {
@@ -176,7 +175,7 @@ export const searchTrips = (cities, dateFrom, dateTo, directTrip, returnTrip) =>
     for (let i = 0; i < cities.length; i++) {
       travelers[cities[i].name] = cities[i].numberOfPeople;
       let promise;
-      if (returnTrip === true) {
+      if (returnTrip) {
         promise = axios.get(
           `https://tequila-api.kiwi.com/v2/search?fly_from=${cities[i].coordinates}&date_from=${dateFromStr}&date_to=${dateFromStr}&return_from=${dateToStr}&return_to=${dateToStr}&max_stopovers=${maxStopover}&flight_type=round&nights_in_dst_from=${differenceInDays}&nights_in_dst_to=${differenceInDays}&adults=${cities[i].numberOfPeople}&vehicle_type=aircraft&ret_to_diff_airport=0&ret_from_diff_airport=0`,
           config
@@ -212,13 +211,14 @@ export const searchTrips = (cities, dateFrom, dateTo, directTrip, returnTrip) =>
                 },
                 return: {},
                 wayRoutes: getWayRoutes(trip.route, trip.cityTo),
+                route: trip.route,
                 returnRoutes: [],
                 nightsInDest: trip.nightsInDest,
                 duration: trip.duration,
                 travelers: travelers[trip.cityFrom],
                 token: trip.booking_token,
               };
-              if (returnTrip === true) {
+              if (returnTrip) {
                 const returnRoutes = getReturnRoutes(trip.route, trip.cityTo);
                 padingTrip['returnRoutes'] = returnRoutes;
                 padingTrip['return']['local_departure'] = getLocalDepartureDate(returnRoutes);
@@ -232,16 +232,89 @@ export const searchTrips = (cities, dateFrom, dateTo, directTrip, returnTrip) =>
           trips[city] = trips_by_city;
         }
         const commonDestinations = getCommonDestinations(trips, cities);
-        console.log(returnTrip);
-        const data = {
-          commonDestinations: commonDestinations,
-          initialTrips: trips,
-          trips,
-          travelers,
-          returnTrip,
-        };
-        dispatch({ type: 'SEARCH', data });
-        dispatch({ type: 'SUCCESS' });
+
+        const carb = {};
+        for (let index in cities) {
+          let city = cities[index].name;
+          for (let i = 0; i < trips[city].length; i++) {
+            let route = trips[city][i].route;
+            for (let i = 0; i < route.length; i++) {
+              carb[route[i].flyFrom + '-' + route[i].flyTo] = 0;
+            }
+          }
+        }
+        const sandboxPromises = [];
+        for (var code in carb) {
+          let codes = code.split('-');
+          let body = {
+            IataCodes: codes,
+            Passengers: 1,
+          };
+
+          sandboxPromises.push(
+            axios.post(`https://sandbox-api.c-level.earth/v1/calculate/flight`, body, {
+              headers: {
+                apikey: '6b02f35c-1e9d-4cff-adb1-d238000c247c',
+                'Content-Type': 'application/json',
+              },
+            })
+          );
+        }
+
+        Promise.all(sandboxPromises)
+          .then((results) => {
+            for (let i = 0; i < results.length; i++) {
+              const codes = JSON.parse(results[i].config.data).IataCodes;
+              const key = codes[0] + '-' + codes[1];
+              carb[key] = results[i].data.Co2PerPerson_kg;
+            }
+            for (let destination of commonDestinations) {
+              const carbonFootprint = {};
+
+              let carbonFootprintTotal = 0;
+
+              for (let index in cities) {
+                let city = cities[index].name;
+
+                const tripsByCity = trips[city];
+
+                let trip = tripsByCity.filter((trip) => {
+                  return trip.cityTo === destination.name;
+                })[0];
+
+                let route = trip.route;
+                carbonFootprint[city] = 0;
+                for (let i = 0; i < route.length; i++) {
+                  let carbonFootprintForFlight =
+                    carb[route[i].flyFrom + '-' + route[i].flyTo] *
+                    0.001102 *
+                    cities[index].numberOfPeople;
+                  carbonFootprint[city] += carbonFootprintForFlight;
+                  carbonFootprintTotal += carbonFootprintForFlight;
+                }
+                carbonFootprint[city] = carbonFootprint[city].toFixed(3);
+              }
+
+              destination['carbonFootprint'] = carbonFootprint;
+
+              destination['carbonFootprintTotal'] = carbonFootprintTotal.toFixed(3);
+            }
+            const data = {
+              commonDestinations: commonDestinations,
+              initialTrips: trips,
+              trips,
+              travelers,
+              returnTrip,
+              carb,
+            };
+
+            dispatch({ type: 'SEARCH', data });
+            dispatch({ type: 'SUCCESS' });
+          })
+          .catch((error) => {
+            console.log('failure');
+            dispatch({ type: 'FAILURE' });
+          });
       })
       .catch((error) => {
         dispatch({ type: 'FAILURE' });
@@ -256,11 +329,10 @@ export const clickOnFilter = (showFilter) => {
   };
 };
 
-export const doFilter = (fullFilter, trips, a, departureCities) => {
+export const doFilter = (fullFilter, trips, cities, carb) => {
   return (dispatch) => {
-    let cities = Object.keys(fullFilter.departure);
-
-    for (const city of cities) {
+    let departureCities = Object.keys(fullFilter.departure);
+    for (const city of departureCities) {
       let trips_by_city = trips[city];
       trips_by_city = trips_by_city.filter((trip) => {
         if (
@@ -274,8 +346,8 @@ export const doFilter = (fullFilter, trips, a, departureCities) => {
       trips[city] = trips_by_city;
     }
 
-    cities = Object.keys(fullFilter.return);
-    for (const city of cities) {
+    let arrivalCities = Object.keys(fullFilter.return);
+    for (const city of arrivalCities) {
       let trips_by_city = trips[city];
       trips_by_city = trips_by_city.filter((trip) => {
         if (
@@ -288,7 +360,35 @@ export const doFilter = (fullFilter, trips, a, departureCities) => {
       });
       trips[city] = trips_by_city;
     }
-    const commonDestinations = getCommonDestinations(trips, a);
+    const commonDestinations = getCommonDestinations(trips, cities);
+    for (let destination of commonDestinations) {
+      const carbonFootprint = {};
+
+      let carbonFootprintTotal = 0;
+
+      for (let index in cities) {
+        let city = cities[index].name;
+        console.log(city);
+        const tripsByCity = trips[city];
+        console.log(tripsByCity);
+        let trip = tripsByCity.filter((trip) => {
+          return trip.cityTo === destination.name;
+        })[0];
+        let route = trip.route;
+        carbonFootprint[city] = 0;
+        for (let i = 0; i < route.length; i++) {
+          let carbonFootprintForFlight =
+            carb[route[i].flyFrom + '-' + route[i].flyTo] * 0.001102 * cities[index].numberOfPeople;
+          carbonFootprint[city] += carbonFootprintForFlight;
+          carbonFootprintTotal += carbonFootprintForFlight;
+        }
+        carbonFootprint[city] = carbonFootprint[city].toFixed(3);
+      }
+
+      destination['carbonFootprint'] = carbonFootprint;
+
+      destination['carbonFootprintTotal'] = carbonFootprintTotal.toFixed(3);
+    }
     const data = {
       commonDestinations,
       trips,

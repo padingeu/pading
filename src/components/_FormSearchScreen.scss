@@ -35,10 +35,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 2rem;
-  padding-right: 2rem;
   width: 100%;
   .btn-back {
     background-color: transparent;
@@ -83,7 +79,7 @@
     .edit-travelers {
       padding: 1rem;
       font-weight: bold;
-      color: #4Ac7fc;
+      color: #4ac7fc;
       cursor: pointer;
       &:hover {
         color: #6dd3fd;
@@ -91,7 +87,7 @@
     }
     .number-of-travelers {
       font-weight: bold;
-      color: #4Ac7fc;
+      color: #4ac7fc;
     }
   }
 }
@@ -113,15 +109,24 @@
     .criteria-btn {
       height: 3.7rem;
       border-radius: 0.5rem;
-      padding: 0 1rem;
-      margin: 1rem;
+      padding: 0.5rem 1rem;
+      margin: 0.5rem;
       font-size: 1.4rem;
-      background-color: #6dd3fd;
-      color: white;
+      background-color: white;
+      border: solid 2px #4ac7fc;
+      color: #4ac7fc;
       font-weight: bold;
+      &:hover {
+        border: solid 2px #6dd3fd;
+        color: #6dd3fd;
+      }
     }
     .criteria-btn-active {
-      background-color: #19a6ee;
+      background-color: #4ac7fc;
+      color: white;
+      &:hover {
+        color: white;
+      }
     }
   }
 }
@@ -137,22 +142,28 @@
   .search-criteria-confirma-btn {
     height: 6rem;
     border-radius: 0.5rem;
-    background-color:#6dd3fd;
+    background-color:#4ac7fc;
     color: white;
-    font-size: 1.8rem;
+    font-size: 1.6frem;
     transition: ease 0.2s;
     &:disabled {
       opacity: 1;
-      background-color:#6dd3fd;
+      background-color:#4ac7fc;
       cursor: not-allowed;
       &:hover {
         background-color:#dce4e9;
       }
     }
     &:hover {
-      background-color:#4Ac7fc;
+      background-color:#6dd3fd;
       transition: ease 0.2s;
     }
+  }
+}
+
+@media (max-width: 300px) {
+  .searchbar-question {
+      font-size: 1.4rem;
   }
 }
 
@@ -160,9 +171,14 @@
   .searchbar-question {
       font-size: 1.4rem;
   }
+  .searchbar {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    margin-top: 1rem;
+  }
 }
   
-@media (max-width: 900px) {
+@media (max-width: 1200px) {
   .search-screen {
     position: fixed;
     top: 0;
@@ -178,42 +194,64 @@
     right: 0;
     bottom: 0;
     height: 100vh;
+    -webkit-animation: slideDownMobileTablet 0.15s linear 0ms 1 normal forwards; /* Chrome 4.3 | Edge | Safari 4.0 - 8.0 */
+    -moz-animation: slideDownMobileTablet 0.15s linear 0ms 1 normal forwards; /* Firefox 5.0 | Gecko 16.0 */
+    -o-animation: slideDownMobileTablet 0.15s linear 0ms 1 normal forwards; /* Opera 12 */
+    animation: slideDownMobileTablet 0.15s linear 0s 1 normal forwards; /* Modern browsers */
   }
   .search-criteria-confirma-btn {
     width: 100%;
   }
+  .searchbar {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }
   
   
-@media (min-width: 901px) {
+@media (min-width: 1201px) {
   .search-screen {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    height: 60vh;
+    height: 65vh;
+    min-height: 45rem;
   }
   .first-search-screen {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    -webkit-animation: slideDown 0.15s linear 0ms 1 normal forwards; /* Chrome 4.3 | Edge | Safari 4.0 - 8.0 */
-    -moz-animation: slideDown 0.15s linear 0ms 1 normal forwards; /* Firefox 5.0 | Gecko 16.0 */
-    -o-animation: slideDown 0.15s linear 0ms 1 normal forwards; /* Opera 12 */
-    animation: slideDown 0.15s linear 0s 1 normal forwards; /* Modern browsers */
+    -webkit-animation: slideDownDesktop 0.15s linear 0ms 1 normal forwards; /* Chrome 4.3 | Edge | Safari 4.0 - 8.0 */
+    -moz-animation: slideDownDesktop 0.15s linear 0ms 1 normal forwards; /* Firefox 5.0 | Gecko 16.0 */
+    -o-animation: slideDownDesktop 0.15s linear 0ms 1 normal forwards; /* Opera 12 */
+    animation: slideDownDesktop 0.15s linear 0s 1 normal forwards; /* Modern browsers */
   }
   .search-criteria-confirma-btn {
     width: 33%;
   }
+  .searchbar {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 }
 
-
-@keyframes slideDown{
+@keyframes slideDownMobileTablet {
   from {
       height: 0;
   }
   to {
-      height: 60vh;
+      height: 100vh;
+  }
+}
+
+@keyframes slideDownDesktop {
+  from {
+      height: 0;
+  }
+  to {
+      height: 65vh;
+      min-height: 45rem;
   }
 }

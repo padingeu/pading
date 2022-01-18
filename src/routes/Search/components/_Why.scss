@@ -25,12 +25,11 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 0 2rem;
+        padding: 0 1rem;
         .why-to-use-it-content-card {
           display: flex;
           align-items: flex-start;
           width: 100%;
-          padding: 0 1rem;
           color: #19a6ee;
           .why-to-use-it-number {
             width: 25%;
@@ -52,48 +51,7 @@
   }
 }
 
-@media (orientation: landscape) {
-  .why-to-use-it {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-}
-
-@media (min-width: 300px) and (orientation: landscape) {
-  .why-to-use-it {
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    .why-to-use-it-text {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-    }
-    .why-to-use-it-gif {
-      width: 100%;
-      text-align: center;
-      .happy-cats {
-        max-width: 40rem;
-      }
-    }
-  }
-}
-
-@media (orientation: portrait) {
-  .why-to-use-it {
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: center;
-    align-items: center;
-  }
-}
-
-@media (max-width: 320px) and (orientation: portrait) {
+@media (max-width: 300px) {
   .why-to-use-it {
     display: flex;
     flex-direction: column-reverse;
@@ -118,27 +76,36 @@
     .why-to-use-it-title {
       .focus-text {
         .underline {
-          border: 1.5rem solid #19a6ee;
+          border: 1.3rem solid #19a6ee;
         }
       }
     }
   }
+  .green-shape {
+    position: absolute;
+    top: -3rem;
+    right: 1rem;
+    z-index: -1;
+    width: 2rem;
+    transform: rotate(-25deg);
+  }
+  .yellow-shape {
+    position: absolute;
+    top: -1rem;
+    left: 0.5rem;
+    z-index: -1;
+    width: 7rem;
+    transform: rotate(-80deg);
+  }
 }
 
-@media (min-width: 321px) and (orientation: portrait) {
+@media (min-width: 301px) {
   .why-to-use-it {
     display: flex;
     flex-direction: column-reverse;
     justify-content: center;
     align-items: center;
     text-align: center;
-    .why-to-use-it-title {
-      .focus-text {
-        .underline {
-          border: 1.5rem solid #19a6ee;
-        }
-      }
-    }
     .why-to-use-it-text {
       display: flex;
       flex-direction: column;
@@ -151,16 +118,7 @@
       .happy-cats {
         width: 100%;
       }
-    }
-  }
-}
-
-@media (max-width: 500px) {
-  .green-shape {
-    display: none;
-  }
-  .yellow-shape {
-  display: none;
+    } 
   }
   .why-to-use-it-text {
     .why-to-use-it-title {
@@ -171,8 +129,23 @@
       }
     }
   }
+  .green-shape {
+    position: absolute;
+    top: -3rem;
+    right: 1rem;
+    z-index: -1;
+    width: 3rem;
+    transform: rotate(-25deg);
+  }
+  .yellow-shape {
+    position: absolute;
+    top: 0;
+    left: 0.5rem;
+    z-index: -1;
+    width: 7rem;
+    transform: rotate(-80deg);
+  }
 }
-
 
 @media (min-width: 501px) {
   .green-shape {
@@ -191,6 +164,7 @@
     width: 15rem;
     transform: rotate(-80deg);
   }
+  .why-to-use-it {
   .why-to-use-it-text {
     .why-to-use-it-title {
       .focus-text {
@@ -200,9 +174,16 @@
       }
     }
   }
+    .why-to-use-it-text {
+      width: 60%;
+    }
+    .why-to-use-it-gif {
+      width: 40%;
+    }
+  }
 }
 
-@media (min-width: 901px) and (orientation: portrait) {
+@media (min-width: 901px) {
   .why-to-use-it {
     display: flex;
     flex-direction: row;

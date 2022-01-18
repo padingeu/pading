@@ -46,6 +46,12 @@ export default function Results(props) {
     props.search.commonDestinations.sort(comparePrice);
   };
 
+  const sortByCarbon = (event) => {
+    event.preventDefault();
+    setSortByChoice('carbon');
+    props.search.commonDestinations.sort(compareCarbon);
+  };
+
   const comparePrice = (a, b) => {
     if (a.totalPrice < b.totalPrice) {
       return -1;
@@ -56,15 +62,26 @@ export default function Results(props) {
     return 0;
   };
 
+  const compareCarbon = (a, b) => {
+    if (Number(a.carbonFootprintTotal) < Number(b.carbonFootprintTotal)) {
+      return -1;
+    }
+    if (Number(a.carbonFootprintTotal) > Number(b.carbonFootprintTotal)) {
+      return 1;
+    }
+    return 0;
+  };
+
   return (
     <div>
-      <NavBar scrollUp={scrollUp}/>
+      <NavBar scrollUp={scrollUp} />
       <div id="results-page">
         <div className="formsearch-resultspage">
           <FormSearch
             searchTrips={props.searchTrips}
             searchData={props.search}
             displayFormSearchResults={props.displayFormSearchResults}
+            isLoading={props.search.isLoading}
           />
         </div>
         <div className="travel-results">
@@ -87,15 +104,25 @@ export default function Results(props) {
                     <i className="fas fa-sort-amount-down"></i>
                     Sort by
                     {showSortBy ? (
-                      <SortBy sortByPrice={sortByPrice} displaySortBy={displaySortBy} sortByChoice={sortByChoice} handleClickOutside={handleClickOutside}/>
-                    ) : ''}
+                      <SortBy
+                        sortByPrice={sortByPrice}
+                        sortByCarbon={sortByCarbon}
+                        displaySortBy={displaySortBy}
+                        sortByChoice={sortByChoice}
+                        handleClickOutside={handleClickOutside}
+                      />
+                    ) : (
+                      ''
+                    )}
                   </div>
                 </div>
               )}
             </div>
             {showFilter ? (
               <FilterTime search={props.search} showFilter={showFilter} doFilter={props.doFilter} />
-            ) : ''}
+            ) : (
+              ''
+            )}
             <div id="cards-results-wrapper">
               {props.search.isLoading ? (
                 <div className="cards-results">
@@ -129,24 +156,27 @@ export default function Results(props) {
                                     pricesPerDepartureCity={destination.pricesPerDepartureCity}
                                     travelers={props.search.travelers}
                                     key={index}
-                                    carbonFootprint={destination.carbonFootprint}
+                                    carbonFootprint={destination.carbonFootprintTotal}
                                   />
                                 </div>
                               }
                               key={index}
                             >
-                            {closePopup => (
-                              <div className="popup">
-                                <button className="close-popup" onClick={closePopup}><i class="fas fa-times fa-lg"></i></button>
-                                <DetailsResultsPopup
-                                  destination={destination.name}
-                                  trips={props.search.trips}
-                                  key={index}
-                                  returnTrip={props.search.returnTrip}
-                                />
-                              </div>
-                            )}
-                          </Popup>
+                              {(closePopup) => (
+                                <div className="popup">
+                                  <button className="close-popup" onClick={closePopup}>
+                                    <i class="fas fa-times fa-lg"></i>
+                                  </button>
+                                  <DetailsResultsPopup
+                                    destination={destination.name}
+                                    trips={props.search.trips}
+                                    key={index}
+                                    returnTrip={props.search.returnTrip}
+                                    carbonFootprint={destination.carbonFootprint}
+                                  />
+                                </div>
+                              )}
+                            </Popup>
                           </div>
                         );
                       })}
