@@ -88,20 +88,24 @@ export default function FlightInfo(props) {
     <div className="details-results-travel-content">
       <div className="details-results-travel-content-section">
         <div className="date-div-1"></div>
-        {props.isFirstFlight ?
+        {props.isFirstFlight ? (
           <div className="date-div-2">
             <div className="date-from"></div>
             <i className="fas fa-calendar-day fa-lg"></i>
-            <span className="travel-date">{moment.utc(props.route.local_departure).format('MMM Do YYYY')}</span>
+            <span className="travel-date">
+              {moment.utc(props.route.local_departure).format('MMM Do YYYY')}
+            </span>
           </div>
-        :
+        ) : (
           <div className="stopover-div">
             <i className="fas fa-exchange-alt"></i>
             <span className="stopover">stopover</span>
           </div>
-       }
+        )}
         <div className="departure-div-1">
-          <span className="date-from-time">{moment.utc(props.route.local_departure).format('HH:mm a')}</span>
+          <span className="date-from-time">
+            {moment.utc(props.route.local_departure).format('HH:mm a')}
+          </span>
         </div>
         <div className="departure-div-2">
           <div className="line-top"></div>
@@ -114,7 +118,9 @@ export default function FlightInfo(props) {
         <div className="traveler-div-2">
           <div className="travelers"></div>
           <i className="fas fa-user-friends fa-xs"></i>
-          <span className="travelers-number">{props.travelers} traveler{props.travelers > 1 ? 's' : ''}</span>
+          <span className="travelers-number">
+            {props.travelers} traveler{props.travelers > 1 ? 's' : ''}
+          </span>
         </div>
         <div className="carrier-div-1">
           <Img src={image_path} alt={getAirlineName(props.route.airline)} />
@@ -129,7 +135,9 @@ export default function FlightInfo(props) {
               <span className="airline-name">{getAirlineName(props.route.airline)}</span>
             </div>
             <div className="travel-duration">
-              <span className="travel-duration-hours">{getDuration(props.route.local_departure, props.route.local_arrival)}</span>
+              <span className="travel-duration-hours">
+                {getDuration(props.route.utc_departure, props.route.utc_arrival)}
+              </span>
             </div>
             <div className="show-more-details" onClick={() => setDetailsWay(!showDetailsWay)}>
               <i className="fas fa-angle-up fa-lg"></i>
@@ -158,8 +166,8 @@ export default function FlightInfo(props) {
                     <span className="flight-no">Flight no</span>
                   </div>
                   <span className="flight-number-response">
-                      {props.route.airline}
-                      {props.route.flight_no}
+                    {props.route.airline}
+                    {props.route.flight_no}
                   </span>
                 </div>
               </div>
@@ -168,7 +176,9 @@ export default function FlightInfo(props) {
         </div>
 
         <div className="arrival-div-1">
-          <span className="arrival-time">{moment.utc(props.route.local_arrival).format('HH:mm a')}</span>
+          <span className="arrival-time">
+            {moment.utc(props.route.local_arrival).format('HH:mm a')}
+          </span>
         </div>
         <div className="arrival-div-2">
           <div className="line-top"></div>

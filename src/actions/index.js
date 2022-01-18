@@ -69,6 +69,14 @@ const getLocalArrivalDate = (arrivalRoutes) => {
   return arrivalRoutes[arrivalRoutes.length - 1].local_arrival;
 };
 
+const getUtcDepartureDate = (arrivalRoutes) => {
+  return arrivalRoutes[0].utc_departure;
+};
+
+const getUtcArrivalDate = (arrivalRoutes) => {
+  return arrivalRoutes[arrivalRoutes.length - 1].utc_arrival;
+};
+
 const allDepartureHaveTrips = (trips, cities) => {
   for (let i = 0; i < cities.length; i++) {
     if (trips[cities[i]['name']].length === 0) {
@@ -136,7 +144,7 @@ export const searchTrips = (cities, dateFrom, dateTo, directTrip, returnTrip) =>
     const formData = {
       dateFrom: dateFrom,
       dateTo: dateTo,
-      cities: cities
+      cities: cities,
     };
     // dispatch({ type: 'CLEAR_SEARCH' });
     dispatch({ type: 'FORM_DATA', formData });
@@ -196,7 +204,12 @@ export const searchTrips = (cities, dateFrom, dateTo, directTrip, returnTrip) =>
                 cityFrom: trip.cityFrom,
                 cityTo: trip.cityTo,
                 price: trip.price,
-                way: { local_departure: trip.local_departure, local_arrival: trip.local_arrival },
+                way: {
+                  local_departure: trip.local_departure,
+                  local_arrival: trip.local_arrival,
+                  utc_departure: trip.utc_departure,
+                  utc_arrival: trip.utc_arrival,
+                },
                 return: {},
                 wayRoutes: getWayRoutes(trip.route, trip.cityTo),
                 returnRoutes: [],
@@ -210,6 +223,8 @@ export const searchTrips = (cities, dateFrom, dateTo, directTrip, returnTrip) =>
                 padingTrip['returnRoutes'] = returnRoutes;
                 padingTrip['return']['local_departure'] = getLocalDepartureDate(returnRoutes);
                 padingTrip['return']['local_arrival'] = getLocalArrivalDate(returnRoutes);
+                padingTrip['return']['utc_departure'] = getUtcDepartureDate(returnRoutes);
+                padingTrip['return']['utc_arrival'] = getUtcArrivalDate(returnRoutes);
               }
               return padingTrip;
             });
@@ -217,7 +232,7 @@ export const searchTrips = (cities, dateFrom, dateTo, directTrip, returnTrip) =>
           trips[city] = trips_by_city;
         }
         const commonDestinations = getCommonDestinations(trips, cities);
-        console.log(returnTrip)
+        console.log(returnTrip);
         const data = {
           commonDestinations: commonDestinations,
           initialTrips: trips,
