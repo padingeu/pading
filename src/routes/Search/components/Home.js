@@ -22,6 +22,7 @@ export default class Home extends React.Component {
   render() {
     return (
       <div>
+        <div className="overlay"></div>
         <NavBar scrollUp={this.scrollUp} isHomePage={this.state.isHomePage} />
         <Banner searchTrips={this.props.searchTrips} isHomePage={this.state.isHomePage} />
         <Airlines />
@@ -30,7 +31,6 @@ export default class Home extends React.Component {
         <Simple />
         <Planet />
         <Footer scrollUp={this.scrollUp} />
-       
       </div>
     );
   }

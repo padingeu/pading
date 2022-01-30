@@ -88,6 +88,12 @@ button {
   }
 }
 
+@media (min-width: 381px) {
+  h1 {
+    font-size: 3.7rem;
+  }
+}
+
 @media (min-width: 641px) {
   h1 {
     font-size: 4rem;

@@ -74,16 +74,15 @@ export default function Results(props) {
 
   return (
     <div>
+      <div className="overlay"></div>
       <NavBar scrollUp={scrollUp} />
       <div id="results-page">
-        <div className="formsearch-resultspage">
-          <FormSearch
-            searchTrips={props.searchTrips}
-            searchData={props.search}
-            displayFormSearchResults={props.displayFormSearchResults}
-            isLoading={props.search.isLoading}
-          />
-        </div>
+        <FormSearch
+          searchTrips={props.searchTrips}
+          searchData={props.search}
+          displayFormSearchResults={props.displayFormSearchResults}
+          isLoading={props.search.isLoading}
+        />
         <div className="travel-results">
           <div className="travel-results-cards">
             <div className="linear-progress-filter">
@@ -96,14 +95,23 @@ export default function Results(props) {
               </div>
               {props.search.commonDestinations.length > 0 && (
                 <div className="filter-sort">
-                  <div className="btn-filter" onClick={displayFilter}>
+                  <button
+                    className="btn-filter"
+                    disabled={props.search.isLoading}
+                    onClick={displayFilter}
+                  >
                     <i className="fa fa-filter"></i>
                     Filter
-                  </div>
-                  <div className="btn-sort" onClick={displaySortBy}>
+                  </button>
+                  <button
+                    className="btn-sort"
+                    disabled={props.search.isLoading}
+                    onClick={displaySortBy}
+                  >
                     <i className="fas fa-sort-amount-down"></i>
                     Sort by
-                    {showSortBy ? (
+                  </button>
+                  {showSortBy ? (
                       <SortBy
                         sortByPrice={sortByPrice}
                         sortByCarbon={sortByCarbon}
@@ -114,7 +122,6 @@ export default function Results(props) {
                     ) : (
                       ''
                     )}
-                  </div>
                 </div>
               )}
             </div>

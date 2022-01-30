@@ -2,7 +2,6 @@ import React from 'react';
 import './_DetailsResultsPopup.scss';
 import DetailsResults from './DetailsResults.js';
 import PropTypes from 'prop-types';
-import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
@@ -42,24 +41,17 @@ function a11yProps(index) {
   };
 }
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-    width: '100%',
-    borderRadius: '1rem',
-    backgroundColor: 'theme.palette.background.paper',
-  },
-}));
+
 
 export default function DetailsResultsPopup(props) {
-  const classes = useStyles();
+ 
   const [value, setValue] = React.useState(0);
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
   return (
-    <div className={classes.root}>
+    <div>
       <AppBar position="static" color="default">
         <Tabs
           value={value}

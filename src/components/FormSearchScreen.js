@@ -129,34 +129,19 @@ class FormSearchScreen extends React.Component {
                 showDateTo={true}
                 onChange={this.props.onInputDateChange}
               />
-            </div>
-            <div className="search-criteria-confirm">
-              <button
-                className="search-criteria-confirma-btn"
-                name="button"
-                disabled={!this.props.dateFrom}
-                onClick={(event) => {
-                  this.props.goToDetailsPage(event);
-                }}
-              >
-                Continue
-              </button>
-            </div>
-          </div>
-        ) : (
-          ''
-        )}
-
-        {this.props.displayDetailsScreen ? (
-          <div className="search-screen">
-            <div className="searchbar">
-              <button className="btn-back" onClick={(event) => this.props.goToDatesPicker(event)}>
-                <i className="fas fa-chevron-left"></i>
-              </button>
-              <span className="searchbar-question">Additional requirements</span>
-            </div>
+            </div>  
             <div className="criteria">
               <div className="criteria-buttons">
+                <button
+                  onClick={(event) => {
+                    this.props.switchOneWayReturn(event);
+                  }}
+                  className={
+                    !this.props.returnTrip ? 'criteria-btn criteria-btn-active' : 'criteria-btn'
+                  }
+                >
+                  No return
+                </button>
                 <button
                   onClick={(event) => {
                     this.props.switchToDirect(event);
@@ -173,7 +158,7 @@ class FormSearchScreen extends React.Component {
               <button
                 className="search-criteria-confirma-btn"
                 name="button"
-                disabled={!(this.props.citiesFrom.length > 0)}
+                disabled={!(this.props.citiesFrom.length > 0) || !this.props.dateFrom}
                 onClick={() => this.props.search()}
               >
                 Find the best destinations !

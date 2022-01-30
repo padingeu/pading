@@ -26,7 +26,7 @@ const TripCard = ({
           <span className="trip-city-name">{destination}</span>
           <div className="trip-carbon">
             <span className="trip-carbon-amount">{carbonFootprint}</span>
-            <span className="trip-carbon-unity">CO2 t</span>
+            <span className="trip-carbon-unity">tonnes CO2</span>
           </div>
         </div>
         <div className="trip-pricing">

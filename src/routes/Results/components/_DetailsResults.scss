@@ -18,14 +18,7 @@
         justify-content: flex-start;
         align-items: center;
         height: 100%;
-        .details-results-travel-city {
-          text-align: left;
-          span.to-city {
-            font-size: 1.4rem;
-            font-weight: bold;
-            color: #4c4c4c;
-          }       
-        }
+        margin-top: 1rem;
       }
       .details-results-travel {
         display: flex;
@@ -37,9 +30,9 @@
         .details-results-travel-city {
           text-align: left;
           span.to-city {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             font-weight: bold;
-            color: #4c4c4c;
+            color: #606060;
           }       
         }
       }
@@ -59,7 +52,7 @@
       justify-content: space-between;
       align-items: center;
       width: 100%;
-      margin: 0 1rem;
+      margin: 0 0.2rem;
       .btn-co2 {
         display: flex;
         flex-direction: column;
@@ -68,8 +61,8 @@
         height: 5rem;
         border-radius: 0.5rem;
         background: white;
-        border: solid 2px #85bf82;
-        color: #85bf82;
+        border: solid 2px #858585;
+        color: #858585;
         transition: background 0.3s ease;
         font-family: 'PT sans', sans-serif;
         font-weight: bold;
@@ -80,8 +73,8 @@
           text-align: center;
         }
         &:hover {
-          border-color: #8ec98b;
-          color: #85bf82;
+          border-color: #606060;
+          color: #606060;
         }
         span.trip-carbon-amount {
           font-family: 'PT Sans', sans-serif;
@@ -92,7 +85,7 @@
           margin-right: 0.5rem;
           padding: 0 0.5rem;
           margin-top: 0.4rem;
-          background-color: #85bf82;
+          background-color: #858585;
         }
       }
       .clipboard-btn {
@@ -202,9 +195,11 @@
 @media (min-width: 301px) {
   .btn-co2 {
     font-size: 1.2rem;
+    margin-left: 0.3rem;
   }
   .btn-book {
     font-size: 1.2rem;
+    margin-right: 0.3rem;
   }
   .tooltip-text {
     bottom: 5rem;
@@ -219,9 +214,11 @@
 @media (min-width: 501px) {
   .btn-co2 {
     font-size: 1.2rem;
+    margin-left: 0.5rem;
   }
   .btn-book {
     font-size: 1.6rem;
+    margin-right: 0.5rem;
     span.trip-pricing-amount {
       font-size: 1.6rem;
     }
