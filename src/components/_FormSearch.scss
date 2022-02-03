@@ -1,113 +1,136 @@
-.formsearch {
+.start-search-btn {
   position: relative;
-  width: 100%;
-}
-.formsearch-results {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-}
-.formsearch-bar-home {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: white;
-  border-radius: 0.5rem;
-  box-shadow: 0 0.1rem 0.2rem rgba(0,0,0,0.2), 0 0.2rem 0.4rem rgba(82,131,173,0.2);
-  padding: 0 1rem;
   height: 6rem;
+  border-radius: 0.5rem;
+  background-color: #41B6F1;
+  color: white;
+  font-weight: bold;
+
   &:hover {
+    background-color: #6dd3fd;
     transition: ease 0.2s;
-    background-color: white;
-    .fromwhere-btn {
-      transition: ease 0.2s;
-      background-color: white;
-    }
+  }
+  i {
+    position: absolute;
+    top: 0rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
   }
 }
+
 .formsearch-bar-results {
+  margin-top: 8rem;
+  margin-bottom: 7rem;
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
   background-color: white;
-  border: solid 1px white;
+  border: solid 1px #e7e7e7;
   border-radius: 0.5rem;
   box-shadow: 0 0.1rem 0.2rem rgba(76, 76, 76, 0.03), 0 0.2rem 0.4rem rgba(76, 76, 76, 0.03);
   padding: 0 1rem;
   height: 6rem;
-  &:hover {
-    transition: ease 0.2s;
+  .fromwhere-btn {
+    height: 4rem;
     background-color: white;
-    border: solid 1px #e7e7e7;
-    .fromwhere-btn {
-      transition: ease 0.2s;
-      background-color: white;
-    }
-  }
-}
-.fromwhere-btn {
-  height: 4rem;
-  background-color: white;
-  overflow-y: scroll;
-  width: 100%;
-  span {
-    text-align: left;
-    color: #ff9e00;
+    overflow-y: scroll;
     width: 100%;
-  }
-}
-.traveltype-btn {
-  height: 4rem;
-  border-radius: 0.5rem;
-  background-color: #f4f4f4;
-  color: #606060;
-  font-weight: bold;
-  &:hover {
-    background-color: #e7e7e7;
-    transition: ease 0.2s;
-  }
-}
-.formsearch-bar-results-2 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  .formsearch-bar-results-2-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1;
-    height: 6rem;
-    width: 50%;
-    margin-top: 0.7rem;
-    padding: 1rem;
-    background-color: white;
-    border: solid 1px white;
-    border-radius: 0.5rem;
-    box-shadow: 0 0.1rem 0.2rem rgba(76, 76, 76, 0.03), 0 0.2rem 0.4rem rgba(76, 76, 76, 0.03);
-    color: #606060;
-    i {
-      margin-right: 0.5rem;
+    span {
+      text-align: left;
+      color: #ff9e00;
+      width: 100%;
     }
-    &:hover {
-      transition: ease 0.2s;
-      background-color: white;
-      border: solid 1px #e7e7e7;
-      .fromwhere-btn {
-        transition: ease 0.2s;
-        background-color: white;
-      }
-    }
-  }
-  .dates-btn { 
-    margin-right: 0.35rem;
-  }
-  .travelers-btn {
-    margin-left: 0.35rem;
   }
 }
 
+.formsearch-results {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  .formsearch-bar-results-edit {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: white;
+    border: solid 1px #e7e7e7;
+    border-radius: 0.5rem;
+    padding: 0 1rem;
+    height: 6rem;
+    .fromwhere-btn {
+      height: 4rem;
+      background-color: white;
+      overflow-y: scroll;
+      width: 100%;
+      span {
+        text-align: left;
+        color: #ff9e00;
+        width: 100%;
+      }
+    }
+    &:hover {
+      box-shadow: 0 0.1rem 0.2rem rgba(76, 76, 76, 0.03), 0 0.2rem 0.4rem rgba(76, 76, 76, 0.03);
+    }
+  }
+  .formsearch-bar-results-edit-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    .formsearch-bar-dates-btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1;
+      height: 6rem;
+      width: 50%;
+      margin-top: 0.7rem;
+      padding: 0 1rem;
+      background-color: white;
+      border: solid 1px #e7e7e7;
+      border-radius: 0.5rem;
+      margin-right: 0.35rem;
+      
+      color: #606060;
+      i {
+        margin-right: 0.5rem;
+      }
+      &:hover {
+        box-shadow: 0 0.1rem 0.2rem rgba(76, 76, 76, 0.03), 0 0.2rem 0.4rem rgba(76, 76, 76, 0.03);
+      }
+    }
+    .formsearch-bar-travelers-btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1;
+      height: 6rem;
+      width: 50%;
+      margin-top: 0.7rem;
+      padding: 0 1rem;
+      background-color: white;
+      border: solid 1px #e7e7e7;
+      border-radius: 0.5rem;
+      margin-left: 0.35rem;
+      color: #606060;
+      i {
+        margin-right: 0.5rem;
+      }
+      &:hover {
+        box-shadow: 0 0.1rem 0.2rem rgba(76, 76, 76, 0.03), 0 0.2rem 0.4rem rgba(76, 76, 76, 0.03);
+      }
+    }
+  }
+}
 .formsearch-skeleton {
   margin-left: 1rem;
   background: linear-gradient(90deg, #f0f0f0, #ffffff, #f0f0f0);
@@ -130,39 +153,42 @@
   }
 }
 
-@media (max-width: 300px) {
-  .fromwhere-btn {
-    span {
-      font-size: 1.2rem;
+@media (max-width: 380px) {
+  .start-search-btn {
+    width: 92vw;
+    margin-top: 1rem;
+    i {
+      right: 1rem;
     }
   }
-  .formsearch-bar-results-2-btn {
-    font-size: 1.2rem;
-  }
-  .traveltype-btn {
-    min-width: 7rem;
-    font-size: 1.2rem;
+  .formsearch-bar-results-edit-2 {
+    .formsearch-bar-dates-btn {
+      font-size: 1rem;
+    }
+    .formsearch-bar-travelers-btn {
+      font-size: 1rem;
+    }
   }
   .formsearch-skeleton {
     width: 10rem;
   }
 }
 
-@media (min-width: 301px) {
-  .formsearch-bar-home {
-    width: 100%;
-  }
-  .formsearch-bar-results-2-btn {
-    font-size: 1.2rem;
-  }
-  .fromwhere-btn {
-    span {
-      font-size: 1.6rem;
+@media (min-width: 381px) {
+  .start-search-btn {
+    width: 90vw;
+    margin-top: 1rem;
+    i {
+      right: 2rem;
     }
   }
-  .traveltype-btn {
-    min-width: 10rem;
-    font-size: 1.6rem;
+  .formsearch-bar-results-edit-2 {
+    .formsearch-bar-dates-btn {
+      font-size: 1.2rem;
+    }
+    .formsearch-bar-travelers-btn {
+      font-size: 1.2rem;
+    }
   }
   .formsearch-skeleton {
     width: 15rem;
@@ -170,26 +196,16 @@
 }
 
 @media (min-width: 501px) {
-  .formsearch-bar-home {
-    max-width: 40rem;
-    width: 95%;
-    .fromwhere-btn {
-      width: 70rem;
-    }
+  .start-search-btn {
+    width: 40rem;
   }
-  .fromwhere-btn {
-    span {
+  .formsearch-bar-results-edit-2 {
+    .formsearch-bar-dates-btn {
       font-size: 1.6rem;
     }
-  }
-  .formsearch-bar-results-2-btn {
-    font-size: 1.6rem;
-  }
-  .traveltype-btn {
-    font-size: 1.6rem;
-  }
-  .formsearch-bar-2-btn {
-    font-size: 1.4rem;
+    .formsearch-bar-travelers-btn {
+      font-size: 1.6rem;
+    }
   }
   .formsearch-skeleton {
     width: 25rem;
@@ -204,11 +220,5 @@
     right: 0;
     bottom: 0;
     height: 100vh;
-  }
-}
-
-@media (min-width: 901px) {
-  .formsearch-bar-home {
-    width: 40rem;
   }
 }

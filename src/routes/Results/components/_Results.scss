@@ -1,13 +1,22 @@
-#cards-results-wrapper {
- width: 100%;
+.overlay {
+  position: fixed; /* Sit on top of the page content */
+  display: none; /* Hidden by default */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer; /* Add a pointer on hover */
 }
+
 .travel-results {
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   max-width: 100%;
-  margin-top: 7rem;
   padding-top: 3rem;
   padding-bottom: 7rem;
   .travel-results-cards {
@@ -38,6 +47,7 @@
         }
       }
       .filter-sort {
+        position: relative;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -47,7 +57,7 @@
           display: flex;
           justify-content: center;
           align-items: center;
-          color: #606060;
+          color: #858585;
           font-weight: bold;
           background-color: white;
           cursor: pointer;
@@ -57,15 +67,14 @@
             margin-right: 0.5rem;
           }
           &:hover {
-            color: #757575;
+            color: #606060;
           }
         }
         .btn-sort {
-          position: relative;
           display: flex;
           justify-content: center;
           align-items: center;
-          color: #606060;
+          color: #858585;
           font-weight: bold;
           background-color: white;
           cursor: pointer;
@@ -75,7 +84,7 @@
             margin-right: 0.5rem;
           }
           &:hover {
-            color: #757575;
+            color: #606060;
           }
         }
       }
@@ -85,22 +94,25 @@
         cursor: pointer;
       }
     }
-    .cards-results {
-      display: grid;
-      height: 100%;
-      grid-gap: 1.5rem;
-      padding: 1rem;
-    }
-    .alert-nodestination {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+    #cards-results-wrapper {
       width: 100%;
-      p {
-        font-weight: bold;
-        font-size: 1.4rem;
-        text-align: center;
+      .cards-results {
+        display: grid;
+        height: 100%;
+        grid-gap: 1.5rem;
+        padding: 1rem;
+      }
+      .alert-nodestination {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        p {
+          font-weight: bold;
+          font-size: 1.4rem;
+          text-align: center;
+        }
       }
     }
   }
@@ -231,11 +243,4 @@
       }
     }
   }
-}
-
-.formsearch-resultspage {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 10rem;
 }
