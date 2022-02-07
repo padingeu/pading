@@ -38,7 +38,7 @@ class LocationSearchInput extends React.Component {
                     {...getInputProps({ className: 'city-departure-input' })}
                   />
                   <div className="arrow-and-label">
-                  <i className="fas fa-plane-departure"></i>
+                    <i className="fas fa-plane-departure"></i>
 
                     {this.props.cities.length === 0 ? (
                       <span className="label">Add a first departure city</span>
@@ -57,13 +57,13 @@ class LocationSearchInput extends React.Component {
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'flex-start',
-                        backgroundColor: suggestion.active ? '#f5f5f5' : 'white',
+                        backgroundColor: suggestion.active ? '#f7f7f7' : 'white',
                         borderBottom: 'solid #ebebeb',
                         borderWidth: '0.1rem',
                         cursor: 'pointer',
                         fontFamily: 'PT Sans',
-                        fontSize: '1.4rem',
-                        fontWeight: '400',
+                        fontSize: '1.6rem',
+                        fontWeight: 'bold',
                         textAlign: 'left',
                         padding: '2rem 1rem 2rem 1rem',
                         height: '3rem',

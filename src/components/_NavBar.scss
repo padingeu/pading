@@ -2,74 +2,36 @@
   position: fixed;
   top: 0;
   display: flex;
+  justify-content: center;
   align-items: center;
   width: 100%;
   height: 7rem;
   z-index: 99;
-  background-color: white;
   .navbar-brand {
     display: flex;
     align-items: center;
-    img {
-      height: 3.4rem;
-    }
   }
   .navbar-menu {
     display: flex;
     align-items: center;
     justify-content: flex-end;
     width: 100%;
-    .navbar-menu-items {
-      .button-navbar {
-        cursor: pointer;
-        background: transparent;
-        text-decoration: none;
-        font-family: 'Paytone One', sans-serif;
-        font-weight: bold;
-        font-size: 1.2rem;
-        margin: 0.5rem 2rem;
-        color: #4c4c4c;
-        &:hover {
-          color: #7c7c7c;
-        }
-      }
-      a {
-        text-decoration: none;
-      }
-      .navbar-social {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-left: 1rem;
-        a {
-          background: transparent;
-          width: 3.5rem;
-          color: #4c4c4c;
-          transition: background 0.3s ease;
-        }
-        :hover {
-          color: #7c7c7c;
-        }
-        i {
-          font-size: 3rem;
-        }
-      }
-    }
   }
-  .simple-trip-popup {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    .screenshot-app {
-      max-width: 20rem;
-      margin: 0.5rem;
-    }
-    h3 {
-      text-align: center;
-    }
-    p {
-      text-align: center;
+}
+
+@media only (max-width: 600px) {
+  .navbar {
+    .navbar-brand {
+      padding-left: 2rem;
+      .logo-mobile {
+        display: block;
+      }
+      .logo-desktop {
+        display: none;
+      }
+      img {
+        height: 5rem;
+      }
     }
   }
 }
@@ -77,87 +39,16 @@
 @media only (min-width: 601px) {
   .navbar {
     .navbar-brand {
-      margin-left: 0rem;
-    }
-  }
-}
-
-@media only (max-width: 900px) {
-  .navbar {
-    .navbar-menu-items{
-      display: none;
-    }
-    .dropdown-navbar {
-      position: relative;
-      color: #4c4c4c;
-      background-color: transparent;
-      margin: 1rem;
-      transition: background 0.3s ease;
-      &:hover {
-        color: #7c7c7c;
+      padding-left: 7rem;
+      .logo-mobile {
+        display: none;
+      }
+      .logo-desktop {
+        display: block;
+      }
+      img {
+        height: 3.5rem;
       }
     }
-    .navbar-dropdown-menu {
-      position: absolute;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      top: 7rem;
-      width: 100vw;
-      height: calc(100vh - 7rem);
-      z-index: 1;
-      background-color: white;
-      border-radius: 0.5rem;
-      .button-navbar {
-        width: 100%;
-        margin: 0.7rem;
-        text-align: center;
-        font-size: 2rem;
-        cursor: pointer;
-        background: transparent;
-        text-decoration: none;
-        font-family: 'Paytone One', sans-serif;
-        font-weight: bold;
-        color: #4c4c4c;
-        &:hover {
-          color: #7c7c7c;
-        }
-      }
-      a {
-        text-decoration: none;
-        width: 4rem;
-        color: #4c4c4c;
-        transition: background 0.3s ease;
-        &:hover {
-          color: #7c7c7c;
-        }
-        i {
-          font-size: 3.5rem;
-          margin: 2rem 0.5rem;
-        }
-      }
-    }
-  }
-}
-
-@media only (min-width: 901px) {
-  .navbar {
-    .navbar-brand {
-      margin-left: 10rem;
-    }
-  }
-  .navbar-menu-items {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    text-align: center;
-    margin-right: 1rem;
-  }
-  .dropdown-navbar {
-    display: none;
-  }
-  .navbar-dropdown-menu {
-    display: none;
   }
 }

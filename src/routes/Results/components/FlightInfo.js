@@ -16,6 +16,7 @@ export default function FlightInfo(props) {
     TO: 'Transavia',
     LH: 'Lufhansa',
     IB: 'Iberia',
+    I2: 'Iberia Express',
     W6: 'Wizz Air',
     V7: 'Volotea',
     AZ: 'Alitalia',
@@ -65,7 +66,7 @@ export default function FlightInfo(props) {
 
   let image_path = '';
   try {
-    image_path = require(`../../../img/logos_airlines/${props.route.airline}.png`);
+    image_path = require(`../img/airlinesLogos/${props.route.airline}.png`);
   } catch (err) {
     image_path = require(`../../../img/simple-logo-pading.png`);
   }
@@ -88,33 +89,34 @@ export default function FlightInfo(props) {
     <div className="details-results-travel-content">
       <div className="details-results-travel-content-section">
         <div className="date-div-1"></div>
-        {props.isFirstFlight ?
+        {props.isFirstFlight ? (
           <div className="date-div-2">
             <div className="date-from"></div>
             <i className="fas fa-calendar-day fa-lg"></i>
-            <span className="travel-date">{moment.utc(props.route.local_departure).format('MMM Do YYYY')}</span>
+            <span className="travel-date">
+              {moment.utc(props.route.local_departure).format('MMM Do YYYY')}
+            </span>
           </div>
-        :
+        ) : (
           <div className="stopover-div">
             <i className="fas fa-exchange-alt"></i>
-            <span className="stopover">stopover</span>
+            <span className="stopover">Connection with another flight</span>
           </div>
-       }
+        )}
         <div className="departure-div-1">
-          <span className="date-from-time">{moment.utc(props.route.local_departure).format('HH:mm a')}</span>
+          <span className="date-from-time">
+            {moment.utc(props.route.local_departure).format('HH:mm')}
+          </span>
         </div>
         <div className="departure-div-2">
           <div className="line-top"></div>
           <div className="line-round"></div>
           <div className="line-bottom"></div>
-          <span className="city-from">{props.route.cityFrom}</span>
-          <span className="city-from-code">{props.route.flyFrom} airport</span>
-        </div>
-        <div className="traveler-div-1"></div>
-        <div className="traveler-div-2">
-          <div className="travelers"></div>
-          <i className="fas fa-user-friends fa-xs"></i>
-          <span className="travelers-number">{props.travelers} traveler{props.travelers > 1 ? 's' : ''}</span>
+
+          <div className="city-from">
+            <span className="city-from-name">{props.route.cityFrom}</span>
+            <span className="city-from-code">({props.route.flyFrom})</span>
+          </div>
         </div>
         <div className="carrier-div-1">
           <Img src={image_path} alt={getAirlineName(props.route.airline)} />
@@ -129,8 +131,11 @@ export default function FlightInfo(props) {
               <span className="airline-name">{getAirlineName(props.route.airline)}</span>
             </div>
             <div className="travel-duration">
-              <span className="travel-duration-hours">{getDuration(props.route.local_departure, props.route.local_arrival)}</span>
+              <span className="travel-duration-hours">
+                {getDuration(props.route.utc_departure, props.route.utc_arrival)}
+              </span>
             </div>
+            <span className="travelers-number">{props.travelers} traveler{props.travelers > 1 ? 's' : ''}</span>
             <div className="show-more-details" onClick={() => setDetailsWay(!showDetailsWay)}>
               <i className="fas fa-angle-up fa-lg"></i>
               <i className="fas fa-angle-down fa-lg"></i>
@@ -139,27 +144,16 @@ export default function FlightInfo(props) {
 
           {showDetailsWay ? (
             <div className="route-details">
-              <div className="route-details-connection-info">
-                <span className="connection-info">Connection info</span>
-              </div>
               <div className="route-details-connection-info-content">
                 <div className="airline">
-                  <div className="airline-logo">
-                    <Img src={image_path} alt={getAirlineName(props.route.airline)} />
-                    <span className="airline">Airline</span>
-                  </div>
-                  <div className="airline-response">
-                    <span className="airline-name">{getAirlineName(props.route.airline)}</span>
-                  </div>
+                  <span className="airline-name">Airline</span>
+                  <span className="airline-response">{getAirlineName(props.route.airline)}</span>
                 </div>
                 <div className="flight-number">
-                  <div className="flight-number-logo">
-                    <i className="fas fa-info-circle fa-lg"></i>
-                    <span className="flight-no">Flight no</span>
-                  </div>
+                  <span className="flight-no">Flight no</span>
                   <span className="flight-number-response">
-                      {props.route.airline}
-                      {props.route.flight_no}
+                    {props.route.airline}
+                    {props.route.flight_no}
                   </span>
                 </div>
               </div>
@@ -168,14 +162,18 @@ export default function FlightInfo(props) {
         </div>
 
         <div className="arrival-div-1">
-          <span className="arrival-time">{moment.utc(props.route.local_arrival).format('HH:mm a')}</span>
+          <span className="arrival-time">
+            {moment.utc(props.route.local_arrival).format('HH:mm')}
+          </span>
         </div>
         <div className="arrival-div-2">
           <div className="line-top"></div>
           <div className="line-round"></div>
           <div className="line-bottom"></div>
-          <span className="city-to">{props.route.cityTo}</span>
-          <span className="city-to-code">{props.route.flyTo} airport</span>
+          <div className="city-to">
+            <span className="city-to-name">{props.route.cityTo}</span>
+            <span className="city-to-code">({props.route.flyTo})</span>
+          </div>
         </div>
       </div>
     </div>

@@ -16,20 +16,12 @@ export default function Simple() {
             src={friendsMeeting}
           />
           <div className="simple-solution-title-details">
-            <h2>
-              <span className="focus-text">
-                <span className="underline"></span>SIMPLE SOLUTION FOR
-              </span>
-              <br />
-              <span className="focus-text">
-                <span className="underline"></span>COMPLEX CONNECTIONS !
-              </span>
-            </h2>
+            <h2><span className="focus-text"><span className="underline"></span>SIMPLE SOLUTION</span><br/><span className="focus-text"><span className="underline"></span>FOR YOUR REUNIONS !</span></h2>
             <br />
             <p>
               Planning an Erasmus reunion, joining friends abroad, gathering with family ..
               <br />
-              Pading is a simple solution built to bring you closer to each other
+              Pading reduces the distance and brings you closer to each other
             </p>
           </div>
         </div>

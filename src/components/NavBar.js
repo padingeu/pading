@@ -2,15 +2,13 @@ import React from 'react';
 import './_NavBar.scss';
 import { Link } from "react-router-dom";
 import onClickOutside from 'react-onclickoutside';
-import Popup from 'reactjs-popup';
-import Faq from './Faq';
 import logoPading from '../img/logo-pading.png';
-import padingClassic from '../img/pading_classic_screenshot.png';
-
+import simpleLogoPading from '../img/simple-logo-pading.png';
 
 class Navbar extends React.Component {
   state = {
-      dropDownMenuOpen: false
+      dropDownMenuOpen: false,
+      navbarColorChange: "transparent"
   }
 
   dropDownMenu = () => {
@@ -21,117 +19,27 @@ class Navbar extends React.Component {
       this.setState({ dropDownMenuOpen: false });
   };
 
+  componentDidMount() {
+    document.addEventListener("scroll", () => {
+      if (this.props.isHomePage) {
+        window.scrollY < 20 ? this.setState({ navbarColorChange: "transparent" }) : this.setState({ navbarColorChange: "white" });
+      } else {
+        this.setState({ navbarColorChange: "white" });
+      }
+    });
+  }
+
   render() {
   return (
-      <div className="navbar">
-          <div className="navbar-brand">
-            <Link to="/" onClick={this.props.scrollUp}>
-              <img src={logoPading} alt="Pading find the perfect place to meet" />
-            </Link>
-          </div>
-          <div className="navbar-menu">
-            <div className="navbar-menu-items">
-              <Popup
-                  modal
-                  trigger={
-                    <button className="button-navbar">SIMPLE TRIP</button>
-                  }
-              >
-                <div className="simple-trip-popup">
-                  <h3>COMING SOON</h3>
-                  <p><b>Book flights and trains to any destination of your choice</b></p>
-                  <img src={padingClassic} alt="screenshot of Pading classic travel search" className="screenshot-app" />
-                </div>
-              </Popup>
-              <Link to="/" onClick={this.props.scrollUp}>
-                <button className="button-navbar">HALFWAY TRIP</button>
-              </Link>
-              <a
-                className="button-navbar"
-                href="https://trello.com/b/NoQieqmu/pading-public-roadmap"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                ROADMAP
-              </a>
-              <Link to="/blog" onClick={this.props.scrollUp}>
-                <button className="button-navbar">BLOG</button>
-              </Link>
-              <div className="navbar-social">
-                  <a
-                    href="https://www.facebook.com/Pading-103563007939325/?view_public_for=103563007939325"
-                    rel="noopener noreferrer"
-                    target="_blank"
-                  >
-                    <i className="fab fa-facebook"></i>
-                  </a>
-                  <a
-                    href="https://www.instagram.com/pading.eu/"
-                    rel="noopener noreferrer"
-                    target="_blank"
-                  >
-                    <i className="fab fa-instagram"></i>
-                  </a>
-              </div>
-            </div>
-            <button className="dropdown-navbar" onClick={() => this.dropDownMenu()}>
-                {this.state.dropDownMenuOpen ? <i className="fas fa-times fa-lg"></i> : <i className="fas fa-bars fa-lg"></i>}
-            </button>
-          </div>
-          {this.state.dropDownMenuOpen &&
-          <div className="navbar-dropdown-menu">
-            <Popup
-              modal
-              trigger={
-                <button className="button-navbar">SIMPLE TRIP</button>
-              }
-            >
-              <div className="simple-trip-popup">
-                <h3>COMING SOON</h3>
-                <p><b>Book flights and trains to any destination of your choice</b></p>
-                <img src={padingClassic} alt="screenshot of Pading classic travel search" className="screenshot-app" />
-              </div>
-            </Popup>
-              <Link to="/" onClick={this.props.scrollUp} className="button-navbar">
-                HALFWAY TRIP
-              </Link>
-              <a
-              className="button-navbar"
-                href="https://trello.com/b/NoQieqmu/pading-public-roadmap"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                ROADMAP
-              </a>
-              <Link to="/" onClick={this.props.scrollUp} className="button-navbar">
-                BLOG
-              </Link>
-              <Popup
-                modal
-                trigger={
-                  <button to="/" onClick={this.props.scrollUp} className="button-navbar">QUESTIONS</button>
-                }
-                className="simple-trip-popup"
-              >
-                <Faq />
-              </Popup>
-              <div className="navbar-social">
-                <a
-                  href="https://www.facebook.com/Pading-103563007939325/?view_public_for=103563007939325"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  <i className="fab fa-facebook"></i>
-                </a>
-                <a
-                  href="https://www.instagram.com/pading.eu/"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                >
-                  <i className="fab fa-instagram"></i>
-                </a>
-              </div>
-          </div>}
+      <div className="navbar" style={{backgroundColor: this.state.navbarColorChange}}>
+        <div className="navbar-brand">
+          <Link to="/" onClick={this.props.scrollUp}>
+            <img className="logo-mobile" src={simpleLogoPading} alt="Pading find the perfect place to meet" />
+            <img className="logo-desktop"src={logoPading} alt="Pading find the perfect place to meet" />
+          </Link>
+        </div>
+        <div className="navbar-menu">
+        </div>
       </div>
     )
   }

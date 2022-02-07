@@ -4,9 +4,9 @@ $headers-font: 'Paytone One', sans-serif;
 $body-font: 'PT Sans', sans-serif;
 
 $yellow: #ff9e00;
-$yellow-light: #FFB133;
+$yellow-light: #ffb133;
 $blue: #19a6ee;
-$blue-light: #41B6F1;
+$blue-light: #4ac7fc;
 $green: #427103;
 $green-light: #85bf82;
 $gray: #4c4c4c;
@@ -14,7 +14,7 @@ $light-gray: #dce4e9;
 
 h1 {
   font-family: $headers-font;
-  color: $yellow;
+  color: #ff9e00;
 }
 
 h2 {
@@ -28,7 +28,7 @@ h3 {
 }
 
 h4 {
-  font-family: $headers-font;
+  font-family: $body-font;
 }
 
 h5 {
@@ -63,19 +63,19 @@ button {
 
 @media (max-width: 300px) {
   h1 {
-    font-size: 2rem !important;
+    font-size: 2.2rem;
   }
   h2 {
-    font-size: 2rem !important;
+    font-size: 2rem;
   }
 }
 
-@media (max-width: 640px) {
+@media (min-width: 301px) {
   h1 {
-    font-size: 2.4rem;
+    font-size: 3rem;
   }
   h2 {
-    font-size: 2.2rem;
+    font-size: 2.8rem;
   }
   h3 {
     font-size: 1.8rem;
@@ -88,17 +88,23 @@ button {
   }
 }
 
+@media (min-width: 381px) {
+  h1 {
+    font-size: 3.7rem;
+  }
+}
+
 @media (min-width: 641px) {
-    h1 {
-      font-size: 3.7rem;
-    }
-    h2 {
-      font-size: 3.5rem;
-    }
-    h3 {
-      font-size: 2.5rem;
-    }
-    h5 {
-      font-size: 1.6rem;
-    }
+  h1 {
+    font-size: 4rem;
+  }
+  h2 {
+    font-size: 3.5rem;
+  }
+  h3 {
+    font-size: 2.5rem;
+  }
+  h5 {
+    font-size: 1.6rem;
+  }
 }

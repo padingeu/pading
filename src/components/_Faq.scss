@@ -1,54 +1,48 @@
 .popup-content {
-  border-radius: 5px;
-  padding: 10px !important;
-  position: relative;
   .MuiPaper-elevation1 {
     box-shadow: none !important;
   }
-  .MuiExpansionPanel-root:before {
-    background-color: #f2f2f2;
+  .MuiPaper-root {
+    width: 100%;
+    .MuiExpansionPanel-root:before {
+      background-color: #f2f2f2;
+    }
   }
 }
+
 .faq-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
   h4 {
-    color: #19a6ee !important;
+    color: #333333 !important;
     font-size: 1.6rem !important;
+    font-weight: bold;
     text-align: left;
   }
 }
-
 .faq-answers {
   p {
-    color: #333333 !important;
+    color: #606060 !important;
     font-weight: bold !important;
-    font-size: 1.4rem !important;
     text-align: justify !important;
+    font-size: 1.4rem;
   }
   li {
-    color: #19a6ee !important;
+    color: #41B6F1 !important;
   }
 }
 
-// extra-small screens
-@media (max-width: 900px) {
+@media (max-width: 700px) {
   .popup-content {
-    width: 80% !important;
-  }
-  .faq-title {
-    .h4 {
-      font-size: 1.4rem !important;
-    }
-  }
-  .faq-answers {
-    p {
-      font-size: 1.2rem !important;
-    }
+    border-radius: none;
   }
 }
 
-// small screens
-@media (max-width: 1200px) {
+@media (min-width: 701px) {
   .popup-content {
-    width: 80% !important;
+    border-radius: 1rem;
   }
 }
+

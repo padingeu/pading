@@ -9,9 +9,10 @@
       align-items: center;
       position: relative;
       .simple-solution-title-details {
-        text-align: center;
+        text-align: left;
         font-weight: bold;
-        .focus-text {
+        padding: 0 1rem;
+        .focus-text { 
           color: white;
           position: relative;
           display: inline-block;
@@ -24,6 +25,13 @@
             height: 0;
             border-radius: 0.5rem;
           }
+        }
+        h2 {
+          width: 100%;
+        }
+        p {
+          width: 100%;
+          text-align: left;
         }
       }
       .simple-solution-image {
@@ -38,9 +46,9 @@
         position: relative;
         padding: 2.5rem;
         margin: 2rem;
-        border-radius: 1rem;
+        border-radius: 0.5rem;
         background-color: #fcfcfc;
-        box-shadow: 0 2px 7px 0 rgba(0,0,0,0.12);
+        box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
         transition-duration: 0.5s;
         &:hover {
           transform: scale(1.01);
@@ -52,7 +60,7 @@
         }
         .user-name {
           position: absolute;
-          bottom: 0rem;
+          bottom: 0.5rem;
           right: 1rem;
           padding-top: 2rem;
           font-size: 1.2rem;
@@ -70,9 +78,14 @@
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 300px) {
   .blue-light-shape {
-    display: none;
+  position: absolute;
+  top: 3rem;
+  right: 2rem;
+  z-index: -1;
+  width: 3rem;
+  transform: rotate(-90deg);
   }
   .simple-solution-content {
     flex-direction: column;
@@ -96,7 +109,47 @@
   }
   .testimonials {
     flex-wrap: wrap;
-    padding: 2rem;
+    padding: 2rem 0.5rem;
+  }
+  .focus-text {
+    .underline {
+      border: 1.3rem solid white;
+    }
+  }
+}
+
+@media (min-width: 301px) {
+  .blue-light-shape {
+    position: absolute;
+    top: 3rem;
+    right: 2rem;
+    z-index: -1;
+    width: 5rem;
+    transform: rotate(-90deg);
+  }
+  .simple-solution-content {
+    flex-direction: column;
+    padding: 2rem 1rem 0rem 1rem;
+    .simple-solution-title-details {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin-top: -5rem;
+      p {
+        text-align: center;
+      }
+      .underline {
+      border: 1.8rem solid #ff9e00;
+      }
+    }
+    .simple-solution-image {
+      height: 30rem;
+    }
+  }
+  .testimonials {
+    flex-wrap: wrap;
+    padding: 2rem 1rem;
   }
 }
 

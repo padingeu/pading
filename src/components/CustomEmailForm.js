@@ -20,8 +20,7 @@ const CustomEmailForm = ({ status, message, onValidated }) => {
         <SweetAlert>
           {swal.fire({
             icon: 'error',
-            title: 'NO CORRECT EMAIL ADRESS HAS BEEN ENTERED',
-            text: 'Probably a typo. Please try again',
+            text: 'Please try again with a correct e-mail address format',
             showConfirmButton: false,
             allowEnterKey: 'true',
             allowOutsideClick: 'true',
@@ -55,7 +54,7 @@ const CustomEmailForm = ({ status, message, onValidated }) => {
             title:
               'THANKS A LOT FOR SIGNING UP !',
             text:
-              'We will keep you informed about the latest news. Do you already follow us on social media ?',
+              'We will keep you informed about the latest news. You can also follow us on social media !',
             showConfirmButton: false,
             allowEnterKey: 'true',
             allowOutsideClick: 'true',
@@ -63,12 +62,16 @@ const CustomEmailForm = ({ status, message, onValidated }) => {
           })}
         </SweetAlert>
       )}
-
-      <input className="input-newsletter" ref={(node) => (email = node)} type="email" placeholder="Register with your email" />
-
-      <button className="btn-newsletter" onClick={submit} disabled={status === 'sending'}>
-        <i className="fas fa-paper-plane fa-lg"></i>
-      </button>
+      
+      <div className="subscribe-newsletter">
+        <input className="input-newsletter" ref={(node) => (email = node)} type="email" placeholder="Register with your email" />
+        <button
+          className="btn-newsletter"
+          onClick={submit} disabled={status === 'sending'}
+        >
+          <i class="fas fa-envelope fa-lg"></i>
+        </button>
+      </div>
     </div>
   );
 };

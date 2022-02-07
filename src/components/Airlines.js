@@ -1,12 +1,12 @@
 import React from 'react';
 import './_Airlines.scss';
-import easyjet from '../img/easyjet.png';
-import vueling from '../img/vueling.png';
-import airfrance from '../img/airfrance.png';
-import ryanair from '../img/ryanair.png';
-import transavia from '../img/transavia.png';
-import airitalia from '../img/airitalia.png';
-import norwegian from '../img/norwegian.png';
+import easyjet from '../img/airlinesLanding/easyjet.png';
+import vueling from '../img/airlinesLanding/vueling.png';
+import airfrance from '../img/airlinesLanding/airfrance.png';
+import ryanair from '../img/airlinesLanding/ryanair.png';
+import transavia from '../img/airlinesLanding/transavia.png';
+import airitalia from '../img/airlinesLanding/airitalia.png';
+import norwegian from '../img/airlinesLanding/norwegian.png';
 
 
 export default function Airlines() {

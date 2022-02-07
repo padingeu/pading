@@ -9,7 +9,7 @@ export default function How() {
             <div className="how-to-use-it">
                 <img className="blue-marker-image" alt="blue marker" src={blueMarker}/>
                 <div className="how-to-use-it-title">
-                    <h2><span className="focus-text"><span className="underline"></span>HOW TO PLAN MY TRIP ?</span></h2>
+                    <h2 className="focus-text"><span className="underline"></span>HOW TO PLAN MY TRIP ?</h2>
                 </div>
                 <div className="how-to-use-it-content">
 

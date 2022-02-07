@@ -38,8 +38,8 @@ function Blog() {
                   filterPosts(event.target.value);
                 }}
               />
+              <i className="fas fa-search fa-xl"></i>
             </form>
-            <i className="fas fa-search fa-xl"></i>
           </div>
           <div className="search-tags">
             <button className="ecology" onClick={() => filterPosts('Ecology')}>
