@@ -252,7 +252,7 @@ export const searchTrips = (cities, dateFrom, dateTo, directTrip, returnTrip) =>
           };
 
           sandboxPromises.push(
-            axios.post(`https://sandbox-api.c-level.earth/v1/calculate/flight`, body, {
+            axios.post(process.env.REACT_APP_C_LEVEL_ENDPOINT + `/calculate/flight`, body, {
               headers: {
                 apikey: process.env.REACT_APP_C_LEVEL_KEY,
                 'Content-Type': 'application/json',
