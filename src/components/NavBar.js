@@ -7,8 +7,7 @@ import simpleLogoPading from '../img/simple-logo-pading.png';
 
 class Navbar extends React.Component {
   state = {
-      dropDownMenuOpen: false,
-      navbarColorChange: "transparent"
+      dropDownMenuOpen: false
   }
 
   dropDownMenu = () => {
@@ -19,19 +18,9 @@ class Navbar extends React.Component {
       this.setState({ dropDownMenuOpen: false });
   };
 
-  componentDidMount() {
-    document.addEventListener("scroll", () => {
-      if (this.props.isHomePage) {
-        window.scrollY < 20 ? this.setState({ navbarColorChange: "transparent" }) : this.setState({ navbarColorChange: "white" });
-      } else {
-        this.setState({ navbarColorChange: "white" });
-      }
-    });
-  }
-
   render() {
   return (
-      <div className="navbar" style={{backgroundColor: this.state.navbarColorChange}}>
+      <div className="navbar">
         <div className="navbar-brand">
           <Link to="/" onClick={this.props.scrollUp}>
             <img className="logo-mobile" src={simpleLogoPading} alt="Pading find the perfect place to meet" />

@@ -305,6 +305,7 @@ export const searchTrips = (cities, dateFrom, dateTo, directTrip, returnTrip) =>
               trips,
               travelers,
               returnTrip,
+              directTrip,
               carb,
             };
 

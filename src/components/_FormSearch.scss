@@ -5,7 +5,6 @@
   background-color: #41B6F1;
   color: white;
   font-weight: bold;
-
   &:hover {
     background-color: #6dd3fd;
     transition: ease 0.2s;
@@ -175,40 +174,45 @@
 }
 
 @media (min-width: 381px) {
-  .start-search-btn {
-    width: 90vw;
+  .formsearch {
     margin-top: 1rem;
-    i {
-      right: 2rem;
+    width: 100%;
+    .start-search-btn {
+      width: 100%;
+      i {
+        right: 2rem;
+      }
     }
-  }
-  .formsearch-bar-results-edit-2 {
-    .formsearch-bar-dates-btn {
-      font-size: 1.2rem;
+    .formsearch-bar-results-edit-2 {
+      .formsearch-bar-dates-btn {
+        font-size: 1.2rem;
+      }
+      .formsearch-bar-travelers-btn {
+        font-size: 1.2rem;
+      }
     }
-    .formsearch-bar-travelers-btn {
-      font-size: 1.2rem;
+    .formsearch-skeleton {
+      width: 15rem;
     }
-  }
-  .formsearch-skeleton {
-    width: 15rem;
   }
 }
 
 @media (min-width: 501px) {
-  .start-search-btn {
-    width: 40rem;
-  }
-  .formsearch-bar-results-edit-2 {
-    .formsearch-bar-dates-btn {
-      font-size: 1.6rem;
+  .formsearch {
+    .start-search-btn {
+      width: 40rem;
     }
-    .formsearch-bar-travelers-btn {
-      font-size: 1.6rem;
+    .formsearch-bar-results-edit-2 {
+      .formsearch-bar-dates-btn {
+        font-size: 1.6rem;
+      }
+      .formsearch-bar-travelers-btn {
+        font-size: 1.6rem;
+      }
     }
-  }
-  .formsearch-skeleton {
-    width: 25rem;
+    .formsearch-skeleton {
+      width: 25rem;
+    }
   }
 }
 

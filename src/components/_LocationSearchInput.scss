@@ -16,7 +16,7 @@
         height: 6rem;
         min-width: 26rem;
         border-width: 0.1rem !important;
-        border: solid #e7e7e7;
+        border: solid 1px white;
         border-radius: 1rem;
         width: 100%;
         padding-left: 2rem;
@@ -95,14 +95,14 @@
     max-width: 80vw;
   }
   .label {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     padding-left: 1rem;
   }
 }
 
 @media (min-width: 301px) {
   .label {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     padding-left: 2rem;
   }
 }

@@ -69,7 +69,7 @@ const CustomEmailForm = ({ status, message, onValidated }) => {
           className="btn-newsletter"
           onClick={submit} disabled={status === 'sending'}
         >
-          <i class="fas fa-envelope fa-lg"></i>
+          <i className="fas fa-envelope fa-lg"></i>
         </button>
       </div>
     </div>
