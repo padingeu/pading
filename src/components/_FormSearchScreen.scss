@@ -39,7 +39,6 @@
   .btn-back {
     background-color: transparent;
     border: none;
-    margin-right: 1rem;
   }
   .searchbar-question {
     display: flex;
@@ -100,14 +99,13 @@
   align-items: center;
   .criteria-buttons {
     width: 100%;
-    height: 30%;
-    padding-left: 6rem;
+    margin-top: 2rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: center;
     .criteria-btn {
-      height: 3.7rem;
+      height: 4rem;
       border-radius: 0.5rem;
       padding: 0.5rem 1rem;
       margin: 0.5rem;
@@ -163,18 +161,35 @@
 
 @media (max-width: 300px) {
   .searchbar-question {
-      font-size: 1.4rem;
+      font-size: 1.6rem;
   }
 }
 
 @media (max-width: 500px) {
   .searchbar-question {
-      font-size: 1.4rem;
+      font-size: 1.6rem;
   }
   .searchbar {
     padding-left: 0.5rem;
     padding-right: 0.5rem;
     margin-top: 1rem;
+    .btn-back {
+      margin-right: 0.3rem;
+    }
+  }
+  .criteria-buttons {
+    padding-left: 3rem;
+  }
+}
+
+@media (min-width: 500px) {
+  .searchbar {
+    .btn-back {
+      margin-right: 1rem;
+    }
+  }
+  .criteria-buttons {
+    padding-left: 5rem;
   }
 }
   
@@ -194,10 +209,6 @@
     right: 0;
     bottom: 0;
     height: 100vh;
-    -webkit-animation: slideDownMobileTablet 0.15s linear 0ms 1 normal forwards; /* Chrome 4.3 | Edge | Safari 4.0 - 8.0 */
-    -moz-animation: slideDownMobileTablet 0.15s linear 0ms 1 normal forwards; /* Firefox 5.0 | Gecko 16.0 */
-    -o-animation: slideDownMobileTablet 0.15s linear 0ms 1 normal forwards; /* Opera 12 */
-    animation: slideDownMobileTablet 0.15s linear 0s 1 normal forwards; /* Modern browsers */
   }
   .search-criteria-confirma-btn {
     width: 100%;
@@ -223,10 +234,10 @@
     top: 0;
     left: 0;
     right: 0;
-    -webkit-animation: slideDownDesktop 0.15s linear 0ms 1 normal forwards; /* Chrome 4.3 | Edge | Safari 4.0 - 8.0 */
-    -moz-animation: slideDownDesktop 0.15s linear 0ms 1 normal forwards; /* Firefox 5.0 | Gecko 16.0 */
-    -o-animation: slideDownDesktop 0.15s linear 0ms 1 normal forwards; /* Opera 12 */
-    animation: slideDownDesktop 0.15s linear 0s 1 normal forwards; /* Modern browsers */
+    -webkit-animation: slideDownDesktop 0.3s linear 0ms 1 normal forwards; /* Chrome 4.3 | Edge | Safari 4.0 - 8.0 */
+    -moz-animation: slideDownDesktop 0.3s linear 0ms 1 normal forwards; /* Firefox 5.0 | Gecko 16.0 */
+    -o-animation: slideDownDesktop 0.3s linear 0ms 1 normal forwards; /* Opera 12 */
+    animation: slideDownDesktop 0.3s linear 0s 1 normal forwards; /* Modern browsers */
   }
   .search-criteria-confirma-btn {
     width: 33%;

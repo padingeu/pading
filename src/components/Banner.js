@@ -24,7 +24,7 @@ export default class Banner extends React.Component {
             {this.props.isHomePage ?
               <div className="banner-content">
                 <h1>TRAVEL TO GATHER</h1>
-                <p>Fill in your friends' departure cities and your own,<br/>travel to common destinations and meet halfway !</p>
+                <p>Fill in your friends' departure cities and your own.<br/>We will find the best journeys to meet halfway !</p>
                 <div className="pading-mode">
                   <button className="pading-mode-active">
                     Halfway
@@ -38,7 +38,7 @@ export default class Banner extends React.Component {
                       <button className="close-popup" onClick={closePopup}><i class="fas fa-times fa-lg"></i></button>
                       <div className="simple-trip-popup">
                         <h3>- COMING SOON -</h3>
-                        <p>Book any trip easily and calmly to the destination of your choice</p>
+                        <p>Book any trip easily and calmly<br />to the destination of your choice</p>
                         <img src={padingClassic} alt="screenshot of Pading classic travel search" className="screenshot-app" />
                       </div>
                     </div>)}
@@ -48,7 +48,6 @@ export default class Banner extends React.Component {
                   searchTrips={this.props.searchTrips}
                   isHomePage={this.props.isHomePage}
                 />
-                {console.log(this.props.dispplayFromWhereScreen)}
               </div>
             : ''}
  
