@@ -36,7 +36,6 @@ class DatesPicker extends React.Component {
   render() {
     return (
       <div className="datespicker">
-        {}
         <div className="inputdate">
           <input
             className="inputdate-bar"
@@ -57,13 +56,11 @@ class DatesPicker extends React.Component {
             readOnly
           />
         </div>
-
         {this.state.showCalendar && (
           <div className="calendar">
             <Calendar
               locale={'en'}
               minDate={new Date()}
-              //onClickOutside={this.handleClickOutside}
               onChange={this.props.onChange}
               selectRange={this.props.returnTrip ? true : false}
               returnValue={'range'}

@@ -161,7 +161,7 @@ class FormSearchScreen extends React.Component {
                 disabled={!(this.props.citiesFrom.length > 0) || !this.props.dateFrom}
                 onClick={() => this.props.search()}
               >
-                Find the best destinations !
+                {this.props.dateFrom ? 'Find the best destinations !' : 'Select your travel dates'}
               </button>
             </div>
           </div>

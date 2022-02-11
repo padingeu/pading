@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import NavBar from '../../../components/NavBar';
 import FormSearch from '../../../components/FormSearch';
 import './_Results.scss';
@@ -11,8 +12,6 @@ import Popup from 'reactjs-popup';
 import DetailsResultsPopup from './DetailsResultsPopup';
 import Footer from '../../../components/Footer';
 import catLost from '..//img/cat-lost.svg';
-
-import { useSelector } from 'react-redux';
 
 export default function Results(props) {
   // const [showFilter, setShowFilter] = React.useState(false);
@@ -71,6 +70,7 @@ export default function Results(props) {
     }
     return 0;
   };
+
 
   return (
     <div>

@@ -9,7 +9,6 @@ export default class FormSearch extends React.Component {
   state = {
     citiesFrom: this.props.searchData ? this.props.searchData.cities : [],
     address: '',
-    returnTrip: true,
     displayFromWhereScreen: false,
     isFromWherePageFirst: false,
     displayTravelersScreen: false,
@@ -21,6 +20,7 @@ export default class FormSearch extends React.Component {
     showFilter: false,
     showDateFrom: false,
     showDateTo: false,
+    returnTrip: true,
     directTrip: false,
     flexibleTrip: false,
     displayFullFormSearchResults: false,
@@ -47,6 +47,8 @@ export default class FormSearch extends React.Component {
     });
     this.setState({ displayDatesPicker: false });
     document.querySelector(".overlay").style.display = "none";
+    const body = document.querySelector("body");
+    body.style.overflow = "scroll";
   };
 
   getFormattedCoordinate = (coordinates) => {
@@ -99,6 +101,8 @@ export default class FormSearch extends React.Component {
     this.setState({ displayDatesPicker: false });
     this.setState({ displayDetailsScreen: false });
     document.querySelector(".overlay").style.display = "none";
+    const body = document.querySelector("body");
+    body.style.overflow = "scroll";
   };
 
   addCity = async (address) => {
@@ -143,6 +147,8 @@ export default class FormSearch extends React.Component {
     this.setState({ isFromWherePageFirst: true });
     this.setState({ displayFromWhereScreen: true });
     document.querySelector(".overlay").style.display = "block";
+    const body = document.querySelector("body");
+    body.style.overflow = "hidden";
   };
 
   openfullFormSearchResults = (event) => {
@@ -154,6 +160,8 @@ export default class FormSearch extends React.Component {
     event.preventDefault();
     this.setState({ displayFromWhereScreen: false });
     document.querySelector(".overlay").style.display = "none"; 
+    const body = document.querySelector("body");
+    body.style.overflow = "scroll";
   };
 
   goToResultsPage = (event) => {
@@ -163,6 +171,8 @@ export default class FormSearch extends React.Component {
     this.setState({ displayDatesPicker: false });
     this.setState({ displayDetailsScreen: false });
     document.querySelector(".overlay").style.display = "none";
+    const body = document.querySelector("body");
+    body.style.overflow = "scroll";
   };
 
   goToFromWherePage = (event) => {
@@ -282,9 +292,7 @@ export default class FormSearch extends React.Component {
                   : (event) => this.startPlanningTrip(event)
               }
             >
-              <span>{this.props.isLoading ? (
-                        <div className="formsearch-skeleton"></div>
-                      ) : 'From where do you travel ?'}</span>
+              <span>{this.props.isLoading ? (<div className="formsearch-skeleton"></div>) : 'From where do you travel ?'}</span>
             </button>
 
             {this.state.displayfullFormSearchResults ? (
@@ -375,8 +383,8 @@ export default class FormSearch extends React.Component {
           displayDetailsScreen={this.state.displayDetailsScreen}
           goToDetailsPage={this.goToDetailsPage}
           switchToDirect={this.switchToDirect}
-          switchToFlexibleTrip={this.props.switchToFlexibleTrip}
           directTrip={this.state.directTrip}
+          switchToFlexibleTrip={this.props.switchToFlexibleTrip}
           search={this.search}
           handleClickOutside={this.handleClickOutside}
         />
