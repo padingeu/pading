@@ -2,7 +2,6 @@
   padding: 0 !important;
 }
 .datespicker {
-  position: relative;
   width: 100%;
   .inputdate {
     display: flex;
@@ -42,12 +41,15 @@
     }
   }
   .calendar {
-    position: absolute;
+    position: fixed;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     top: 0;
+    right: 0;
+    left: 0;
+    padding-top: 1rem;
     z-index: 2;
     transition: all 0.15s ease-in-out 0s;
     .btn-date {
@@ -141,13 +143,11 @@
 
 @media (max-width: 500px) {
   .inputdate-bar {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
   }
   .calendar {
     padding-left: 1rem;
     padding-right: 1rem;
-    margin-left: 0.8rem;
-    margin-top: -0.8rem;
   }
 }
 
@@ -165,8 +165,6 @@
   .calendar {
     height: 100vh;
     width: 100vw;
-    left: -4.3rem;
-    border: solid orange;
     .react-calendar {
       width: 100%;
       height: 100%;
@@ -186,7 +184,6 @@
     width: 100vw;
     height: 65vh;
     min-height: 45rem;
-    left: -5.2rem;
     .react-calendar {
       width: 100%;
       height: 100%;
