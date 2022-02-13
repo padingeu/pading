@@ -292,7 +292,7 @@ export default class FormSearch extends React.Component {
                   : (event) => this.startPlanningTrip(event)
               }
             >
-              <span>{this.props.isLoading ? (<div className="formsearch-skeleton"></div>) : 'From where do you travel ?'}</span>
+              <span>From where do you travel ?</span>
             </button>
 
             {this.state.displayfullFormSearchResults ? (

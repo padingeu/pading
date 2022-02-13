@@ -1,3 +1,11 @@
+.linear-progress {
+  .MuiLinearProgress-colorPrimary {
+    background-color: #85bf82;
+  }
+  .MuiLinearProgress-barColorPrimary {
+    background-color: #427103;
+  }
+}
 .overlay {
   position: fixed; /* Sit on top of the page content */
   display: none; /* Hidden by default */
@@ -11,108 +19,86 @@
   z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
   cursor: pointer; /* Add a pointer on hover */
 }
-
 .travel-results {
   display: flex;
   justify-content: center;
   align-items: center;
   max-width: 100%;
-  padding-top: 3rem;
-  padding-bottom: 7rem;
   .travel-results-cards {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
-    .linear-progress-filter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 17rem;
+    .filter-sort {
+      position: relative;
       display: flex;
       justify-content: center;
       align-items: center;
-      width: 100%;
-      margin-bottom: 2rem;
-      .linear-progress-div {
-        padding: 1rem;
-        .linear-progress {
-          width: 100%;
-          .MuiLinearProgress-colorPrimary {
-            background-color: #F1F9F5;
-            height: 0.5rem;
-            border-radius: 1rem;
-            margin: 0.2rem;
-          }
-          .MuiLinearProgress-barColorPrimary {
-            background-color: #427103;
-          }
-        }
-      }
-      .filter-sort {
-        position: relative;
+      margin: 2rem 0 1rem 0;
+      .btn-filter {
         display: flex;
         justify-content: center;
         align-items: center;
-        min-width: 17rem;
-        .btn-filter {
-          position: relative;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          color: #858585;
-          font-weight: bold;
-          background-color: white;
-          cursor: pointer;
-          margin-right: 1rem;
-          font-size: 1.4rem;
-          i {
-            margin-right: 0.5rem;
-          }
-          &:hover {
-            color: #606060;
-          }
+        color: #606060;
+        font-weight: bold;
+        background-color: white;
+        cursor: pointer;
+        margin-right: 1rem;
+        font-size: 1.6rem;
+        i {
+          margin-right: 0.5rem;
         }
-        .btn-sort {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          color: #858585;
-          font-weight: bold;
-          background-color: white;
-          cursor: pointer;
-          margin-left: 1rem;
-          font-size: 1.4rem;
-          i {
-            margin-right: 0.5rem;
-          }
-          &:hover {
-            color: #606060;
-          }
+        &:hover {
+          color: #4c4c4c;
         }
       }
-      .fa-sort-amount-down-alt {
-        margin: 0 2rem;
-        color: #ff9e00;
+      .btn-sort {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #606060;
+        font-weight: bold;
+        background-color: white;
         cursor: pointer;
+        margin-left: 1rem;
+        font-size: 1.6rem;
+        i {
+          margin-right: 0.5rem;
+        }
+        &:hover {
+          color: #4c4c4c;
+        }
       }
     }
-    #cards-results-wrapper {
+  }
+  .fa-sort-amount-down-alt {
+    margin: 0 2rem;
+    color: #ff9e00;
+    cursor: pointer;
+  }
+  #cards-results-wrapper {
+    width: 100%;
+    .cards-results {
+      display: grid;
+      height: 100%;
+      grid-gap: 1.5rem;
+      padding: 1rem;
+    }
+    .alert-nodestination {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       width: 100%;
-      .cards-results {
-        display: grid;
-        height: 100%;
-        grid-gap: 1.5rem;
-        padding: 1rem;
-      }
-      .alert-nodestination {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        p {
-          font-weight: bold;
-          font-size: 1.4rem;
-          text-align: center;
-        }
+      p {
+        font-weight: bold;
+        font-size: 1.4rem;
+        text-align: center;
       }
     }
   }
@@ -122,12 +108,6 @@
   #results-page {
     padding: 0 1rem 0rem 1rem;
     .travel-results-cards {
-      .linear-progress-filter {
-        flex-direction: column;
-        .linear-progress-div {
-          width: 100%;
-        }
-      }
       .cards-results {
         grid-template-columns: repeat(1, 1fr);
       }
@@ -139,11 +119,6 @@
   #results-page {
     padding: 0 10rem 0rem 10rem;
     .travel-results-cards {
-      .linear-progress-filter {
-        .linear-progress-div {
-          width: 80%;
-        }
-      }
       .cards-results {
         grid-template-columns: repeat(2, 1fr);
       }

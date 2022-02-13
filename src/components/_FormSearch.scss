@@ -97,12 +97,8 @@
       background-color: white;
       border: solid 1px #e7e7e7;
       border-radius: 0.5rem;
-      margin-right: 0.35rem;
-      
+      margin-right: 0.2rem;
       color: #606060;
-      i {
-        margin-right: 0.5rem;
-      }
       &:hover {
         box-shadow: 0 0.1rem 0.2rem rgba(76, 76, 76, 0.03), 0 0.2rem 0.4rem rgba(76, 76, 76, 0.03);
       }
@@ -119,7 +115,7 @@
       background-color: white;
       border: solid 1px #e7e7e7;
       border-radius: 0.5rem;
-      margin-left: 0.35rem;
+      margin-left: 0.2rem;
       color: #606060;
       i {
         margin-right: 0.5rem;
@@ -162,10 +158,10 @@
   }
   .formsearch-bar-results-edit-2 {
     .formsearch-bar-dates-btn {
-      font-size: 1rem;
+      font-size: 1.2rem;
     }
     .formsearch-bar-travelers-btn {
-      font-size: 1rem;
+      font-size: 1.2rem;
     }
   }
   .formsearch-skeleton {
@@ -185,14 +181,29 @@
     }
     .formsearch-bar-results-edit-2 {
       .formsearch-bar-dates-btn {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
       }
       .formsearch-bar-travelers-btn {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
       }
     }
     .formsearch-skeleton {
       width: 15rem;
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .formsearch-bar-results-edit-2 {
+    .formsearch-bar-dates-btn {
+      i {
+        display: none;
+      }
+    }
+    .formsearch-bar-travelers-btn {
+      i {
+        display: none;
+      }
     }
   }
 }
@@ -205,9 +216,15 @@
     .formsearch-bar-results-edit-2 {
       .formsearch-bar-dates-btn {
         font-size: 1.6rem;
+        i {
+          margin-right: 0.5rem;
+        }
       }
       .formsearch-bar-travelers-btn {
         font-size: 1.6rem;
+        i {
+          margin-right: 0.5rem;
+        }
       }
     }
     .formsearch-skeleton {

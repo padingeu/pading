@@ -5,6 +5,7 @@
 
 .MuiAppBar-colorDefault {
   background-color: white !important;
+  margin-top: 0.5rem;
 }
 
 .MuiAppBar-root {
@@ -16,7 +17,8 @@
     background-color: #f4f4f4;
     border-radius: 0.5rem;
     padding: 0.7rem;
-    margin: 0.2rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
     .MuiTab-wrapper {
       font-size: 1.6rem;
       font-family: 'PT Sans', sans-serif;

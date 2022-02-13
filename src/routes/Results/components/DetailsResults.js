@@ -54,31 +54,32 @@ export default function DetailsResults(props) {
       </div>
       <div className="details-results-book">
         <div className="booking-zone">
-          <a
-            href="https://www.clevel.co.uk/offset-carbon/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-co2"
-          >
-            <span>Offset your CO2</span>
-            <span className="trip-carbon-amount">{props.carbonFootprint} t</span>
-          </a>
-          <div className="clipboard-btn">
-            {showTooltipText ? <span className="tooltip-text">Booking link copied !</span> : ''}
-            <CopyToClipboard
-              text={
-                'https://www.kiwi.com/fr/booking?&affilid=padingpadingapp&booking_token=' +
-                props.trip.token +
-                '&currency=eur' +
-                '&passengers=' +
-                props.trip.travelers
-              }
+          <div className="co2-and-share">
+            <a
+              href="https://www.clevel.co.uk/offset-carbon/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-co2"
             >
-              <button className="btn-share" onClick={displayTooltipText}>
-                <span>Share ticket</span>
-                <i class="fas fa-share-alt fa-lg"></i>
-              </button>
-            </CopyToClipboard>
+              <span>Offset your <span className="trip-carbon-amount">{props.carbonFootprint} t</span>of CO2</span>
+            </a>
+            <div className="clipboard-btn">
+              {showTooltipText ? <span className="tooltip-text">Booking link copied !</span> : ''}
+              <CopyToClipboard
+                text={
+                  'https://www.kiwi.com/fr/booking?&affilid=padingpadingapp&booking_token=' +
+                  props.trip.token +
+                  '&currency=eur' +
+                  '&passengers=' +
+                  props.trip.travelers
+                }
+              >
+                <button className="btn-share" onClick={displayTooltipText}>
+                  <span>Share this ticket</span>
+                  <i class="fas fa-share-alt fa-lg"></i>
+                </button>
+              </CopyToClipboard>
+            </div>
           </div>
           <a
             href={
