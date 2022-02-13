@@ -159,9 +159,9 @@ export const searchTrips = (cities, dateFrom, dateTo, directTrip, returnTrip) =>
 
     const dateFromStr = format(dateFrom, 'dd/MM/yyyy');
     const dateToStr = format(dateTo, 'dd/MM/yyyy');
-
+    console.log(directTrip);
     let maxStopover = '2';
-    if (directTrip === 'Only direct') {
+    if (directTrip) {
       maxStopover = '0';
     }
     let config = {

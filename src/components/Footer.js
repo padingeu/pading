@@ -35,7 +35,9 @@ export default class Footer extends React.Component {
             </div>
             <div className="footer-menu-app">
               <Link to="/blog" onClick={this.props.scrollUp}>
-                <button className="btn-footer"><span>Blog</span></button>
+                <button className="btn-footer">
+                  <span>Blog</span>
+                </button>
               </Link>
               <Popup
                 modal
@@ -44,10 +46,12 @@ export default class Footer extends React.Component {
                     <span>Answers</span>
                   </button>
                 }
-              > 
-                {closePopup => (
+              >
+                {(closePopup) => (
                   <div className="popup">
-                    <button className="close-popup" onClick={closePopup}><i class="fas fa-times fa-lg"></i></button>
+                    <button className="close-popup" onClick={closePopup}>
+                      <i className="fas fa-times fa-lg"></i>
+                    </button>
                     <Faq />
                   </div>
                 )}
@@ -58,7 +62,7 @@ export default class Footer extends React.Component {
                 rel="noopener noreferrer"
                 target="_blank"
               >
-              <span>Roadmap</span>
+                <span>Roadmap</span>
               </a>
               <a href="mailto:contact@pading.eu" target="_blank" rel="noopener noreferrer">
                 <span>Contact us</span>

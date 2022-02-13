@@ -79,8 +79,8 @@ class FormSearchScreen extends React.Component {
             <div className="cities-and-travelers">
               {this.props.citiesFrom.map((city) => {
                 return (
-                  <div className="travelers-departure-city">
-                    <span className="departure-city-name">{city.name}</span>
+                  <div className="travelers-departure-city" key={city.name}>
+                    <span className="departure-city-name"></span>
                     <div className="people-number-change">
                       <i
                         className="edit-travelers far fa-minus-square fa-lg"
@@ -129,7 +129,7 @@ class FormSearchScreen extends React.Component {
                 showDateTo={true}
                 onChange={this.props.onInputDateChange}
               />
-            </div>  
+            </div>
             <div className="criteria">
               <div className="criteria-buttons">
                 <button
