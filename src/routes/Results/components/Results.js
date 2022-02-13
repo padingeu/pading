@@ -74,8 +74,16 @@ export default function Results(props) {
 
   return (
     <div>
+   
+        {props.search.isLoading && (
+          <div className="linear-progress">
+            <LinearProgress />
+          </div>
+        )}
+
       <div className="overlay"></div>
       <NavBar scrollUp={scrollUp} />
+     
       <div id="results-page">
         <FormSearch
           searchTrips={props.searchTrips}
@@ -85,46 +93,37 @@ export default function Results(props) {
         />
         <div className="travel-results">
           <div className="travel-results-cards">
-            <div className="linear-progress-filter">
-              <div className="linear-progress-div">
-                {props.search.isLoading && (
-                  <div className="linear-progress">
-                    <LinearProgress />
-                  </div>
+            {props.search.commonDestinations.length > 0 && (
+              <div className="filter-sort">
+                <button
+                  className="btn-filter"
+                  disabled={props.search.isLoading}
+                  onClick={displayFilter}
+                >
+                  <i className="fa fa-filter"></i>
+                  Filter
+                </button>
+                <button
+                  className="btn-sort"
+                  disabled={props.search.isLoading}
+                  onClick={displaySortBy}
+                >
+                  <i className="fas fa-sort-amount-down"></i>
+                  Sort by
+                </button>
+                {showSortBy ? (
+                  <SortBy
+                    sortByPrice={sortByPrice}
+                    sortByCarbon={sortByCarbon}
+                    displaySortBy={displaySortBy}
+                    sortByChoice={sortByChoice}
+                    handleClickOutside={handleClickOutside}
+                  />
+                ) : (
+                  ''
                 )}
               </div>
-              {props.search.commonDestinations.length > 0 && (
-                <div className="filter-sort">
-                  <button
-                    className="btn-filter"
-                    disabled={props.search.isLoading}
-                    onClick={displayFilter}
-                  >
-                    <i className="fa fa-filter"></i>
-                    Filter
-                  </button>
-                  <button
-                    className="btn-sort"
-                    disabled={props.search.isLoading}
-                    onClick={displaySortBy}
-                  >
-                    <i className="fas fa-sort-amount-down"></i>
-                    Sort by
-                  </button>
-                  {showSortBy ? (
-                      <SortBy
-                        sortByPrice={sortByPrice}
-                        sortByCarbon={sortByCarbon}
-                        displaySortBy={displaySortBy}
-                        sortByChoice={sortByChoice}
-                        handleClickOutside={handleClickOutside}
-                      />
-                    ) : (
-                      ''
-                    )}
-                </div>
-              )}
-            </div>
+            )}
             {showFilter ? (
               <FilterTime search={props.search} showFilter={showFilter} doFilter={props.doFilter} />
             ) : (

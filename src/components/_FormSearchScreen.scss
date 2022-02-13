@@ -10,9 +10,7 @@
   align-items: center;
   z-index: 100;
   width: 100vw;
-  background-size: cover;
   background-color: white;
-  border-radius: 0 0 0.5rem 0.5rem;
 }
 
 .first-search-screen {
@@ -27,9 +25,7 @@
   align-items: center;
   z-index: 100;
   width: 100vw;
-  background-size: cover;
   background-color: white;
-  border-radius: 0 0 0.5rem 0.5rem;
 }
 .searchbar {
   display: flex;
@@ -105,10 +101,10 @@
     justify-content: center;
     align-items: center;
     .criteria-btn {
-      height: 5rem;
+      height: 4.5rem;
       border-radius: 0.5rem;
       padding: 0.5rem 2rem;
-      margin: 0 2rem;
+      margin: 0.5rem 2rem;
       font-size: 1.4rem;
       background-color: white;
       border: solid 2px #4ac7fc;
@@ -144,6 +140,7 @@
     color: white;
     font-size: 1.6rem;
     transition: ease 0.2s;
+    margin-bottom: 1rem;
     &:disabled {
       opacity: 1;
       background-color:#4ac7fc;
@@ -192,6 +189,7 @@
     right: 0;
     bottom: 0;
     height: 100vh;
+    border-radius: 0 0 0.5rem 0.5rem;
   }
   .first-search-screen {
     position: fixed;
@@ -200,6 +198,7 @@
     right: 0;
     bottom: 0;
     height: 100vh;
+    border-radius: 0 0 0.5rem 0.5rem;
   }
   .search-criteria-confirma-btn {
     width: 100%;

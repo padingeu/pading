@@ -53,10 +53,9 @@
     z-index: 2;
     transition: all 0.15s ease-in-out 0s;
     .btn-date {
-      width: 100%;
       height: 6.5rem;
       border-radius: 0.5rem;
-      margin-bottom: 1rem;
+      margin-bottom: 2rem;
       color: white;
       background: #4ac7fc;
       opacity: 1;
@@ -165,6 +164,9 @@
   .calendar {
     height: 100vh;
     width: 100vw;
+    .btn-date {
+      width: 100%;
+    }
     .react-calendar {
       width: 100%;
       height: 100%;
@@ -184,6 +186,9 @@
     width: 100vw;
     height: 65vh;
     min-height: 45rem;
+    .btn-date {
+      width: 33%;
+    }
     .react-calendar {
       width: 100%;
       height: 100%;
