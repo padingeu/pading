@@ -104,7 +104,7 @@
           .tooltip-text {
             position: absolute;
             top: -2rem;
-            left: 0;
+            left: 0.5rem;
             color: #4c4c4c;
             font-family: 'PT sans', sans-serif;
             font-weight: bold;
@@ -112,7 +112,7 @@
           }
           .btn-share {
             display: flex;
-            justify-content: space-around;
+            justify-content: center;
             align-items: center;
             height: 4.5rem;
             width: 100%;
@@ -128,6 +128,9 @@
             &:hover {
               border: solid 2px #6dd3fd;
               color: #6dd3fd;
+            }
+            i {
+              margin-left: 0.5rem;
             }
           }
         }
