@@ -50,14 +50,13 @@
   }
 }
 .cities-and-travelers {
-  position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   padding-right: 2rem;
   width: 100%;
-  overflow-y: scroll;
+  overflow-y: auto;
   .travelers-departure-city {
     display: flex;
     justify-content: space-between;
@@ -124,8 +123,6 @@
   }
 }
 .search-criteria-confirm {
-  position: absolute;
-  bottom: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -195,6 +192,7 @@
 @media (max-width: 1200px) {
   .search-screen {
     position: fixed;
+    bottom: 0;
     border-radius: 0 0 0.5rem 0.5rem;
   }
   .first-search-screen {
