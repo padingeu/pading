@@ -80,7 +80,7 @@ class FormSearchScreen extends React.Component {
               {this.props.citiesFrom.map((city) => {
                 return (
                   <div className="travelers-departure-city" key={city.name}>
-                    <span className="departure-city-name"></span>
+                    <span className="departure-city-name">{city.name}</span>
                     <div className="people-number-change">
                       <i
                         className="edit-travelers far fa-minus-square fa-lg"
