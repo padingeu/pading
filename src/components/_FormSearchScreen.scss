@@ -58,7 +58,6 @@
   padding-right: 2rem;
   width: 100%;
   overflow-y: auto;
-  border: solid orange;
   .travelers-departure-city {
     display: flex;
     justify-content: space-between;
@@ -94,7 +93,6 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  border: solid red;
   .criteria-buttons {
     width: 100%;
     display: flex;
@@ -186,7 +184,6 @@
   }
   .cities-and-travelers {
     top: 7rem;
-    max-height: 30rem;
     padding-left: 5rem;
   }
 }
@@ -208,6 +205,10 @@
   .searchbar {
     padding-left: 1rem;
     padding-right: 1rem;
+  }
+  .cities-and-travelers {
+    max-height: 57vh;
+    padding-left: 6rem;
   }
 }
   
@@ -231,6 +232,7 @@
     padding-right: 2rem;
   }
   .cities-and-travelers {
+    max-height: 30rem;
     padding-left: 6rem;
   }
 }
