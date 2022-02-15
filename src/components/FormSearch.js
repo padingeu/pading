@@ -10,11 +10,8 @@ export default class FormSearch extends React.Component {
     citiesFrom: this.props.searchData ? this.props.searchData.cities : [],
     address: '',
     displayFromWhereScreen: false,
-    isFromWherePageFirst: false,
     displayTravelersScreen: false,
-    isTravelersPageFirstPage: false,
     displayDatesPicker: false,
-    isDatesPickerFirstPage: false,
     dateFrom: this.props.dateFrom,
     dateTo: this.props.dateTo,
     showFilter: false,
@@ -95,8 +92,6 @@ export default class FormSearch extends React.Component {
 
   handleClickOutside = (event) => {
     this.setState({ displayFromWhereScreen: false });
-    this.setState({ isTravelersPageFirstPage: false });
-    this.setState({ isDatesPickerFirstPage: false });
     this.setState({ displayTravelersScreen: false });
     this.setState({ displayDatesPicker: false });
     this.setState({ displayDetailsScreen: false });
@@ -144,7 +139,6 @@ export default class FormSearch extends React.Component {
 
   startPlanningTrip = (event) => {
     event.preventDefault();
-    this.setState({ isFromWherePageFirst: true });
     this.setState({ displayFromWhereScreen: true });
     document.querySelector(".overlay").style.display = "block";
     const body = document.querySelector("body");
@@ -177,7 +171,6 @@ export default class FormSearch extends React.Component {
 
   goToFromWherePage = (event) => {
     event.preventDefault();
-    this.setState({ isFromWherePageFirst: false });
     this.setState({ displayTravelersScreen: false });
     this.setState({ displayFromWhereScreen: true });
   };
@@ -191,7 +184,6 @@ export default class FormSearch extends React.Component {
 
   goToTravelersPage = (event) => {
     event.preventDefault();
-    this.setState({ isTravelersPageFirstPage: false });
     this.setState({ displayFromWhereScreen: false });
     this.setState({ displayDatesPicker: false });
     this.setState({ displayTravelersScreen: true });
@@ -199,7 +191,6 @@ export default class FormSearch extends React.Component {
 
   startFromTravelersPage = (event) => {
     event.preventDefault();
-    this.setState({ isTravelersPageFirstPage: true });
     this.setState({ displayFromWhereScreen: false });
     this.setState({ displayDatesPicker: false });
     this.setState({ displayTravelersScreen: true });
@@ -208,7 +199,6 @@ export default class FormSearch extends React.Component {
 
   goToDatesPicker = (event) => {
     event.preventDefault();
-    this.setState({ isDatesPickerFirstPage: false });
     this.setState({ displayTravelersScreen: false });
     this.setState({ displayDetailsScreen: false });
     this.setState({ displayDatesPicker: true });
@@ -216,7 +206,6 @@ export default class FormSearch extends React.Component {
 
   startFromDatesPicker = (event) => {
     event.preventDefault();
-    this.setState({ isDatesPickerFirstPage: true });
     this.setState({ displayTravelersScreen: false });
     this.setState({ displayDetailsScreen: false });
     this.setState({ displayDatesPicker: true });
@@ -357,7 +346,6 @@ export default class FormSearch extends React.Component {
           displayFullFormSearchResults={this.state.displayfullFormSearchResults}
           displayFromWhereScreen={this.state.displayFromWhereScreen}
           goToFromWherePage={this.goToFromWherePage}
-          isFromWherePageFirst={this.state.isFromWherePageFirst}
           isHomePage={this.state.isHomePage}
           goToHome={this.goToHomePage}
           goToResultsPage={this.goToResultsPage}
@@ -368,7 +356,6 @@ export default class FormSearch extends React.Component {
           handleAddressChange={this.handleAddressChange}
           displayTravelersScreen={this.state.displayTravelersScreen}
           goToTravelersPage={this.goToTravelersPage}
-          isTravelersPageFirstPage={this.state.isTravelersPageFirstPage}
           citiesFrom={this.state.citiesFrom}
           addTraveler={this.addTraveler}
           removeTraveler={this.removeTraveler}
@@ -376,7 +363,6 @@ export default class FormSearch extends React.Component {
           returnTrip={this.state.returnTrip}
           displayDatesPicker={this.state.displayDatesPicker}
           goToDatesPicker={this.goToDatesPicker}
-          isDatesPickerFirstPage={this.state.isDatesPickerFirstPage}
           dateFrom={this.state.dateFrom}
           dateTo={this.state.dateTo}
           onInputDateChange={this.onInputDateChange}

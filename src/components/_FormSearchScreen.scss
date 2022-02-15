@@ -1,23 +1,4 @@
 .search-screen {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  overflow: hidden;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 100;
-  width: 100vw;
-  background-color: white;
-}
-
-.first-search-screen {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -155,13 +136,13 @@
 
 @media (max-width: 300px) {
   .searchbar-question {
-      font-size: 1.6rem;
+    font-size: 1.6rem;
   }
 }
 
 @media (max-width: 500px) {
   .searchbar-question {
-      font-size: 1.6rem;
+    font-size: 1.6rem;
   }
   .searchbar {
     padding-left: 0.5rem;
@@ -169,7 +150,7 @@
     margin-top: 1rem;
   }
   .cities-and-travelers {
-    top: 12rem;
+    top: 10rem;
     padding-left: 3rem;
   }
 }
@@ -188,13 +169,6 @@
   
 @media (max-width: 1200px) {
   .search-screen {
-    position: fixed;
-    bottom: 0;
-    border-radius: 0 0 0.5rem 0.5rem;
-  }
-  .first-search-screen {
-    position: fixed;
-    bottom: 0;
     border-radius: 0 0 0.5rem 0.5rem;
   }
   .search-criteria-confirma-btn {
@@ -205,8 +179,7 @@
     padding-right: 1rem;
   }
   .cities-and-travelers {
-    //max-height: 57vh;
-    padding-left: 6rem;
+    max-height: 70vh;
   }
 }
   
@@ -214,11 +187,9 @@
 @media (min-width: 1201px) {
   .search-screen {
     position: fixed;
-    height: 65vh;
-    min-height: 45rem;
-  }
-  .first-search-screen {
-    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     height: 65vh;
     min-height: 45rem;
   }

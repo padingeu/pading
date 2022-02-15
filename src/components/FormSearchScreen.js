@@ -10,9 +10,7 @@ class FormSearchScreen extends React.Component {
     return (
       <div>
         {this.props.displayFromWhereScreen ? (
-          <div
-            className={this.props.isFromWherePageFirst ? 'first-search-screen' : 'search-screen'}
-          >
+          <div className="search-screen">
             <div className="searchbar">
               <button
                 className="btn-back"
@@ -65,11 +63,7 @@ class FormSearchScreen extends React.Component {
         )}
 
         {this.props.displayTravelersScreen ? (
-          <div
-            className={
-              this.props.isTravelersPageFirstPage ? 'first-search-screen' : 'search-screen'
-            }
-          >
+          <div className="search-screen">
             <div className="searchbar">
               <button className="btn-back" onClick={(event) => this.props.goToFromWherePage(event)}>
                 <i className="fas fa-chevron-left"></i>
@@ -114,9 +108,7 @@ class FormSearchScreen extends React.Component {
         )}
 
         {this.props.displayDatesPicker ? (
-          <div
-            className={this.props.isDatesPickerFirstPage ? 'first-search-screen' : 'search-screen'}
-          >
+          <div className="search-screen">
             <div className="searchbar">
               <button className="btn-back" onClick={(event) => this.props.goToTravelersPage(event)}>
                 <i className="fas fa-chevron-left"></i>
