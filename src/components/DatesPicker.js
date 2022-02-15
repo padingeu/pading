@@ -19,7 +19,7 @@ class DatesPicker extends React.Component {
     } else if (!this.props.returnTrip && !this.props.dateFrom) {
       return 'Select a departure date';
     } else {
-      return 'Ok';
+      return this.props.returnTrip ? 'Save your dates' : 'Save your date';
     }
   }
 
