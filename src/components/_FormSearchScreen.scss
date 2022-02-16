@@ -1,5 +1,4 @@
 .search-screen {
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -166,9 +165,14 @@
     padding-left: 5rem;
   }
 }
-  
+
 @media (max-width: 1200px) {
   .search-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
     border-radius: 0 0 0.5rem 0.5rem;
   }
   .search-criteria-confirma-btn {
@@ -182,7 +186,6 @@
     max-height: 70vh;
   }
 }
-  
   
 @media (min-width: 1201px) {
   .search-screen {
