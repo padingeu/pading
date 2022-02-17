@@ -1,4 +1,8 @@
 .search-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -30,13 +34,14 @@
   }
 }
 .cities-and-travelers {
-  position: absolute;
+  //position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   padding-right: 2rem;
   width: 100%;
+  height: 100%;
   overflow-y: auto;
   .travelers-departure-city {
     display: flex;
@@ -66,15 +71,15 @@
   }
 }
 .criteria {
-  position: absolute;
-  top: 12rem;
   width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   .criteria-buttons {
     width: 100%;
+    padding-top: 4rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -168,10 +173,6 @@
 
 @media (max-width: 1200px) {
   .search-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
     height: 100%;
     border-radius: 0 0 0.5rem 0.5rem;
   }
@@ -189,10 +190,6 @@
   
 @media (min-width: 1201px) {
   .search-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
     height: 65vh;
     min-height: 45rem;
   }
