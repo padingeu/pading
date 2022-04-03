@@ -30,7 +30,7 @@
       font-weight: bold;
       overflow-y: scroll;
       text-align: left;
-      color: #ff9e00;
+      color: #181f23;
       width: 100%;
       border: 0;
       &:hover {
@@ -39,7 +39,7 @@
       &:focus {
         outline: none;
       } &::placeholder {
-        color: #ff9e00;
+        color: #181f23;
       }
     }
     .btn-newsletter {
@@ -49,7 +49,7 @@
       color: white;
       font-weight: bold;
       &:hover {
-        background-color: #6dd3fd;
+        background-color: #1783cc;
         transition: ease 0.2s;
       }
     }
@@ -121,7 +121,7 @@
       min-width: 25rem;
     }
     .btn-newsletter {
-      min-width: 10rem;
+      min-width: 7rem;
     }
   }
   .swal2-popup {

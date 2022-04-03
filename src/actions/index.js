@@ -306,7 +306,7 @@ export const searchTrips = (cities, dateFrom, dateTo, directTrip, returnTrip) =>
               travelers,
               returnTrip,
               directTrip,
-              carb,
+              carb
             };
 
             dispatch({ type: 'SEARCH', data });

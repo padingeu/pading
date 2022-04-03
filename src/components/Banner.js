@@ -1,4 +1,5 @@
 import React from 'react';
+import { withTranslation } from 'react-i18next';
 import FormSearch from './FormSearch';
 import './_Banner.scss';
 import Popup from 'reactjs-popup';
@@ -9,50 +10,51 @@ import backgroundVerticalTablet from '../img/banner/cats-traveling-banner-vertic
 import backgroundMobile from '../img/banner/cats-traveling-banner-mobile.jpg';
 import backgroundSmallMobile from '../img/banner/cats-traveling-banner-small-mobile.jpg';
 
-export default class Banner extends React.Component {
+class Banner extends React.Component {
   render() {
+
     return (
       <div>
         <div className="banner">
-          <img className="banner-background-desktop" src={backgroundDesktop} alt="cats-traveling" />
-          <img className="banner-background-tablet" src={backgroundTablet} alt="cats-traveling" />
+          <img className="banner-background-desktop" src={backgroundDesktop} alt={this.props.t("bannerImglt")} />
+          <img className="banner-background-tablet" src={backgroundTablet} alt={this.props.t("bannerImgAlt")} />
           <img
             className="banner-background-vertical-tablet"
             src={backgroundVerticalTablet}
             alt="cats-traveling"
           />
-          <img className="banner-background-mobile" src={backgroundMobile} alt="cats-traveling" />
+          <img className="banner-background-mobile" src={backgroundMobile} alt={this.props.t("bannerImgAlt")} />
           <img
             className="banner-background-small-mobile"
             src={backgroundSmallMobile}
-            alt="cats-traveling"
+            alt={this.props.t("bannerImgAlt")}
           />
           {this.props.isHomePage ? (
             <div className="banner-content">
-              <h1>TRAVEL TO GATHER</h1>
+              <h1>{this.props.t("mainTitle")}</h1>
               <p>
-                Fill in your friends' departure cities and your own.
-                <br />
-                We will find the best journeys to meet halfway !
+                {this.props.t("mainDescription1")}
+                <br className="br"/>
+                {this.props.t("mainDescription2")}
               </p>
               <div className="pading-mode">
-                <button className="pading-mode-active">Halfway</button>
-                <Popup modal trigger={<button className="pading-mode-disable">Classic</button>}>
+                <button className="pading-mode-active">{this.props.t("halfwayMode")}</button>
+                <Popup modal trigger={<button className="pading-mode-disable">{this.props.t("classicMode")}</button>}>
                   {(closePopup) => (
                     <div className="popup">
                       <button className="close-popup" onClick={closePopup}>
                         <i className="fas fa-times fa-lg"></i>
                       </button>
                       <div className="simple-trip-popup">
-                        <h3>- COMING SOON -</h3>
+                        <h3>{this.props.t("simpleTripPopupTitle")}</h3>
                         <p>
-                          Book any trip easily and calmly
+                          {this.props.t("simpleTripPopupDescription1")}
                           <br />
-                          to the destination of your choice
+                          {this.props.t("simpleTripPopupDescription2")}
                         </p>
                         <img
                           src={padingClassic}
-                          alt="screenshot of Pading classic travel search"
+                          alt={this.props.t("classicModeImgAlt")}
                           className="screenshot-app"
                         />
                       </div>
@@ -70,3 +72,5 @@ export default class Banner extends React.Component {
     );
   }
 }
+
+export default withTranslation()(Banner);

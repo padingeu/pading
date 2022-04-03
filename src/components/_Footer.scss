@@ -7,7 +7,6 @@
     align-items: center;
     background-color: #f7f7f7;
     padding: 3rem 0rem;
-    margin-top: 10rem;
     .footer-menu {
       display: flex;
       flex-direction: column;
@@ -16,12 +15,12 @@
       background-color: transparent;
       width: 100%;
       p {
-        color: #4c4c4C;
+        color: #181f23;
         text-align: center;
       }
       span {
         font-family: 'PT Sans', sans-serif;
-        color: #4c4c4C;
+        color: #181f23;
         font-weight: bold;
         font-size: 1.6rem;
       }
@@ -54,9 +53,12 @@
           padding: 0;
           span {
             font-family: 'PT Sans', sans-serif;
-            color: #4c4c4C;
+            color: #181f23;
             font-weight: bold;
             font-size: 1.6rem;
+            &:hover {
+              color: #676d70;
+            }
           }
         }
       }
@@ -69,11 +71,11 @@
           text-align: center;
           background: transparent;
           width: 4.5rem;
-          color: #4c4c4C;
+          color: #181f23;
           transition: background 0.3s ease;
         }
         :hover {
-          color: #7c7c7c;
+          color: #676d70;
         }
         i {
           font-size: 4rem;

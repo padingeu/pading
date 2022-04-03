@@ -32,19 +32,6 @@ class SortBy extends React.Component {
           </div>
           <span>greenest trips</span>
         </button>
-
-        {/* <button
-          onClick={(event) => {
-            this.props.displaySortBy();
-          }}
-        >
-          <div className="check-box">
-            {this.props.sortByChoice === 'same schedule' ? (
-              <i className="fas fa-angle-right"></i>
-            ) : null}
-          </div>
-          <span>same schedules</span>
-        </button> */}
       </div>
     );
   }

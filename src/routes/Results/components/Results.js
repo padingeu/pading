@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import NavBar from '../../../components/NavBar';
 import FormSearch from '../../../components/FormSearch';
 import './_Results.scss';
@@ -14,6 +15,7 @@ import Footer from '../../../components/Footer';
 import catLost from '..//img/cat-lost.svg';
 
 export default function Results(props) {
+  const { t } = useTranslation();
   // const [showFilter, setShowFilter] = React.useState(false);
   const [showSortBy, setShowsortBy] = React.useState(false);
   const [sortByChoice, setSortByChoice] = React.useState('lowest price');
@@ -189,11 +191,11 @@ export default function Results(props) {
                     </div>
                   ) : (
                     <div className="alert-nodestination">
-                      <img src={catLost} alt="no destination was found" width="200px" />
+                      <img src={catLost} alt={t("noDestinationImgAlt")} width="200px" />
                       <p>
-                        No destination was found
+                        {t("noDestinationFound1")}
                         <br />
-                        Try other dates or departure cities
+                        {t("noDestinationFound2")}
                       </p>
                     </div>
                   )}

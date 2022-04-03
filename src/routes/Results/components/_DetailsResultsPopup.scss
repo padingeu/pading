@@ -26,21 +26,21 @@
       font-weight: bold;
     }
     .MuiTab-textColorPrimary.Mui-selected {
-      color: #606060;
+      color: #1e333db5;
       background-color: white !important;
       border-radius: 0.5rem;
 
       &:hover {
-        color: #606060;
+        color: #1e333db5;
       }
     }
     .MuiTouchRipple-root {
       display: none !important;
     }
     .MuiTab-textColorPrimary {
-      color: #606060;
+      color: #1e333db5;
       &:hover {
-        color: #606060;
+        color: #1e333db5;
       }
     }
     .MuiTabs-indicator {
@@ -70,9 +70,9 @@
     top: 2.5rem;
     right: 1.2rem;
     background-color: transparent;
-    color: #4c4c4c;
+    color: #1e333de3;
     &:hover {
-      color: #7c7c7c;
+      color: #1e333db5;
     }
   }
 }

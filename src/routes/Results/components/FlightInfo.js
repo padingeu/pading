@@ -119,7 +119,7 @@ export default function FlightInfo(props) {
           </div>
         </div>
         <div className="carrier-div-1">
-          <Img src={image_path} alt={getAirlineName(props.route.airline)} />
+          <Img src={image_path} alt={`${getAirlineName(props.route.airline)} logo`} />
         </div>
 
         <div className="carrier-div-2">

@@ -3,18 +3,25 @@
 $headers-font: 'Paytone One', sans-serif;
 $body-font: 'PT Sans', sans-serif;
 
+$yellow-darker: #e27203;
 $yellow: #ff9e00;
 $yellow-light: #ffb133;
+$yellow-lighter: #ffdB5b;
+$blue-darker: #1783cc;
 $blue: #19a6ee;
 $blue-light: #4ac7fc;
+$blue-lighter: #6dd3fd;
+$green-darker: #243e11;
 $green: #427103;
-$green-light: #85bf82;
-$gray: #4c4c4c;
-$light-gray: #dce4e9;
+$green-light: #5c9f04;
+$green-lighter: #85bf82;
+$gray: #181f23;
+$light-gray: #676d70;
+$lighter-gray: #ebebeb;
 
 h1 {
   font-family: $headers-font;
-  color: #ff9e00;
+  color: $light-gray;
 }
 
 h2 {

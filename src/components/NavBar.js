@@ -1,37 +1,57 @@
 import React from 'react';
+import { withTranslation } from 'react-i18next';
+import i18n from '../i18n';
+import LanguageChoice from './LanguageChoice';
 import './_NavBar.scss';
 import { Link } from "react-router-dom";
-import onClickOutside from 'react-onclickoutside';
 import logoPading from '../img/logo-pading.png';
 import simpleLogoPading from '../img/simple-logo-pading.png';
 
 class Navbar extends React.Component {
+
   state = {
-      dropDownMenuOpen: false
+    lang: i18n.languages[0],
+    showLanguageChoices: false
   }
 
-  dropDownMenu = () => {
-      this.setState({ dropDownMenuOpen: !this.state.dropDownMenuOpen })
+  changeLanguage = (ln) => {
+    return () => {
+      i18n.changeLanguage(ln);
+      this.setState({ lang: ln})
+      this.setState({ showLanguageChoices: false })
+    }
+  }
+
+  setLanguageChoices = (event) => {
+    event.preventDefault();
+    this.setState({ showLanguageChoices: !this.state.showLanguageChoices })
   }
 
   handleClickOutside = () => {
-      this.setState({ dropDownMenuOpen: false });
-  };
+    this.setState({ showLanguageChoices: false })
+  }
 
   render() {
-  return (
-      <div className="navbar">
-        <div className="navbar-brand">
-          <Link to="/" onClick={this.props.scrollUp}>
-            <img className="logo-mobile" src={simpleLogoPading} alt="Pading find the perfect place to meet" />
-            <img className="logo-desktop"src={logoPading} alt="Pading find the perfect place to meet" />
-          </Link>
+    return (
+        <div className="navbar">
+          <div className="navbar-brand">
+            <Link to="/" onClick={this.props.scrollUp}>
+              <img className="logo-mobile" src={simpleLogoPading} alt={this.props.t("padingLogoAlt")} />
+              <img className="logo-desktop"src={logoPading} alt={this.props.t("padingLogoAlt")} />
+            </Link>
+          </div>
+          <div className="navbar-menu">
+           <LanguageChoice
+            lang={this.state.lang}
+            showLanguageChoices={this.state.showLanguageChoices}
+            setLanguageChoices={this.setLanguageChoices}
+            changeLanguage={this.changeLanguage}
+            handleClickOutside={this.handleClickOutside}
+           />
+          </div>
         </div>
-        <div className="navbar-menu">
-        </div>
-      </div>
-    )
-  }
+      )
+    }
 }
 
-export default onClickOutside(Navbar);
+export default withTranslation()(Navbar);

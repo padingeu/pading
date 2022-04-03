@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import './_Faq.scss';
 import { makeStyles } from '@material-ui/core/styles';
 import ExpansionPanel from '@material-ui/core/ExpansionPanel';
@@ -24,6 +25,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Faq() {
+  const { t } = useTranslation();
+
   const classes = useStyles();
 
   return (
@@ -36,19 +39,19 @@ export default function Faq() {
           id="panel2a-header"
         >
           <Typography className={`${classes.heading} faq-title`}>
-            <h4>Why Pading is so useful ?</h4>
+            <h4>{t("faq-q1")}</h4>
           </Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography className="faq-answers">
-            <p>Pading is the only travel app organiser that allows you to find all common destinations where to meet from multi departure cities</p>
+            <p>{t("faq-a1-1")}</p>
               <ul>
-                <li><p>Andy and Juli are leaving from Munich and Frankfurt</p></li>
-                <li><p>Filippo is leaving from Florence</p></li>
-                <li><p>Eilidh is leaving from Glasgow</p></li>
-                <li><p>Violaine, Ludi, Louis and Dimitri are leaving from Paris</p></li>
+                <li><p>{t("faq-a1-2")}</p></li>
+                <li><p>{t("faq-a1-3")}</p></li>
+                <li><p>{t("faq-a1-4")}</p></li>
+                <li><p>{t("faq-a1-5")}</p></li>
               </ul>
-              <p>Pading searches for all existing travel combinations to meet in a same place and the cheapest destinations for the whole team are highlighted</p>
+              <p>{t("faq-a1-6")}</p>
 
           </Typography>
         </ExpansionPanelDetails>
@@ -60,14 +63,14 @@ export default function Faq() {
           id="panel3a-header"
         >
           <Typography className={`${classes.heading} faq-title`}>
-            <h4>The cheapest price really ?</h4>
+            <h4>{t("faq-q2")}</h4>
           </Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography className="faq-answers">
-            <p>We work with our partner Kiwi to enjoy the 520 billion different route combinations of low-cost flights and very soon we will integrate trains journey in Europe as well</p>
-            <p>Based on this huge quantity of data, we calculate the cheapest routes to go to your next meeting point</p>
-            <p>Pading do the job for you. Now you just have to select the next place you would like to meet with your friends or family and book your tickets</p>
+            <p>{t("faq-a2-1")}</p>
+            <p>{t("faq-a2-2")}</p>
+            <p>{t("faq-a2-3")}</p>
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
@@ -78,23 +81,23 @@ export default function Faq() {
           id="panel4a-header"
         >
           <Typography className={`${classes.heading} faq-title`}>
-            <h4>You said time saving ?</h4>
+            <h4>{t("faq-q3")}</h4>
           </Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography className="faq-answers">
-            <p>Without Pading, organizing the next meeting with your long-distance friends or family can be rather complicated:</p>
+            <p>{t("faq-a3-1")}</p>
             <ul>
-              <li><p>Proposing a destination</p></li>
-              <li><p>Looking at all the travel possibilities and all the prices for each people</p></li>
-              <li><p>Proposing an other destination if this one does not match everyone's criteria</p></li>
-              <li><p>Do the same again and again until we are good</p></li>
+              <li><p>{t("faq-a3-2")}</p></li>
+              <li><p>{t("faq-a3-3")}</p></li>
+              <li><p>{t("faq-a3-4")}</p></li>
+              <li><p>{t("faq-a3-5")}</p></li>
             </ul>
             <br/>
-            <p>With Pading, it looks like this:</p>
+            <p>{t("faq-a3-6")}</p>
             <ul>
-              <li><p>Fill the dates and enter the multiple departure cities</p></li>
-              <li><p>Select your common destination among the cheapest ones</p></li>
+              <li><p>{t("faq-a3-7")}</p></li>
+              <li><p>{t("faq-a3-8")}</p></li>
             </ul>
           </Typography>
         </ExpansionPanelDetails>
@@ -106,13 +109,13 @@ export default function Faq() {
           id="panel5a-header"
         >
           <Typography className={`${classes.heading} faq-title`}>
-            <h4>What transport can be booked ?</h4>
+            <h4>{t("faq-q4")}</h4>
           </Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography className="faq-answers">
-            <p>For now, we only consider air journeys but the train arrives soon !</p>
-            <p>Our ambition is to redesign completely the travel organising experience so be prepared to discover more and more travel options</p>
+            <p>{t("faq-a4-1")}</p>
+            <p>{t("faq-a4-2")}</p>
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
@@ -123,15 +126,15 @@ export default function Faq() {
           id="panel6a-header"
         >
           <Typography className={`${classes.heading} faq-title`}>
-            <h4>What about ecology ?</h4>
+            <h4>{t("faq-q5")}</h4>
           </Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography className="faq-answers">
-            <p>This is our biggest dilemma: facilitating travel and acting positively for the planet</p>
-            <p>We do not intend to invent the electric or hydrogen plane, but we do want to make people aware of the pollution generated by travel and encourage them to offset their carbon footprint.</p>
-            <p>Thus, thanks to our partner Clevel we calcultate the climate impact of each destination and empower each travel to directly offset his co2 emissions</p>
-            <p>We are also keen to offer train journeys as it is much more environmentally friendly</p>
+            <p>{t("faq-a5-1")}</p>
+            <p>{t("faq-a5-2")}</p>
+            <p>{t("faq-a5-3")}</p>
+            <p>{t("faq-a5-4")}</p>
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
@@ -142,14 +145,14 @@ export default function Faq() {
           id="panel7a-header"
         >
           <Typography className={`${classes.heading} faq-title`}>
-            <h4>How Pading can be free ?</h4>
+            <h4>{t("faq-q6")}</h4>
           </Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography className="faq-answers">
-            <p>Pading is a user interface. The booking is made on Kiwi secure Website that offers very good guarantee protecting customers from schedule change, delays and cancellations.</p>
-            <p>We work as an affiliate partner with Kiwi booking platform that gives us a commission for each booking</p>
-            <p>This way, Kiwi earns money, we earn money and you use our service for free and take advantage of the best prices</p>
+            <p>{t("faq-a6-1")}</p>
+            <p>{t("faq-a6-2")}</p>
+            <p>{t("faq-a6-3")}</p>
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
@@ -160,14 +163,14 @@ export default function Faq() {
           id="panel8a-header"
         >
           <Typography className={`${classes.heading} faq-title`}>
-            <h4>Who is your partner Kiwi ?</h4>
+            <h4>{t("faq-q7")}</h4>
           </Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography className="faq-answers">
-            <p>Kiwi is a big, wellknown and secure booking platform in the travel industry</p>
-            <p>We work with them to benefit from its data combining billions of different route combinations</p>
-            <p>Pading is a user interface but the booking is made on Kiwi that offers very good guarantee protecting customers from schedule change, delays and cancellations</p>
+            <p>{t("faq-a7-1")}</p>
+            <p>{t("faq-a7-2")}</p>
+            <p>{t("faq-a7-3")}</p>
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
@@ -178,15 +181,15 @@ export default function Faq() {
           id="panel9a-header"
         >
           <Typography className={`${classes.heading} faq-title`}>
-            <h4>What is your vision ?</h4>
+            <h4>{t("faq-q8")}</h4>
           </Typography>
         </ExpansionPanelSummary>
         <ExpansionPanelDetails>
           <Typography className="faq-answers">
-            <p>Our vision is to put people and the planet at the heart of the travel organizing experience and the first thing we do is reducing the distance between loved-ones</p>
-            <p>Soon, we will offer the possibility to do a classic travel search and will integrate the train</p>
+            <p>{t("faq-a8-1")}</p>
+            <p>{t("faq-a8-2")}</p>
             <br/>
-            <p>We also wait for your feedbacks and recommendations to develop Pading in right direction</p>
+            <p>{t("faq-a8-3")}</p>
           </Typography>
         </ExpansionPanelDetails>
       </ExpansionPanel>
