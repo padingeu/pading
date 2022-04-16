@@ -73,19 +73,17 @@ export default function Results(props) {
     return 0;
   };
 
-
   return (
     <div>
-   
-        {props.search.isLoading && (
-          <div className="linear-progress">
-            <LinearProgress />
-          </div>
-        )}
+      {props.search.isLoading && (
+        <div className="linear-progress">
+          <LinearProgress />
+        </div>
+      )}
 
       <div className="overlay"></div>
       <NavBar scrollUp={scrollUp} />
-     
+
       <div id="results-page">
         <FormSearch
           searchTrips={props.searchTrips}
@@ -164,7 +162,7 @@ export default function Results(props) {
                                     pricesPerDepartureCity={destination.pricesPerDepartureCity}
                                     travelers={props.search.travelers}
                                     key={index}
-                                    carbonFootprint={destination.carbonFootprintTotal}
+                                    // carbonFootprint={destination.carbonFootprintTotal}
                                   />
                                 </div>
                               }
@@ -180,7 +178,7 @@ export default function Results(props) {
                                     trips={props.search.trips}
                                     key={index}
                                     returnTrip={props.search.returnTrip}
-                                    carbonFootprint={destination.carbonFootprint}
+                                    // carbonFootprint={destination.carbonFootprint}
                                   />
                                 </div>
                               )}
@@ -191,11 +189,11 @@ export default function Results(props) {
                     </div>
                   ) : (
                     <div className="alert-nodestination">
-                      <img src={catLost} alt={t("noDestinationImgAlt")} width="200px" />
+                      <img src={catLost} alt={t('noDestinationImgAlt')} width="200px" />
                       <p>
-                        {t("noDestinationFound1")}
+                        {t('noDestinationFound1')}
                         <br />
-                        {t("noDestinationFound2")}
+                        {t('noDestinationFound2')}
                       </p>
                     </div>
                   )}

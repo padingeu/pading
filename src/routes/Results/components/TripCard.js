@@ -20,17 +20,19 @@ const TripCard = ({
 
   return (
     <div className="trip-card">
-      <Img src={image_path} alt={destination} />
+      {/* <Img src={image_path} alt={destination} /> */}
       <div className="trip-infos">
         <div className="trip-city">
           <span className="trip-city-name">{destination}</span>
           <div className="trip-carbon">
-            <span className="trip-carbon-amount">{carbonFootprint}</span>
+            {/* <span className="trip-carbon-amount">{carbonFootprint}</span> */}
             <span className="trip-carbon-unity">tonnes CO2</span>
           </div>
         </div>
         <div className="trip-pricing">
-          <span className="trip-pricing-amount">{Math.round(totalPrice / lodash.sum(Object.values(travelers)))}</span>
+          <span className="trip-pricing-amount">
+            {Math.round(totalPrice / lodash.sum(Object.values(travelers)))}
+          </span>
           <span className="trip-pricing-currency">EUR / pers</span>
         </div>
       </div>

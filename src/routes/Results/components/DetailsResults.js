@@ -61,7 +61,7 @@ export default function DetailsResults(props) {
               rel="noopener noreferrer"
               className="btn-co2"
             >
-              <span>Offset your <span className="trip-carbon-amount">{props.carbonFootprint} t</span>of CO2</span>
+              {/* <span>Offset your <span className="trip-carbon-amount">{props.carbonFootprint} t</span>of CO2</span> */}
             </a>
             <div className="clipboard-btn">
               {showTooltipText ? <span className="tooltip-text">Booking link copied !</span> : ''}

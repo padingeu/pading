@@ -306,15 +306,25 @@ export const searchTrips = (cities, dateFrom, dateTo, directTrip, returnTrip) =>
               travelers,
               returnTrip,
               directTrip,
-              carb
+              carb,
             };
 
             dispatch({ type: 'SEARCH', data });
             dispatch({ type: 'SUCCESS' });
           })
           .catch((error) => {
-            console.log('failure');
-            dispatch({ type: 'FAILURE' });
+            const data = {
+              commonDestinations: commonDestinations,
+              initialTrips: trips,
+              trips,
+              travelers,
+              returnTrip,
+              directTrip,
+              // carb,
+            };
+
+            dispatch({ type: 'SEARCH', data });
+            dispatch({ type: 'SUCCESS' });
           });
       })
       .catch((error) => {
