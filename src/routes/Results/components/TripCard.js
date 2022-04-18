@@ -3,13 +3,7 @@ import './_TripCard.scss';
 import Img from 'react-cool-img';
 import lodash from 'lodash';
 
-const TripCard = ({
-  destination,
-  totalPrice,
-  pricesPerDepartureCity,
-  travelers,
-  carbonFootprint,
-}) => {
+const TripCard = ({ destination, totalPrice, travelers, carbonFootprint }) => {
   let image_path = '';
 
   try {
@@ -20,7 +14,7 @@ const TripCard = ({
 
   return (
     <div className="trip-card">
-      {/* <Img src={image_path} alt={destination} /> */}
+      <Img src={image_path.default} alt={destination} />
       <div className="trip-infos">
         <div className="trip-city">
           <span className="trip-city-name">{destination}</span>
