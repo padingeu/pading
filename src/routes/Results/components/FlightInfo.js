@@ -119,7 +119,7 @@ export default function FlightInfo(props) {
           </div>
         </div>
         <div className="carrier-div-1">
-          <Img src={image_path} alt={`${getAirlineName(props.route.airline)} logo`} />
+          <Img src={image_path.default} alt={`${getAirlineName(props.route.airline)} logo`} />
         </div>
 
         <div className="carrier-div-2">
@@ -135,7 +135,9 @@ export default function FlightInfo(props) {
                 {getDuration(props.route.utc_departure, props.route.utc_arrival)}
               </span>
             </div>
-            <span className="travelers-number">{props.travelers} traveler{props.travelers > 1 ? 's' : ''}</span>
+            <span className="travelers-number">
+              {props.travelers} traveler{props.travelers > 1 ? 's' : ''}
+            </span>
             <div className="show-more-details" onClick={() => setDetailsWay(!showDetailsWay)}>
               <i className="fas fa-angle-up fa-lg"></i>
               <i className="fas fa-angle-down fa-lg"></i>
