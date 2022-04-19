@@ -76,7 +76,7 @@ export default function DetailsResults(props) {
               >
                 <button className="btn-share" onClick={displayTooltipText}>
                   <span>Share this ticket</span>
-                  <i class="fas fa-share-alt fa-lg"></i>
+                  <i className="fas fa-share-alt fa-lg"></i>
                 </button>
               </CopyToClipboard>
             </div>

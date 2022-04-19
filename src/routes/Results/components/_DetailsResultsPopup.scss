@@ -5,18 +5,17 @@
 
 .MuiAppBar-colorDefault {
   background-color: white !important;
-  margin-top: 0.5rem;
 }
 
 .MuiAppBar-root {
+  align-items: center;
   border-radius: 0.5rem;
   background-color: white;
   border: 0 !important;
   box-shadow: none !important;
   .MuiTabs-root {
-    background-color: #f4f4f4;
+    background-color: #f7f7f7;
     border-radius: 0.5rem;
-    padding: 0.7rem;
     margin-left: 2rem;
     margin-right: 2rem;
     .MuiTab-wrapper {
@@ -26,25 +25,29 @@
       font-weight: bold;
     }
     .MuiTab-textColorPrimary.Mui-selected {
-      color: #1e333db5;
-      background-color: white !important;
+      color: #181f23;
+      background-color: #ffdB5b !important;
       border-radius: 0.5rem;
-
       &:hover {
-        color: #1e333db5;
+        color: #181f23;
       }
     }
     .MuiTouchRipple-root {
       display: none !important;
     }
     .MuiTab-textColorPrimary {
-      color: #1e333db5;
+      color: #181f23;
       &:hover {
-        color: #1e333db5;
+        color: #181f23;
       }
     }
     .MuiTabs-indicator {
       display: none !important;
+    }
+    .MuiTabScrollButton-root {
+      svg {
+        font-size: 1.6rem;
+      }
     }
   }
 }
@@ -67,12 +70,12 @@
   }
   .close-popup {
     position: absolute;
-    top: 2.5rem;
+    top: 1.2rem;
     right: 1.2rem;
     background-color: transparent;
-    color: #1e333de3;
+    color: #676d70;
     &:hover {
-      color: #1e333db5;
+      color: #181f23;
     }
   }
 }
@@ -91,6 +94,9 @@
     width: 80vw !important;
     padding: none !important;
   }
+  .MuiAppBar-colorDefault {
+    margin-top: 0.5rem;
+  }
 }
 
 
@@ -99,6 +105,9 @@
     width: 80vw !important;
     padding: none !important;
   }
+  .MuiAppBar-colorDefault {
+    margin-top: 0.5rem;
+  }
 }
 
 @media (min-width: 1001px) and (max-width: 1101px) {
@@ -106,10 +115,16 @@
     width: 70vw !important;
     padding: none !important;
   }
+  .MuiAppBar-colorDefault {
+    margin-top: 0.5rem;
+  }
 }
 
 @media (min-width: 1101px) {
   .popup-content {
     width: 50vw !important;
+  }
+  .MuiAppBar-colorDefault {
+    margin-top: 0.5rem;
   }
 }

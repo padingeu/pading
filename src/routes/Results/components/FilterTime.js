@@ -45,7 +45,7 @@ export default function FilterTime(props) {
             props.search.cities.map((city, index) => {
               return (
                 <div className="filter-table-body">
-                  <p>from {city.name}</p>
+                  <p>From {city.name}</p>
                   <FilterBar filter={doF} city={city.name} type="departure" />
                 </div>
               );
@@ -61,7 +61,7 @@ export default function FilterTime(props) {
               props.search.cities.map((city, index) => {
                 return (
                   <div className="filter-table-body">
-                    <p>to {city.name}</p>
+                    <p>To {city.name}</p>
                     <FilterBar filter={doF} city={city.name} type="return" />
                   </div>
                 );

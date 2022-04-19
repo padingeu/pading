@@ -17,7 +17,7 @@ class SortBy extends React.Component {
               <i className="fas fa-angle-right"></i>
             ) : null}
           </div>
-          <span>lowest prices</span>
+          <span>Lowest prices</span>
         </button>
         <button
           onClick={(event) => {
@@ -30,7 +30,7 @@ class SortBy extends React.Component {
               <i className="fas fa-angle-right"></i>
             ) : null}
           </div>
-          <span>greenest trips</span>
+          <span>Greenest trips</span>
         </button>
       </div>
     );

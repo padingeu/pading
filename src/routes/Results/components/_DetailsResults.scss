@@ -1,7 +1,7 @@
 .details-results {
   position: relative;
   margin-top: 1rem;
-  height: calc(100vh - 14rem);
+  height: calc(100vh - 12rem);
   .MuiBox-root {
     padding: 0 !important;
     height: 100%;
@@ -32,7 +32,7 @@
           span.to-city {
             font-size: 1.2rem;
             font-weight: bold;
-            color: #606060;
+            color: #181f23;
           }       
         }
       }
@@ -70,7 +70,7 @@
           margin-right: 0.2rem;
           border-radius: 0.5rem;
           background: white;
-          border: solid 2px #85bf82;
+          border: solid 0.2rem #85bf82;
           color: #85bf82;
           transition: background 0.3s ease;
           font-family: 'PT sans', sans-serif;
@@ -81,10 +81,10 @@
             text-align: center;
           }
           &:hover {
-            border-color: #91c98d;
-            color: #91c98d;
+            border-color: #5c9f04;
+            color: #5c9f04;
             span.trip-carbon-amount {
-              background-color: #91c98d;
+              background-color: #5c9f04;
             }
           }
           span.trip-carbon-amount {
@@ -105,7 +105,7 @@
             position: absolute;
             top: -2rem;
             left: 0.5rem;
-            color: #1e333de3;
+            color: #676d70;
             font-family: 'PT sans', sans-serif;
             font-weight: bold;
             white-space: nowrap;
@@ -119,15 +119,15 @@
             margin-right: 0.2rem;        
             border-radius: 0.5rem;
             background-color: white;
-            border: solid 2px #4ac7fc;
-            color: #4ac7fc;
+            border: solid 0.2rem #19a6ee;
+            color: #19a6ee;
             transition: background 0.3s ease;
             font-family: 'PT sans', sans-serif;
             font-weight: bold;
             margin-left: 0.2rem;
             &:hover {
-              border: solid 2px #54BEF2;
-              color: #54BEF2;
+              border: solid 0.2rem #1783cc;
+              color: #1783cc;
             }
             i {
               margin-left: 0.5rem;
@@ -143,7 +143,7 @@
         width: 100%;
         margin-top: 0.5rem;
         border-radius: 0.5rem;
-        background: #4ac7fc;
+        background: #19a6ee;
         color: white;
         transition: background 0.3s ease;
         font-family: 'PT sans', sans-serif;
@@ -152,8 +152,11 @@
         text-decoration: none;
         margin-left: 0.2rem;
         &:hover {
-          background: #54BEF2;
+          background: #1783cc;
           color: white;
+          span.trip-pricing-amount {
+            color: #1783cc;
+          }
         }
         .book-for-price {
           display: flex;
@@ -163,7 +166,7 @@
         span.trip-pricing-amount {
           font-family: 'PT Sans', sans-serif;
           font-weight: bold;
-          color: #41b6f1;
+          color: #19a6ee;
           text-align: center;
           border-radius: 0.2rem;
           margin-right: 0.5rem;
@@ -215,10 +218,10 @@
     font-size: 1.4rem;
   }
   .btn-share {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
   }
   .tooltip-text {
-    font-size: 1.4rem;
+    font-size: 1.6rem;
   }
   .btn-book {
     font-size: 1.6rem;

@@ -171,7 +171,7 @@ export default function Results(props) {
                               {(closePopup) => (
                                 <div className="popup">
                                   <button className="close-popup" onClick={closePopup}>
-                                    <i class="fas fa-times fa-lg"></i>
+                                    <i className="fas fa-times fa-lg"></i>
                                   </button>
                                   <DetailsResultsPopup
                                     destination={destination.name}

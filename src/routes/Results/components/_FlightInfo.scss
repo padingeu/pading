@@ -56,9 +56,10 @@
         border-radius: 0 1rem 0 0;
         font-weight: bold;
         margin-bottom: 1rem;
-        color: #ff9e00;
+        color: #181f23;
         i {
           margin-right: 0.5rem;
+          color: #ffdB5b;
         }
       }
       .departure-div-1 {
@@ -86,7 +87,7 @@
         .line-round {
           position: absolute;
           background-color: white;
-          border: solid 2px #606060;
+          border: solid 2px #676d70;
           top: 1rem;
           left: 0.12rem;
           width: 1.2rem;
@@ -96,7 +97,7 @@
         .line-bottom {
           position: absolute;
           left: 0.6rem;
-          border-left: 0.2rem solid #606060;
+          border-left: 0.2rem solid #676d70;
           bottom: 0rem;
           height: 25%;
         }
@@ -140,7 +141,7 @@
         .line-bottom {
           position: absolute;
           left: 0.6rem;
-          border-left: 0.2rem solid #606060;
+          border-left: 0.2rem solid #676d70;
           bottom: 0rem;
           height: 100%;
         }
@@ -154,7 +155,7 @@
             position: absolute;
             top: 1.4rem;
             left: 0rem;
-            color: #ff9e00;
+            color: #ffdB5b;
             background-color: white;
             padding: 0.5rem 0;
           }
@@ -165,7 +166,7 @@
             span.airline-name {
               font-size: 1.2rem;
               font-weight: normal;
-              color: #606060;
+              color: #181f23;
             }
           }
           .travel-duration {
@@ -175,16 +176,16 @@
             border-radius: 0.5rem;
             padding: 0 0.5rem;
             margin-right: 0.5rem;
-            background-color: #f4f4f4;
+            background-color: #f7f7f7;
             height: 100%;
             span.travel-duration-hours {
               font-weight: bold;
-              color: #606060;
+              color: #181f23;
               font-size: 1.2rem;
             }
           }
           span.travelers-number {
-            color: #606060;
+            color: #181f23;
             font-weight: bold;
             font-size: 1.2rem;
           }
@@ -201,10 +202,11 @@
             border-radius: 0.5rem;
             cursor: pointer;
             i {
-              color: #1e333de3;
+              color: #676d70;
             }
             &:hover {
               background-color: transparent;
+              color: #181f23;
             }
           }
         }
@@ -282,14 +284,14 @@
         .line-top {
           position: absolute;
           left: 0.6rem;
-          border-left: 0.2rem solid #606060;
+          border-left: 0.2rem solid #676d70;
           top: 0;
           height: 20%;
         }
         .line-round {
           position: absolute;
           background-color: white;
-          border: solid 2px #606060;
+          border: solid 2px #676d70;
           top: 1rem;
           left: 0.12rem;
           width: 1.2rem;
