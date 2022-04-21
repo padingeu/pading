@@ -1,9 +1,11 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import './_DetailsResults.scss';
 import FlightInfo from './FlightInfo.js';
 
 export default function DetailsResults(props) {
+  const { t } = useTranslation();
   const [showTooltipText, setShowToolTipText] = React.useState(false);
 
   const displayTooltipText = () => {
@@ -17,7 +19,7 @@ export default function DetailsResults(props) {
     <div>
       <div className="details-results-travel">
         <div className="details-results-travel-city">
-          <span className="to-city">Way to {props.destination}</span>
+          <span className="to-city">{t("wayTo")} {props.destination}</span>
         </div>
         {props.trip.wayRoutes.map((route, index) => {
           return (
@@ -35,7 +37,7 @@ export default function DetailsResults(props) {
           <div className="details-results-travel-return">
             <div className="details-results-travel">
               <div className="details-results-travel-city">
-                <span className="to-city">Return to {props.cityFrom}</span>
+                <span className="to-city">{t("returnTo")} {props.cityFrom}</span>
               </div>
               {props.trip.returnRoutes.map((route, index) => {
                 return (
@@ -61,10 +63,10 @@ export default function DetailsResults(props) {
               rel="noopener noreferrer"
               className="btn-co2"
             >
-              {/* <span>Offset your <span className="trip-carbon-amount">{props.carbonFootprint} t</span>of CO2</span> */}
+              {/* <span>Offset your <span className="trip-carbon-amount">{props.carbonFootprint} t</span>{t("ofCO2")}</span> */}
             </a>
             <div className="clipboard-btn">
-              {showTooltipText ? <span className="tooltip-text">Booking link copied !</span> : ''}
+              {showTooltipText ? <span className="tooltip-text">{t("linkCopied")}</span> : ''}
               <CopyToClipboard
                 text={
                   'https://www.kiwi.com/fr/booking?&affilid=padingpadingapp&booking_token=' +
@@ -75,7 +77,7 @@ export default function DetailsResults(props) {
                 }
               >
                 <button className="btn-share" onClick={displayTooltipText}>
-                  <span>Share this ticket</span>
+                  <span>{t("shareTicket")}</span>
                   <i className="fas fa-share-alt fa-lg"></i>
                 </button>
               </CopyToClipboard>
@@ -94,7 +96,7 @@ export default function DetailsResults(props) {
             className="btn-book"
           >
             <div className="book-for-price">
-              <span>Book for</span>
+              <span>{t("bookFor")}</span>
               <span className="trip-pricing-amount">{props.trip.price} EUR</span>
             </div>
           </a>

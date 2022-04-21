@@ -10,7 +10,7 @@ export default function Simple() {
 
   return (
     <div className="wrapper">
-      <img src={blueLightShape} alt={t("blueShapeImgAlt")} className="blue-light-shape" />
+      <img src={blueLightShape} alt="shape" className="blue-light-shape" />
       <div className="simple-solution">
         <div className="simple-solution-content">
           <img

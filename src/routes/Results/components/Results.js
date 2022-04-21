@@ -101,7 +101,7 @@ export default function Results(props) {
                   onClick={displayFilter}
                 >
                   <i className="fa fa-filter"></i>
-                  Filter
+                  {t("filter")}
                 </button>
                 <button
                   className="btn-sort"
@@ -109,7 +109,7 @@ export default function Results(props) {
                   onClick={displaySortBy}
                 >
                   <i className="fas fa-sort-amount-down"></i>
-                  Sort by
+                  {t("sortBy")}
                 </button>
                 {showSortBy ? (
                   <SortBy

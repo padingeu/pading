@@ -12,8 +12,8 @@ export default function Why() {
 
   return (
     <div className="wrapper">
-      <img src={greenShape} alt={t("greenShapeImgAlt")} className="green-shape"/>
-      <img src={yellowShape} alt={t("greenShapeImgAlt")} className="yellow-shape"/>
+      <img src={greenShape} alt="shape" className="green-shape"/>
+      <img src={yellowShape} alt="shape" className="yellow-shape"/>
       <div className="why-to-use-it">
         <div className="why-to-use-it-gif">
           {isIOS ? (
