@@ -72,6 +72,12 @@ export default function FlightInfo(props) {
   } catch (err) {
     image_path = require(`../../../img/simple-logo-pading.png`);
   }
+  let src = '';
+  if (typeof image_path === 'string') {
+    src = image_path;
+  } else {
+    src = image_path.default;
+  }
 
   const getDuration = (departure_time, arrival_time) => {
     const milliseconds = moment(arrival_time).diff(moment(departure_time));
@@ -102,7 +108,7 @@ export default function FlightInfo(props) {
         ) : (
           <div className="stopover-div">
             <i className="fas fa-exchange-alt"></i>
-            <span className="stopover">{t("flightConnection")}</span>
+            <span className="stopover">{t('flightConnection')}</span>
           </div>
         )}
         <div className="departure-div-1">
@@ -121,7 +127,7 @@ export default function FlightInfo(props) {
           </div>
         </div>
         <div className="carrier-div-1">
-          <Img src={image_path.default} alt={`${getAirlineName(props.route.airline)} logo`} />
+          <Img src={src} alt={`${getAirlineName(props.route.airline)} logo`} />
         </div>
 
         <div className="carrier-div-2">
@@ -138,7 +144,7 @@ export default function FlightInfo(props) {
               </span>
             </div>
             <span className="travelers-number">
-              {props.travelers} {props.travelers > 1 ? `${t("travelers")}` : `${t("traveler")}`}
+              {props.travelers} {props.travelers > 1 ? `${t('travelers')}` : `${t('traveler')}`}
             </span>
             <div className="show-more-details" onClick={() => setDetailsWay(!showDetailsWay)}>
               <i className="fas fa-angle-up fa-lg"></i>
@@ -150,11 +156,11 @@ export default function FlightInfo(props) {
             <div className="route-details">
               <div className="route-details-connection-info-content">
                 <div className="airline">
-                  <span className="airline-name">{t("airline")}</span>
+                  <span className="airline-name">{t('airline')}</span>
                   <span className="airline-response">{getAirlineName(props.route.airline)}</span>
                 </div>
                 <div className="flight-number">
-                  <span className="flight-no">{t("flightNo")}</span>
+                  <span className="flight-no">{t('flightNo')}</span>
                   <span className="flight-number-response">
                     {props.route.airline}
                     {props.route.flight_no}
