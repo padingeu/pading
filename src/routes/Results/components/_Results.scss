@@ -19,6 +19,9 @@
   z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
   cursor: pointer; /* Add a pointer on hover */
 }
+#results-page {
+  min-height: 100vh;
+}
 .travel-results {
   display: flex;
   justify-content: center;
@@ -44,7 +47,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        color: #606060;
+        color: #676d70;
         font-weight: bold;
         background-color: white;
         cursor: pointer;
@@ -54,14 +57,14 @@
           margin-right: 0.5rem;
         }
         &:hover {
-          color: #4c4c4c;
+          color: #181f23;
         }
       }
       .btn-sort {
         display: flex;
         justify-content: center;
         align-items: center;
-        color: #606060;
+        color: #676d70;
         font-weight: bold;
         background-color: white;
         cursor: pointer;
@@ -71,7 +74,7 @@
           margin-right: 0.5rem;
         }
         &:hover {
-          color: #4c4c4c;
+          color: #181f23;
         }
       }
     }

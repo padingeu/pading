@@ -1,5 +1,5 @@
 .MuiSlider-root {
-  color: #4Ac7fc !important;
+  color: #ffdB5b !important;
   padding: none !important;
   .MuiSlider-rail {
     margin-top: 0.5rem;
@@ -14,7 +14,7 @@
     height: 2.4rem;
     width: 2.4rem;
     color: white;
-    border: 1px solid #e7e7e7;
+    border: 0.2rem solid #ebebeb;
     box-shadow: none !important;
   }
 }
@@ -23,7 +23,7 @@
   justify-content: center;
   margin-bottom: -1rem;
   p {
-    color: #606060 !important;
+    color: #181f23 !important;
     font-size: 1.4rem !important;
     font-weight: bold;
   }
@@ -31,8 +31,6 @@
 
 @media (max-width: 1000px) {
   .MuiSlider-root {
-   //min-width: 25rem !important;
-    //max-width: 97vw !important;
     width: 80vw !important;
   }
 }

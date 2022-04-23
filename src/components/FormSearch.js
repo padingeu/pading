@@ -1,11 +1,12 @@
 import React from 'react';
+import { withTranslation } from 'react-i18next';
 import { format } from 'date-fns';
 import FormSearchScreen from './FormSearchScreen';
 import './_FormSearch.scss';
 import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 var lodash = require('lodash');
 
-export default class FormSearch extends React.Component {
+class FormSearch extends React.Component {
   state = {
     citiesFrom: this.props.searchData ? this.props.searchData.cities : [],
     address: '',
@@ -90,7 +91,7 @@ export default class FormSearch extends React.Component {
     );
   };
 
-  handleClickOutside = (event) => {
+  handleClickOutside = () => {
     this.setState({ displayFromWhereScreen: false });
     this.setState({ displayTravelersScreen: false });
     this.setState({ displayDatesPicker: false });
@@ -268,7 +269,7 @@ export default class FormSearch extends React.Component {
         {this.props.isHomePage ? (
        
             <button className="start-search-btn" onClick={(event) => this.startPlanningTrip(event)}>
-              <span>Find your next landing place<i className="fas fa-chevron-right fa-lg"></i></span>
+              <span>{this.props.t("startSearch")}</span>
             </button>
           
         ) : (
@@ -281,7 +282,7 @@ export default class FormSearch extends React.Component {
                   : (event) => this.startPlanningTrip(event)
               }
             >
-              <span>From where do you travel ?</span>
+              <span>{this.props.t("fromwhereInput")}</span>
             </button>
 
             {this.state.displayfullFormSearchResults ? (
@@ -329,8 +330,7 @@ export default class FormSearch extends React.Component {
                       <div>
                         <i className="far fa-user"></i>
                         {this.props.searchData &&
-                          `${lodash.sum(Object.values(this.props.searchData.travelers))} 
-                        travelers`}
+                          `${lodash.sum(Object.values(this.props.searchData.travelers))} ${this.props.t("travelers")}`}
                       </div>
                     )}
                   </button>
@@ -378,3 +378,5 @@ export default class FormSearch extends React.Component {
     );
   }
 }
+
+export default withTranslation()(FormSearch);

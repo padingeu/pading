@@ -1,4 +1,5 @@
 import React from 'react';
+import { withTranslation } from 'react-i18next';
 import onClickOutside from 'react-onclickoutside';
 import './_FormSearchScreen.scss';
 import DatesPicker from './DatesPicker';
@@ -53,8 +54,8 @@ class FormSearchScreen extends React.Component {
                 }}
               >
                 {this.props.citiesFrom.length < 2
-                  ? 'Select at least 2 departure cities'
-                  : 'Select these cities'}
+                  ? this.props.t("selectAtLeastTwoCities")
+                  : this.props.t("selectTheseCities")}
               </button>
             </div>
           </div>
@@ -68,7 +69,7 @@ class FormSearchScreen extends React.Component {
               <button className="btn-back" onClick={(event) => this.props.goToFromWherePage(event)}>
                 <i className="fas fa-chevron-left"></i>
               </button>
-              <span className="searchbar-question">Number of travelers</span>
+              <span className="searchbar-question">{this.props.t("numberTravelers")}</span>
             </div>
             <div className="cities-and-travelers">
               {this.props.citiesFrom.map((city) => {
@@ -77,12 +78,12 @@ class FormSearchScreen extends React.Component {
                     <span className="departure-city-name">{city.name}</span>
                     <div className="people-number-change">
                       <i
-                        className="edit-travelers far fa-minus-square fa-lg"
+                        className="far fa-minus-square fa-lg"
                         onClick={(event) => this.props.removeTraveler(event, city)}
                       ></i>
                       <span className="number-of-travelers">{city.numberOfPeople}</span>
                       <i
-                        className="edit-travelers far fa-plus-square fa-lg"
+                        className="far fa-plus-square fa-lg"
                         onClick={(event) => this.props.addTraveler(event, city)}
                       ></i>
                     </div>
@@ -99,7 +100,7 @@ class FormSearchScreen extends React.Component {
                   this.props.goToDatesPicker(event);
                 }}
               >
-                Continue
+                {this.props.t("continue")}
               </button>
             </div>
           </div>
@@ -132,7 +133,7 @@ class FormSearchScreen extends React.Component {
                     !this.props.returnTrip ? 'criteria-btn criteria-btn-active' : 'criteria-btn'
                   }
                 >
-                  No return
+                  {this.props.t("noReturn")}
                 </button>
                 <button
                   onClick={(event) => {
@@ -142,7 +143,7 @@ class FormSearchScreen extends React.Component {
                     this.props.directTrip ? 'criteria-btn criteria-btn-active' : 'criteria-btn'
                   }
                 >
-                  Only direct
+                  {this.props.t("onlyDirect")}
                 </button>
               </div>
             </div>
@@ -153,7 +154,7 @@ class FormSearchScreen extends React.Component {
                 disabled={!(this.props.citiesFrom.length > 0) || !this.props.dateFrom}
                 onClick={() => this.props.search()}
               >
-                {this.props.dateFrom ? 'Find the best destinations !' : 'Select your travel dates'}
+                {this.props.dateFrom ? `${this.props.t("findDestinations")}` : `${this.props.t("selectTravelDates")}`}
               </button>
             </div>
           </div>
@@ -165,4 +166,4 @@ class FormSearchScreen extends React.Component {
   }
 }
 
-export default onClickOutside(FormSearchScreen);
+export default withTranslation()(onClickOutside(FormSearchScreen));

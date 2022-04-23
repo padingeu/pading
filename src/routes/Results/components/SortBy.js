@@ -1,4 +1,5 @@
 import React from 'react';
+import { withTranslation } from 'react-i18next';
 import './_SortBy.scss';
 import onClickOutside from 'react-onclickoutside';
 
@@ -17,7 +18,7 @@ class SortBy extends React.Component {
               <i className="fas fa-angle-right"></i>
             ) : null}
           </div>
-          <span>lowest prices</span>
+          <span>{this.props.t("lowestPrices")}</span>
         </button>
         <button
           onClick={(event) => {
@@ -30,24 +31,11 @@ class SortBy extends React.Component {
               <i className="fas fa-angle-right"></i>
             ) : null}
           </div>
-          <span>greenest trips</span>
+          <span>{this.props.t("greenestTrips")}</span>
         </button>
-
-        {/* <button
-          onClick={(event) => {
-            this.props.displaySortBy();
-          }}
-        >
-          <div className="check-box">
-            {this.props.sortByChoice === 'same schedule' ? (
-              <i className="fas fa-angle-right"></i>
-            ) : null}
-          </div>
-          <span>same schedules</span>
-        </button> */}
       </div>
     );
   }
 }
 
-export default onClickOutside(SortBy);
+export default withTranslation()(onClickOutside(SortBy));

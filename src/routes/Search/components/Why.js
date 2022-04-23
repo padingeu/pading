@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import happyCatsGif from '../img/happy-cats.gif';
 import happyCatsVideo from '../img/happy-cats.mp4';
 import greenShape from '../../../img/green-shape.svg';
@@ -7,16 +8,17 @@ import './_Why.scss';
 
 export default function Why() {
   let isIOS = /iPad|iPhone|iPod/.test(navigator.platform);
+  const { t } = useTranslation();
 
   return (
     <div className="wrapper">
-      <img src={greenShape} alt="green shape" className="green-shape"/>
-      <img src={yellowShape} alt="yellow travel shape" className="yellow-shape"/>
+      <img src={greenShape} alt="shape" className="green-shape"/>
+      <img src={yellowShape} alt="shape" className="yellow-shape"/>
       <div className="why-to-use-it">
         <div className="why-to-use-it-gif">
           {isIOS ? (
             <div>
-              <img src={happyCatsGif} className="happy-cats" alt="happy cats" />
+              <img src={happyCatsGif} className="happy-cats" alt={t("happyCatsImgAlt")} />
             </div>
           ) : (
             <video className="happy-cats" autoPlay="autoplay" loop muted playsInline>
@@ -26,7 +28,7 @@ export default function Why() {
         </div>
         <div className="why-to-use-it-text" id="why">
           <div className="why-to-use-it-title">
-            <h2 className="focus-text"><span className="underline"></span>WHY USE PADING ?</h2>
+            <h2 className="focus-text"><span className="underline"></span>{t("whyTitle")}</h2>
           </div>
           <div className="why-to-use-it-content">
             <div className="why-to-use-it-content-card">
@@ -34,8 +36,8 @@ export default function Why() {
                 <h3>1</h3>
               </div>
               <div className="why-to-use-it-details">
-                <h3>SAVE TIME</h3>
-                <p>In just one search, you and your friends can find your next travel meeting point</p>
+                <h3>{t("whySubTitle1")}</h3>
+                <p>{t("whyDesc1")}</p>
               </div>
             </div>
             <div className="why-to-use-it-content-card">
@@ -43,8 +45,8 @@ export default function Why() {
                 <h3>2</h3>
               </div>
               <div className="why-to-use-it-details">
-                <h3>SAVE MONEY</h3>
-                <p>Explore the cheapest destinations and journeys with people you plan to meet</p>
+                <h3>{t("whySubTitle2")}</h3>
+                <p>{t("whyDesc2")}</p>
               </div>
             </div>
             <div className="why-to-use-it-content-card">
@@ -52,8 +54,8 @@ export default function Why() {
                 <h3>3</h3>
               </div>
               <div className="why-to-use-it-details">
-                <h3>BOOK EASILY</h3>
-                <p>Share trip details with your team, book easily .. travel and meet !</p>
+                <h3>{t("whySubTitle3")}</h3>
+                <p>{t("whyDesc3")}</p>
               </div>
             </div>
           </div>
