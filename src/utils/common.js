@@ -1,0 +1,65 @@
+export const getSrc = (image_path) => {
+  let src = '';
+  if (typeof image_path === 'string') {
+    src = image_path;
+  } else {
+    src = image_path.default;
+  }
+  return src;
+};
+
+export const airlines = {
+  U2: 'EasyJet',
+  AF: 'Air France',
+  FR: 'Ryanair',
+  VY: 'Vueling',
+  TO: 'Transavia',
+  LH: 'Lufhansa',
+  IB: 'Iberia',
+  I2: 'Iberia Express',
+  W6: 'Wizz Air',
+  V7: 'Volotea',
+  AZ: 'Alitalia',
+  BA: 'British Airways',
+  OS: 'Austrian Airlines',
+  AY: 'Finnair',
+  SK: 'Scandinavian Airlines System',
+  KL: 'KLM',
+  TK: 'Turkish Airlines',
+  SU: 'Aeroflot',
+  AB: 'Air Berlin',
+  LX: 'SWISS',
+  SN: 'Brussels Airlines',
+  EI: 'Aer Lingus',
+  OU: 'Croatia Airlines',
+  LV: 'Air Albania',
+  TP: 'Tap Air Portugal',
+  A3: 'Aegean Airlines',
+  BE: 'Flybe',
+  UX: 'Air Europa',
+  XK: 'Air Corsica',
+  OK: 'Czech Airlines',
+  LO: 'LOT Polish Airlines',
+  PS: 'Ukraine International Airlines',
+  RO: 'TAROM',
+  '6B': 'TUIfly',
+  A5: 'Hop!',
+  BT: 'Air Baltic',
+  JU: 'Air Serbia',
+  KM: 'Air Malta',
+  B2: 'Belavia',
+  FB: 'Bulgaria Air',
+  JP: 'Adria Airways',
+  ZI: 'Aigle Azur',
+  YM: 'Montenegro Airlines',
+  '4U': 'German Wings',
+  U6: 'Ural Airlines',
+  BJ: 'Nouvelair Tunisia',
+  '9U': 'Air Moldova',
+  BM: 'BMI Regional',
+  T7: 'TWIN JET',
+  '2L': 'Helvetic',
+  '0B': 'Blue Air',
+  TU: 'Tunisair',
+  PC: 'Pegasus Airlines',
+};

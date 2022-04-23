@@ -8,6 +8,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import rootReducer from './reducers';
 import Home from './routes/Search/containers/HomeContainer';
 import Results from './routes/Results/containers/ResultsContainer';
+import Classic from './routes/Classic/containers/ClassicContainer';
 import Blog from './routes/Blog/components/Blog';
 import BlogPost from './routes/Blog/components/BlogPost';
 import { Route, Router } from 'react-router-dom';
@@ -22,6 +23,7 @@ render(
       <Route component={App} />
       <Route exact path="/" component={Home} />
       <Route path="/destinations" component={Results} />
+      <Route path="/classic" component={Classic} />
       <Route path="/blog" component={Blog} />
       <Route path="/blogpost/:id" component={BlogPost} />
     </Router>

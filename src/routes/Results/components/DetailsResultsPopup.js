@@ -75,7 +75,7 @@ export default function DetailsResultsPopup(props) {
               cityFrom={city}
               trip={props.trips[city].filter((trip) => trip.cityTo === props.destination)[0]}
               returnTrip={props.returnTrip}
-              carbonFootprint={props.carbonFootprint[city]}
+              carbonFootprint={props.carbonFootprint ? props.carbonFootprint[city] : ''}
             />
           </TabPanel>
         );

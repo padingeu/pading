@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import './_TripCard.scss';
 import Img from 'react-cool-img';
 import lodash from 'lodash';
+import { getSrc } from '../../../utils/common.js';
 
 const TripCard = ({ destination, totalPrice, travelers, carbonFootprint }) => {
   const { t } = useTranslation();
@@ -13,12 +14,7 @@ const TripCard = ({ destination, totalPrice, travelers, carbonFootprint }) => {
   } catch (err) {
     image_path = require(`../img/cities/defaultcityimage.jpg`);
   }
-  let src = '';
-  if (typeof image_path === 'string') {
-    src = image_path;
-  } else {
-    src = image_path.default;
-  }
+  const src = getSrc(image_path);
 
   return (
     <div className="trip-card">
