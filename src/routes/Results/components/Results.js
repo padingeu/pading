@@ -101,7 +101,7 @@ export default function Results(props) {
                   onClick={displayFilter}
                 >
                   <i className="fa fa-filter"></i>
-                  {t("filter")}
+                  {t('filter')}
                 </button>
                 <button
                   className="btn-sort"
@@ -109,7 +109,7 @@ export default function Results(props) {
                   onClick={displaySortBy}
                 >
                   <i className="fas fa-sort-amount-down"></i>
-                  {t("sortBy")}
+                  {t('sortBy')}
                 </button>
                 {showSortBy ? (
                   <SortBy
@@ -162,7 +162,7 @@ export default function Results(props) {
                                     pricesPerDepartureCity={destination.pricesPerDepartureCity}
                                     travelers={props.search.travelers}
                                     key={index}
-                                    // carbonFootprint={destination.carbonFootprintTotal}
+                                    carbonFootprint={destination.carbonFootprintTotal}
                                   />
                                 </div>
                               }
@@ -178,7 +178,7 @@ export default function Results(props) {
                                     trips={props.search.trips}
                                     key={index}
                                     returnTrip={props.search.returnTrip}
-                                    // carbonFootprint={destination.carbonFootprint}
+                                    carbonFootprint={destination.carbonFootprint}
                                   />
                                 </div>
                               )}
