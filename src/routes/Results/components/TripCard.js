@@ -13,10 +13,16 @@ const TripCard = ({ destination, totalPrice, travelers, carbonFootprint }) => {
   } catch (err) {
     image_path = require(`../img/cities/defaultcityimage.jpg`);
   }
+  let src = '';
+  if (typeof image_path === 'string') {
+    src = image_path;
+  } else {
+    src = image_path.default;
+  }
 
   return (
     <div className="trip-card">
-      <Img src={image_path.default} alt={destination} />
+      <Img src={src} alt={destination} />
       <div className="trip-infos">
         <div className="trip-city">
           <span className="trip-city-name">{destination}</span>
