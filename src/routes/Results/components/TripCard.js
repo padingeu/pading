@@ -21,15 +21,15 @@ const TripCard = ({ destination, totalPrice, travelers, carbonFootprint }) => {
         <div className="trip-city">
           <span className="trip-city-name">{destination}</span>
           <div className="trip-carbon">
-            {/* <span className="trip-carbon-amount">{carbonFootprint}</span> */}
-            <span className="trip-carbon-unity">{t("co2Amount")}</span>
+            <span className="trip-carbon-amount">{carbonFootprint}</span>
+            <span className="trip-carbon-unity">{t('co2Amount')}</span>
           </div>
         </div>
         <div className="trip-pricing">
           <span className="trip-pricing-amount">
             {Math.round(totalPrice / lodash.sum(Object.values(travelers)))}
           </span>
-          <span className="trip-pricing-currency">{t("pricePers")}</span>
+          <span className="trip-pricing-currency">{t('pricePers')}</span>
         </div>
       </div>
     </div>
