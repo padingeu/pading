@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import './_FlightInfo.scss';
 import './_DetailsResults.scss';
 import moment from 'moment';
@@ -6,6 +7,7 @@ import 'moment-duration-format';
 import Img from 'react-cool-img';
 
 export default function FlightInfo(props) {
+  const { t } = useTranslation();
   const [showDetailsWay, setDetailsWay] = useState(false);
 
   const airlines = {
@@ -100,7 +102,7 @@ export default function FlightInfo(props) {
         ) : (
           <div className="stopover-div">
             <i className="fas fa-exchange-alt"></i>
-            <span className="stopover">Connection with another flight</span>
+            <span className="stopover">{t("flightConnection")}</span>
           </div>
         )}
         <div className="departure-div-1">
@@ -119,7 +121,7 @@ export default function FlightInfo(props) {
           </div>
         </div>
         <div className="carrier-div-1">
-          <Img src={image_path} alt={getAirlineName(props.route.airline)} />
+          <Img src={image_path.default} alt={`${getAirlineName(props.route.airline)} logo`} />
         </div>
 
         <div className="carrier-div-2">
@@ -135,7 +137,9 @@ export default function FlightInfo(props) {
                 {getDuration(props.route.utc_departure, props.route.utc_arrival)}
               </span>
             </div>
-            <span className="travelers-number">{props.travelers} traveler{props.travelers > 1 ? 's' : ''}</span>
+            <span className="travelers-number">
+              {props.travelers} {props.travelers > 1 ? `${t("travelers")}` : `${t("traveler")}`}
+            </span>
             <div className="show-more-details" onClick={() => setDetailsWay(!showDetailsWay)}>
               <i className="fas fa-angle-up fa-lg"></i>
               <i className="fas fa-angle-down fa-lg"></i>
@@ -146,11 +150,11 @@ export default function FlightInfo(props) {
             <div className="route-details">
               <div className="route-details-connection-info-content">
                 <div className="airline">
-                  <span className="airline-name">Airline</span>
+                  <span className="airline-name">{t("airline")}</span>
                   <span className="airline-response">{getAirlineName(props.route.airline)}</span>
                 </div>
                 <div className="flight-number">
-                  <span className="flight-no">Flight no</span>
+                  <span className="flight-no">{t("flightNo")}</span>
                   <span className="flight-number-response">
                     {props.route.airline}
                     {props.route.flight_no}

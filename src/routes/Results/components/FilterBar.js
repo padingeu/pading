@@ -19,7 +19,7 @@ export default function Filter(props) {
       <div>
         <div className="timerange">
           <p>
-            {value[0]}h00 - {value[1]}h00
+            {value[0]}:00 - {value[1]}:00
           </p>
         </div>
       </div>

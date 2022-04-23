@@ -1,4 +1,5 @@
 import React from 'react';
+import { withTranslation } from 'react-i18next';
 import '../components/_LocationSearchInput.scss';
 import PlacesAutocomplete from 'react-places-autocomplete';
 import onClickOutside from 'react-onclickoutside';
@@ -38,16 +39,16 @@ class LocationSearchInput extends React.Component {
                     {...getInputProps({ className: 'city-departure-input' })}
                   />
                   <div className="arrow-and-label">
-                    <i className="fas fa-plane-departure"></i>
+                    <i className="fas fa-map-marker-alt fa-lg"></i>
 
                     {this.props.cities.length === 0 ? (
-                      <span className="label">Add a first departure city</span>
+                      <span className="label">{this.props.t("addFirstCity")}</span>
                     ) : (
-                      <span className="label">Add more departure cities</span>
+                      <span className="label">{this.props.t("addMoreCities")}</span>
                     )}
                   </div>
                   <span className="focus-bg"></span>
-                  <div>{loading ? <p>...Loading</p> : null}</div>
+                  <div>{loading ? <p>{this.props.t("loading")}</p> : null}</div>
                   <div className="cities-proposal">
                     {suggestions.map((suggestion) => {
                       if (!suggestion.id) {
@@ -88,4 +89,4 @@ class LocationSearchInput extends React.Component {
   }
 }
 
-export default onClickOutside(LocationSearchInput);
+export default withTranslation()(onClickOutside(LocationSearchInput));

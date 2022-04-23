@@ -3,6 +3,7 @@
     display: flex;
     flex-direction: column;
     position: relative;
+    padding-bottom: 7rem;
     .planet-content {
       display: flex;
       justify-content: space-around;
@@ -114,13 +115,13 @@
   .planet-content {
     flex-direction: row;
     .planet-title-details {
-      width: 55%;
+      width: 60%;
       margin-bottom: 10rem;
     }
     .planet {
       width: 100%;
       .planet-image {
-        width: 45%;
+        width: 40%;
       }
       .planet-content {
         width: 55%;

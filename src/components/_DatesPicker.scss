@@ -9,34 +9,49 @@
     justify-content: flex-start;
     flex-wrap: wrap;
     width: 100%;
-    color: #ff9e00;
       &:hover {
       .inputdate-bar {
         background-color: white;
       }
     }
-    .inputdate-bar{
-      height: 6rem;
-      flex-grow: 2;
-      cursor: pointer;
-      border: solid white;
-      background-color: #f4f4f4;
-      border-width: 0.1rem;
-      border-radius: 0.5rem;
+    .inp-dates {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+      z-index: 1;
       margin: 0.5rem;
-      padding-left: 2rem;
-      text-align: left;
-      font-weight: 700;
-      &::placeholder {
-        color: #ff9e00;
+      color: transparent;
+      .inputdate-bar{
+        width: 100%;
+        height: 6rem;
+        flex-grow: 2;
+        cursor: pointer;
+        background-color: #f7f7f7;
+        border: solid 0.1rem #e7e7e7;
+        color: #181f23;
+        border-width: 0.1rem;
+        border-radius: 0.5rem;
+        padding-left: 2rem;
+        text-align: left;
         font-weight: 700;
+        &::placeholder {
+          color: #181f23;
+          font-weight: 700;
+        }
+        &:hover {
+          transition: ease 0.2s;
+          background-color: white;
+        }
+        &:focus {
+          outline: none;
+        }
       }
-      &:hover {
-        transition: ease 0.2s;
-        background-color: white;
-      }
-      &:focus {
-        outline: none;
+      .fa-calendar-day {
+        position: absolute;
+        top: 2rem;
+        right: 1rem;
+        z-index: 10;
+        color: #ffdB5b;
       }
     }
   }
@@ -52,17 +67,18 @@
     padding-top: 1rem;
     z-index: 2;
     transition: all 0.15s ease-in-out 0s;
+    background-color: white;
     .btn-date {
       height: 6.5rem;
       border-radius: 0.5rem;
       margin-bottom: 2rem;
       color: white;
-      background: #4ac7fc;
+      background: #19a6ee;
       opacity: 1;
       font-size: 1.6rem;
       font-weight: bold;
       &:hover {
-        background: #6dd3fd;
+        background: #1783cc;
         color: white;
         transition: ease 0.3s;
       }
@@ -71,10 +87,10 @@
       border: none;
       border-radius: 0.5rem;
       button[disabled] {
-        color: #d6d6d6;
+        color: #ebebeb;
       }
       .react-calendar__navigation {
-        color: #4c4c4c;
+        color: #181f23;
         font-weight: button[disabled] {
         background-color: white;
         }
@@ -100,22 +116,22 @@
     .react-calendar__month-view__weekdays,
     .react-calendar__month-view__days__day--neighboringMonth {
       height: 4rem;
-      color: #ff9e00;
+      color: #181f23;
       & abbr {
         border-bottom: none;
         text-decoration: none;
       }
     }
     .react-calendar__month-view__days__day {
-      color: #4c4c4c;
+      color: #181f23;
       background-color: white;
     }
     .react-calendar__tile {
       padding: 1.3rem 0;
     }
     .react-calendar__tile--active {
-      color: white;
-      background-color: #ff9e00;
+      color: #181f23;
+      background-color: #ffdB5b;
       border-radius: 0;
     }
     .react-calendar__tile--hover {
@@ -123,8 +139,8 @@
     }
     .react-calendar__tile--active:enabled:hover,
     .react-calendar__tile--active:enabled:focus {
-      background-color: #ff9e00;
-      color: white;
+      background-color: #ffdB5b;
+      color: #181f23;
     }
     .react-calendar__tile--rangeStart {
       border-top-left-radius: 0.5rem;
@@ -184,9 +200,8 @@
 @media (min-width: 1201px) {
   .calendar {
     width: 100vw;
-    height: 65vh;
-    min-height: 45rem;
     .btn-date {
+      margin-top: 2rem;
       width: 33%;
     }
     .react-calendar {

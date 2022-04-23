@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { withSwalInstance } from 'sweetalert2-react';
 import swal from 'sweetalert2';
 import './_CustomEmailForm.scss';
@@ -6,6 +7,8 @@ import './_CustomEmailForm.scss';
 const SweetAlert = withSwalInstance(swal);
 
 const CustomEmailForm = ({ status, message, onValidated }) => {
+  const { t } = useTranslation();
+  
   let email;
 
   const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@(([[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -20,7 +23,7 @@ const CustomEmailForm = ({ status, message, onValidated }) => {
         <SweetAlert>
           {swal.fire({
             icon: 'error',
-            text: 'Please try again with a correct e-mail address format',
+            text: `${t("signingUpErrorText")}`,
             showConfirmButton: false,
             allowEnterKey: 'true',
             allowOutsideClick: 'true',
@@ -38,8 +41,8 @@ const CustomEmailForm = ({ status, message, onValidated }) => {
         <SweetAlert>
           {swal.fire({
             icon: 'info',
-            title: `YOU ARE ALREADY REGISTERED`,
-            text: 'You can also follow us on Facebook and instagram !',
+            title: `${t("signingUpInfoTitle")}`,
+            text: `${t("signingUpInfoText")}`,
             showConfirmButton: false,
             allowEnterKey: 'true',
             allowOutsideClick: 'true',
@@ -51,10 +54,8 @@ const CustomEmailForm = ({ status, message, onValidated }) => {
         <SweetAlert>
           {swal.fire({
             icon: 'success',
-            title:
-              'THANKS A LOT FOR SIGNING UP !',
-            text:
-              'We will keep you informed about the latest news. You can also follow us on social media !',
+            title: `${t("signingUpSuccessTitle")}`,
+            text: `${t("signingUpSuccessText")}`,
             showConfirmButton: false,
             allowEnterKey: 'true',
             allowOutsideClick: 'true',
@@ -64,7 +65,7 @@ const CustomEmailForm = ({ status, message, onValidated }) => {
       )}
       
       <div className="subscribe-newsletter">
-        <input className="input-newsletter" ref={(node) => (email = node)} type="email" placeholder="Register with your email" />
+        <input className="input-newsletter" ref={(node) => (email = node)} type="email" placeholder={t("emailPlaceholder")} />
         <button
           className="btn-newsletter"
           onClick={submit} disabled={status === 'sending'}

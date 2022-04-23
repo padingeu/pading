@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import NavBar from '../../../components/NavBar';
 import FormSearch from '../../../components/FormSearch';
 import './_Results.scss';
@@ -14,6 +15,7 @@ import Footer from '../../../components/Footer';
 import catLost from '..//img/cat-lost.svg';
 
 export default function Results(props) {
+  const { t } = useTranslation();
   // const [showFilter, setShowFilter] = React.useState(false);
   const [showSortBy, setShowsortBy] = React.useState(false);
   const [sortByChoice, setSortByChoice] = React.useState('lowest price');
@@ -71,19 +73,17 @@ export default function Results(props) {
     return 0;
   };
 
-
   return (
     <div>
-   
-        {props.search.isLoading && (
-          <div className="linear-progress">
-            <LinearProgress />
-          </div>
-        )}
+      {props.search.isLoading && (
+        <div className="linear-progress">
+          <LinearProgress />
+        </div>
+      )}
 
       <div className="overlay"></div>
       <NavBar scrollUp={scrollUp} />
-     
+
       <div id="results-page">
         <FormSearch
           searchTrips={props.searchTrips}
@@ -101,7 +101,7 @@ export default function Results(props) {
                   onClick={displayFilter}
                 >
                   <i className="fa fa-filter"></i>
-                  Filter
+                  {t("filter")}
                 </button>
                 <button
                   className="btn-sort"
@@ -109,7 +109,7 @@ export default function Results(props) {
                   onClick={displaySortBy}
                 >
                   <i className="fas fa-sort-amount-down"></i>
-                  Sort by
+                  {t("sortBy")}
                 </button>
                 {showSortBy ? (
                   <SortBy
@@ -162,7 +162,7 @@ export default function Results(props) {
                                     pricesPerDepartureCity={destination.pricesPerDepartureCity}
                                     travelers={props.search.travelers}
                                     key={index}
-                                    carbonFootprint={destination.carbonFootprintTotal}
+                                    // carbonFootprint={destination.carbonFootprintTotal}
                                   />
                                 </div>
                               }
@@ -171,14 +171,14 @@ export default function Results(props) {
                               {(closePopup) => (
                                 <div className="popup">
                                   <button className="close-popup" onClick={closePopup}>
-                                    <i class="fas fa-times fa-lg"></i>
+                                    <i className="fas fa-times fa-lg"></i>
                                   </button>
                                   <DetailsResultsPopup
                                     destination={destination.name}
                                     trips={props.search.trips}
                                     key={index}
                                     returnTrip={props.search.returnTrip}
-                                    carbonFootprint={destination.carbonFootprint}
+                                    // carbonFootprint={destination.carbonFootprint}
                                   />
                                 </div>
                               )}
@@ -189,11 +189,11 @@ export default function Results(props) {
                     </div>
                   ) : (
                     <div className="alert-nodestination">
-                      <img src={catLost} alt="no destination was found" width="200px" />
+                      <img src={catLost} alt={t('noDestinationImgAlt')} width="200px" />
                       <p>
-                        No destination was found
+                        {t('noDestinationFound1')}
                         <br />
-                        Try other dates or departure cities
+                        {t('noDestinationFound2')}
                       </p>
                     </div>
                   )}

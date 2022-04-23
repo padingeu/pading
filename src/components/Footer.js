@@ -1,4 +1,5 @@
 import React from 'react';
+import { withTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import MailchimpSubscribe from 'react-mailchimp-subscribe';
 import Popup from 'reactjs-popup';
@@ -6,7 +7,7 @@ import Faq from './Faq';
 import CustomEmailForm from './CustomEmailForm';
 import './_Footer.scss';
 
-export default class Footer extends React.Component {
+class Footer extends React.Component {
   state = {
     faq: false,
   };
@@ -19,7 +20,7 @@ export default class Footer extends React.Component {
         <div className="footer">
           <div className="footer-menu">
             <div className="footer-menu-email">
-              <p>We are redesigning travel search experience</p>
+              <p>{this.props.t("footerEmailText")}</p>
               <div>
                 <MailchimpSubscribe
                   url={url}
@@ -43,7 +44,7 @@ export default class Footer extends React.Component {
                 modal
                 trigger={
                   <button className="btn-footer">
-                    <span>Answers</span>
+                    <span>{this.props.t("faqBtn")}</span>
                   </button>
                 }
               >
@@ -65,7 +66,7 @@ export default class Footer extends React.Component {
                 <span>Roadmap</span>
               </a>
               <a href="mailto:contact@pading.eu" target="_blank" rel="noopener noreferrer">
-                <span>Contact us</span>
+                <span>{this.props.t("contactBtn")}</span>
               </a>
               <div className="footer-social">
                 <a
@@ -90,3 +91,5 @@ export default class Footer extends React.Component {
     );
   }
 }
+
+export default withTranslation()(Footer);

@@ -1,8 +1,10 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import FilterBar from './FilterBar';
 import './_FilterDepartureTime.scss';
 
 export default function FilterTime(props) {
+  const { t } = useTranslation();
   const [departureFilter, setDepartureFilter] = React.useState({});
   const [returnFilter, setReturnFilter] = React.useState({});
 
@@ -38,14 +40,14 @@ export default function FilterTime(props) {
       <div className="filter-table">
         <div className="filter-table-way">
           <div className="filter-table-header">
-            <p>Departure times</p>
+            <p>{t("depTime")}</p>
           </div>
 
           {props.search &&
             props.search.cities.map((city, index) => {
               return (
                 <div className="filter-table-body">
-                  <p>from {city.name}</p>
+                  <p>{t("from")} {city.name}</p>
                   <FilterBar filter={doF} city={city.name} type="departure" />
                 </div>
               );
@@ -54,14 +56,14 @@ export default function FilterTime(props) {
         {props.search.returnTrip ? (
           <div className="filter-table-return">
             <div className="filter-table-header">
-              <p>Return times</p>
+              <p>{t("retTime")}</p>
             </div>
 
             {props.search &&
               props.search.cities.map((city, index) => {
                 return (
                   <div className="filter-table-body">
-                    <p>to {city.name}</p>
+                    <p>{t("to")} {city.name}</p>
                     <FilterBar filter={doF} city={city.name} type="return" />
                   </div>
                 );
