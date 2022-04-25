@@ -20,7 +20,7 @@ export default function DetailsResults(props) {
       <div className="details-results-travel">
         <div className="details-results-travel-city">
           <span className="to-city">
-            {t('wayTo')} {props.destination}
+            {t('from').capitalize()} {props.destination}
           </span>
         </div>
         {props.trip.wayRoutes.map((route, index) => {
