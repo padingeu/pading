@@ -68,8 +68,8 @@ export default function DetailsResults(props) {
               className="btn-co2"
             >
               <span>
-                {t('offset')}
-                <span className="trip-carbon-amount"> {props.carbonFootprint} t CO2</span>
+                {t('offset') + ' '}
+                <span className="trip-carbon-amount">{props.carbonFootprint} t CO2</span>
               </span>
             </a>
             <div className="clipboard-btn">
