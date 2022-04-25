@@ -103,7 +103,7 @@
     "filter": "Filter",
     "depTime": "Departure time",
     "retTime": "Return time",
-    "from": "From",
+    "from": "from",
     "to": "to",
     "sortBy": "Sort by",
     "lowestPrices": "lowest prices",
