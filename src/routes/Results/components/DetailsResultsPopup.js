@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import './_DetailsResultsPopup.scss';
 import DetailsResults from './DetailsResults.js';
 import PropTypes from 'prop-types';
@@ -42,6 +43,7 @@ function a11yProps(index) {
 }
 
 export default function DetailsResultsPopup(props) {
+  const { t } = useTranslation();
   const [value, setValue] = React.useState(0);
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -61,7 +63,7 @@ export default function DetailsResultsPopup(props) {
         >
           {Object.keys(props.trips).map((city) => {
             return (
-              <Tab key={city} label={'from ' + city} {...a11yProps(city)} className="tab-active" />
+              <Tab key={city} label={t('from') + city} {...a11yProps(city)} className="tab-active" />
             );
           })}
         </Tabs>
