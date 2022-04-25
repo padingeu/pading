@@ -63,7 +63,7 @@ export default function DetailsResultsPopup(props) {
         >
           {Object.keys(props.trips).map((city) => {
             return (
-              <Tab key={city} label={t('from') + city} {...a11yProps(city)} className="tab-active" />
+              <Tab key={city} label={t('from') + ' ' + city} {...a11yProps(city)} className="tab-active" />
             );
           })}
         </Tabs>
