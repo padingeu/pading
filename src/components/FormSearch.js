@@ -263,15 +263,14 @@ class FormSearch extends React.Component {
     }
   };
 
+
   render() {
     return (
       <div className="formsearch">
         {this.props.isHomePage ? (
-       
             <button className="start-search-btn" onClick={(event) => this.startPlanningTrip(event)}>
               <span>{this.props.t("startSearch")}</span>
             </button>
-          
         ) : (
           <div className="formsearch-bar-results">
             <button
@@ -282,7 +281,13 @@ class FormSearch extends React.Component {
                   : (event) => this.startPlanningTrip(event)
               }
             >
-              <span>{this.props.t("fromwhereInput")}</span>
+              <span>
+                {this.props.isLoading ?
+                  <div className="formsearch-skeleton"></div>
+                :
+                  this.props.t("fromwhereInput")
+                }
+              </span>
             </button>
 
             {this.state.displayfullFormSearchResults ? (
