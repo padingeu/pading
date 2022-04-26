@@ -1,5 +1,6 @@
 import React from 'react';
 import { withTranslation } from 'react-i18next';
+import i18n from '../i18n';
 import onClickOutside from 'react-onclickoutside';
 import Calendar from 'react-calendar';
 import './_DatesPicker.scss';
@@ -63,7 +64,7 @@ class DatesPicker extends React.Component {
         {this.state.showCalendar && (
           <div className="calendar">
             <Calendar
-              locale={'en'}
+              locale={i18n.languages[0]}
               minDate={new Date()}
               onChange={this.props.onChange}
               selectRange={this.props.returnTrip ? true : false}
