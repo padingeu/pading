@@ -142,6 +142,7 @@
         margin-top: 0.5rem;
         border-radius: 0.5rem;
         background: #19a6ee;
+        border: solid 0.2rem #19a6ee;
         color: white;
         transition: background 0.3s ease;
         font-family: 'PT sans', sans-serif;
@@ -151,6 +152,7 @@
         margin-left: 0.2rem;
         &:hover {
           background: #1783cc;
+          border: solid 0.2rem #1783cc;
           color: white;
           span.trip-pricing-amount {
             color: #1783cc;
