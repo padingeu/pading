@@ -53,8 +53,6 @@
       justify-content: space-between;
       align-items: center;
       width: 100%;
-      padding-left: 2rem;
-      padding-right: 2rem;
       padding-top: 2rem;
       .co2-and-share {
         display: flex;
@@ -197,6 +195,12 @@
   }
 }
 
+@media(max-width: 500px) {
+  .booking-zone {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
 
 @media (min-width: 301px) {
   .btn-co2 {
@@ -214,19 +218,23 @@
 }
 
 @media (min-width: 501px) {
-  .btn-co2 {
-    font-size: 1.6rem;
-  }
-  .btn-share {
-    font-size: 1.6rem;
-  }
-  .tooltip-text {
-    font-size: 1.4rem;
-  }
-  .btn-book {
-    font-size: 1.6rem;
-    span.trip-pricing-amount {
+  .booking-zone {
+    padding-left: 2rem;
+    padding-right: 2rem;
+    .btn-co2 {
       font-size: 1.6rem;
+    }
+    .btn-share {
+      font-size: 1.6rem;
+    }
+    .tooltip-text {
+      font-size: 1.4rem;
+    }
+    .btn-book {
+      font-size: 1.6rem;
+      span.trip-pricing-amount {
+        font-size: 1.6rem;
+      }
     }
   }
 }
