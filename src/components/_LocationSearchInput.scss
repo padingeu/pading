@@ -15,10 +15,9 @@
       .city-departure-input {
         height: 6rem;
         min-width: 26rem;
-        border: solid white;
         border-radius: 0.5rem;
         width: 100%;
-        padding-left: 2rem;
+        padding-left: 0.5rem;
         padding-top: 2rem;
         background: transparent;
         transition: all 0.5s ease;
@@ -102,6 +101,6 @@
 @media (min-width: 301px) {
   .label {
     font-size: 1.6rem;
-    padding-left: 2rem;
+    padding-left: 1rem;
   }
 }

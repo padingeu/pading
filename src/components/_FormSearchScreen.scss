@@ -122,8 +122,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 2rem;
-  padding-bottom: 1rem;
+  margin-top: 1.5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-bottom: 1.5rem;
   width: 100%;
   .search-criteria-confirma-btn {
     height: 6rem;
@@ -159,8 +161,8 @@
     font-size: 1.6rem;
   }
   .searchbar {
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
+    padding-left: 0.5rem;
+    padding-right: 1.5rem;
     margin-top: 1rem;
   }
   .cities-and-travelers {
@@ -172,10 +174,6 @@
     .criteria-buttons {
       justify-content: center;
     }
-  }
-  .search-criteria-confirm {
-    padding-left: 1rem;
-    padding-right: 1rem;
   }
 }
 
@@ -196,10 +194,6 @@
     .criteria-buttons {
       justify-content: flex-start;
     }
-  }
-  .search-criteria-confirm {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
   }
 }
 
