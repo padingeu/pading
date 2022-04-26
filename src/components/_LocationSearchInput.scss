@@ -21,16 +21,16 @@
         padding-top: 2rem;
         background: transparent;
         transition: all 0.5s ease;
-        background-color: #f7f7f7;
-        border: solid 0.1rem #e7e7e7;
+        background-color: white;
+        border: none;
         &:focus {
           outline: none;
-          background: rgba(0, 0, 0, 0.02);
           border: solid white;
           font-size: 1.4rem;
           font-weight: bold;
           color: #181f23;
           background-color: white;
+          border: none;
           + {
             .arrow-and-label {
               .label {
