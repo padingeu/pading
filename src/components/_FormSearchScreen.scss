@@ -123,8 +123,6 @@
   align-items: center;
   justify-content: center;
   margin-top: 2rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
   padding-bottom: 1rem;
   width: 100%;
   .search-criteria-confirma-btn {
@@ -134,7 +132,6 @@
     background-color: #19a6ee;
     font-size: 1.6rem;
     transition: ease 0.2s;
-    margin-bottom: 1rem;
     &:disabled {
       opacity: 1;
       background-color: #ebebeb;
@@ -162,8 +159,8 @@
     font-size: 1.6rem;
   }
   .searchbar {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
     margin-top: 1rem;
   }
   .cities-and-travelers {
@@ -176,10 +173,16 @@
       justify-content: center;
     }
   }
+  .search-criteria-confirm {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }
 
 @media (min-width: 500px) {
   .searchbar {
+    padding-left: 1rem;
+    padding-right: 1rem;
     .btn-back {
       margin-right: 0.2rem;
     }
@@ -194,6 +197,10 @@
       justify-content: flex-start;
     }
   }
+  .search-criteria-confirm {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
 }
 
 @media (max-width: 1200px) {
@@ -203,10 +210,6 @@
   }
   .search-criteria-confirma-btn {
     width: 100%;
-  }
-  .searchbar {
-    padding-left: 1rem;
-    padding-right: 1rem;
   }
   .cities-and-travelers {
     max-height: 70vh;
