@@ -1,16 +1,13 @@
 import React from 'react';
-import '../components/_SelectedCities.scss';
+import '../components/_HalfwaySelectedCities.scss';
 
-const SelectedCities = ({
+const HalfwaySelectedCities = ({
+  isClassicSearchPage,
   cities,
   removeCity,
-  addTraveler,
-  removeTraveler,
-
 }) => {
   return (
     <div className="cities-departure">
-  
       {cities.map((city, index) => {
         return (
           <div key={index}>
@@ -30,4 +27,4 @@ const SelectedCities = ({
   );
 };
 
-export default SelectedCities;
+export default HalfwaySelectedCities;

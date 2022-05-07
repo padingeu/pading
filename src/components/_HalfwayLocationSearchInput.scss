@@ -1,4 +1,6 @@
 .location-search-input {
+  display: flex;
+  flex-direction: column-reverse;
   width: 100%;
   form {
     height: 6rem;

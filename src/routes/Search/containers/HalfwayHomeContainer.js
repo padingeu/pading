@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Home from '../components/Home';
+import HalfWayHome from '../components/HalfwayHome';
 import { searchTrips } from '../../../actions';
 
 const mapStateToProps = ({ search, app }, ownProps) => {
@@ -13,4 +13,4 @@ const mapDispatchToProps = dispatch => ({
     dispatch(searchTrips(cities, dateFrom, dateTo, directTrip, returnTrip))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(HalfWayHome);

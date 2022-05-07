@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import NavBar from '../../../components/NavBar';
-import FormSearch from '../../../components/FormSearch';
+import HalfwayFormSearch from '../../../components/HalfwayFormSearch';
 import './_Results.scss';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import SortBy from './SortBy';
@@ -14,7 +14,7 @@ import DetailsResultsPopup from './DetailsResultsPopup';
 import Footer from '../../../components/Footer';
 import catLost from '..//img/cat-lost.svg';
 
-export default function Results(props) {
+export default function HalfwayResults(props) {
   const { t } = useTranslation();
   // const [showFilter, setShowFilter] = React.useState(false);
   const [showSortBy, setShowsortBy] = React.useState(false);
@@ -85,7 +85,7 @@ export default function Results(props) {
       <NavBar scrollUp={scrollUp} />
 
       <div id="results-page">
-        <FormSearch
+        <HalfwayFormSearch
           searchTrips={props.searchTrips}
           searchData={props.search}
           displayFormSearchResults={props.displayFormSearchResults}

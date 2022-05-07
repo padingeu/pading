@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Results from '../components/Results';
+import HalfwayResults from '../components/HalfwayResults';
 import { searchTrips, doFilter, clickOnFilter } from '../../../actions';
 
 const mapStateToProps = ({ search, app }, ownProps) => {
@@ -15,4 +15,4 @@ const mapDispatchToProps = (dispatch) => ({
   clickOnFilter: (showFilter) => dispatch(clickOnFilter(showFilter)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Results);
+export default connect(mapStateToProps, mapDispatchToProps)(HalfwayResults);

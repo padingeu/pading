@@ -1,10 +1,11 @@
 import React from 'react';
 import { withTranslation } from 'react-i18next';
-import '../components/_LocationSearchInput.scss';
+import '../components/_ClassicLocationSearchInput.scss';
 import PlacesAutocomplete from 'react-places-autocomplete';
 import onClickOutside from 'react-onclickoutside';
+import ClassicSelectedCities from './ClassicSelectedCities';
 
-class LocationSearchInput extends React.Component {
+class ClassicLocationSearchInput extends React.Component {
   state = {
     autoCompleteClass: '',
   };
@@ -33,18 +34,23 @@ class LocationSearchInput extends React.Component {
               <form noValidate autoComplete="off">
                 <label className="inp">
                   <input
-                    className="city-departure-input"
+                    className="classic-city-departure-input"
                     type="text"
                     onClick={this.cityAutocompleteActive}
-                    {...getInputProps({ className: 'city-departure-input' })}
+                    {...getInputProps({ className: 'classic-city-departure-input' })}
                   />
                   <div className="arrow-and-label">
                     <i className="fas fa-map-marker-alt fa-lg"></i>
 
-                    {this.props.cities.length === 0 ? (
-                      <span className="label">{this.props.t("addFirstCity")}</span>
+                    {this.props.cities.length !== 1 ? (
+                      <span className="label">City</span>
                     ) : (
-                      <span className="label">{this.props.t("addMoreCities")}</span>
+                
+                        <ClassicSelectedCities
+                         cities={this.props.cities}
+                         removeCity={this.props.removeCity}
+                        />
+               
                     )}
                   </div>
                   <span className="focus-bg"></span>
@@ -89,4 +95,4 @@ class LocationSearchInput extends React.Component {
   }
 }
 
-export default withTranslation()(onClickOutside(LocationSearchInput));
+export default withTranslation()(onClickOutside(ClassicLocationSearchInput));

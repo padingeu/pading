@@ -1,6 +1,6 @@
 import React from 'react';
 import { withTranslation } from 'react-i18next';
-import FormSearch from './FormSearch';
+import HalfwayFormSearch from './HalfwayFormSearch';
 import './_Banner.scss';
 import Popup from 'reactjs-popup';
 import padingClassic from '../img/pading_classic_screenshot.png';
@@ -10,7 +10,7 @@ import backgroundVerticalTablet from '../img/banner/cats-traveling-banner-vertic
 import backgroundMobile from '../img/banner/cats-traveling-banner-mobile.jpg';
 import backgroundSmallMobile from '../img/banner/cats-traveling-banner-small-mobile.jpg';
 
-class Banner extends React.Component {
+class HalfwayBanner extends React.Component {
   render() {
 
     return (
@@ -29,7 +29,7 @@ class Banner extends React.Component {
             src={backgroundSmallMobile}
             alt={this.props.t("bannerImgAlt")}
           />
-          {this.props.isHomePage ? (
+          {this.props.isHalfWaySearchPage ? (
             <div className="banner-content">
               <h1>{this.props.t("mainTitle")}</h1>
               <p>
@@ -62,7 +62,7 @@ class Banner extends React.Component {
                   )}
                 </Popup>
               </div>
-              <FormSearch searchTrips={this.props.searchTrips} isHomePage={this.props.isHomePage} />
+              <HalfwayFormSearch searchTrips={this.props.searchTrips} isHalfWaySearchPage={this.props.isHalfWaySearchPage} />
             </div>
           ) : (
             ''
@@ -73,4 +73,4 @@ class Banner extends React.Component {
   }
 }
 
-export default withTranslation()(Banner);
+export default withTranslation()(HalfwayBanner);

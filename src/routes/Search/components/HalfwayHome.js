@@ -1,7 +1,7 @@
 import React from 'react';
 import './_Home.scss';
 import NavBar from '../../../components/NavBar';
-import Banner from '../../../components/Banner';
+import HalfwayBanner from '../../../components/HalfwayBanner';
 import Airlines from '../../../components/Airlines';
 import Why from './Why';
 import How from './How';
@@ -9,8 +9,8 @@ import Simple from './Simple';
 import Planet from './Planet';
 import Footer from '../../../components/Footer';
 
-export default class Home extends React.Component {
-  state = { isHomePage: true }
+export default class HalfwayHome extends React.Component {
+  state = { isHalfWaySearchPage: true }
 
   scrollUp() {
     document.scrollingElement.scrollTo({
@@ -23,8 +23,8 @@ export default class Home extends React.Component {
     return (
       <div>
         <div className="overlay"></div>
-        <NavBar scrollUp={this.scrollUp} isHomePage={this.state.isHomePage} />
-        <Banner searchTrips={this.props.searchTrips} isHomePage={this.state.isHomePage} />
+        <NavBar scrollUp={this.scrollUp} isHalfWaySearchPage={this.state.isHalfWaySearchPage} />
+        <HalfwayBanner searchTrips={this.props.searchTrips} isHalfWaySearchPage={this.state.isHalfWaySearchPage} />
         <Airlines />
         <Why />
         <How />

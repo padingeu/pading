@@ -1,0 +1,46 @@
+.classic-cities-departure {
+   position: relative;
+   display: flex;
+   justify-content: flex-start;
+   align-items: center;
+   left: 0;
+   top: -6rem;
+   height: 6rem;
+    border: solid orange;
+    border: none;
+  }
+  .classic-city-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 0.5rem 1rem;
+    .classic-city-departure {
+        position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 3.7rem;
+      border-radius: 0.5rem;
+      padding: 0 2rem;
+      background-color: #ffdB5b;
+      .classic-city-departure-name {
+        color: #181f23;
+        font-weight: bold;
+        font-size: 1.6rem;
+        margin-right: 1rem;
+      }
+      .fa-times-circle {
+          position: absolute;
+          right: 0.5rem;
+          top: 1rem;
+        cursor: pointer;
+        border: solid pink;
+        vertical-align: center;
+        color: #181f23;
+        &:hover {
+          color: #676d70;
+        }
+      }
+    }
+  }

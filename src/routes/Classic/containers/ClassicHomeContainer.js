@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import Classic from '../components/Classic';
+import ClassicHome from '../components/ClassicHome';
 
 const mapStateToProps = ({ classic, app }, ownProps) => {
   return {
@@ -9,4 +9,4 @@ const mapStateToProps = ({ classic, app }, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => ({});
 
-export default connect(mapStateToProps, mapDispatchToProps)(Classic);
+export default connect(mapStateToProps, mapDispatchToProps)(ClassicHome);

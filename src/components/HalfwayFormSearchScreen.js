@@ -1,12 +1,12 @@
 import React from 'react';
 import { withTranslation } from 'react-i18next';
 import onClickOutside from 'react-onclickoutside';
-import './_FormSearchScreen.scss';
+import './_HalfwayFormSearchScreen.scss';
 import DatesPicker from './DatesPicker';
-import LocationSearchInput from './LocationSearchInput';
-import SelectedCities from './SelectedCities';
+import HalfwayLocationSearchInput from './HalfwayLocationSearchInput';
+import HalfwaySelectedCities from './HalfwaySelectedCities';
 
-class FormSearchScreen extends React.Component {
+class HalfwayFormSearchScreen extends React.Component {
   render() {
     return (
       <div>
@@ -27,7 +27,7 @@ class FormSearchScreen extends React.Component {
               >
                 <i className="fas fa-chevron-left"></i>
               </button>
-              <LocationSearchInput
+              <HalfwayLocationSearchInput
                 address={this.props.address}
                 cities={this.props.citiesFrom}
                 addCity={this.props.addCity}
@@ -35,14 +35,12 @@ class FormSearchScreen extends React.Component {
                 handleAddressChange={this.props.handleAddressChange}
               />
             </div>
-            <SelectedCities
+            <HalfwaySelectedCities
               address={this.props.address}
               cities={this.props.citiesFrom}
               addCity={this.props.addCity}
               removeCity={this.props.removeCity}
               handleCityClick={this.props.showButtons}
-              addTraveler={this.props.addTraveler}
-              removeTraveler={this.props.removeTraveler}
             />
             <div className="search-criteria-confirm">
               <button
@@ -166,4 +164,4 @@ class FormSearchScreen extends React.Component {
   }
 }
 
-export default withTranslation()(onClickOutside(FormSearchScreen));
+export default withTranslation()(onClickOutside(HalfwayFormSearchScreen));

@@ -1,12 +1,12 @@
 import React from 'react';
 import { withTranslation } from 'react-i18next';
 import { format } from 'date-fns';
-import FormSearchScreen from './FormSearchScreen';
+import HalfwayFormSearchScreen from './HalfwayFormSearchScreen';
 import './_FormSearch.scss';
 import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 var lodash = require('lodash');
 
-class FormSearch extends React.Component {
+class HalfwayFormSearch extends React.Component {
   state = {
     citiesFrom: this.props.searchData ? this.props.searchData.cities : [],
     address: '',
@@ -266,7 +266,7 @@ class FormSearch extends React.Component {
   render() {
     return (
       <div className="formsearch">
-        {this.props.isHomePage ? (
+        {this.props.isHalfWaySearchPage ? (
        
             <button className="start-search-btn" onClick={(event) => this.startPlanningTrip(event)}>
               <span>{this.props.t("startSearch")}</span>
@@ -342,11 +342,11 @@ class FormSearch extends React.Component {
 
           </div>
         )}
-        <FormSearchScreen
+        <HalfwayFormSearchScreen
           displayFullFormSearchResults={this.state.displayfullFormSearchResults}
           displayFromWhereScreen={this.state.displayFromWhereScreen}
           goToFromWherePage={this.goToFromWherePage}
-          isHomePage={this.state.isHomePage}
+          isHalfWaySearchPage={this.state.isHalfWaySearchPage}
           goToHome={this.goToHomePage}
           goToResultsPage={this.goToResultsPage}
           address={this.state.address}
@@ -379,4 +379,4 @@ class FormSearch extends React.Component {
   }
 }
 
-export default withTranslation()(FormSearch);
+export default withTranslation()(HalfwayFormSearch);
