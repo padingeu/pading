@@ -42,16 +42,32 @@ class ClassicFormSearchScreen extends React.Component {
                 removeCity={this.props.removeCity}
                 handleAddressChange={this.props.handleAddressChange}
               />
-              <DatesPicker />
-     
-      
-                <label className="classic-searchbar-question">
-                  <input
-                    className="input-travelers"
-                    type="text"
-                    placeholder="1 traveler"
-                  />     
-              </label>
+              <DatesPicker
+                returnTrip={this.props.returnTrip}
+                dateFrom={this.props.dateFrom}
+                dateTo={this.props.dateTo}
+                showDateFrom={true}
+                showDateTo={true}
+                onChange={this.props.onInputDateChange}
+              />  
+              <div className="classic-searchbar-question">
+                <div
+                  className="input-travelers"
+                >
+                  <span>Number of travelers</span>
+                  <div className="people-number-change">
+                      <i
+                        className="far fa-minus-square fa-lg"
+                      //onClick={(event) => this.props.removeTraveler(event, city)}
+                      ></i>
+                      <span className="number-of-travelers">1</span>
+                      <i
+                        className="far fa-plus-square fa-lg"
+                        //onClick={(event) => this.props.addTraveler(event, city)}
+                      ></i>
+                    </div>
+                </div>     
+              </div>
 
   
               <div className="classic-search-criteria-confirm">
