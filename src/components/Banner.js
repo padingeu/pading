@@ -38,8 +38,8 @@ class Banner extends React.Component {
                 {this.props.t("mainDescription2")}
               </p>
               <div className="pading-mode">
-                <button className="pading-mode-active">{this.props.t("halfwayMode")}</button>
-                <Popup modal trigger={<button className="pading-mode-disable">{this.props.t("classicMode")}</button>}>
+                <button className="pading-mode-halfway">{this.props.t("halfwayMode")}</button>
+                <Popup modal trigger={<button className="pading-mode-classic">{this.props.t("classicMode")}</button>}>
                   {(closePopup) => (
                     <div className="popup">
                       <button className="close-popup" onClick={closePopup}>

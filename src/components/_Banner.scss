@@ -28,7 +28,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    .pading-mode-active {
+    .pading-mode-halfway {
       cursor: auto;
       background: transparent;
       font-size: 1.6rem;
@@ -36,7 +36,7 @@
       color: #19a6ee;
       border-bottom: solid 0.2rem #19a6ee;
     }
-    .pading-mode-disable {
+    .pading-mode-classic {
       cursor: pointer;
       background: transparent;
       font-size: 1.6rem;
