@@ -50,7 +50,7 @@ export default function DetailsResultsPopup(props) {
   };
 
   return (
-    <div>
+    <div className="details-results-popup">
       <AppBar position="static" color="default">
         <Tabs
           value={value}
