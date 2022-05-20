@@ -34,15 +34,6 @@ class FormSearch extends React.Component {
       this.state.returnTrip,
       this.state.flexibleTrip
     );
-    window.gtag('event', 'search trip', {
-      event_category: format(this.state.dateFrom, 'dd/MM/yyyy'),
-      event_label: this.state.citiesFrom
-        .map(function (city) {
-          return city['name'];
-        })
-        .toString(),
-      value: '',
-    });
     this.setState({ displayDatesPicker: false });
     document.querySelector(".overlay").style.display = "none";
     const body = document.querySelector("body");
