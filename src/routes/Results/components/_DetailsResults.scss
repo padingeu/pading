@@ -133,7 +133,7 @@
           }
         }
       }
-      .btn-book {
+      .btn-book-ticket {
         display: flex;
         justify-content: center;
         align-items: center;
@@ -189,7 +189,7 @@
       display: none;
     }
   }
-  .btn-book {
+  .btn-book-ticket {
     font-size: 1.2rem;
   }
   .tooltip-text {
@@ -214,7 +214,7 @@
   .tooltip-text {
     font-size: 1.2rem;
   }
-  .btn-book {
+  .btn-book-ticket {
     font-size: 1.6rem;
   }
 }
@@ -232,7 +232,7 @@
     .tooltip-text {
       font-size: 1.4rem;
     }
-    .btn-book {
+    .btn-book-ticket {
       font-size: 1.6rem;
       span.trip-pricing-amount {
         font-size: 1.6rem;

@@ -100,7 +100,7 @@ export default function DetailsResults(props) {
             }
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-book"
+            className="btn-book-ticket"
           >
             <div className="book-for-price">
               <span>{t('bookFor')}</span>
