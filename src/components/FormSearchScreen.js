@@ -46,7 +46,7 @@ class FormSearchScreen extends React.Component {
             />
             <div className="search-criteria-confirm">
               <button
-                className="search-criteria-confirma-btn"
+                className="search-criteria-confirma-btn confirm-cities-btn"
                 name="button"
                 disabled={!(this.props.citiesFrom.length > 1)}
                 onClick={(event) => {
@@ -93,7 +93,7 @@ class FormSearchScreen extends React.Component {
             </div>
             <div className="search-criteria-confirm">
               <button
-                className="search-criteria-confirma-btn"
+                className="search-criteria-confirma-btn confirm-travelers-btn"
                 name="button"
                 disabled={!(this.props.citiesFrom.length > 0)}
                 onClick={(event) => {
@@ -149,7 +149,7 @@ class FormSearchScreen extends React.Component {
             </div>
             <div className="search-criteria-confirm">
               <button
-                className="search-criteria-confirma-btn"
+                className="search-criteria-confirma-btn search-btn"
                 name="button"
                 disabled={!(this.props.citiesFrom.length > 0) || !this.props.dateFrom}
                 onClick={() => this.props.search()}
