@@ -6,7 +6,7 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import rootReducer from './reducers';
-import HalfwayHome from './routes/Search/containers/HalfwayHomeContainer';
+import HalfwayHome from './routes/Halfway/containers/HalfwayHomeContainer';
 import HalfwayResults from './routes/Results/containers/HalfwayResultsContainer';
 import ClassicHome   from './routes/Classic/containers/ClassicHomeContainer';
 import Blog from './routes/Blog/components/Blog';

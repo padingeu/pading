@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import NavBar from '../../../components/NavBar';
-import HalfwayFormSearch from '../../../components/HalfwayFormSearch';
+import HalfwayFormSearch from '../../Halfway/components/HalfwayFormSearch';
 import './_Results.scss';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import SortBy from './SortBy';

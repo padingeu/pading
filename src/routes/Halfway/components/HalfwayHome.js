@@ -1,7 +1,7 @@
 import React from 'react';
 import './_Home.scss';
 import NavBar from '../../../components/NavBar';
-import HalfwayBanner from '../../../components/HalfwayBanner';
+import HalfwayBanner from './HalfwayBanner';
 import Airlines from '../../../components/Airlines';
 import Why from './Why';
 import How from './How';

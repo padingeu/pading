@@ -2,7 +2,7 @@ import React from 'react';
 import { withTranslation } from 'react-i18next';
 import onClickOutside from 'react-onclickoutside';
 import './_HalfwayFormSearchScreen.scss';
-import DatesPicker from './DatesPicker';
+import DatesPicker from '../../../components/DatesPicker';
 import HalfwayLocationSearchInput from './HalfwayLocationSearchInput';
 import HalfwaySelectedCities from './HalfwaySelectedCities';
 

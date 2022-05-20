@@ -1,6 +1,6 @@
 import React from 'react';
 import NavBar from '../../../components/NavBar';
-import ClassicBanner from '../../../components/ClassicBanner';
+import ClassicBanner from './ClassicBanner';
 import Footer from '../../../components/Footer';
 
 export default class ClassicHome extends React.Component {

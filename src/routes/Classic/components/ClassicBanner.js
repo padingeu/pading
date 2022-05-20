@@ -1,16 +1,16 @@
 import React from 'react';
 import { withTranslation } from 'react-i18next';
-import HalfwayFormSearch from './HalfwayFormSearch';
-import './_Banner.scss';
+import ClassicFormSearch from './ClassicFormSearch';
+import './_ClassicBanner.scss';
 import Popup from 'reactjs-popup';
-import padingClassic from '../img/pading_classic_screenshot.png';
-import backgroundDesktop from '../img/banner/cats-traveling-banner-desktop.jpg';
-import backgroundTablet from '../img/banner/cats-traveling-banner-tablet.jpg';
-import backgroundVerticalTablet from '../img/banner/cats-traveling-banner-vertical-tablet.jpg';
-import backgroundMobile from '../img/banner/cats-traveling-banner-mobile.jpg';
-import backgroundSmallMobile from '../img/banner/cats-traveling-banner-small-mobile.jpg';
+import padingClassic from '../../../img/pading_classic_screenshot.png';
+import backgroundDesktop from '../../../img/banner/cats-traveling-banner-desktop.jpg';
+import backgroundTablet from '../../../img/banner/cats-traveling-banner-tablet.jpg';
+import backgroundVerticalTablet from '../../../img/banner/cats-traveling-banner-vertical-tablet.jpg';
+import backgroundMobile from '../../../img/banner/cats-traveling-banner-mobile.jpg';
+import backgroundSmallMobile from '../../../img/banner/cats-traveling-banner-small-mobile.jpg';
 
-class HalfwayBanner extends React.Component {
+class ClassicBanner extends React.Component {
   render() {
 
     return (
@@ -29,13 +29,11 @@ class HalfwayBanner extends React.Component {
             src={backgroundSmallMobile}
             alt={this.props.t("bannerImgAlt")}
           />
-          {this.props.isHalfWaySearchPage ? (
+          {this.props.isClassicSearchPage ? (
             <div className="banner-content">
-              <h1>{this.props.t("mainTitle")}</h1>
+              <h1>BOOK YOUR FLIGHT</h1>
               <p>
-                {this.props.t("mainDescription1")}
-                <br className="br"/>
-                {this.props.t("mainDescription2")}
+                Simply and calmly book your next flight to wherever your next adventure is.
               </p>
               <div className="pading-mode">
                 <button className="pading-mode-active">{this.props.t("halfwayMode")}</button>
@@ -62,7 +60,7 @@ class HalfwayBanner extends React.Component {
                   )}
                 </Popup>
               </div>
-              <HalfwayFormSearch searchTrips={this.props.searchTrips} isHalfWaySearchPage={this.props.isHalfWaySearchPage} />
+              <ClassicFormSearch searchTrips={this.props.searchTrips} isClassicSearchPage={this.props.isClassicSearchPage} />
             </div>
           ) : (
             ''
@@ -73,4 +71,4 @@ class HalfwayBanner extends React.Component {
   }
 }
 
-export default withTranslation()(HalfwayBanner);
+export default withTranslation()(ClassicBanner);

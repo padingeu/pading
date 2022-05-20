@@ -3,7 +3,7 @@ import { withTranslation } from 'react-i18next';
 import onClickOutside from 'react-onclickoutside';
 import './_ClassicFormSearchScreen.scss';
 import ClassicLocationSearchInput from './ClassicLocationSearchInput';
-import DatesPicker from './DatesPicker';
+import DatesPicker from '../../../components/DatesPicker';
 
 class ClassicFormSearchScreen extends React.Component {
   render() {

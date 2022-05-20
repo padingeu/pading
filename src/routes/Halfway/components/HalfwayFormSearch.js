@@ -1,12 +1,12 @@
 import React from 'react';
 import { withTranslation } from 'react-i18next';
 import { format } from 'date-fns';
-import ClassicFormSearchScreen from './ClassicFormSearchScreen';
-import './_FormSearch.scss';
+import HalfwayFormSearchScreen from './HalfwayFormSearchScreen';
+import './_HalfwayFormSearch.scss';
 import { geocodeByAddress, getLatLng } from 'react-places-autocomplete';
 var lodash = require('lodash');
 
-class ClassicFormSearch extends React.Component {
+class HalfwayFormSearch extends React.Component {
   state = {
     citiesFrom: this.props.searchData ? this.props.searchData.cities : [],
     address: '',
@@ -69,7 +69,7 @@ class ClassicFormSearch extends React.Component {
       address: address,
     });
 
-    const input = document.querySelector('.classic-city-departure-input');
+    const input = document.querySelector('.city-departure-input');
     input.addEventListener(
       'keydown',
       (event) => {
@@ -266,7 +266,7 @@ class ClassicFormSearch extends React.Component {
   render() {
     return (
       <div className="formsearch">
-        {this.props.isClassicSearchPage ? (
+        {this.props.isHalfWaySearchPage ? (
        
             <button className="start-search-btn" onClick={(event) => this.startPlanningTrip(event)}>
               <span>{this.props.t("startSearch")}</span>
@@ -342,11 +342,11 @@ class ClassicFormSearch extends React.Component {
 
           </div>
         )}
-        <ClassicFormSearchScreen
+        <HalfwayFormSearchScreen
           displayFullFormSearchResults={this.state.displayfullFormSearchResults}
           displayFromWhereScreen={this.state.displayFromWhereScreen}
           goToFromWherePage={this.goToFromWherePage}
-          isClassicSearchPage={this.props.isClassicSearchPage}
+          isHalfWaySearchPage={this.state.isHalfWaySearchPage}
           goToHome={this.goToHomePage}
           goToResultsPage={this.goToResultsPage}
           address={this.state.address}
@@ -379,4 +379,4 @@ class ClassicFormSearch extends React.Component {
   }
 }
 
-export default withTranslation()(ClassicFormSearch);
+export default withTranslation()(HalfwayFormSearch);

@@ -1,0 +1,252 @@
+.banner {
+  background-size: cover;
+  background-position: center;
+  width: 100vw;
+  min-height: 100vh;
+  .banner-content {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    .banner-img{
+      width: 100%;
+    }
+    h1 {
+      width: 100%;
+    }
+    p {
+      width: 100%;
+      font-weight: bold;
+      color: #181f23;
+      white-space: wrap;
+    }
+  }
+  .pading-mode {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    .pading-mode-active {
+      cursor: auto;
+      background: transparent;
+      font-size: 1.6rem;
+      margin-right: 0.5rem;
+      color: #19a6ee;
+      border-bottom: solid 0.3rem #19a6ee;
+    }
+    .pading-mode-disable {
+      cursor: pointer;
+      background: transparent;
+      font-size: 1.6rem;
+      margin-left: 0.5rem;
+      color: #676d70;
+      transition: ease 0.2s;
+      &:hover {
+        color: #181f23;
+      }
+    }
+  }
+  .simple-trip-popup {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .screenshot-app {
+      max-width: 20rem;
+      margin: 0.5rem;
+    }
+    h3 {
+      text-align: center;
+      color: #181f23;
+    }
+    p {
+      text-align: center;
+      font-weight: bold;
+    }
+  }
+}
+
+@media (max-width: 300px) {
+  .banner-content {
+    bottom: 5rem;
+    padding: 0 1rem;
+  }
+}
+
+@media (min-width: 301px) {
+  .banner-content {
+    bottom: 5rem;
+    padding: 0 1rem;
+  }
+}
+
+@media (min-width: 361px) {
+  .banner-content {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (max-width: 500px) and (min-height: 801px) {
+  .banner-content {
+    p {
+      margin-bottom: 2rem;
+      .br {
+        display: none;
+      }
+    }
+  }
+  .pading-mode {
+    margin-bottom: 0.5rem;
+  }
+  .banner-background-small-mobile {
+    display: block;
+    width: 100vw;
+  }
+  .banner-background-mobile {
+   display: none;
+  }
+  .banner-background-vertical-tablet {
+    display: none;
+  }
+  .banner-background-tablet {
+    display: none;
+  }
+  .banner-background-desktop {
+    display: none;
+  }
+}
+
+@media (max-width: 500px) and (max-height: 800px) {
+  .banner-content {
+    p {
+      margin-bottom: 2rem;
+      .br {
+        display: none;
+      }
+    }
+  }
+  .pading-mode {
+    margin-bottom: 0.5rem;
+  }
+  .banner-background-small-mobile {
+    display: none;
+  }
+  .banner-background-mobile {
+    display: block;
+    width: 100vw;
+  }
+  .banner-background-vertical-tablet {
+    display: none;
+  }
+  .banner-background-tablet {
+    display: none;
+  }
+  .banner-background-desktop {
+    display: none;
+  }
+}
+
+@media (min-width: 501px) and (min-height: 1001px) {
+  .banner-content {
+    p {
+      margin-bottom: 2.5rem;
+    }
+  }
+  .pading-mode {
+    margin-bottom: 0.5rem;
+  }
+  .banner-background-small-mobile {
+    display: none;
+  }
+  .banner-background-mobile {
+    display: none;
+  }
+  .banner-background-vertical-tablet {
+    display: block;
+    width: 100%;
+  }
+  .banner-background-tablet {
+    display: none;
+  }
+  .banner-background-desktop {
+    display: none;
+  }
+}
+
+
+@media (min-width: 501px) and (max-height: 1000px) {
+  .banner-content {
+    p {
+      margin-bottom: 2.5rem;
+    }
+  }
+  .pading-mode {
+    margin-bottom: 0.5rem;
+  }
+  .banner-background-small-mobile {
+    display: none;
+  }
+  .banner-background-mobile {
+    display: none;
+  }
+  .banner-background-vertical-tablet {
+    display: none;
+  }
+  .banner-background-tablet {
+    display: block;
+    width: 100%;
+  }
+  .banner-background-desktop {
+    display: none;
+  }
+}
+
+@media (min-width: 600px) {
+  .banner-content {
+    bottom: 5rem;
+    padding: 0 11rem;
+  }
+}
+
+@media (min-width: 700px) {
+  .simple-trip-popup {
+   img {
+     display: none;
+   }
+  }
+}
+
+@media (max-width: 1200px) {
+  .banner-content {
+    max-width: 70rem;
+  }
+}
+
+@media (min-width: 1201px) {
+  .banner-content {
+    max-width: 80rem;
+    top: 6.5rem;
+    padding: 0 11rem;
+    p {
+      margin-bottom: 2rem;
+    }
+  }
+  .banner-background-small-mobile {
+    display: none;
+  }
+  .banner-background-mobile {
+    display: none;
+  }
+  .banner-background-vertical-tablet {
+    display: none;
+  }
+  .banner-background-tablet {
+    display: none;
+  }
+  .banner-background-desktop {
+    display: block;
+    width: 100%;
+  }
+}
