@@ -149,7 +149,7 @@ class FormSearchScreen extends React.Component {
             </div>
             <div className="search-criteria-confirm">
               <button
-                className="search-criteria-confirma-btn search-btn"
+                className="search-btn search-criteria-confirma-btn"
                 name="button"
                 disabled={!(this.props.citiesFrom.length > 0) || !this.props.dateFrom}
                 onClick={() => this.props.search()}
