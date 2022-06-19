@@ -4,13 +4,13 @@ import ClassicBanner from './ClassicBanner';
 import Footer from '../../../components/Footer';
 
 export default class ClassicHome extends React.Component {
-  state = { isClassicSearchPage: true }
+  state = { isClassicSearchPage: true };
 
   scrollUp() {
     document.scrollingElement.scrollTo({
       top: 0,
-      behavior: 'smooth'
-    })
+      behavior: 'smooth',
+    });
   }
 
   render() {
@@ -18,7 +18,10 @@ export default class ClassicHome extends React.Component {
       <div>
         <div className="overlay"></div>
         <NavBar scrollUp={this.scrollUp} isClassicSearchPage={this.state.isClassicSearchPage} />
-          <ClassicBanner searchTrips={this.props.searchTrips} isClassicSearchPage={this.state.isClassicSearchPage} />
+        <ClassicBanner
+          searchClassicTrips={this.props.searchClassicTrips}
+          isClassicSearchPage={this.state.isClassicSearchPage}
+        />
         <Footer scrollUp={this.scrollUp} />
       </div>
     );

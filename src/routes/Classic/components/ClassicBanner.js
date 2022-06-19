@@ -12,47 +12,61 @@ import backgroundSmallMobile from '../../../img/banner/cats-traveling-banner-sma
 
 class ClassicBanner extends React.Component {
   render() {
-
     return (
       <div>
         <div className="banner">
-          <img className="banner-background-desktop" src={backgroundDesktop} alt={this.props.t("bannerImglt")} />
-          <img className="banner-background-tablet" src={backgroundTablet} alt={this.props.t("bannerImgAlt")} />
+          <img
+            className="banner-background-desktop"
+            src={backgroundDesktop}
+            alt={this.props.t('bannerImglt')}
+          />
+          <img
+            className="banner-background-tablet"
+            src={backgroundTablet}
+            alt={this.props.t('bannerImgAlt')}
+          />
           <img
             className="banner-background-vertical-tablet"
             src={backgroundVerticalTablet}
             alt="cats-traveling"
           />
-          <img className="banner-background-mobile" src={backgroundMobile} alt={this.props.t("bannerImgAlt")} />
+          <img
+            className="banner-background-mobile"
+            src={backgroundMobile}
+            alt={this.props.t('bannerImgAlt')}
+          />
           <img
             className="banner-background-small-mobile"
             src={backgroundSmallMobile}
-            alt={this.props.t("bannerImgAlt")}
+            alt={this.props.t('bannerImgAlt')}
           />
           {this.props.isClassicSearchPage ? (
             <div className="banner-content">
               <h1>BOOK YOUR FLIGHT</h1>
-              <p>
-                Simply and calmly book your next flight to wherever your next adventure is.
-              </p>
+              <p>Simply and calmly book your next flight to wherever your next adventure is.</p>
               <div className="pading-mode">
-                <button className="pading-mode-active">{this.props.t("halfwayMode")}</button>
-                <Popup modal trigger={<button className="pading-mode-disable">{this.props.t("classicMode")}</button>}>
+                <button className="pading-mode-active">{this.props.t('halfwayMode')}</button>
+                <Popup
+                  modal
+                  trigger={
+                    <button className="pading-mode-disable">{this.props.t('classicMode')}</button>
+                  }
+                >
                   {(closePopup) => (
                     <div className="popup">
                       <button className="close-popup" onClick={closePopup}>
                         <i className="fas fa-times fa-lg"></i>
                       </button>
                       <div className="simple-trip-popup">
-                        <h3>{this.props.t("simpleTripPopupTitle")}</h3>
+                        <h3>{this.props.t('simpleTripPopupTitle')}</h3>
                         <p>
-                          {this.props.t("simpleTripPopupDescription1")}
+                          {this.props.t('simpleTripPopupDescription1')}
                           <br />
-                          {this.props.t("simpleTripPopupDescription2")}
+                          {this.props.t('simpleTripPopupDescription2')}
                         </p>
                         <img
                           src={padingClassic}
-                          alt={this.props.t("classicModeImgAlt")}
+                          alt={this.props.t('classicModeImgAlt')}
                           className="screenshot-app"
                         />
                       </div>
@@ -60,7 +74,10 @@ class ClassicBanner extends React.Component {
                   )}
                 </Popup>
               </div>
-              <ClassicFormSearch searchTrips={this.props.searchTrips} isClassicSearchPage={this.props.isClassicSearchPage} />
+              <ClassicFormSearch
+                searchClassicTrips={this.props.searchClassicTrips}
+                isClassicSearchPage={this.props.isClassicSearchPage}
+              />
             </div>
           ) : (
             ''

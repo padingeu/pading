@@ -26,7 +26,8 @@ class ClassicFormSearch extends React.Component {
   };
 
   search = () => {
-    this.props.searchTrips(
+    console.log(this.props);
+    this.props.searchClassicTrips(
       this.state.citiesFrom,
       this.state.dateFrom,
       this.state.dateTo,
@@ -44,9 +45,9 @@ class ClassicFormSearch extends React.Component {
       value: '',
     });
     this.setState({ displayDatesPicker: false });
-    document.querySelector(".overlay").style.display = "none";
-    const body = document.querySelector("body");
-    body.style.overflow = "scroll";
+    document.querySelector('.overlay').style.display = 'none';
+    const body = document.querySelector('body');
+    body.style.overflow = 'scroll';
   };
 
   getFormattedCoordinate = (coordinates) => {
@@ -96,9 +97,9 @@ class ClassicFormSearch extends React.Component {
     this.setState({ displayTravelersScreen: false });
     this.setState({ displayDatesPicker: false });
     this.setState({ displayDetailsScreen: false });
-    document.querySelector(".overlay").style.display = "none";
-    const body = document.querySelector("body");
-    body.style.overflow = "scroll";
+    document.querySelector('.overlay').style.display = 'none';
+    const body = document.querySelector('body');
+    body.style.overflow = 'scroll';
   };
 
   addCity = async (address) => {
@@ -141,9 +142,9 @@ class ClassicFormSearch extends React.Component {
   startPlanningTrip = (event) => {
     event.preventDefault();
     this.setState({ displayFromWhereScreen: true });
-    document.querySelector(".overlay").style.display = "block";
-    const body = document.querySelector("body");
-    body.style.overflow = "hidden";
+    document.querySelector('.overlay').style.display = 'block';
+    const body = document.querySelector('body');
+    body.style.overflow = 'hidden';
   };
 
   openfullFormSearchResults = (event) => {
@@ -154,9 +155,9 @@ class ClassicFormSearch extends React.Component {
   goToHomePage = (event) => {
     event.preventDefault();
     this.setState({ displayFromWhereScreen: false });
-    document.querySelector(".overlay").style.display = "none"; 
-    const body = document.querySelector("body");
-    body.style.overflow = "scroll";
+    document.querySelector('.overlay').style.display = 'none';
+    const body = document.querySelector('body');
+    body.style.overflow = 'scroll';
   };
 
   goToResultsPage = (event) => {
@@ -165,9 +166,9 @@ class ClassicFormSearch extends React.Component {
     this.setState({ displayTravelersScreen: false });
     this.setState({ displayDatesPicker: false });
     this.setState({ displayDetailsScreen: false });
-    document.querySelector(".overlay").style.display = "none";
-    const body = document.querySelector("body");
-    body.style.overflow = "scroll";
+    document.querySelector('.overlay').style.display = 'none';
+    const body = document.querySelector('body');
+    body.style.overflow = 'scroll';
   };
 
   goToFromWherePage = (event) => {
@@ -180,7 +181,7 @@ class ClassicFormSearch extends React.Component {
     event.preventDefault();
     this.setState({ displayTravelersScreen: false });
     this.setState({ displayFromWhereScreen: true });
-    document.querySelector(".overlay").style.display = "block";
+    document.querySelector('.overlay').style.display = 'block';
   };
 
   goToTravelersPage = (event) => {
@@ -195,7 +196,7 @@ class ClassicFormSearch extends React.Component {
     this.setState({ displayFromWhereScreen: false });
     this.setState({ displayDatesPicker: false });
     this.setState({ displayTravelersScreen: true });
-    document.querySelector(".overlay").style.display = "block";
+    document.querySelector('.overlay').style.display = 'block';
   };
 
   goToDatesPicker = (event) => {
@@ -210,7 +211,7 @@ class ClassicFormSearch extends React.Component {
     this.setState({ displayTravelersScreen: false });
     this.setState({ displayDetailsScreen: false });
     this.setState({ displayDatesPicker: true });
-    document.querySelector(".overlay").style.display = "block";
+    document.querySelector('.overlay').style.display = 'block';
   };
 
   goToDetailsPage = (event) => {
@@ -267,11 +268,9 @@ class ClassicFormSearch extends React.Component {
     return (
       <div className="formsearch">
         {this.props.isClassicSearchPage ? (
-       
-            <button className="start-search-btn" onClick={(event) => this.startPlanningTrip(event)}>
-              <span>{this.props.t("startSearch")}</span>
-            </button>
-          
+          <button className="start-search-btn" onClick={(event) => this.startPlanningTrip(event)}>
+            <span>{this.props.t('startSearch')}</span>
+          </button>
         ) : (
           <div className="formsearch-bar-results">
             <button
@@ -282,20 +281,22 @@ class ClassicFormSearch extends React.Component {
                   : (event) => this.startPlanningTrip(event)
               }
             >
-              <span>{this.props.t("fromwhereInput")}</span>
+              <span>{this.props.t('fromwhereInput')}</span>
             </button>
 
             {this.state.displayfullFormSearchResults ? (
-              <div className="formsearch-results"> 
+              <div className="formsearch-results">
                 <div className="formsearch-bar-results-edit">
-                  <button className="fromwhere-btn" onClick={(event) => this.startPlanningTrip(event)}>
+                  <button
+                    className="fromwhere-btn"
+                    onClick={(event) => this.startPlanningTrip(event)}
+                  >
                     <span>
                       {this.props.isLoading ? (
                         <div className="formsearch-skeleton"></div>
-                      ) : (
-                        lodash.sum(Object.values(this.props.searchData.travelers)) < 3 ?
+                      ) : lodash.sum(Object.values(this.props.searchData.travelers)) < 3 ? (
                         `From ${Object.keys(this.props.searchData.travelers).join(' and ')}`
-                        :
+                      ) : (
                         `From ${Object.keys(this.props.searchData.travelers).join(', ')}`
                       )}
                     </span>
@@ -330,7 +331,9 @@ class ClassicFormSearch extends React.Component {
                       <div>
                         <i className="far fa-user"></i>
                         {this.props.searchData &&
-                          `${lodash.sum(Object.values(this.props.searchData.travelers))} ${this.props.t("travelers")}`}
+                          `${lodash.sum(
+                            Object.values(this.props.searchData.travelers)
+                          )} ${this.props.t('travelers')}`}
                       </div>
                     )}
                   </button>
@@ -339,7 +342,6 @@ class ClassicFormSearch extends React.Component {
             ) : (
               ''
             )}
-
           </div>
         )}
         <ClassicFormSearchScreen
