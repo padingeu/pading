@@ -269,7 +269,7 @@ class HalfwayFormSearch extends React.Component {
         {this.props.isHalfWaySearchPage ? (
        
             <button className="start-search-btn" onClick={(event) => this.startPlanningTrip(event)}>
-              <span>{this.props.t("startSearch")}</span>
+              <span>{this.props.t("startHalfwaySearch")}</span>
             </button>
           
         ) : (

@@ -16,7 +16,6 @@
           }
           .classic-city-departure-input {
             height: 6rem;
-            min-width: 26rem;
             border: solid white;
             border-radius: 0.5rem;
             width: 100%;
@@ -47,6 +46,9 @@
               }
             }
           }
+          .fa-map-marker-alt {
+            color: #c9c9c9;
+          }
           .label {
             position: absolute;
             top: 2rem;
@@ -60,7 +62,7 @@
             pointer-events: none;
             font-family: 'roboto' sans-serif;
             font-weight: bold;
-            color: #1E333D;
+            color: #181f23;
           }
           i {
             position: absolute;

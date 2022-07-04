@@ -1,4 +1,5 @@
 import React from 'react';
+import {withRouter} from 'react-router-dom';
 import { withTranslation } from 'react-i18next';
 import ClassicFormSearch from './ClassicFormSearch';
 import './_ClassicBanner.scss';
@@ -11,6 +12,11 @@ import backgroundMobile from '../../../img/banner/cats-traveling-banner-mobile.j
 import backgroundSmallMobile from '../../../img/banner/cats-traveling-banner-small-mobile.jpg';
 
 class ClassicBanner extends React.Component {
+
+  nextPath(path) {
+    this.props.history.push(path);
+  }
+
   render() {
     return (
       <div>
@@ -42,37 +48,15 @@ class ClassicBanner extends React.Component {
           />
           {this.props.isClassicSearchPage ? (
             <div className="banner-content">
-              <h1>BOOK YOUR FLIGHT</h1>
-              <p>Simply and calmly book your next flight to wherever your next adventure is.</p>
+              <h1>{this.props.t("classicTitle")}</h1>
+              <p>
+                {this.props.t("classicDescription1")}
+                <br className="br"/>
+                {this.props.t("classicDescription2")}
+              </p>
               <div className="pading-mode">
-                <button className="pading-mode-active">{this.props.t('halfwayMode')}</button>
-                <Popup
-                  modal
-                  trigger={
-                    <button className="pading-mode-disable">{this.props.t('classicMode')}</button>
-                  }
-                >
-                  {(closePopup) => (
-                    <div className="popup">
-                      <button className="close-popup" onClick={closePopup}>
-                        <i className="fas fa-times fa-lg"></i>
-                      </button>
-                      <div className="simple-trip-popup">
-                        <h3>{this.props.t('simpleTripPopupTitle')}</h3>
-                        <p>
-                          {this.props.t('simpleTripPopupDescription1')}
-                          <br />
-                          {this.props.t('simpleTripPopupDescription2')}
-                        </p>
-                        <img
-                          src={padingClassic}
-                          alt={this.props.t('classicModeImgAlt')}
-                          className="screenshot-app"
-                        />
-                      </div>
-                    </div>
-                  )}
-                </Popup>
+                <button className="pading-mode-disable" onClick={() => this.nextPath('/')}>{this.props.t('halfwayMode')}</button>
+                <button className="pading-mode-active">{this.props.t('classicMode')}</button>
               </div>
               <ClassicFormSearch
                 searchClassicTrips={this.props.searchClassicTrips}
@@ -88,4 +72,4 @@ class ClassicBanner extends React.Component {
   }
 }
 
-export default withTranslation()(ClassicBanner);
+export default withRouter(withTranslation()(ClassicBanner));

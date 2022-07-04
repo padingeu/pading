@@ -17,66 +17,60 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
+    margin-top: 1rem;
     padding-bottom: 1rem;
-    border-bottom: solid 1px #e7e7e7;
     .btn-back {
       background-color: transparent;
       border: none;
     }
     .classic-searchbar-question {
+      height: 6rem;
+      max-height: 6rem;
+      width: calc(100% - 1rem);
+      margin: 0.5rem;
+      background-color: #f7f7f7;
+      border: solid 0.1rem #e7e7e7;
+      color: #181f23;
+      border-width: 0.1rem;
+      border-radius: 0.5rem;
+      text-align: left;
+      font-weight: 700;
+      .input-travelers {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 100%;
         width: 100%;
-        height: 6rem;
-        flex-grow: 2;
-        cursor: pointer;
-        background-color: #f7f7f7;
-        border: solid 0.1rem #e7e7e7;
-        color: #181f23;
-        border-width: 0.1rem;
-        border-radius: 0.5rem;
-        text-align: left;
-        font-weight: 700;
-        margin: 0.5rem;
-        .input-travelers {
-          display: flex;
-          justify-content: space-around;
-          align-items: center;
-          height: 100%;
-          width: 100%;
-          border: none;
-          background-color: transparent;
-          padding-left: 2rem;
-          &:hover {
-              transition: ease 0.2s;
-              background-color: white;
-          }
-          .people-number-change {
-            .fa-minus-square {
-              color: #c9c9c9;
-              padding: 1rem;
-              cursor: pointer;
-              &:hover {
-                color: #181f23;
-              }
-            }
-            .fa-plus-square {
-              color: #c9c9c9;
-              padding: 1rem;
-              cursor: pointer;
-              &:hover {
-                color: #181f23;
-              }
-            }
-            .number-of-travelers {
-              font-weight: bold;
-              color: #181f23;
+        border: none;
+        background-color: transparent;
+        padding-left: 2rem;
+        .people-number-change {
+          .fa-minus-square {
+            color: #c9c9c9;
+            padding: 1rem;
+            cursor: pointer;
+            &:hover {
+              color: #676d70;
             }
           }
+          .fa-plus-square {
+            color: #c9c9c9;
+            padding: 1rem;
+            cursor: pointer;
+            &:hover {
+              color: #676d70;
+            }
+          }
+          .number-of-travelers {
+            font-weight: bold;
+            color: #181f23;
+          }
+        }
       }
     }
   }
-  .criteria {
-    width: 100%;
-    height: 100%;
+  .classic-criteria {
+    margin-bottom: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -91,7 +85,7 @@
         margin: 0 0.5rem;
         font-size: 1.4rem;
         background-color: white;
-        border: solid 0.1rem #c9c9c9;
+        border: solid 0.1rem #e7e7e7;
         color: #c9c9c9;
         font-weight: bold;
         transition: ease 0.2s;
@@ -141,21 +135,21 @@
     }
   
   @media (max-width: 300px) {
-    .searchbar-question {
+    .classic-searchbar-question {
       font-size: 1.6rem;
     }
   }
   
   @media (max-width: 500px) {
-    .searchbar-question {
+    .classic-searchbar-question {
       font-size: 1.6rem;
     }
-    .searchbar {
+    .classic-searchbar {
       padding-left: 0.5rem;
       padding-right: 0.5rem;
       margin-top: 1rem;
     }
-    .criteria {
+    .classic-criteria {
       padding: 0;
       align-items: center;
       .criteria-buttons {
@@ -165,13 +159,12 @@
   }
   
   @media (min-width: 500px) {
-    .searchbar {
+    .classic-searchbar {
       .btn-back {
         margin-right: 1rem;
       }
     }
-    .criteria {
-      padding-left: 6rem;
+    .classic-criteria {
       align-items: flex-start;
       .criteria-buttons {
         justify-content: flex-start;
@@ -180,31 +173,60 @@
   }
   
   @media (max-width: 1200px) {
-    .search-screen {
+    .classic-search-screen {
       height: 100%;
       border-radius: 0 0 0.5rem 0.5rem;
+      padding-top: 2.5rem;
     }
     .classic-search-criteria-confirma-btn {
       width: 100%;
     }
-    .searchbar {
+    .classic-searchbar {
       padding-left: 1rem;
       padding-right: 1rem;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+      height: 100%;
+      .btn-back {
+        margin-bottom: 2rem;
+      }
+    }
+    .classic-criteria {
+      position: absolute;
+      top: 2.5rem;
+      left: 4.2rem;
+    }
+    .img-classic-formsearch-div {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    .img-classic-formsearch {
+        max-width: 100%;
+        width: 40rem;
+        text-align: center;
+      }
     }
   }
-    
+  
   @media (min-width: 1201px) {
-    .search-screen {
-      min-height: 30rem;
+    .classic-search-screen {
+      max-height: 100%;
     }
     .classic-search-criteria-confirma-btn {
       width: 100%;
     }
-    .searchbar {
+    .classic-searchbar {
       padding-left: 2rem;
       padding-right: 2rem;
     }
-    .criteria {
-      padding-left: 7rem;
+    .classic-criteria {
+      width: 100%;
+      padding-left: 5.2rem;
+      padding-right: 5.2rem;
+    }
+    .img-classic-formsearch {
+      display: none;
     }
   }

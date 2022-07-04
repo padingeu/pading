@@ -11,8 +11,6 @@ class ClassicFormSearch extends React.Component {
     citiesFrom: this.props.searchData ? this.props.searchData.cities : [],
     address: '',
     displayFromWhereScreen: false,
-    displayTravelersScreen: false,
-    displayDatesPicker: false,
     dateFrom: this.props.dateFrom,
     dateTo: this.props.dateTo,
     showFilter: false,
@@ -94,9 +92,6 @@ class ClassicFormSearch extends React.Component {
 
   handleClickOutside = () => {
     this.setState({ displayFromWhereScreen: false });
-    this.setState({ displayTravelersScreen: false });
-    this.setState({ displayDatesPicker: false });
-    this.setState({ displayDetailsScreen: false });
     document.querySelector('.overlay').style.display = 'none';
     const body = document.querySelector('body');
     body.style.overflow = 'scroll';
@@ -163,61 +158,9 @@ class ClassicFormSearch extends React.Component {
   goToResultsPage = (event) => {
     event.preventDefault();
     this.setState({ displayFromWhereScreen: false });
-    this.setState({ displayTravelersScreen: false });
-    this.setState({ displayDatesPicker: false });
-    this.setState({ displayDetailsScreen: false });
     document.querySelector('.overlay').style.display = 'none';
     const body = document.querySelector('body');
     body.style.overflow = 'scroll';
-  };
-
-  goToFromWherePage = (event) => {
-    event.preventDefault();
-    this.setState({ displayTravelersScreen: false });
-    this.setState({ displayFromWhereScreen: true });
-  };
-
-  startFromWherePage = (event) => {
-    event.preventDefault();
-    this.setState({ displayTravelersScreen: false });
-    this.setState({ displayFromWhereScreen: true });
-    document.querySelector('.overlay').style.display = 'block';
-  };
-
-  goToTravelersPage = (event) => {
-    event.preventDefault();
-    this.setState({ displayFromWhereScreen: false });
-    this.setState({ displayDatesPicker: false });
-    this.setState({ displayTravelersScreen: true });
-  };
-
-  startFromTravelersPage = (event) => {
-    event.preventDefault();
-    this.setState({ displayFromWhereScreen: false });
-    this.setState({ displayDatesPicker: false });
-    this.setState({ displayTravelersScreen: true });
-    document.querySelector('.overlay').style.display = 'block';
-  };
-
-  goToDatesPicker = (event) => {
-    event.preventDefault();
-    this.setState({ displayTravelersScreen: false });
-    this.setState({ displayDetailsScreen: false });
-    this.setState({ displayDatesPicker: true });
-  };
-
-  startFromDatesPicker = (event) => {
-    event.preventDefault();
-    this.setState({ displayTravelersScreen: false });
-    this.setState({ displayDetailsScreen: false });
-    this.setState({ displayDatesPicker: true });
-    document.querySelector('.overlay').style.display = 'block';
-  };
-
-  goToDetailsPage = (event) => {
-    event.preventDefault();
-    this.setState({ displayDatesPicker: false });
-    this.setState({ displayDetailsScreen: true });
   };
 
   displayFilter = (event) => {
@@ -269,7 +212,7 @@ class ClassicFormSearch extends React.Component {
       <div className="formsearch">
         {this.props.isClassicSearchPage ? (
           <button className="start-search-btn" onClick={(event) => this.startPlanningTrip(event)}>
-            <span>{this.props.t('startSearch')}</span>
+            <span>{this.props.t('startClassicSearch')}</span>
           </button>
         ) : (
           <div className="formsearch-bar-results">

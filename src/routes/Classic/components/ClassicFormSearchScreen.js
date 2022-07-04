@@ -4,6 +4,7 @@ import onClickOutside from 'react-onclickoutside';
 import './_ClassicFormSearchScreen.scss';
 import ClassicLocationSearchInput from './ClassicLocationSearchInput';
 import DatesPicker from '../../../components/DatesPicker';
+import imgClassicFormSearch from '../../../img/banner/cats-traveling-banner-tablet.jpg';
 
 class ClassicFormSearchScreen extends React.Component {
   render() {
@@ -51,25 +52,28 @@ class ClassicFormSearchScreen extends React.Component {
                 onChange={this.props.onInputDateChange}
               />  
               <div className="classic-searchbar-question">
-                <div
-                  className="input-travelers"
-                >
-                  <span>Number of travelers</span>
+                <div className="input-travelers">
+                  <span>Travelers</span>
                   <div className="people-number-change">
-                      <i
-                        className="far fa-minus-square fa-lg"
-                      //onClick={(event) => this.props.removeTraveler(event, city)}
-                      ></i>
-                      <span className="number-of-travelers">1</span>
-                      <i
-                        className="far fa-plus-square fa-lg"
-                        //onClick={(event) => this.props.addTraveler(event, city)}
-                      ></i>
-                    </div>
+                    <i
+                      className="far fa-minus-square fa-lg"
+                    //onClick={(event) => this.props.removeTraveler(event, city)}
+                    ></i>
+                    <span className="number-of-travelers">1</span>
+                    <i
+                      className="far fa-plus-square fa-lg"
+                      //onClick={(event) => this.props.addTraveler(event, city)}
+                    ></i>
+                  </div>
                 </div>     
               </div>
-
-  
+              <div className="img-classic-formsearch-div">
+              <img
+                className="img-classic-formsearch"
+                src={imgClassicFormSearch}
+                alt={this.props.t('bannerImgAlt')}
+              />
+              </div>
               <div className="classic-search-criteria-confirm">
                 <button
                   className="classic-search-criteria-confirma-btn"
@@ -81,7 +85,7 @@ class ClassicFormSearchScreen extends React.Component {
                 </button>
               </div>
             </div>
-            <div className="criteria">
+            <div className="classic-criteria">
               <div className="criteria-buttons">
                 <button
                   onClick={(event) => {
