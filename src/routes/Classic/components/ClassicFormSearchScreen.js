@@ -4,7 +4,7 @@ import onClickOutside from 'react-onclickoutside';
 import './_ClassicFormSearchScreen.scss';
 import ClassicLocationSearchInput from './ClassicLocationSearchInput';
 import DatesPicker from '../../../components/DatesPicker';
-import imgClassicFormSearch from '../../../img/banner/cats-traveling-banner-tablet.jpg';
+import img from '../../../img/green-cat-on-bird.svg';
 
 class ClassicFormSearchScreen extends React.Component {
   render() {
@@ -68,11 +68,11 @@ class ClassicFormSearchScreen extends React.Component {
                 </div>     
               </div>
               <div className="img-classic-formsearch-div">
-              <img
-                className="img-classic-formsearch"
-                src={imgClassicFormSearch}
-                alt={this.props.t('bannerImgAlt')}
-              />
+                <img
+                  className="img-classic-formsearch"
+                  src={img}
+                  alt={this.props.t('bannerImgAlt')}
+                />
               </div>
               <div className="classic-search-criteria-confirm">
                 <button

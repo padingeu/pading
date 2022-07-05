@@ -34,7 +34,7 @@
       border-width: 0.1rem;
       border-radius: 0.5rem;
       text-align: left;
-      font-weight: 700;
+      font-weight: bold;
       .input-travelers {
         display: flex;
         justify-content: space-between;
@@ -202,9 +202,10 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      padding: 2rem;
     .img-classic-formsearch {
         max-width: 100%;
-        width: 40rem;
+        width: 25rem;
         text-align: center;
       }
     }
